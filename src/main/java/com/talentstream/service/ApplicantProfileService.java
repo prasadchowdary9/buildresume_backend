@@ -169,6 +169,9 @@ public class ApplicantProfileService {
 	    			 existingProfile.setGraduationDetails(updatedProfileDTO.getGraduationDetails());
 	    			 existingProfile.setIntermediateDetails(updatedProfileDTO.getIntermediateDetails());
 	    			 existingProfile.setSkillsRequired(updatedProfileDTO.getSkillsRequired());
+				 existingProfile.setQualification(updatedProfileDTO.getQualification());
+	    			 existingProfile.setSpecialization(updatedProfileDTO.getSpecialization());
+	    			 existingProfile.setxClassDetails(updatedProfileDTO.getxClassDetails());
 	    			 	applicantProfileRepository.save(existingProfile);	
 	    		}
 	            return "profile saved sucessfully";
