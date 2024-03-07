@@ -19,6 +19,7 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @JsonIgnoreProperties({"jobRecruiters"})
@@ -52,8 +53,7 @@ public class Job {
 	public void setMinimumExperience(int minimumExperience) {
 		this.minimumExperience = minimumExperience;
 	}
-	@Column(name = "save_job_status")
-    private String saveJobStatus="Not Saved";
+	
 	
 @Column(nullable = false)
     private int maximumExperience;
@@ -64,6 +64,17 @@ public class Job {
     private double minSalary;
 	@Column(nullable = false)
     private String promote = "no";
+	
+	private String isSaved;
+	
+	public String getIsSaved() {
+			return isSaved;
+		}
+		
+		@JsonProperty("isSaved")
+		public void setIsSaved(String isSaved) {
+			this.isSaved = isSaved;
+		}
 
 	public String getPromote() {
 		return promote;
@@ -76,13 +87,7 @@ public class Job {
 		return minSalary;
 	}
 
-	public String getSaveJobStatus() {
-		return saveJobStatus;
-	}
-
-	public void setSaveJobStatus(String saveJobStatus) {
-		this.saveJobStatus = saveJobStatus;
-	}
+   
 
 	public void setMinSalary(double minSalary) {
 		this.minSalary = minSalary;

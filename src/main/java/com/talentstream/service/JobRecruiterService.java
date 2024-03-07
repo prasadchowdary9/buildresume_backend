@@ -29,7 +29,8 @@ public class JobRecruiterService {
 	        this.passwordEncoder = passwordEncoder;
 	    }
  
-	    public ResponseEntity<String> saveRecruiter(JobRecruiter recruiter) {
+	   public ResponseEntity<String> saveRecruiter(JobRecruiterDTO recruiterDTO) {
+	    	JobRecruiter recruiter=convertToEntity(recruiterDTO);
 	    	try {
 	           
 	            if (recruiterRepository.existsByEmail(recruiter.getEmail()) || applicantRepository.existsByEmail(recruiter.getEmail())) {
@@ -39,14 +40,28 @@ public class JobRecruiterService {
 	            {
 	            	throw new CustomException("Mobile number already existed ,enter new mobile number",null);
 	            }
+	            System.out.println("befor edncoind pwd");
 	            recruiter.setPassword(passwordEncoder.encode(recruiter.getPassword()));
+	            System.out.println("after edncoind pwd ");
 	            recruiterRepository.save(recruiter);
+	            System.out.println("after edncoind pwd and saving");
 	            return ResponseEntity.ok("Recruiter registered successfully");
 	        } catch (CustomException e) {
 	            throw e;
 	        } catch (Exception e) {
 	            throw new CustomException("Error registering recruiter", HttpStatus.INTERNAL_SERVER_ERROR);
 	        }
+	    }
+	   private JobRecruiter convertToEntity(JobRecruiterDTO recruiterDTO) {
+	        JobRecruiter recruiter = new JobRecruiter();
+//	        recruiter.setRecruiterId(recruiterDTO.getRecruiterId());
+	        recruiter.setCompanyname(recruiterDTO.getCompanyname());
+	        recruiter.setMobilenumber(recruiterDTO.getMobilenumber());
+	        recruiter.setEmail(recruiterDTO.getEmail());
+	        recruiter.setPassword(recruiterDTO.getPassword());
+	        recruiter.setRoles(recruiterDTO.getRoles());        
+	
+	        return recruiter;
 	    }
     public JobRecruiter login(String email, String password) {
     	JobRecruiter recruiter = recruiterRepository.findByEmail(email);
@@ -98,7 +113,7 @@ public class JobRecruiterService {
 	
 	private JobRecruiterDTO convertToDTO(JobRecruiter recruiter) {
         JobRecruiterDTO recruiterDTO = new JobRecruiterDTO();
-        recruiterDTO.setRecruiterId(recruiter.getRecruiterId());
+        //recruiterDTO.setRecruiterId(recruiter.getRecruiterId());
         recruiterDTO.setCompanyname(recruiter.getCompanyname());
         recruiterDTO.setMobilenumber(recruiter.getMobilenumber());
         recruiterDTO.setEmail(recruiter.getEmail());

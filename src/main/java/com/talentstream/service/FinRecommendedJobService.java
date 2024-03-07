@@ -1,7 +1,7 @@
 package com.talentstream.service;
 
 import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -62,7 +62,7 @@ public class FinRecommendedJobService {
         	Applicant applicant1 = registerRepository.findById(applicantId);
             if (optionalApplicant.isEmpty() || !applicant1.getAppicantStatus().equalsIgnoreCase("active")) {
                 // Return a specific indicator, for example, -1 to signify that the applicant is not found
-                return 0;
+                return 5;
             }
  
             ApplicantProfile applicant = optionalApplicant.get();
@@ -86,6 +86,51 @@ public class FinRecommendedJobService {
         }
     }
 
+   public List<Job> findJobsMatchingApplicantProfile(ApplicantProfile applicantProfile) {
+	    try {
+	        Set<String> lowercaseApplicantSkillNames = applicantProfile.getSkillsRequired().stream()
+	                .map(skill -> skill.getSkillName().toLowerCase())
+	                .collect(Collectors.toSet());
+
+	        Set<String> preferredLocations = applicantProfile.getPreferredJobLocations();
+	        Integer experience = null;
+
+	        try {
+	            experience = Integer.parseInt(applicantProfile.getExperience());
+	        } catch (NumberFormatException e) {
+	            System.out.println("Warning: Unable to parse experience as Integer");
+	        }
+
+	        String specialization = applicantProfile.getSpecialization();
+
+	        System.out.println(applicantProfile.getApplicant().getId());
+	        List<Object[]> result = jobRepository.findJobsMatchingApplicantProfile(
+	        		applicantProfile.getApplicant().getId(),
+	                lowercaseApplicantSkillNames,
+	                preferredLocations,
+	                experience,
+	                specialization
+	        );
+
+	        List<Job> matchingJobs = new ArrayList<>();
+	        for (Object[] array : result) {
+               Job job = (Job) array[0];
+               job.setIsSaved((String)array[1]);
+            //   System.out.println(job.getId()+"-----"+job.getIsSaved());
+               matchingJobs.add(job);
+              // System.out.println(job.getIsSaved());
+           }
+           matchingJobs = matchingJobs.stream()
+                   .filter(job -> job.getStatus().equalsIgnoreCase("active")) // Assuming status is stored as a String
+                   .collect(Collectors.toList());
+
+	        return matchingJobs;
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        throw new CustomException("Error while finding recommended jobs", HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	}
 }
 
 

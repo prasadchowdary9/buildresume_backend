@@ -272,7 +272,18 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	                        (minimumExperience == null || applyExperienceMatchType(applicant.getMinimumExperience(), minimumExperience, matchTypes.getMinimumExperience(), "lessThan")))
 	                .collect(Collectors.toList());
 
-	        return filteredList;
+	     // Eliminate duplicates based on applyjobid while preserving order
+	        Set<Long> uniqueApplyJobIds = new HashSet<>();
+	        List<AppliedApplicantInfo> uniqueList = new ArrayList<>();
+
+	        for (AppliedApplicantInfo applicant : filteredList) {
+	            long applyJobId = applicant.getApplyjobid();
+	            if (!uniqueApplyJobIds.contains(applyJobId) && applyJobId >=1) {
+	                uniqueApplyJobIds.add(applyJobId);
+	                uniqueList.add(applicant);
+	            }
+	        }
+	        return uniqueList;
 	    }
 
 	    private boolean applyMatchType(String value, String filterValue, String matchValue, String matchType) {

@@ -3,10 +3,14 @@ package com.talentstream.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*; 
 import com.talentstream.dto.CompanyProfileDTO;
 import com.talentstream.service.CompanyProfileService;
-import java.util.Optional;
+import java.util.*;
+
+import javax.validation.Valid;
+
 import com.talentstream.exception.CustomException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +28,27 @@ public class CompanyProfileController {
 	    }
 	 
 	    
-	    @PostMapping(value="/recruiters/company-profiles/{jobRecruiterId}")
-	    public ResponseEntity<String> createCompanyProfile(@RequestBody CompanyProfileDTO companyProfileDTO,@PathVariable Long jobRecruiterId) {
-	       	try {
+	    @PostMapping("/recruiters/company-profiles/{jobRecruiterId}")
+	    public ResponseEntity<String> createCompanyProfile(@Valid @RequestBody CompanyProfileDTO companyProfileDTO, BindingResult bindingResult, @PathVariable Long jobRecruiterId) {
+	    	if (bindingResult.hasErrors()) {
+	            // Handle validation errors
+	    		Map<String, String> fieldErrors = new LinkedHashMap<>();
+	    		bindingResult.getFieldErrors().forEach(fieldError -> {
+	                String fieldName = fieldError.getField();
+	                String errorMessage = fieldError.getDefaultMessage();
+ 
+	                // Append each field and its error message on a new line
+	                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+	            });
+ 
+	            // Construct the response body with each field and its error message on separate lines
+	            StringBuilder responseBody = new StringBuilder();
+	            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+ 
+	            return ResponseEntity.badRequest().body(responseBody.toString());
+	        }
+	    	
+	    	try {
 	           companyProfileService.saveCompanyProfile(companyProfileDTO,jobRecruiterId);
 	           return ResponseEntity.status(HttpStatus.OK).body("CompanyProfile saved successfully");
 	        } catch (CustomException ce) {
