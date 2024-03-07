@@ -1,5 +1,6 @@
 package com.talentstream.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,17 @@ public class SavedJob {
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Job job;
+    
+    @Column(name = "save_job_status")
+    private String saveJobStatus;
+    
+	public String getSaveJobStatus() {
+		return saveJobStatus;
+	}
+
+	public void setSaveJobStatus(String saveJobStatus) {
+		this.saveJobStatus = saveJobStatus;
+	}
 
 	public Long getId() {
 		return id;

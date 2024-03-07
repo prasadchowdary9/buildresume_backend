@@ -35,6 +35,10 @@ public class Applicant {
     @OneToMany(mappedBy = "applicant", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Set<Alerts> alerts=new HashSet<>();
+    
+    public Applicant() {
+        this.appicantStatus = "Active";
+    }
     public Set<Alerts> getAlerts() {
 		return alerts;
 	}

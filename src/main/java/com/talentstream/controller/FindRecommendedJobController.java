@@ -17,9 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
  
 import com.talentstream.dto.JobDTO;
 import com.talentstream.dto.RecuriterSkillsDTO;
+import com.talentstream.entity.ApplicantProfile;
 import com.talentstream.entity.Job;
 import com.talentstream.entity.RecuriterSkills;
 import com.talentstream.exception.CustomException;
+import com.talentstream.repository.ApplicantProfileRepository;
 import com.talentstream.service.CompanyLogoService;
 import com.talentstream.service.FinRecommendedJobService;
 import org.slf4j.Logger;
@@ -31,55 +33,60 @@ public class FindRecommendedJobController {
 	@Autowired
 	private CompanyLogoService companyLogoService;
 	 private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class);
-    @Autowired
+    
+	 @Autowired
+	    private ApplicantProfileRepository applicantRepository;
+	 
+	 @Autowired
     public FindRecommendedJobController(FinRecommendedJobService finJobService) {
         this.finJobService = finJobService;
     }
 	
-    @GetMapping("/findrecommendedjob/{applicantId}")
-    public  ResponseEntity<List<JobDTO>> recommendJobsForApplicant(@PathVariable String applicantId) {
-    	try {
-            long applicantIdLong = Long.parseLong(applicantId);
-            List<Job> recommendedJobs = finJobService.findJobsMatchingApplicantSkills(applicantIdLong);
- 
-            if (recommendedJobs.isEmpty()) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
-            } else {
-            	 List<JobDTO> jobDTOs = recommendedJobs.stream()
-                         .map(job -> convertEntityToDTO(job))
-                         .collect(Collectors.toList());
-            	
-            	 for (JobDTO job : jobDTOs) {
-            		    long jobRecruiterId = job.getRecruiterId();
-            		    byte[] imageBytes = null;
-            		    try {
-            		    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
-            		    }catch (CustomException ce) {
-            	        	System.out.println(ce.getMessage());
-            	             
-            	        }
-            		    
-            		    System.out.println("Job Recruiter ID: " + jobRecruiterId);
-            		    System.out.println("Image Bytes: " + Arrays.toString(imageBytes));
- 
-            		   
-            		        job.setLogoFile(imageBytes);
-            		    
-            		}
- 
- 
-                return ResponseEntity.ok(jobDTOs);
-            }
-        } catch (NumberFormatException ex) {
-            throw new CustomException("Invalid applicant ID format", HttpStatus.BAD_REQUEST);
-        } catch (CustomException ce) {
-        	System.out.println(ce.getMessage());
-            return ResponseEntity.status(ce.getStatus()).body(Collections.emptyList());
-        } catch (Exception e) {
-        	System.out.println(e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
-        }
-    }
+	 @GetMapping("/findrecommendedjob/{applicantId}")
+	    public ResponseEntity<List<JobDTO>> recommendJobsForApplicant(@PathVariable String applicantId) {
+	        try {
+	            long applicantIdLong = Long.parseLong(applicantId);
+	            ApplicantProfile applicantProfile = applicantRepository.findByApplicantId(applicantIdLong);
+
+	            if (applicantProfile == null || !applicantProfile.getApplicant().getAppicantStatus().equalsIgnoreCase("active")) {
+	                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
+	            }
+
+	            List<Job> recommendedJobs = finJobService.findJobsMatchingApplicantProfile(applicantProfile);
+
+	            if (recommendedJobs.isEmpty()) {
+	                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
+	            } else {
+	                List<JobDTO> jobDTOs = recommendedJobs.stream()
+	                        .map(job -> convertEntityToDTO(job))
+	                        .collect(Collectors.toList());
+
+	                for (JobDTO job : jobDTOs) {
+	                    long jobRecruiterId = job.getRecruiterId();
+	                    byte[] imageBytes = null;
+	                    try {
+	                        imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
+	                    } catch (CustomException ce) {
+	                        System.out.println(ce.getMessage());
+	                    }
+	                  //  System.out.println("Job Recruiter ID: " + jobRecruiterId);
+	                  //  System.out.println("Image Bytes: " + Arrays.toString(imageBytes));
+	                    job.setLogoFile(imageBytes);
+	                }
+
+	                return ResponseEntity.ok(jobDTOs);
+	            }
+
+	        } catch (NumberFormatException ex) {
+	            throw new CustomException("Invalid applicant ID format", HttpStatus.BAD_REQUEST);
+	        } catch (CustomException ce) {
+	            System.out.println(ce.getMessage());
+	            return ResponseEntity.status(ce.getStatus()).body(Collections.emptyList());
+	        } catch (Exception e) {
+	            System.out.println(e.getMessage());
+	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
+	        }
+	    }
     
     private JobDTO convertEntityToDTO(Job job) {
         JobDTO jobDTO = new JobDTO();
@@ -101,7 +108,8 @@ public class FindRecommendedJobController {
         jobDTO.setJobHighlights(job.getJobHighlights());
         jobDTO.setDescription(job.getDescription());
         jobDTO.setCreationDate(job.getCreationDate());
-        jobDTO.setSaveJobStatus(job.getSaveJobStatus());
+        jobDTO.setIsSaved(job.getIsSaved());
+        //jobDTO.setSaveJobStatus(job.getSaveJobStatus());
         
         Set<RecuriterSkillsDTO> skillsDTOList = job.getSkillsRequired().stream()
                 .map(this::convertSkillsEntityToDTO)

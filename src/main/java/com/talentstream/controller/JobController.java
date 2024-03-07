@@ -1,6 +1,6 @@
 package com.talentstream.controller;
 
-import java.util.List;
+import java.util.*;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,7 +47,25 @@ public class JobController {
     }
     
     @PostMapping("/recruiters/saveJob/{jobRecruiterId}")
-    public ResponseEntity<String> saveJob(@RequestBody @Valid JobDTO jobDTO, @PathVariable Long jobRecruiterId) {
+    public ResponseEntity<String> saveJob(@Valid @RequestBody JobDTO jobDTO, BindingResult bindingResult, @PathVariable Long jobRecruiterId) {
+    	if (bindingResult.hasErrors()) {
+            // Handle validation errors
+    		Map<String, String> fieldErrors = new LinkedHashMap<>();
+ 
+            bindingResult.getFieldErrors().forEach(fieldError -> {
+                String fieldName = fieldError.getField();
+                String errorMessage = fieldError.getDefaultMessage();
+ 
+                // Append each field and its error message on a new line
+                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+            });
+ 
+            // Construct the response body with each field and its error message on separate lines
+            StringBuilder responseBody = new StringBuilder();
+            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+ 
+            return ResponseEntity.badRequest().body(responseBody.toString());
+        }
     	try {
             return jobService.saveJob(jobDTO, jobRecruiterId);
         } catch (CustomException ce) {
@@ -194,6 +213,7 @@ public class JobController {
         jobDTO.setEmail(job.getJobRecruiter().getEmail());
         jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber()); 
         jobDTO.setCreationDate(job.getCreationDate());
+        jobDTO.setIsSaved(job.getIsSaved());
         Set<RecuriterSkillsDTO> skillsDTOList = job.getSkillsRequired().stream()
                 .map(this::convertSkillsEntityToDTO)
                 .collect(Collectors.toSet());
@@ -252,8 +272,8 @@ public class JobController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
-	@GetMapping("/promote/{promote}")
-    public List<Job> getJobsByPromoteState(@PathVariable String promote) {
-        return jobService.getJobsByPromoteState(promote);
+	@GetMapping("/promote/{applicantId}/{promote}")
+    public List<Job> getJobsByPromoteState(@PathVariable long applicantId,@PathVariable String promote) {
+        return jobService.getJobsByPromoteState(applicantId,promote);
     }
 }

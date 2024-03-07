@@ -60,7 +60,26 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
 	    @Param("recruiterId") Long recruiterId
 	);
 
-	List<Job> findByPromote(String promote);
+	@Query("SELECT DISTINCT j, asj.saveJobStatus FROM Job j " +
+		       "LEFT JOIN SavedJob asj ON asj.job = j  AND asj.applicant.id = :applicantId " +
+		       "WHERE  " +
+		       "(j.promote = :promote)")
+	List<Object[]> findByPromote(@Param("applicantId") long applicantId,@Param("promote") String promote);
+	
+	@Query("SELECT DISTINCT j, asj.saveJobStatus FROM Job j " +
+		       "JOIN j.skillsRequired s " +
+		       "LEFT JOIN SavedJob asj ON asj.job = j  AND asj.applicant.id = :applicantId " +
+		       "WHERE  " +
+		       "((LOWER(s.skillName) IN :skillNames) or " +
+		       "(j.location IN :preferredLocations) or " +
+		       "(j.minimumExperience = :experience) or " +
+		       "(j.specialization = :specialization))")
+		List<Object[]> findJobsMatchingApplicantProfile(
+				@Param("applicantId") long applicantId,
+		       @Param("skillNames") Set<String> skillNames,
+		       @Param("preferredLocations") Set<String> preferredLocations,
+		       @Param("experience") Integer experience,
+		       @Param("specialization") String specialization);
 
 	
 }
