@@ -36,7 +36,7 @@ public class SavedJobService {
              if (!savedJobRepository.existsByApplicantAndJob(applicant, job)) {
             	 SavedJob savedJob = new SavedJob();
                  savedJob.setApplicant(applicant);                 
-                 job.setSaveJobStatus("saved");
+                 savedJob.setSaveJobStatus("saved");
                  jobRepository.save(job);
                  savedJob.setJob(job);
                  savedJobRepository.save(savedJob);

@@ -5,18 +5,18 @@ public class PasswordRequest {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	private String newpassword;
-    private String oldpassword;
-	public String getNewpassword() {
-		return newpassword;
+	private String newPassword;
+    private String oldPassword;
+	public String getNewPassword() {
+		return newPassword;
 	}
-	public void setNewpassword(String newpassword) {
-		this.newpassword = newpassword;
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
 	}
-	public String getOldpassword() {
-		return oldpassword;
+	public String getOldPassword() {
+		return oldPassword;
 	}
-	public void setOldpassword(String oldpassword) {
-		this.oldpassword = oldpassword;
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
 	}
 }

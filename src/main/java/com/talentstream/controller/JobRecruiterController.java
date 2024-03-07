@@ -4,7 +4,10 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import javax.validation.Valid;
+
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +16,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.talentstream.service.JwtUtil;
 import com.talentstream.entity.Job;
@@ -67,10 +71,29 @@ public class JobRecruiterController {
         this.recruiterService = recruiterService;
     }
     @PostMapping("/saverecruiters")
-    public ResponseEntity<String> registerRecruiter(@RequestBody JobRecruiterDTO recruiterDTO) {
-        JobRecruiter recruiter = convertToEntity(recruiterDTO);
+    public ResponseEntity<String> registerRecruiter(@Valid @RequestBody JobRecruiterDTO recruiterDTO, BindingResult bindingResult) {
+    	if (bindingResult.hasErrors()) {
+            // Handle validation errors
+            Map<String, String> fieldErrors = new LinkedHashMap<>();
+ 
+            bindingResult.getFieldErrors().forEach(fieldError -> {
+                String fieldName = fieldError.getField();
+                String errorMessage = fieldError.getDefaultMessage();
+ 
+                // Append each field and its error message on a new line
+                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+            });
+ 
+            // Construct the response body with each field and its error message on separate lines
+            StringBuilder responseBody = new StringBuilder();
+            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+ 
+            return ResponseEntity.badRequest().body(responseBody.toString());
+        }
+    	
+    	JobRecruiter recruiter = convertToEntity(recruiterDTO);
         try {
-	             return recruiterService.saveRecruiter(recruiter);
+	             return recruiterService.saveRecruiter(recruiterDTO);
 	        } catch (CustomException e) {
 	            return ResponseEntity.badRequest().body(e.getMessage());
 	        } catch (Exception e) {
@@ -153,7 +176,7 @@ public class JobRecruiterController {
     }
 	private JobRecruiter convertToEntity(JobRecruiterDTO recruiterDTO) {
         JobRecruiter recruiter = new JobRecruiter();
-        recruiter.setRecruiterId(recruiterDTO.getRecruiterId());
+        //recruiter.setRecruiterId(recruiterDTO.getRecruiterId());
         recruiter.setCompanyname(recruiterDTO.getCompanyname());
         recruiter.setMobilenumber(recruiterDTO.getMobilenumber());
         recruiter.setEmail(recruiterDTO.getEmail());
@@ -166,8 +189,8 @@ public class JobRecruiterController {
  
 @PostMapping("/authenticateRecruiter/{id}")
     public String authenticateRecruiter(@PathVariable Long id, @RequestBody PasswordRequest passwordRequest) {
-        String newpassword = passwordRequest.getNewpassword();
-        String oldpassword = passwordRequest.getOldpassword();
+        String newpassword = passwordRequest.getNewPassword();
+        String oldpassword = passwordRequest.getOldPassword();
         return recruiterService.authenticateRecruiter(id, oldpassword, newpassword);
     }
 

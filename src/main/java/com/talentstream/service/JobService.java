@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -63,8 +64,17 @@ public class JobService {
              throw new CustomException("Error while searching jobs", HttpStatus.INTERNAL_SERVER_ERROR);
          }
     }
-    public List<Job> getJobsByPromoteState(String promote) {
-        return jobRepository.findByPromote(promote);
+    public List<Job> getJobsByPromoteState(long applicantId,String promote) {
+    	List<Object[]> result =  jobRepository.findByPromote(applicantId,promote);
+        List<Job> matchingJobs = new ArrayList<>();
+        for (Object[] array : result) {
+            Job job = (Job) array[0];
+            job.setIsSaved((String)array[1]);
+            System.out.println(job.getId()+"-----"+job.getIsSaved());
+            matchingJobs.add(job);
+            System.out.println(job.getIsSaved());
+        }
+        return matchingJobs;
     }
 
     public ResponseEntity<String> saveJob(JobDTO jobDTO, Long jobRecruiterId) {
@@ -194,7 +204,7 @@ public class JobService {
 	            existingJob.setSpecialization(jobDTO.getSpecialization());
 	            existingJob.setJobHighlights(jobDTO.getJobHighlights());
 	            existingJob.setDescription(jobDTO.getDescription());
-	            existingJob.setSaveJobStatus(jobDTO.getSaveJobStatus());
+	           // existingJob.setSaveJobStatus(jobDTO.getSaveJobStatus());
  
 	            // Update skillsRequired - Assuming jobDTO has a similar structure as Job
 	            Set<RecuriterSkills> updatedSkills = new HashSet<>();

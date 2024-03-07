@@ -1,11 +1,14 @@
 package com.talentstream.controller;
 import java.util.HashMap;
  
-import java.util.List;
+import java.util.*;
 import com.talentstream.dto.LoginDTO;
 import com.talentstream.dto.LoginDTO1;
  
 import java.util.Map;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
  
 import com.talentstream.dto.RegistrationDTO;
@@ -91,16 +95,35 @@ public class RegisterController {
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating applicant");
 	        }
 	    }
-	    @PostMapping("/saveApplicant")
-	    public ResponseEntity<String> register(@RequestBody RegistrationDTO registrationDTO) {
-	    	try {
-	            return regsiterService.saveapplicant(registrationDTO);
-	        } catch (CustomException e) {
-	            return ResponseEntity.badRequest().body(e.getMessage());
-	        } catch (Exception e) {
-	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error registering applicant");
-	        }
-	    }
+            @PostMapping("/saveApplicant")
+    	    public ResponseEntity<String> register(@Valid @RequestBody RegistrationDTO registrationDTO, BindingResult bindingResult) {
+    	        if (bindingResult.hasErrors()) {
+    	            // Handle validation errors
+    	            Map<String, String> fieldErrors = new LinkedHashMap<>();
+     
+    	            bindingResult.getFieldErrors().forEach(fieldError -> {
+    	                String fieldName = fieldError.getField();
+    	                String errorMessage = fieldError.getDefaultMessage();
+     
+    	                // Append each field and its error message on a new line
+    	                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+    	            });
+     
+    	            // Construct the response body with each field and its error message on separate lines
+    	            StringBuilder responseBody = new StringBuilder();
+    	            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+     
+    	            return ResponseEntity.badRequest().body(responseBody.toString());
+    	        }
+     
+    	        try {
+    	            return regsiterService.saveapplicant(registrationDTO);
+    	        } catch (CustomException e) {
+    	            return ResponseEntity.badRequest().body(e.getMessage());
+    	        } catch (Exception e) {
+    	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error registering applicant");
+    	        }
+    	    }
  
 //     	    @PostMapping("/applicantLogin")
 //	    public ResponseEntity<Object> login(@RequestBody LoginDTO loginDTO) throws Exception {
@@ -358,9 +381,9 @@ public class RegisterController {
 			
 		}
 		@PostMapping("/authenticateUsers/{id}")
-	    public String authenticateUser(@PathVariable Long id, @RequestBody PasswordRequest passwordRequest) {
-	        String newpassword = passwordRequest.getNewpassword();
-	        String oldpassword = passwordRequest.getOldpassword();
+	    public String authenticateUser( @RequestBody PasswordRequest passwordRequest, @PathVariable long id) {
+	        String newpassword = passwordRequest.getNewPassword();
+	        String oldpassword = passwordRequest.getOldPassword();
 	        return regsiterService.authenticateUser(id, oldpassword, newpassword);
 	    }
 	public JobRecruiter findByEmail(String userEmail) {

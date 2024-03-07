@@ -249,27 +249,45 @@ public void updatePassword(String userEmail, String newPassword) {
         return applicant;
     }
 	
-	public String authenticateUser(Long id,String oldPassword, String newPassword) {
+	public String authenticateUser(long id,String oldPassword, String newPassword) {
 	       //BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
- 
+
 	        try {
+//	            Applicant opUser = applicantRepository.findById(id);
 	            Applicant opUser = applicantRepository.findById(id);
 	            System.out.println(opUser.getPassword());
-	            System.out.println(passwordEncoder.encode(oldPassword));
+//	            System.out.println(passwordEncoder.encode(oldPassword));
+//	            if (opUser != null) {
+//	            	if(passwordEncoder.matches(oldPassword, opUser.getPassword())) {
+//	            		if (passwordEncoder.matches(newPassword, opUser.getPassword())) {
+//	            			return "your new password should not be same as old password";
+//	            		}
+//	            		opUser.setPassword(passwordEncoder.encode(newPassword));
+//	                    applicantRepository.save(opUser);
+//
+//	                    return "Password updated and stored";
+//	            	}
+//	            	else {
+//	            		return "Your old password not matching with data base password";
+//	            	}
+//	            	 	
+//	            		
+//	            
+//	            }
 	            if (opUser != null) {
 	            	if(passwordEncoder.matches(oldPassword, opUser.getPassword())) {
+	            		if (passwordEncoder.matches(newPassword, opUser.getPassword())) {
+	            			return "your new password should not be same as old password";
+	            		}
 	            		opUser.setPassword(passwordEncoder.encode(newPassword));
-	                    applicantRepository.save(opUser);
- 
+	            		applicantRepository.save(opUser);
+
 	                    return "Password updated and stored";
 	            	}
 	            	else {
 	            		return "Your old password not matching with data base password";
 	            	}
-	            	 	
-	            		
-	            
-	            }
+	            	            }
 	            else {
 	            	return "User not found with given id";
 	            }
