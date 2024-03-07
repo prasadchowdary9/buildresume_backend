@@ -272,19 +272,17 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	                        (minimumExperience == null || applyExperienceMatchType(applicant.getMinimumExperience(), minimumExperience, matchTypes.getMinimumExperience(), "lessThan")))
 	                .collect(Collectors.toList());
 
-	     // Create a HashSet to store unique AppliedApplicantInfo objects based on applyJobId
+	     // Eliminate duplicates based on applyjobid while preserving order
 	        Set<Long> uniqueApplyJobIds = new HashSet<>();
 	        List<AppliedApplicantInfo> uniqueList = new ArrayList<>();
 
-	        // Iterate through the filteredList
-	        for (AppliedApplicantInfo applicantInfo : filteredList) {
-	            // Check if applyJobId is unique
-	            if (uniqueApplyJobIds.add(applicantInfo.getApplyjobid())) {
-	                // If unique, add the applicantInfo to the uniqueList
-	                uniqueList.add(applicantInfo);
+	        for (AppliedApplicantInfo applicant : filteredList) {
+	            long applyJobId = applicant.getApplyjobid();
+	            if (!uniqueApplyJobIds.contains(applyJobId) && applyJobId >=1) {
+	                uniqueApplyJobIds.add(applyJobId);
+	                uniqueList.add(applicant);
 	            }
 	        }
-
 	        return uniqueList;
 	    }
 
