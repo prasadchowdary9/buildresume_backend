@@ -89,10 +89,10 @@ public class WebConfig {
         config.addAllowedOrigin("http://localhost:3000");       
         config.addAllowedOrigin("https://talent-stream-front-end-version2-eedekarunakar.vercel.app");
         config.addAllowedHeader("*");
-        // config.setAllowedHeaders(Arrays.asList(
-        //         HttpHeaders.AUTHORIZATION,
-        //         HttpHeaders.CONTENT_TYPE,
-        //         HttpHeaders.ACCEPT));
+         config.setAllowedHeaders(Arrays.asList(
+                 HttpHeaders.AUTHORIZATION,
+                 HttpHeaders.CONTENT_TYPE,
+                 HttpHeaders.ACCEPT));
 
         config.setAllowedMethods(Arrays.asList(
                 HttpMethod.GET.name(),
