@@ -88,7 +88,7 @@ public class WebConfig {
         config.addAllowedOrigin("https://d3l89o84n3y7ig.cloudfront.net");
         config.addAllowedOrigin("http://localhost:3000");       
         config.addAllowedOrigin("https://talent-stream-front-end-version2-eedekarunakar.vercel.app");
-        config.addAllowedHeader("*");
+        config.addAllowedOrigin("https://bitlabs-deployment-bucket.s3.ap-south-1.amazonaws.com");
          config.setAllowedHeaders(Arrays.asList(
                  HttpHeaders.AUTHORIZATION,
                  HttpHeaders.CONTENT_TYPE,
