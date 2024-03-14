@@ -70,6 +70,7 @@ public class JobService {
         for (Object[] array : result) {
             Job job = (Job) array[0];
             job.setIsSaved((String)array[1]);
+            System.out.println(job);
             System.out.println(job.getId()+"-----"+job.getIsSaved());
             matchingJobs.add(job);
             System.out.println(job.getIsSaved());
