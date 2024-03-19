@@ -85,14 +85,15 @@ public class WebConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);       
-            config.addAllowedOrigin("http://localhost:3000");       
-            config.addAllowedOrigin("https://talent-stream-front-end-version2-eedekarunakar.vercel.app");
-            config.addAllowedOrigin("https://d3r4f76izpikjx.cloudfront.net");
-            
-        config.setAllowedHeaders(Arrays.asList(
-                HttpHeaders.AUTHORIZATION,
-                HttpHeaders.CONTENT_TYPE,
-                HttpHeaders.ACCEPT));
+       config.addAllowedOrigin("https://d3l89o84n3y7ig.cloudfront.net");
+        config.addAllowedOrigin("http://localhost:3000");       
+       config.addAllowedOrigin("https://talent-stream-front-end-version2-eedekarunakar.vercel.app");
+       config.addAllowedHeader("*");
+         config.setAllowedHeaders(Arrays.asList(
+                 HttpHeaders.AUTHORIZATION,
+                 HttpHeaders.CONTENT_TYPE,
+                 HttpHeaders.ACCEPT));
+
         config.setAllowedMethods(Arrays.asList(
                 HttpMethod.GET.name(),
                 HttpMethod.POST.name(),
