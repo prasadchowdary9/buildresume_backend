@@ -4,6 +4,7 @@ public class TeamMemberDTO {
 	private Long id;
     private String name;
     private String email;
+    private String password;
     private String role;
 	public Long getId() {
 		return id;
@@ -28,6 +29,12 @@ public class TeamMemberDTO {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
     
 }

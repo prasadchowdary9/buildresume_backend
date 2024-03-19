@@ -3,11 +3,7 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
-import lombok.Getter;
-import lombok.Setter;
-@Getter
-@Setter
-//@Entity
+
 @Embeddable
 public class BasicDetails {
 	 @NotBlank

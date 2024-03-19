@@ -2,13 +2,29 @@ package com.talentstream.dto;
 
 import java.util.List;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class CompanyProfileDTO {
 	private Long id;
+	@NotBlank(message = "Company name cannot be blank")
+    @Size(min = 3, message = "Company name must be at least 3 characters")
     private String companyName;
+	@NotBlank(message = "Website cannot be blank")
+    @Pattern(regexp = "^(.+)\\.(com|in|org)$", message = "Website must end with .com, .in, or .org")
     private String website;
+	@Pattern(regexp = "^\\d{10}$", message = "Phone number should be 10 digits")
     private String phoneNumber;
+	@Email(message = "Invalid email format")
     private String email;
+	@NotBlank(message = "Head office cannot be blank")
+    @Size(min = 3, message = "Head office address must be at least 3 characters")
     private String headOffice;
+ 
+    private byte[] logo;
+    
     private List<String> socialProfiles;
 	public Long getId() {
 		return id;
@@ -51,6 +67,12 @@ public class CompanyProfileDTO {
 	}
 	public void setSocialProfiles(List<String> socialProfiles) {
 		this.socialProfiles = socialProfiles;
+	}
+	public byte[] getLogo() {
+		return logo;
+	}
+	public void setLogo(byte[] logo) {
+		this.logo = logo;
 	}
   	
     

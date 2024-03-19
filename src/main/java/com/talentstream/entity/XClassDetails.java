@@ -1,9 +1,8 @@
 package com.talentstream.entity;
-import jakarta.persistence.*;
-//@Entity
+import javax.persistence.*;
+
 
 @Embeddable
-
 public class XClassDetails {
 	  private String xschoolName;
 	    private String xboard;
@@ -54,6 +53,6 @@ public class XClassDetails {
 		public void setxPincode(String xPincode) {
 			this.xPincode = xPincode;
 		}
-	    
+		
 
 }

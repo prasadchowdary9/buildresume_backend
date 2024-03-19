@@ -80,27 +80,28 @@ public class ForgetPasswordController {
     	 try {
              String newPassword = request.getPassword();
              String confirmedPassword = request.getConfirmedPassword();
-
-             if (email == null) {
+                        if (email == null) {
                  throw new CustomException("Email not found.", HttpStatus.BAD_REQUEST);
              }
-
              JobRecruiter jobRecruiter = jobRecruiterService.findByEmail(email);
+             System.out.println(jobRecruiter.getEmail());
              if (jobRecruiter == null) {
                  throw new CustomException("User not found.", HttpStatus.BAD_REQUEST);
              }
-
-             if (!newPassword.equals(confirmedPassword)) {
+             else
+             {
+               if (!newPassword.equals(confirmedPassword)) {
                  throw new CustomException("Passwords do not match.", HttpStatus.BAD_REQUEST);
              }
-
-             jobRecruiter.setPassword(passwordEncoder.encode(newPassword));
-             jobRecruiterService.addRecruiter(jobRecruiter);
+                       jobRecruiter.setPassword(passwordEncoder.encode(newPassword));
+                        jobRecruiterService.addRecruiter(jobRecruiter);
              return ResponseEntity.ok("Password reset was done successfully");
-         } catch (CustomException ce) {
+         }
+    	 }catch (CustomException ce) {
              return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
          } catch (Exception e) {
              throw new CustomException("Error resetting password", HttpStatus.INTERNAL_SERVER_ERROR);
          }
+        
      }
 }

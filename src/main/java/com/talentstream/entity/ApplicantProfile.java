@@ -1,6 +1,5 @@
 package com.talentstream.entity;
 
- 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set; 
@@ -27,47 +26,40 @@ public class ApplicantProfile {
  
      @Embedded
     private BasicDetails basicDetails;
- 
+     @Embedded
+    private XClassDetails xClassDetails; 
     @Embedded
-    private XClassDetails xClassDetails;
- 
-    @Embedded
-    private IntermediateDetails intermediateDetails;
- 
- 
+    private IntermediateDetails intermediateDetails;  
     @Embedded
     private GraduationDetails graduationDetails;
- 
+    private String experience;
+
+    private String qualification;
+
+    private String specialization;
+
+    @ElementCollection
+    private Set<String> preferredJobLocations = new HashSet<>();
     
     @ManyToMany(fetch = FetchType.LAZY,cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
  
-        })
- 
+        }) 
     @JoinTable(
             name = "applicant_profile_skills_required",
             joinColumns = @JoinColumn(name = "profileid"),
-            inverseJoinColumns = @JoinColumn(name = "applicantskill_id") // This is the column in the other table
+            inverseJoinColumns = @JoinColumn(name = "applicantskill_id") 
         )
     private Set<ApplicantSkills> skillsRequired=new HashSet<>();
- 
-    
-    @ElementCollection
-    private List<ExperienceDetails> experienceDetails;
-    
- 
-    @OneToOne(cascade = CascadeType.ALL)
+     @ElementCollection
+    private List<ExperienceDetails> experienceDetails;       
+         @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="applicantid", referencedColumnName = "id")
     private Applicant applicant;
- 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "documents_id", referencedColumnName = "id")
-//    private ApplicantDocuments documents;
-//    
-    @Column(nullable = false)
+         
+     @Column(nullable = false)
     private String roles="ROLE_JOBAPPLICANT";
- 
  
 public int getProfileid() {
 	return profileid;
@@ -136,11 +128,40 @@ public void setApplicant(Applicant applicant) {
 public String getRoles() {
 	return roles;
 }
- 
+
 public void setRoles(String roles) {
 	this.roles = roles;
 }
- 
- 
- 
+ public String getExperience() {
+    return experience;
+}
+
+public void setExperience(String experience) {
+    this.experience = experience;
+}
+
+public String getQualification() {
+    return qualification;
+}
+
+public void setQualification(String qualification) {
+    this.qualification = qualification;
+}
+
+public String getSpecialization() {
+    return specialization;
+}
+
+public void setSpecialization(String specialization) {
+    this.specialization = specialization;
+}
+
+public Set<String> getPreferredJobLocations() {
+    return preferredJobLocations;
+}
+
+public void setPreferredJobLocations(Set<String> preferredJobLocations) {
+    this.preferredJobLocations = preferredJobLocations;
+}
+
 }

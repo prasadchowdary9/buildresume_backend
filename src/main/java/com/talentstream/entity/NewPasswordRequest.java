@@ -8,9 +8,7 @@ public class NewPasswordRequest {
 	}
 	private String password;
     private String confirmedPassword;
-    
 
-    // Constructors, getters, setters
 	
 	public String getConfirmedPassword() {
 		return confirmedPassword;

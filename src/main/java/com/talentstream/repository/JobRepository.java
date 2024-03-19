@@ -1,7 +1,7 @@
 package com.talentstream.repository;
 
 
-
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -45,7 +45,7 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
 	 List<Job> findBySkillsRequiredIgnoreCaseAndSkillNameIn(Set<String> skillNames);
 	@Query("SELECT j FROM Job j WHERE j.jobRecruiter.id = :jobRecruiterId")
     List<Job> findByJobRecruiterId(@Param("jobRecruiterId") Long jobRecruiterId);
-	@Query("SELECT COUNT(j) FROM Job j WHERE j.jobRecruiter.id = :recruiterId")
+	@Query("SELECT COUNT(j) FROM Job j WHERE j.jobRecruiter.id = :recruiterId AND j.status = 'active'")
     long countJobsByRecruiterId(@Param("recruiterId") Long recruiterId);
 	
 	@Query("SELECT j FROM Job j JOIN j.skillsRequired s WHERE LOWER(s.skillName) LIKE LOWER(CONCAT('%', :skillName, '%'))")
@@ -53,5 +53,33 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
 	
 	@Query("SELECT DISTINCT j FROM Job j JOIN j.skillsRequired s WHERE s.skillName = :skillName")
     Page<Job> findJobsBySkillName(String skillName, Pageable pageable);
+
+	@Query("SELECT j FROM Job j WHERE j.alertCount > 0 AND j.recentApplicationDateTime >= :minDateTime AND j.jobRecruiter.recruiterId = :recruiterId")
+	List<Job> findJobsWithAlertCountAndRecentDateTimeGreaterThanAndRecruiterId(
+	    @Param("minDateTime") LocalDateTime minDateTime,
+	    @Param("recruiterId") Long recruiterId
+	);
+
+	@Query("SELECT DISTINCT j, asj.saveJobStatus FROM Job j " +
+		       "LEFT JOIN SavedJob asj ON asj.job = j  AND asj.applicant.id = :applicantId " +
+		       "WHERE  " +
+		       "(j.promote = :promote)")
+	List<Object[]> findByPromote(@Param("applicantId") long applicantId,@Param("promote") String promote);
+	
+	@Query("SELECT DISTINCT j, asj.saveJobStatus FROM Job j " +
+		       "JOIN j.skillsRequired s " +
+		       "LEFT JOIN SavedJob asj ON asj.job = j  AND asj.applicant.id = :applicantId " +
+		       "WHERE  " +
+		       "((LOWER(s.skillName) IN :skillNames) or " +
+		       "(j.location IN :preferredLocations) or " +
+		       "(j.minimumExperience = :experience) or " +
+		       "(j.specialization = :specialization))")
+		List<Object[]> findJobsMatchingApplicantProfile(
+				@Param("applicantId") long applicantId,
+		       @Param("skillNames") Set<String> skillNames,
+		       @Param("preferredLocations") Set<String> preferredLocations,
+		       @Param("experience") Integer experience,
+		       @Param("specialization") String specialization);
+
 	
 }

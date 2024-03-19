@@ -17,8 +17,7 @@ public class ViewJobController {
 	 
 	@Autowired
     private ViewJobService viewJobService;
-	private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class);
-    //@GetMapping("/applicant/viewjob/{jobId}/{applicantId}")
+	private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class); 
 	   @GetMapping("/applicant/viewjob/{jobId}")
 	    public ResponseEntity<?> getJobDetailsForApplicant(
 	                      @PathVariable Long jobId) {
@@ -33,4 +32,19 @@ public class ViewJobController {
 		    }
 	 
 		   }  
+	   
+	   @GetMapping("/applicant/viewjob/{jobId}/{applicantId}")
+	    public ResponseEntity<?> getJobDetailsForApplicant(
+	            @PathVariable Long jobId,
+	            @PathVariable Long applicantId) {
+
+	        try {
+	            ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicant(jobId, applicantId);
+	            return ResponseEntity.ok(jobDetails);
+	        } catch (CustomException e) {
+	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+	        } catch (Exception e) {
+	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving job details");
+	        }
+	    }
 }

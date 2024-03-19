@@ -1,5 +1,7 @@
 package com.talentstream.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -14,7 +16,10 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @JsonIgnoreProperties({"jobRecruiters"})
@@ -29,7 +34,7 @@ public class Job {
 
     @Column(nullable = false)
     private String jobTitle;
-
+  
 	public JobRecruiter getJobRecruiter() {
 		return jobRecruiter;
 	}
@@ -48,7 +53,8 @@ public class Job {
 	public void setMinimumExperience(int minimumExperience) {
 		this.minimumExperience = minimumExperience;
 	}
-
+	
+	
 @Column(nullable = false)
     private int maximumExperience;
 
@@ -56,10 +62,32 @@ public class Job {
     private double maxSalary;
     @Column(nullable = false)
     private double minSalary;
+	@Column(nullable = false)
+    private String promote = "no";
+	
+	private String isSaved;
+	
+	public String getIsSaved() {
+			return isSaved;
+		}
+		
+		@JsonProperty("isSaved")
+		public void setIsSaved(String isSaved) {
+			this.isSaved = isSaved;
+		}
+
+	public String getPromote() {
+		return promote;
+	}
  
+	public void setPromote(String promote) {
+		this.promote = promote;
+	}
     public double getMinSalary() {
 		return minSalary;
 	}
+
+   
 
 	public void setMinSalary(double minSalary) {
 		this.minSalary = minSalary;
@@ -83,6 +111,7 @@ public class Job {
  
     @Column(nullable = false)
     private String specialization;
+
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
@@ -110,7 +139,61 @@ public class Job {
     @Lob
     @Column
     private byte[] uploadDocument; // Use byte[] to store the file content
+    
+    @CreationTimestamp
+    @Column(name = "creation_date",nullable = false, updatable = false, columnDefinition = "DATE")
+    private LocalDate creationDate;
 
+    @Column(name = "job_status")
+	private String jobStatus="Apply Now";
+
+	@Column(nullable = false)
+    private String status = "active"; // New field with a default value of "active"
+
+	@Column(columnDefinition = "int default 0")
+    private int alertCount;
+
+@Column(name = "recent_application_date_time")
+	@CreationTimestamp
+    private LocalDateTime recentApplicationDateTime;
+
+	@Column(name = "new_status", columnDefinition = "VARCHAR(255) DEFAULT 'oldApplicants'")
+    private String newStatus;
+	
+
+
+public String getNewStatus() {
+		return newStatus;
+	}
+
+	public void setNewStatus(String newStatus) {
+		this.newStatus = newStatus;
+	}
+
+public LocalDateTime getRecentApplicationDateTime() {
+		return recentApplicationDateTime;
+	}
+
+	public void setRecentApplicationDateTime(LocalDateTime recentApplicationDateTime) {
+		this.recentApplicationDateTime = recentApplicationDateTime;
+	}
+
+
+public int getAlertCount() {
+		return alertCount;
+	}
+
+	public void setAlertCount(int alertCount) {
+		this.alertCount = alertCount;
+	}
+    public String getStatus() {
+        return status;
+    }
+ 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
 	public Long getId() {
 		return id;
 	}
@@ -128,7 +211,7 @@ public class Job {
 	}
 
  
-public int getMaximumExperience() {
+    public int getMaximumExperience() {
 	return maximumExperience;
 	}
  
@@ -220,6 +303,21 @@ public int getMaximumExperience() {
 		this.uploadDocument = uploadDocument;
 	}
 
+	public LocalDate getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(LocalDate creationDate) {
+		this.creationDate = creationDate;
+	}
+	
+	public String getJobStatus() {
+		return jobStatus;
+	}
+ 
+	public void setJobStatus(String jobStatus) {
+		this.jobStatus = jobStatus;
+	}
+
 }
 
- 	

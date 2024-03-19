@@ -14,7 +14,7 @@ import com.talentstream.entity.ScheduleInterview;
 public interface ScheduleInterviewRepository extends JpaRepository<ScheduleInterview, Long> {
     // Define custom query methods if needed
 	@Query("SELECT NEW com.talentstream.entity.ApplicantJobInterviewDTO(" +
-	        "a.name, a.email, a.mobilenumber, j.jobTitle, si.timeAndDate, si.location, si.modeOfInterview, si.round, si.interviewLink, si.interviewPerson) " +
+	        "si.id, a.name, a.email, a.mobilenumber, j.jobTitle, si.timeAndDate, si.location, si.modeOfInterview, si.round, si.interviewLink, si.interviewPerson) " +
 	        "FROM ScheduleInterview si " +
 	        "INNER JOIN si.applyJob aj " +
 	        "INNER JOIN aj.applicant a " +

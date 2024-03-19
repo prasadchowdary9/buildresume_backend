@@ -14,63 +14,71 @@ import org.slf4j.LoggerFactory;
 @CrossOrigin("*")
 @RequestMapping("/team")
 public class TeamMemberController {
-
+ 
     @Autowired
     private TeamMemberService teamMemberService;
     private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class);
-    @PostMapping("/{recruiterId}/team-members")
-    public ResponseEntity<TeamMemberDTO> addTeamMemberToRecruiter(
-        @PathVariable Long recruiterId,
-        @RequestBody TeamMemberDTO teamMember
+    @PostMapping("/add/{recruiterId}/team-members")
+    public ResponseEntity<Object> addTeamMemberToRecruiter(
+            @PathVariable Long recruiterId,
+            @RequestBody TeamMemberDTO teamMember
     ) {
-    	 try {
-    	        TeamMemberDTO savedTeamMember = teamMemberService.addTeamMemberToRecruiter(recruiterId, teamMember);
-    	        return new ResponseEntity<>(savedTeamMember, HttpStatus.CREATED);
-    	    } catch (CustomException e) {
-    	        return ResponseEntity.notFound().build();
-    	    } catch (Exception e) {
-    	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-    	    }
-    }
-
-  
-    
-    @GetMapping("/teammembers/{recruiterId}")
-    public ResponseEntity<List<TeamMemberDTO>> getTeammembersByRecruiter(@PathVariable("recruiterId") long recruiterId) {
-    	try {
-            List<TeamMemberDTO> teamMembers = teamMemberService.getTeammembersByRecruiter(recruiterId);
-            return ResponseEntity.ok(teamMembers);
+        try {
+            TeamMemberDTO savedTeamMember = teamMemberService.addTeamMemberToRecruiter(recruiterId, teamMember);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedTeamMember);
         } catch (CustomException e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Recruiter with ID " + recruiterId + " not found.");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to add team member. Please try again.");
         }
     }
-    @DeleteMapping("/{teamMemberId}")
-    public ResponseEntity<String> deleteTeamMember(@PathVariable Long teamMemberId) {
-    	 try {
-    	        teamMemberService.deleteTeamMemberById(teamMemberId);
-    	        return ResponseEntity.ok("Team Member deleted successfully");
-    	    } catch (CustomException e) {
-    	        return ResponseEntity.notFound().build();
-    	    } catch (Exception e) {
-    	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-    	    }
+ 
+  
+    
+    @GetMapping("get/teammembers/{recruiterId}")
+    public ResponseEntity<Object> getTeammembersByRecruiter(@PathVariable("recruiterId") long recruiterId) {
+        try {
+            List<TeamMemberDTO> teamMembers = teamMemberService.getTeammembersByRecruiter(recruiterId);
+            if (teamMembers.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            } else {
+                return ResponseEntity.ok(teamMembers);
+            }
+        } catch (CustomException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Recruiter with ID " + recruiterId + " not found.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to retrieve team members. Please try again.");
+        }
+    }
+    
+    @DeleteMapping("delete/{teamMemberId}")
+    public ResponseEntity<Object> deleteTeamMember(@PathVariable Long teamMemberId) {
+        try {
+            teamMemberService.deleteTeamMemberById(teamMemberId);
+            return ResponseEntity.ok("Team Member with ID " + teamMemberId + " deleted successfully");
+        } catch (CustomException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team Member with ID " + teamMemberId + " not found.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete Team Member. Please try again.");
+        }
     }
     
     @PutMapping("/{teamMemberId}/reset-password")
-    public ResponseEntity<String> resetPassword(@PathVariable Long teamMemberId, @RequestParam String newPassword) {
-    	try {
+    public ResponseEntity<Object> resetPassword(
+            @PathVariable Long teamMemberId,
+            @RequestParam("newPassword") String newPassword
+    ) {
+        try {
             teamMemberService.resetTeamMemberPassword(teamMemberId, newPassword);
-            return ResponseEntity.ok("Password reset successfully");
+            return ResponseEntity.ok("Password for Team Member with ID " + teamMemberId + " reset successfully");
         } catch (CustomException e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team Member with ID " + teamMemberId + " not found.");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to reset password for Team Member. Please try again.");
         }
     }
+ 
 }
     
     
-
-

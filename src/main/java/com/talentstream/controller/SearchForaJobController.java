@@ -43,7 +43,13 @@ public class SearchForaJobController {
                 return ResponseEntity.noContent().build();
             }
 
-            Page<JobDTO> jobsDTO = jobs.map(job -> modelMapper.map(job, JobDTO.class));
+          Page<JobDTO> jobsDTO = jobs.map(job -> {
+                JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
+                jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
+                jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+                jobDTO.setEmail(job.getJobRecruiter().getEmail());
+                return jobDTO;
+            });
             return ResponseEntity.ok(jobsDTO);
         } catch (CustomException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

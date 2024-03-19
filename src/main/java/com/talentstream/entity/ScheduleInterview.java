@@ -1,12 +1,10 @@
 package com.talentstream.entity;
 
 import java.time.LocalDateTime;
-import java.util.List;
- 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.OneToOne;
+
  
 import com.fasterxml.jackson.annotation.JsonBackReference;
  

@@ -59,4 +59,16 @@ public class ScheduleInterviewService {
              throw new CustomException("Error retrieving schedule interviews by applicant and apply job", HttpStatus.INTERNAL_SERVER_ERROR);
          }
      }
+    public void deleteScheduledInterview(Long scheduleInterviewId) {
+        try {
+            ScheduleInterview scheduleInterview = scheduleInterviewRepository.findById(scheduleInterviewId)
+                    .orElseThrow(() -> new EntityNotFoundException("Scheduled Interview not found"));
+ 
+            scheduleInterviewRepository.delete(scheduleInterview);
+        } catch (EntityNotFoundException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new CustomException("Error deleting scheduled interview", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     }

@@ -34,8 +34,10 @@ public class SavedJobService {
              }
 
              if (!savedJobRepository.existsByApplicantAndJob(applicant, job)) {
-                 SavedJob savedJob = new SavedJob();
-                 savedJob.setApplicant(applicant);
+            	 SavedJob savedJob = new SavedJob();
+                 savedJob.setApplicant(applicant);                 
+                 savedJob.setSaveJobStatus("saved");
+                 jobRepository.save(job);
                  savedJob.setJob(job);
                  savedJobRepository.save(savedJob);
              } else {
@@ -63,6 +65,22 @@ public List<Job> getSavedJobsForApplicant(long applicantId) {
       return result;
   }
 
+public long countSavedJobsForApplicant(long applicantId) {
+    try {
+        // Check if the applicant exists
+        if (!applicantRepository.existsById(applicantId)) {
+            // Throw CustomException with a specific error message and 404 status
+            throw new CustomException("Applicant not found", HttpStatus.NOT_FOUND);
+        }
 
+        // Use the custom query to count saved jobs
+        return savedJobRepository.countByApplicantId(applicantId);
+    } catch (CustomException e) {
+        throw e; // Re-throw CustomException as is
+    } catch (Exception e) {
+        // Handle other exceptions as needed
+        throw new CustomException("Error while counting saved jobs for the applicant", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
 }
 

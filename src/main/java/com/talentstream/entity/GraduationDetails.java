@@ -1,12 +1,6 @@
 package com.talentstream.entity;
 import javax.persistence.Embeddable;
-
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 @Embeddable
-@Getter
-@Setter
 public class GraduationDetails {
 	private String gcollegeName;  
 	 private String gboard;        
@@ -57,6 +51,7 @@ public class GraduationDetails {
 	public void setgState(String gState) {
 		this.gState = gState;
 	}
+	
 	 
 
 }
