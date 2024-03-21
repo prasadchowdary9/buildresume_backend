@@ -121,7 +121,8 @@ public class FinRecommendedJobService {
               // System.out.println(job.getIsSaved());
            }
            matchingJobs = matchingJobs.stream()
-                   .filter(job -> job.getStatus().equalsIgnoreCase("active")) // Assuming status is stored as a String
+                   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !job.getJobStatus().equalsIgnoreCase("Already Applied")) // Assuming status is stored as a String
+                   
                    .collect(Collectors.toList());
 
 	        return matchingJobs;
