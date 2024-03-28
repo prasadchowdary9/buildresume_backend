@@ -3,6 +3,8 @@ package com.talentstream.service;
 import com.talentstream.exception.CustomException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -50,23 +52,43 @@ public class SavedJobService {
          }
     }
 
-public List<Job> getSavedJobsForApplicant(long applicantId) {
-	List<Job> result = new ArrayList<>();      
-     
-      try {
-          List<SavedJob> savedJobs = savedJobRepository.findByApplicantId(applicantId);
+//public List<Job> getSavedJobsForApplicant(long applicantId) {
+//	List<Job> result = new ArrayList<>();      
+//     
+//      try {
+//          List<SavedJob> savedJobs = savedJobRepository.findByApplicantId(applicantId);
+//
+//          for (SavedJob savedJob : savedJobs) {
+//              result.add(savedJob.getJob());
+//          }
+//
+//      } catch (Exception e) {
+//    	  e.printStackTrace();
+//      }
+//
+//      return result;
+//  }
 
-          for (SavedJob savedJob : savedJobs) {
-              result.add(savedJob.getJob());
-          }
+    public List<Job> getSavedJobsForApplicant(long applicantId) {
+        try {
+            List<SavedJob> savedJobs = savedJobRepository.findByApplicantId(applicantId);
 
-      } catch (Exception e) {
-    	  e.printStackTrace();
-      }
+            List<Job> result = savedJobs.stream()
+                    .map(SavedJob::getJob)
+                    .filter(job -> !job.getJobStatus().equalsIgnoreCase("Already Applied") && !isJobSavedByApplicant(job.getId(), applicantId))
+                    .collect(Collectors.toList());
 
-      return result;
-  }
-
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new CustomException("Error while retrieving saved jobs for applicant", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    private boolean isJobSavedByApplicant(long jobId, long applicantId) {
+        return savedJobRepository.existsByApplicantIdAndJobId(jobId, applicantId);
+    }
+    
 public long countSavedJobsForApplicant(long applicantId) {
     try {
         // Check if the applicant exists
