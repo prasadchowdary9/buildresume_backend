@@ -20,4 +20,7 @@ public interface SavedJobRepository extends JpaRepository<SavedJob, Long> {
 	
 	@Query(value = "SELECT COUNT(*) FROM applicant_savedjob WHERE applicantregistration_id = :applicantId", nativeQuery = true)
     long countByApplicantId(@Param("applicantId") long applicantId);
+	
+	@Query("SELECT sj.job.id FROM SavedJob sj WHERE sj.applicant.id = :applicantId")
+    List<Long> findSavedJobIdsByApplicantId(@Param("applicantId") Long applicantId);
 }
