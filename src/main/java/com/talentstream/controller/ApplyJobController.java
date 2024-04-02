@@ -125,7 +125,7 @@ public class ApplyJobController {
       }
  }
 	 @PostMapping("/recruiter/{jobRecruiterId}/appliedapplicants1")
- public ResponseEntity<List<AppliedApplicantInfoDTO>> getAppliedApplicantsForRecruiter(
+ public ResponseEntity<List<AppliedApplicantInfo>> getAppliedApplicantsForRecruiter(
          @PathVariable long jobRecruiterId,
          @RequestParam(required = false) String name,
          @RequestParam(required = false) String email,
@@ -139,7 +139,7 @@ public class ApplyJobController {
          @RequestBody MatchTypes matchTypes) {
      try {
     	 
-         List<AppliedApplicantInfoDTO> appliedApplicants = applyJobService.getAppliedApplicants2(jobRecruiterId,matchTypes, name, email, mobileNumber, jobTitle, applicantStatus, minimumExperience, skillName, minimumQualification, location);
+         List<AppliedApplicantInfo> appliedApplicants = applyJobService.getAppliedApplicants2(jobRecruiterId,matchTypes, name, email, mobileNumber, jobTitle, applicantStatus, minimumExperience, skillName, minimumQualification, location);
          return ResponseEntity.ok(appliedApplicants);
      } catch (CustomException e) {
          return ResponseEntity.status(e.getStatus()).body(null);

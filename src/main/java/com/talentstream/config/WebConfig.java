@@ -89,7 +89,7 @@ public class WebConfig {
         config.addAllowedOrigin("https://d2csdrjtu6a4ys.cloudfront.net");
         config.addAllowedOrigin("http://localhost:3000");       
         config.addAllowedOrigin("https://talent-stream-front-end-version2-eedekarunakar.vercel.app");
-        config.addAllowedOrigin("http://localhost:3001");
+       
          config.addAllowedOrigin("https://talentstream-deployment-bucket.s3.amazonaws.com");
          config.setAllowedHeaders(Arrays.asList(
                  HttpHeaders.AUTHORIZATION,

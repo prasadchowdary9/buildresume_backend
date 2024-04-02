@@ -20,7 +20,6 @@ import com.talentstream.dto.RecuriterSkillsDTO;
 import com.talentstream.entity.Alerts;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantJobInterviewDTO;
-import com.talentstream.entity.ApplicantProfile;
 import com.talentstream.entity.ApplicantStatusHistory;
 import com.talentstream.entity.AppliedApplicantInfo;
 import com.talentstream.entity.AppliedApplicantInfoDTO;
@@ -32,7 +31,6 @@ import java.util.stream.Collectors;
 import com.talentstream.entity.JobRecruiter;
 import com.talentstream.entity.RecuriterSkills;
 import com.talentstream.repository.AlertsRepository;
-import com.talentstream.repository.ApplicantProfileRepository;
 import com.talentstream.repository.ApplicantStatusHistoryRepository;
 import com.talentstream.repository.ApplyJobRepository;
 import com.talentstream.repository.JobRepository;
@@ -61,8 +59,6 @@ public class ApplyJobService {
 	    private AlertsRepository alertsRepository;
 	@Autowired
 	    private JobRecruiterRepository jobRecruiterRepository;
-	@Autowired
-	private ApplicantProfileRepository applicantProfileRepo;
 public String ApplicantApplyJob(long  applicantId, long jobId) {
 	    	
 	    	try {
@@ -257,41 +253,30 @@ public long countAppliedJobsForApplicant(long applicantId) {
     }
     return result;
   }
-	public List<AppliedApplicantInfoDTO> getAppliedApplicants2(long jobRecruiterId, MatchTypes matchTypes, String name, String email, String mobileNumber, String jobTitle, String applicantStatus, Integer minimumExperience, String skillName, String minimumQualification, String location) {
-		List<AppliedApplicantInfo> all1 = applyJobRepository.findAppliedApplicantsInfo(jobRecruiterId);
-        
-        List<AppliedApplicantInfoDTO> all=new ArrayList<>();
+	public List<AppliedApplicantInfo> getAppliedApplicants2(long jobRecruiterId, MatchTypes matchTypes, String name, String email, String mobileNumber, String jobTitle, String applicantStatus, Integer minimumExperience, String skillName, String minimumQualification, String location) {
+	        List<AppliedApplicantInfo> all = applyJobRepository.findAppliedApplicantsInfo(jobRecruiterId);
 	        
 	        System.out.println(matchTypes.getName());
 	        System.out.println(matchTypes.getMobilenumber());
-	        
-	        for(AppliedApplicantInfo appliedApplicantInfo : all1) {
-	        	long id1=appliedApplicantInfo.getId();
-	            ApplicantProfile applicantProfile=applicantProfileRepo.findByApplicantId(id1);
-	            AppliedApplicantInfoDTO dto1=mapToDTO(appliedApplicantInfo);
-	            dto1.setExperience(applicantProfile.getExperience());
-	            dto1.setMinimumQualification(applicantProfile.getQualification());
-	            all.add(dto1);
-	        }
 
-	        List<AppliedApplicantInfoDTO> filteredList = all.stream()
+	        List<AppliedApplicantInfo> filteredList = all.stream()
 	                .filter(applicant ->
 	                        (name == null || applyMatchType(applicant.getName(), name, matchTypes.getName(), "is")) &&
 	                        (email == null || applyMatchType(applicant.getEmail(), email, matchTypes.getEmail(), "contains")) &&
 	                        (mobileNumber == null || applyMobileType(applicant.getMobilenumber(), mobileNumber, matchTypes.getMobilenumber(), "is")) &&
 	                        (jobTitle == null || applyMatchType(applicant.getJobTitle(), jobTitle, matchTypes.getJobTitle(), "contains")) &&
 	                        (applicantStatus == null || applyMatchType(applicant.getApplicantStatus(), applicantStatus, matchTypes.getApplicantStatus(), "contains")) &&
-//	                        (skillName == null || applyMatchType(applicant.getSkillName(), skillName, matchTypes.getSkillName(), "contains")) &&
+	                        (skillName == null || applyMatchType(applicant.getSkillName(), skillName, matchTypes.getSkillName(), "contains")) &&
 	                        (minimumQualification == null || applyMatchType(applicant.getMinimumQualification(), minimumQualification, matchTypes.getMinimumQualification(), "contains")) &&
 	                        (location == null || applyMatchType(applicant.getLocation(), location, matchTypes.getLocation(), "contains")) &&
-	                        (minimumExperience == null || applyExperienceMatchType(applicant.getExperience(), minimumExperience, matchTypes.getMinimumExperience(), "lessThan")))
+	                        (minimumExperience == null || applyExperienceMatchType(applicant.getMinimumExperience(), minimumExperience, matchTypes.getMinimumExperience(), "lessThan")))
 	                .collect(Collectors.toList());
 
 	     // Eliminate duplicates based on applyjobid while preserving order
 	        Set<Long> uniqueApplyJobIds = new HashSet<>();
-	        List<AppliedApplicantInfoDTO> uniqueList = new ArrayList<>();
+	        List<AppliedApplicantInfo> uniqueList = new ArrayList<>();
 
-	        for (AppliedApplicantInfoDTO applicant : filteredList) {
+	        for (AppliedApplicantInfo applicant : filteredList) {
 	            long applyJobId = applicant.getApplyjobid();
 	            if (!uniqueApplyJobIds.contains(applyJobId) && applyJobId >=1) {
 	                uniqueApplyJobIds.add(applyJobId);
@@ -328,8 +313,7 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	        return false;
 	    }
 
-	    private boolean applyExperienceMatchType(String value1, int filterValue, String matchValue, String matchType) {
-	    	int value=Integer.parseInt(value1);
+	    private boolean applyExperienceMatchType(int value, int filterValue, String matchValue, String matchType) {
 	        if (matchValue == null) {
 	            return true; // If matchValue is 0, it means it's not provided, so return true
 	        }
@@ -350,13 +334,7 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	        String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
 	        if (!applicantMap.containsKey(applicantKey)) {
 	            List<AppliedApplicantInfoDTO> dtoList = new ArrayList<>();
-	            long id1=appliedApplicantInfo.getId();
-	            ApplicantProfile applicantProfile=applicantProfileRepo.findByApplicantId(id1);
-	            AppliedApplicantInfoDTO dto1=mapToDTO(appliedApplicantInfo);
-	            dto1.setExperience(applicantProfile.getExperience());
-	            dto1.setMinimumQualification(applicantProfile.getQualification());
-	            dtoList.add(dto1);
-	            
+	            dtoList.add(mapToDTO(appliedApplicantInfo));
 	            applicantMap.put(applicantKey, dtoList);
 	        } else {
 	            List<AppliedApplicantInfoDTO> existingDTOList = applicantMap.get(applicantKey);
