@@ -16,7 +16,7 @@ public class AppliedApplicantInfoDTO {
 	    private String minimumQualification;
 	    private String location;
 	    private String newStatus;
-	    
+	    private String experience;
 	    
 
  
@@ -103,5 +103,12 @@ public class AppliedApplicantInfoDTO {
 		}
 		public void setNewStatus(String newStatus) {
 			this.newStatus = newStatus;
+		}
+		
+		public String getExperience() {
+			return experience;
+		}
+		public void setExperience(String experience) {
+			this.experience = experience;
 		}
 }	
