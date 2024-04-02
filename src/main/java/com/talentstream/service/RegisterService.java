@@ -6,11 +6,6 @@ import java.util.Random;
 import com.talentstream.exception.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,10 +14,6 @@ import com.talentstream.repository.JobRecruiterRepository;
 import com.talentstream.repository.RegisterRepository;
 import com.talentstream.dto.LoginDTO;
 import com.talentstream.dto.RegistrationDTO;
-import com.talentstream.dto.ResumeRegisterDto;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
 import jakarta.persistence.EntityNotFoundException;
  
 @Service
@@ -36,9 +27,7 @@ public class RegisterService {
  
 	 @Autowired
 	RegisterRepository applicantRepository;
-     
-	 @Autowired
-	 private RestTemplate restTemplate;
+
 	
 	
     public RegisterService( RegisterRepository applicantRepository) {
@@ -229,47 +218,7 @@ public void updatePassword(String userEmail, String newPassword) {
             }
             
             applicant.setPassword(passwordEncoder.encode(applicant.getPassword()));
-            Applicant applicant1=applicantRepository.save(applicant);
-            ResumeRegisterDto resume=new ResumeRegisterDto();
-            String[] nameParts = applicant1.getName().toLowerCase().split("\\s+");
-            String firstName = nameParts[0];
-            resume.setName(firstName);
-            resume.setUsername(firstName);
-            resume.setEmail(applicant1.getEmail().toLowerCase());
-            resume.setPassword(applicant1.getPassword());
-            resume.setLocale("en-US");
-         // Prepare headers
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
- 
-            
-            // Create HttpEntity with headers and resume body
-            HttpEntity<ResumeRegisterDto> requestEntity = new HttpEntity<>(resume, headers);
-            
- 
-            // Define the endpoint URL
-            String resumeRegisterUrl = "http://localhost:5173/api/auth/register";
- 
-            try {
-            
-            	// Make POST request
-                ResponseEntity<String> response = restTemplate.postForEntity(resumeRegisterUrl, requestEntity, String.class);
-               
-                // Parse the JSON response
-                Gson gson = new Gson();
-                JsonObject jsonResponse = gson.fromJson(response.getBody(), JsonObject.class);
-                
-                // Access the nested ID field
-                String userId = jsonResponse.getAsJsonObject("user").get("id").getAsString();
-                
-                // Print the ID
-                System.out.println("User resume ID: " + userId);
-                applicant1.setResumeId(userId);
-                applicantRepository.save(applicant);
-            	
-            }catch(Exception e) {
-         	   System.out.println(e.getMessage());
-            }
+            applicantRepository.save(applicant);
             return ResponseEntity.ok("Applicant registered successfully");
         } catch (CustomException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
