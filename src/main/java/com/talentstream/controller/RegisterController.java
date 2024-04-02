@@ -61,6 +61,9 @@ public class RegisterController {
 
 	@Autowired
 	 private RegisterService registerService;
+
+	@Autowired
+		    private RegisterRepository registerRepo;
 	
 	
 		 private Map<String, Boolean> otpVerificationMap = new HashMap<>();
@@ -408,5 +411,12 @@ public class RegisterController {
 	            throw new CustomException("Error finding applicant by Mobile Number", HttpStatus.INTERNAL_SERVER_ERROR);
 	        }
 		}
+	    
+	  ///applicant/getApplicantById/{id}
+	  		@GetMapping("/getApplicantById/{id}")
+	  		public ResponseEntity<Applicant> getApplicantById(@PathVariable long id) {
+	  			Applicant applicant=registerRepo.findById(id);
+	  			return ResponseEntity.ok(applicant);
+	  		}
 		
 }
