@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import com.talentstream.dto.JobDTO;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.Job;
 import com.talentstream.entity.SavedJob;
@@ -82,5 +84,35 @@ public long countSavedJobsForApplicant(long applicantId) {
         throw new CustomException("Error while counting saved jobs for the applicant", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
+
+public void deleteSavedJobForApplicant(long applicantId, long jobId) throws CustomException {
+    try {
+        Applicant applicant = applicantRepository.findById(applicantId);
+        Job job = jobRepository.findById(jobId).orElse(null);
+        JobDTO jobDTO = null;
+        
+        if (applicant == null || job == null) {
+            throw new CustomException("Applicant or Job not found", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        SavedJob savedJob = savedJobRepository.findByApplicantAndJob(applicant, job);
+
+        savedJobRepository.delete(savedJob);
+        
+//        if (savedJob != null) {
+//            
+//            // Update the saveJobStatus to "Not Saved" in the DTO
+//            jobDTO.setSaveJobStatus("Not Saved");
+//            
+//            // Save the updated job entity
+//            jobRepository.save(job);
+//        } 
+
+       // savedJobRepository.delete(savedJob);
+    } catch (Exception e) {
+        throw new CustomException("Error deleting saved job for the applicant", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+
 }
 

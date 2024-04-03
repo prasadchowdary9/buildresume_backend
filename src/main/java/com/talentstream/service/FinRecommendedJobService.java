@@ -111,17 +111,19 @@ public class FinRecommendedJobService {
 	                experience,
 	                specialization
 	        );
-
+            
 	        List<Job> matchingJobs = new ArrayList<>();
 	        for (Object[] array : result) {
                Job job = (Job) array[0];
                job.setIsSaved((String)array[1]);
-            //   System.out.println(job.getId()+"-----"+job.getIsSaved());
+               String isSaved = (String) array[1];
+              System.out.println(job.getId()+"-----"+job.getIsSaved());
+              job.setIsSaved(isSaved != null ? isSaved : ""); 
                matchingJobs.add(job);
-              // System.out.println(job.getIsSaved());
+               System.out.println(job.getIsSaved());
            }
            matchingJobs = matchingJobs.stream()
-                   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !job.getJobStatus().equalsIgnoreCase("Already Applied")) // Assuming status is stored as a String
+                   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !job.getJobStatus().equalsIgnoreCase("Already Applied") && !job.getIsSaved().equalsIgnoreCase("saved")) // Assuming status is stored as a String
                    .collect(Collectors.toList());
 
 	        return matchingJobs;
