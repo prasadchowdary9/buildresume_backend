@@ -276,4 +276,14 @@ public class JobController {
     public List<Job> getJobsByPromoteState(@PathVariable long applicantId,@PathVariable String promote) {
         return jobService.getJobsByPromoteState(applicantId,promote);
     }
+	
+	@GetMapping("/{recruiterId}/active")
+    public ResponseEntity<?> getActiveJobsForRecruiter(@PathVariable Long recruiterId) {
+        return ResponseEntity.ok(jobService.getActiveJobsForRecruiter(recruiterId));
+    }
+
+    @GetMapping("/{recruiterId}/inactive")
+    public ResponseEntity<?> getInactiveJobsForRecruiter(@PathVariable Long recruiterId) {
+        return ResponseEntity.ok(jobService.getInactiveJobsForRecruiter(recruiterId));
+    }
 }
