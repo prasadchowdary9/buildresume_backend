@@ -49,7 +49,18 @@ public class Applicant {
     private int alertCount;
 
 private String appicantStatus="Active";
+@Column(name = "resume_id", columnDefinition = "VARCHAR(255) DEFAULT 'Not available'")
+private String resumeId = "Not available";
+ 
+ 
+ 
     
+    public String getResumeId() {
+	return resumeId;
+}
+public void setResumeId(String resumeId) {
+	this.resumeId = resumeId;
+}
     public String getAppicantStatus() {
 		return appicantStatus;
 	}
