@@ -168,13 +168,22 @@ public class JobService {
  
 	            // Validate newStatus (optional, depending on your requirements)
  
-	            job.setStatus(newStatus);
+	            job.setStatus(newStatus.toLowerCase());
 	            jobRepository.save(job);
 	        } catch (CustomException ce) {
 	            throw ce;
 	        } catch (Exception e) {
 	            throw new CustomException("Error changing job status", HttpStatus.INTERNAL_SERVER_ERROR);
 	        }
+	    }
+	
+
+	  public List<Job> getActiveJobsForRecruiter(Long recruiterId) {
+	        return jobRepository.findJobsByRecruiterAndStatus(recruiterId, "active");
+	    }
+
+	    public List<Job> getInactiveJobsForRecruiter(Long recruiterId) {
+	        return jobRepository.findJobsByRecruiterAndStatus(recruiterId, "inactive");
 	    }
 	 public String getJobStatus(Long jobId) {
 	        Optional<Job> optionalJob = jobRepository.findById(jobId);

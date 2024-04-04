@@ -71,14 +71,13 @@ public class FinRecommendedJobService {
                     .map(skill -> skill.getSkillName().toLowerCase())
                     .collect(Collectors.toSet());
  
-            List<Job> recommendedJobs = jobRepository.findBySkillsRequiredIgnoreCaseAndSkillNameIn(lowercaseApplicantSkillNames);
+
+            List<Job> matchingJobs = findJobsMatchingApplicantProfile(applicant);
+            long recommendedJobCount = matchingJobs.size();
             
-         // Filter the matching jobs by status
-            recommendedJobs = recommendedJobs.stream()
-                    .filter(job -> job.getStatus().equalsIgnoreCase("active")) // Assuming status is stored as a String
-                    .collect(Collectors.toList());
+         
             
-            return recommendedJobs.size();
+            return recommendedJobCount;
         } catch (Exception e) {
         	 e.printStackTrace();
             // Handle exceptions as needed
