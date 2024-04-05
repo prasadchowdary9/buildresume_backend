@@ -384,7 +384,13 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	        String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
 	        if (!applicantMap.containsKey(applicantKey)) {
 	            List<AppliedApplicantInfoDTO> dtoList = new ArrayList<>();
-	            dtoList.add(mapToDTO(appliedApplicantInfo));
+	            long id1=appliedApplicantInfo.getId();
+	            ApplicantProfile applicantProfile=applicantProfileRepo.findByApplicantId(id1);
+	            AppliedApplicantInfoDTO dto1=mapToDTO(appliedApplicantInfo);
+	            dto1.setExperience(applicantProfile.getExperience());
+	            dto1.setMinimumQualification(applicantProfile.getQualification());
+	            dtoList.add(dto1);
+	            
 	            applicantMap.put(applicantKey, dtoList);
 	        } else {
 	            List<AppliedApplicantInfoDTO> existingDTOList = applicantMap.get(applicantKey);
