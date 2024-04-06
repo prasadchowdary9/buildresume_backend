@@ -224,11 +224,11 @@ public long countAppliedJobsForApplicant(long applicantId) {
             for (RecuriterSkills skill : job.getSkillsRequired()) {
                 RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
                 skillDTO.setSkillName(skill.getSkillName());
-                skillDTO.setMinimumExperience(skill.getMinimumExperience());
+           //     skillDTO.setMinimumExperience(skill.getMinimumExperience());
                 skillsDTOSet.add(skillDTO);
             }
             jobDTO.setSkillsRequired(skillsDTOSet);
-            jobDTO.setJobHighlights(job.getJobHighlights());
+        //    jobDTO.setJobHighlights(job.getJobHighlights());
             jobDTO.setDescription(job.getDescription());
             jobDTO.setCreationDate(job.getCreationDate());
             jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());

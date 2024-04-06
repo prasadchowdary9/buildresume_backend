@@ -100,11 +100,11 @@ public class JobDTO {
 		@NotBlank(message = "Location required")
 		private String location;
 		
-		@Size(min = 2, max = 2, message = "Industry type must have exactly 2 characters")
+//		@Size(min = 2, max = 2, message = "Industry type must have exactly 2 characters")
 		private String industryType;
 		
-		@Size(min = 2, message = "jobHighlights atleast be 2 characters")
-		private String jobHighlights;
+//		@Size(min = 2, message = "jobHighlights atleast be 2 characters")
+//		private String jobHighlights;
 		
 		@NotBlank(message = "JobType required")
 		private String employeeType;
@@ -209,12 +209,12 @@ public class JobDTO {
 		public void setSkillsRequired(Set<RecuriterSkillsDTO> skillsDTOList) {
 			this.skillsRequired = skillsDTOList;
 		}
-		public String getJobHighlights() {
-			return jobHighlights;
-		}
-		public void setJobHighlights(String jobHighlights) {
-			this.jobHighlights = jobHighlights;
-		}
+//		public String getJobHighlights() {
+//			return jobHighlights;
+//		}
+//		public void setJobHighlights(String jobHighlights) {
+//			this.jobHighlights = jobHighlights;
+//		}
 		public String getDescription() {
 			return description;
 		}

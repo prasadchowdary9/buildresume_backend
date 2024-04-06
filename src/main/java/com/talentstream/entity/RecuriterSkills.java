@@ -42,8 +42,8 @@ public class RecuriterSkills {
 	@Column(nullable = false)
     private String skillName;
 
-	@Column(nullable = false, columnDefinition = "int default 0")
-	private int minimumExperience;
+//	@Column(nullable = false, columnDefinition = "int default 0")
+//	private int minimumExperience;
 
    
 
@@ -63,13 +63,13 @@ public class RecuriterSkills {
 		this.skillName = skillName;
 	}
 
-	public int getMinimumExperience() {
-		return minimumExperience;
-	}
-
-	public void setMinimumExperience(int minimumExperience) {
-		this.minimumExperience = minimumExperience;
-	}
+//	public int getMinimumExperience() {
+//		return minimumExperience;
+//	}
+//
+//	public void setMinimumExperience(int minimumExperience) {
+//		this.minimumExperience = minimumExperience;
+//	}
     
     
 }
