@@ -41,7 +41,7 @@ public ResponseEntity<JobDTO> getJobDetailsForApplicant(Long jobId) {
         jobDTO.setIndustryType(job.getIndustryType());
         jobDTO.setMinimumQualification(job.getMinimumQualification());
         jobDTO.setSpecialization(job.getSpecialization());
-        jobDTO.setJobHighlights(job.getJobHighlights());
+      //  jobDTO.setJobHighlights(job.getJobHighlights());
         jobDTO.setDescription(job.getDescription());
         jobDTO.setCreationDate(job.getCreationDate());
         long jobRecruiterId = job.getJobRecruiter().getRecruiterId();

@@ -143,7 +143,7 @@ public class JobService {
         job.setMinimumQualification(jobDTO.getMinimumQualification());
         job.setSpecialization(jobDTO.getSpecialization());
         job.setSkillsRequired(convertSkillsDTOToEntity(jobDTO.getSkillsRequired()));
-        job.setJobHighlights(jobDTO.getJobHighlights());
+ //       job.setJobHighlights(jobDTO.getJobHighlights());
         job.setDescription(jobDTO.getDescription());
         job.setCreationDate(jobDTO.getCreationDate());
               //  job.setUploadDocument(Base64.getDecoder().decode(jobDTO.getUploadDocument())); // Decode base64 string
@@ -156,7 +156,7 @@ public class JobService {
 		            .map(skillDTO -> {
 		                RecuriterSkills skill = new RecuriterSkills();
 		                skill.setSkillName(skillDTO.getSkillName());
-		                skill.setMinimumExperience(skillDTO.getMinimumExperience());
+		   //             skill.setMinimumExperience(skillDTO.getMinimumExperience());
 		                return skill;
 		            })
 		            .collect(Collectors.toSet());
@@ -212,7 +212,7 @@ public class JobService {
 	            existingJob.setIndustryType(jobDTO.getIndustryType());
 	            existingJob.setMinimumQualification(jobDTO.getMinimumQualification());
 	            existingJob.setSpecialization(jobDTO.getSpecialization());
-	            existingJob.setJobHighlights(jobDTO.getJobHighlights());
+	     //       existingJob.setJobHighlights(jobDTO.getJobHighlights());
 	            existingJob.setDescription(jobDTO.getDescription());
 	           // existingJob.setSaveJobStatus(jobDTO.getSaveJobStatus());
  
@@ -221,7 +221,7 @@ public class JobService {
 	            for (RecuriterSkillsDTO skillDTO : jobDTO.getSkillsRequired()) {
 	                RecuriterSkills skill = new RecuriterSkills();
 	                skill.setSkillName(skillDTO.getSkillName());
-	                skill.setMinimumExperience(skillDTO.getMinimumExperience());
+	        //       skill.setMinimumExperience(skillDTO.getMinimumExperience());
 	                updatedSkills.add(skill);
 	            }
 	            existingJob.setSkillsRequired(updatedSkills);

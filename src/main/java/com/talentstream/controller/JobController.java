@@ -191,7 +191,7 @@ public class JobController {
     private RecuriterSkillsDTO convertSkillsEntityToDTO(RecuriterSkills skill) {
         RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
         skillDTO.setSkillName(skill.getSkillName());
-        skillDTO.setMinimumExperience(skill.getMinimumExperience());
+   //     skillDTO.setMinimumExperience(skill.getMinimumExperience());
         return skillDTO;
     }
 

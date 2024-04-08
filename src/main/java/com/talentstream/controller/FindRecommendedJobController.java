@@ -105,7 +105,7 @@ public class FindRecommendedJobController {
         jobDTO.setEmail(job.getJobRecruiter().getEmail());
         jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
         jobDTO.setSpecialization(job.getSpecialization());
-        jobDTO.setJobHighlights(job.getJobHighlights());
+    //    jobDTO.setJobHighlights(job.getJobHighlights());
         jobDTO.setDescription(job.getDescription());
         jobDTO.setCreationDate(job.getCreationDate());
         jobDTO.setIsSaved(job.getIsSaved());
@@ -120,7 +120,7 @@ public class FindRecommendedJobController {
     private RecuriterSkillsDTO convertSkillsEntityToDTO(RecuriterSkills skill) {
         RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
         skillDTO.setSkillName(skill.getSkillName());
-        skillDTO.setMinimumExperience(skill.getMinimumExperience());
+      //  skillDTO.setMinimumExperience(skill.getMinimumExperience());
         return skillDTO;
     }
     
