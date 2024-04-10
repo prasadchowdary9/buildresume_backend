@@ -15,9 +15,9 @@ public class CompanyProfileDTO {
 	@NotBlank(message = "Website cannot be blank")
     @Pattern(regexp = "^(.+)\\.(com|in|org)$", message = "Website must end with .com, .in, or .org")
     private String website;
-	@Pattern(regexp = "^\\d{10}$", message = "Phone number should be 10 digits")
+	//@Pattern(regexp = "^\\d{10}$", message = "Phone number should be 10 digits")
     private String phoneNumber;
-	@Email(message = "Invalid email format")
+	//@Email(message = "Invalid email format")
     private String email;
 	@NotBlank(message = "Head office cannot be blank")
     @Size(min = 3, message = "Head office address must be at least 3 characters")
