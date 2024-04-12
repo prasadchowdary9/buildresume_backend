@@ -16,16 +16,12 @@ import com.talentstream.repository.ApplicantProfileRepository;
 import com.talentstream.repository.JobRepository;
 import com.talentstream.exception.CustomException;
 import com.talentstream.repository.RegisterRepository;
-import com.talentstream.repository.SavedJobRepository;
 
 @Service
 public class FinRecommendedJobService {
 
 	@Autowired
     private JobRepository jobRepository;
-	
-	@Autowired
-	private SavedJobRepository savedJobRepository;
 
     @Autowired
     private ApplicantProfileRepository applicantRepository;
@@ -90,59 +86,8 @@ public class FinRecommendedJobService {
         }
     }
 
-//   public List<Job> findJobsMatchingApplicantProfile(ApplicantProfile applicantProfile) {
-//	    try {
-//	        Set<String> lowercaseApplicantSkillNames = applicantProfile.getSkillsRequired().stream()
-//	                .map(skill -> skill.getSkillName().toLowerCase())
-//	                .collect(Collectors.toSet());
-//
-//	        Set<String> preferredLocations = applicantProfile.getPreferredJobLocations();
-//	        Integer experience = null;
-//
-//	        try {
-//	            experience = Integer.parseInt(applicantProfile.getExperience());
-//	        } catch (NumberFormatException e) {
-//	            System.out.println("Warning: Unable to parse experience as Integer");
-//	        }
-//
-//	        String specialization = applicantProfile.getSpecialization();
-//
-//	        System.out.println(applicantProfile.getApplicant().getId());
-//	        List<Object[]> result = jobRepository.findJobsMatchingApplicantProfile(
-//	        		applicantProfile.getApplicant().getId(),
-//	                lowercaseApplicantSkillNames,
-//	                preferredLocations,
-//	                experience,
-//	                specialization
-//	        );
-//
-//	        List<Job> matchingJobs = new ArrayList<>();
-//	        for (Object[] array : result) {
-//               Job job = (Job) array[0];
-//               job.setIsSaved((String)array[1]);
-//            //   System.out.println(job.getId()+"-----"+job.getIsSaved());
-//               matchingJobs.add(job);
-//              // System.out.println(job.getIsSaved());
-//           }
-//           matchingJobs = matchingJobs.stream()
-//                   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !job.getJobStatus().equalsIgnoreCase("Already Applied")) // Assuming status is stored as a String
-//                   
-//                   .collect(Collectors.toList());
-//
-//	        return matchingJobs;
-//
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	        throw new CustomException("Error while finding recommended jobs", HttpStatus.INTERNAL_SERVER_ERROR);
-//	    }
-//	}
-   
    public List<Job> findJobsMatchingApplicantProfile(ApplicantProfile applicantProfile) {
 	    try {
-	        // Retrieve saved jobs associated with the applicant
-	        List<Long> savedJobIds = savedJobRepository.findSavedJobIdsByApplicantId(applicantProfile.getApplicant().getId());
-
-	        // Retrieve matching jobs based on the applicant's profile
 	        Set<String> lowercaseApplicantSkillNames = applicantProfile.getSkillsRequired().stream()
 	                .map(skill -> skill.getSkillName().toLowerCase())
 	                .collect(Collectors.toSet());
@@ -158,23 +103,30 @@ public class FinRecommendedJobService {
 
 	        String specialization = applicantProfile.getSpecialization();
 
+	        System.out.println(applicantProfile.getApplicant().getId());
 	        List<Object[]> result = jobRepository.findJobsMatchingApplicantProfile(
-	            applicantProfile.getApplicant().getId(),
-	            lowercaseApplicantSkillNames,
-	            preferredLocations,
-	            experience,
-	            specialization
+	        		applicantProfile.getApplicant().getId(),
+	                lowercaseApplicantSkillNames,
+	                preferredLocations,
+	                experience,
+	                specialization
 	        );
 
-	        // Filter matching jobs
-	        List<Job> matchingJobs = result.stream()
-	                .map(array -> (Job) array[0])
-	                .filter(job -> job.getStatus().equalsIgnoreCase("active"))
-	                .filter(job -> !job.getJobStatus().equalsIgnoreCase("Already Applied"))
-	                .filter(job -> !savedJobIds.contains(job.getId()))
-	                .collect(Collectors.toList());
+	        List<Job> matchingJobs = new ArrayList<>();
+	        for (Object[] array : result) {
+               Job job = (Job) array[0];
+               job.setIsSaved((String)array[1]);
+            //   System.out.println(job.getId()+"-----"+job.getIsSaved());
+               matchingJobs.add(job);
+              // System.out.println(job.getIsSaved());
+           }
+           matchingJobs = matchingJobs.stream()
+                   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !job.getJobStatus().equalsIgnoreCase("Already Applied")) // Assuming status is stored as a String
+                   
+                   .collect(Collectors.toList());
 
 	        return matchingJobs;
+
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	        throw new CustomException("Error while finding recommended jobs", HttpStatus.INTERNAL_SERVER_ERROR);
