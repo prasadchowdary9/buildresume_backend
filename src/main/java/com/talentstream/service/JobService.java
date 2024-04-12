@@ -143,7 +143,7 @@ public class JobService {
         job.setMinimumQualification(jobDTO.getMinimumQualification());
         job.setSpecialization(jobDTO.getSpecialization());
         job.setSkillsRequired(convertSkillsDTOToEntity(jobDTO.getSkillsRequired()));
-        job.setJobHighlights(jobDTO.getJobHighlights());
+ //       job.setJobHighlights(jobDTO.getJobHighlights());
         job.setDescription(jobDTO.getDescription());
         job.setCreationDate(jobDTO.getCreationDate());
               //  job.setUploadDocument(Base64.getDecoder().decode(jobDTO.getUploadDocument())); // Decode base64 string
@@ -156,7 +156,7 @@ public class JobService {
 		            .map(skillDTO -> {
 		                RecuriterSkills skill = new RecuriterSkills();
 		                skill.setSkillName(skillDTO.getSkillName());
-		                skill.setMinimumExperience(skillDTO.getMinimumExperience());
+		   //             skill.setMinimumExperience(skillDTO.getMinimumExperience());
 		                return skill;
 		            })
 		            .collect(Collectors.toSet());
@@ -168,13 +168,22 @@ public class JobService {
  
 	            // Validate newStatus (optional, depending on your requirements)
  
-	            job.setStatus(newStatus);
+	            job.setStatus(newStatus.toLowerCase());
 	            jobRepository.save(job);
 	        } catch (CustomException ce) {
 	            throw ce;
 	        } catch (Exception e) {
 	            throw new CustomException("Error changing job status", HttpStatus.INTERNAL_SERVER_ERROR);
 	        }
+	    }
+	
+
+	  public List<Job> getActiveJobsForRecruiter(Long recruiterId) {
+	        return jobRepository.findJobsByRecruiterAndStatus(recruiterId, "active");
+	    }
+
+	    public List<Job> getInactiveJobsForRecruiter(Long recruiterId) {
+	        return jobRepository.findJobsByRecruiterAndStatus(recruiterId, "inactive");
 	    }
 	 public String getJobStatus(Long jobId) {
 	        Optional<Job> optionalJob = jobRepository.findById(jobId);
@@ -203,7 +212,7 @@ public class JobService {
 	            existingJob.setIndustryType(jobDTO.getIndustryType());
 	            existingJob.setMinimumQualification(jobDTO.getMinimumQualification());
 	            existingJob.setSpecialization(jobDTO.getSpecialization());
-	            existingJob.setJobHighlights(jobDTO.getJobHighlights());
+	     //       existingJob.setJobHighlights(jobDTO.getJobHighlights());
 	            existingJob.setDescription(jobDTO.getDescription());
 	           // existingJob.setSaveJobStatus(jobDTO.getSaveJobStatus());
  
@@ -212,7 +221,7 @@ public class JobService {
 	            for (RecuriterSkillsDTO skillDTO : jobDTO.getSkillsRequired()) {
 	                RecuriterSkills skill = new RecuriterSkills();
 	                skill.setSkillName(skillDTO.getSkillName());
-	                skill.setMinimumExperience(skillDTO.getMinimumExperience());
+	        //       skill.setMinimumExperience(skillDTO.getMinimumExperience());
 	                updatedSkills.add(skill);
 	            }
 	            existingJob.setSkillsRequired(updatedSkills);

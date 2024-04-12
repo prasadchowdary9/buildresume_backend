@@ -124,15 +124,15 @@ public class Job {
         inverseJoinColumns = @JoinColumn(name = "skill_id")
     )
        private Set<RecuriterSkills> skillsRequired=new HashSet<>();
-    public void addSkillWithMinimumExperience(String skillName, int minimumExperience) {
+    public void addSkillWithMinimumExperience(String skillName) {
         RecuriterSkills skill = new  RecuriterSkills();
         skill.setSkillName(skillName);
-        skill.setMinimumExperience(minimumExperience);
+      //  skill.setMinimumExperience(minimumExperience);
         skillsRequired.add(skill);
 
     }
 
-    private String jobHighlights;
+ //   private String jobHighlights;
     @Column(nullable = false, length = 2000)
     private String description;
 
@@ -148,7 +148,7 @@ public class Job {
 	private String jobStatus="Apply Now";
 
 	@Column(nullable = false)
-    private String status = "active"; // New field with a default value of "active"
+    private String status = "Active"; // New field with a default value of "active"
 
 	@Column(columnDefinition = "int default 0")
     private int alertCount;
@@ -270,13 +270,13 @@ public int getAlertCount() {
 		this.specialization = specialization;
 	}
  
-	public String getJobHighlights() {
-		return jobHighlights;
-	}
-
-	public void setJobHighlights(String jobHighlights) {
-		this.jobHighlights = jobHighlights;
-	}
+//	public String getJobHighlights() {
+//		return jobHighlights;
+//	}
+//
+//	public void setJobHighlights(String jobHighlights) {
+//		this.jobHighlights = jobHighlights;
+//	}
 
 	public Set<RecuriterSkills> getSkillsRequired() {
 		return skillsRequired;
