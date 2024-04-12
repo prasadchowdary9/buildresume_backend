@@ -71,13 +71,14 @@ public class FinRecommendedJobService {
                     .map(skill -> skill.getSkillName().toLowerCase())
                     .collect(Collectors.toSet());
  
-
-            List<Job> matchingJobs = findJobsMatchingApplicantProfile(applicant);
-            long recommendedJobCount = matchingJobs.size();
+            List<Job> recommendedJobs = jobRepository.findBySkillsRequiredIgnoreCaseAndSkillNameIn(lowercaseApplicantSkillNames);
             
-         
+         // Filter the matching jobs by status
+            recommendedJobs = recommendedJobs.stream()
+                    .filter(job -> job.getStatus().equalsIgnoreCase("active")) // Assuming status is stored as a String
+                    .collect(Collectors.toList());
             
-            return recommendedJobCount;
+            return recommendedJobs.size();
         } catch (Exception e) {
         	 e.printStackTrace();
             // Handle exceptions as needed
@@ -110,19 +111,18 @@ public class FinRecommendedJobService {
 	                experience,
 	                specialization
 	        );
-            
+
 	        List<Job> matchingJobs = new ArrayList<>();
 	        for (Object[] array : result) {
                Job job = (Job) array[0];
                job.setIsSaved((String)array[1]);
-               String isSaved = (String) array[1];
-              System.out.println(job.getId()+"-----"+job.getIsSaved());
-              job.setIsSaved(isSaved != null ? isSaved : ""); 
+            //   System.out.println(job.getId()+"-----"+job.getIsSaved());
                matchingJobs.add(job);
-               System.out.println(job.getIsSaved());
+              // System.out.println(job.getIsSaved());
            }
            matchingJobs = matchingJobs.stream()
-                   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !job.getJobStatus().equalsIgnoreCase("Already Applied") && !job.getIsSaved().equalsIgnoreCase("saved")) // Assuming status is stored as a String
+                   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !job.getJobStatus().equalsIgnoreCase("Already Applied")) // Assuming status is stored as a String
+                   
                    .collect(Collectors.toList());
 
 	        return matchingJobs;
@@ -133,7 +133,6 @@ public class FinRecommendedJobService {
 	    }
 	}
 }
-
 
 
 

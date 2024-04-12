@@ -94,7 +94,7 @@ public class JobDTO {
 		@NotBlank(message = "MinimumQualification required")
 		private String minimumQualification;
 		
-	//	@Size(min = 3,  message = "Specialization atleast be 3 characters")
+//		@Size(min = 3,  message = "Specialization atleast be 3 characters")
 		private String specialization;
 		
 		@NotBlank(message = "Location required")
@@ -104,7 +104,7 @@ public class JobDTO {
 		private String industryType;
 		
 //		@Size(min = 2, message = "jobHighlights atleast be 2 characters")
-//		private String jobHighlights;
+		private String jobHighlights;
 		
 		@NotBlank(message = "JobType required")
 		private String employeeType;
@@ -209,12 +209,12 @@ public class JobDTO {
 		public void setSkillsRequired(Set<RecuriterSkillsDTO> skillsDTOList) {
 			this.skillsRequired = skillsDTOList;
 		}
-//		public String getJobHighlights() {
-//			return jobHighlights;
-//		}
-//		public void setJobHighlights(String jobHighlights) {
-//			this.jobHighlights = jobHighlights;
-//		}
+		public String getJobHighlights() {
+			return jobHighlights;
+		}
+		public void setJobHighlights(String jobHighlights) {
+			this.jobHighlights = jobHighlights;
+		}
 		public String getDescription() {
 			return description;
 		}
