@@ -81,7 +81,7 @@ public class JobDTO {
 	    }
 		@NotBlank(message = "MinimumQualification required")
 		private String minimumQualification;
-		@Size(min = 3,  message = "Specialization atleast be 3 characters")
+		//@Size(min = 3,  message = "Specialization atleast be 3 characters")
 		private String specialization;
 		@NotBlank(message = "Location required")
 		private String location;
