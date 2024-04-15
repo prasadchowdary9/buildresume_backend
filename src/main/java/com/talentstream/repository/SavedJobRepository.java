@@ -20,8 +20,8 @@ public interface SavedJobRepository extends JpaRepository<SavedJob, Long> {
 	
 	SavedJob findByApplicantAndJob(Applicant applicant, Job job);
 	
-	@Query(value = "SELECT COUNT(*) FROM applicant_savedjob WHERE applicantregistration_id = :applicantId", nativeQuery = true)
-    long countByApplicantId(@Param("applicantId") long applicantId);
+	@Query(value = "SELECT COUNT(*) FROM applicant_savedjob WHERE applicantregistration_id = :applicantId AND save_job_status = 'saved'", nativeQuery = true)
+	long countByApplicantId(@Param("applicantId") long applicantId);
 	
 	boolean existsByApplicantIdAndJobId(long applicantId, long jobId);
 }
