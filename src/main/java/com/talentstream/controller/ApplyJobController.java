@@ -61,6 +61,7 @@ public class ApplyJobController {
 		 try {
 	
             String result = applyJobService.ApplicantApplyJob(applicantId, jobId);
+            
             return ResponseEntity.ok(result);
         } catch (CustomException e) {
             return ResponseEntity.status(e.getStatus()).body(e.getMessage());
