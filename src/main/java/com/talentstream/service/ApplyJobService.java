@@ -31,6 +31,7 @@ import com.talentstream.entity.AppliedApplicantInfo;
 import java.util.stream.Collectors;
 import com.talentstream.entity.JobRecruiter;
 import com.talentstream.entity.RecuriterSkills;
+import com.talentstream.entity.SavedJob;
 import com.talentstream.repository.AlertsRepository;
 import com.talentstream.repository.ApplicantProfileRepository;
 import com.talentstream.repository.ApplicantStatusHistoryRepository;
@@ -38,6 +39,7 @@ import com.talentstream.repository.ApplyJobRepository;
 import com.talentstream.repository.JobRepository;
 import com.talentstream.repository.JobRecruiterRepository;
 import com.talentstream.repository.RegisterRepository;
+import com.talentstream.repository.SavedJobRepository;
 import com.talentstream.repository.ScheduleInterviewRepository; 
 import jakarta.persistence.EntityNotFoundException;
 import com.talentstream.exception.CustomException;
@@ -63,6 +65,8 @@ public class ApplyJobService {
 	    private JobRecruiterRepository jobRecruiterRepository;
 	@Autowired
 	private ApplicantProfileRepository applicantProfileRepo;
+	@Autowired
+    private SavedJobRepository savedJobRepository;
 public String ApplicantApplyJob(long  applicantId, long jobId) {
 	    	
 	    	try {
@@ -81,6 +85,18 @@ public String ApplicantApplyJob(long  applicantId, long jobId) {
 	    	            applyJob.setApplicant(applicant);
 	    	            applyJob.setJob(job);
 	    	            applyJobRepository.save(applyJob);
+	    	       
+	    	                if (savedJobRepository.existsByApplicantIdAndJobId(applicant.getId(), job.getId())) {
+	    	               	    System.out.println("saved changed");
+	    	               	 SavedJob savedJob = savedJobRepository.findByApplicantAndJob(applicant, job);
+	    	               	    
+	    	                    savedJob.setApplicant(applicant);                 
+	    	                    savedJob.setSaveJobStatus("removed from saved");
+	    	                    jobRepository.save(job);
+	    	                    savedJob.setJob(job);
+	    	                    savedJobRepository.save(savedJob);
+	    	                } 
+	    	              
 	    	            
 	    	            job.setJobStatus("Already Applied");
 	    	            job.setAlertCount(job.getAlertCount()+1);

@@ -73,11 +73,18 @@ public class SavedJobService {
         try {
             List<SavedJob> savedJobs = savedJobRepository.findByApplicantId(applicantId);
 
+            System.out.println(savedJobs.get(0).getSaveJobStatus());
             List<Job> result = savedJobs.stream()
+            		.filter(savedJob -> {
+            		    Job job = savedJob.getJob();
+            		    System.out.println(job.getJobStatus());
+            		    return job != null 
+            		           && !job.getJobStatus().trim().equalsIgnoreCase("Already Applied") 
+            		           && isJobSavedByApplicant(job.getId(), applicantId);
+            		})
                     .map(SavedJob::getJob)
-                    .filter(job -> !job.getJobStatus().equalsIgnoreCase("Already Applied") && !isJobSavedByApplicant(job.getId(), applicantId))
                     .collect(Collectors.toList());
-
+            System.out.println(result.size());
             return result;
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,7 +93,7 @@ public class SavedJobService {
     }
     
     private boolean isJobSavedByApplicant(long jobId, long applicantId) {
-        return savedJobRepository.existsByApplicantIdAndJobId(jobId, applicantId);
+        return savedJobRepository.existsByApplicantIdAndJobId(applicantId, jobId);
     }
     
 public long countSavedJobsForApplicant(long applicantId) {

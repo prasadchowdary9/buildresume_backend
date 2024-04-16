@@ -33,6 +33,14 @@ public class ViewJobController {
 	 
 		   }  
 	   
+	   @GetMapping("/recruiter/viewjob/{jobId}")
+	    public ResponseEntity<?> getJobDetailsForApplicant1(
+	                      @PathVariable Long jobId) {
+		   ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicant(jobId);
+	        return ResponseEntity.ok(jobDetails);
+	 
+		   } 
+	   
 	   @GetMapping("/applicant/viewjob/{jobId}/{applicantId}")
 	    public ResponseEntity<?> getJobDetailsForApplicant(
 	            @PathVariable Long jobId,
