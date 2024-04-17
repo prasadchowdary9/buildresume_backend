@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.talentstream.entity.Job;
 import com.talentstream.exception.CustomException;
@@ -286,4 +287,32 @@ public class JobController {
     public ResponseEntity<?> getInactiveJobsForRecruiter(@PathVariable Long recruiterId) {
         return ResponseEntity.ok(jobService.getInactiveJobsForRecruiter(recruiterId));
     }
+    
+//    @PostMapping("/recruiters/cloneJob/{jobId}/{jobRecruiterId}")
+//    public ResponseEntity<String> cloneJob(@PathVariable Long jobId,@PathVariable Long jobRecruiterId) {
+//        try {
+//            String result = jobService.cloneJob(jobId,jobRecruiterId);
+//            return ResponseEntity.ok(result);
+//        } catch (CustomException ce) {
+//            return ResponseEntity.status(ce.getStatus()).body(null);
+//        } catch (Exception e) {
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+//        }
+//    }
+
+    @PostMapping("/recruiters/cloneJob/{jobId}/{jobRecruiterId}")
+    public ResponseEntity<Map<String, String>> cloneJob(@PathVariable Long jobId, @PathVariable Long jobRecruiterId) {
+    	try {
+            String result = jobService.cloneJob(jobId, jobRecruiterId);
+            Map<String, String> response = new HashMap<>();
+            response.put("message", result);
+            return ResponseEntity.ok(response);
+        } catch (CustomException ce) {
+            return ResponseEntity.status(ce.getStatus()).body(null);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    
 }
