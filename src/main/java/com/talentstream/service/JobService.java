@@ -10,6 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.HashSet;
@@ -31,6 +32,10 @@ import com.talentstream.repository.RecuriterSkillsRepository;
 public class JobService {
 	
 	private final CompanyProfileRepository companyProfileRepository;
+	
+	private final ModelMapper modelMapper = new ModelMapper();
+
+	
 	JobRepository jobRepository;	   
 	    private RecuriterSkillsRepository skillsRepository;
 	    
@@ -233,4 +238,49 @@ public class JobService {
 	            throw new CustomException("Job not found", HttpStatus.NOT_FOUND);
 	        }
 	    }
+	
+	public String cloneJob(Long jobId,Long jobRecruiterId) {
+	    // Fetch the details of the existing job
+	    Job existingJob = jobRepository.findById(jobId).orElseThrow(() -> new CustomException("Job not found", HttpStatus.NOT_FOUND));
+	    JobRecruiter jobRecruiter = jobRecruiterRepository.findByRecruiterId(jobRecruiterId);
+
+	    // Create a new Job entity by copying the details of the existing job
+	    Job clonedJob = new Job();
+	    // Copy details like title, description, salary, etc.
+	    // Assign a new ID to the cloned job
+	    clonedJob.setId(null); // This will generate a new ID automatically
+	    clonedJob.setJobTitle(existingJob.getJobTitle());
+	    clonedJob.setMaximumExperience(existingJob.getMaximumExperience());
+	    clonedJob.setMinimumExperience(existingJob.getMinimumExperience());
+	    clonedJob.setMaxSalary(existingJob.getMaxSalary());
+	    clonedJob.setMinSalary(existingJob.getMinSalary());
+	    clonedJob.setLocation(existingJob.getLocation());
+	    clonedJob.setEmployeeType(existingJob.getEmployeeType());
+	    clonedJob.setIndustryType(existingJob.getIndustryType());
+	    clonedJob.setMinimumQualification(existingJob.getMinimumQualification());
+	    clonedJob.setSpecialization(existingJob.getSpecialization());
+	 // Update skillsRequired - Assuming jobDTO has a similar structure as Job
+        Set<RecuriterSkills> updatedSkills = new HashSet<>();
+        for (RecuriterSkills skillDTO : existingJob.getSkillsRequired()) {
+            RecuriterSkills skill = new RecuriterSkills();
+            skill.setSkillName(skillDTO.getSkillName());
+    //       skill.setMinimumExperience(skillDTO.getMinimumExperience());
+            updatedSkills.add(skill);
+        }
+	    clonedJob.setSkillsRequired(updatedSkills);
+	    clonedJob.setDescription(existingJob.getDescription());
+	    clonedJob.setJobRecruiter(jobRecruiter);
+	    // Save the cloned job to the database
+	    System.out.println("About to saved");
+	    try {
+	    Job savedClonedJob = jobRepository.save(clonedJob);
+	    }catch(Exception e) {
+	    	 System.out.println(e.getMessage());
+	    }
+	    System.out.println("jOB sAVED");
+	    // Convert the saved cloned job entity to DTO and return
+	    return "Job Reposted successfully";
+	}
+
+	
 }
