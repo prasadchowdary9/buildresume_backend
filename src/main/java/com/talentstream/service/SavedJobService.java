@@ -13,6 +13,7 @@ import com.talentstream.dto.JobDTO;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.Job;
 import com.talentstream.entity.SavedJob;
+import com.talentstream.repository.ApplyJobRepository;
 import com.talentstream.repository.JobRepository;
 import com.talentstream.repository.RegisterRepository;
 import com.talentstream.repository.SavedJobRepository;
@@ -27,6 +28,9 @@ public class SavedJobService {
     
     @Autowired
     private RegisterRepository applicantRepository;
+    
+    @Autowired
+	   private ApplyJobRepository applyJobRepository;
 
     public void saveJobForApplicant(long applicantId, long jobId) throws Exception {
     	 try {
@@ -73,13 +77,14 @@ public class SavedJobService {
         try {
             List<SavedJob> savedJobs = savedJobRepository.findByApplicantId(applicantId);
 
+            Applicant applicant = applicantRepository.findById(applicantId);
             System.out.println(savedJobs.get(0).getSaveJobStatus());
             List<Job> result = savedJobs.stream()
             		.filter(savedJob -> {
             		    Job job = savedJob.getJob();
             		    System.out.println(job.getJobStatus());
             		    return job != null 
-            		           && !job.getJobStatus().trim().equalsIgnoreCase("Already Applied") 
+            		    		&& !applyJobRepository.existsByApplicantAndJob(applicant, job) 
             		           && isJobSavedByApplicant(job.getId(), applicantId);
             		})
                     .map(SavedJob::getJob)
