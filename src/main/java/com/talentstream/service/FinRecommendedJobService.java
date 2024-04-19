@@ -13,9 +13,11 @@ import com.talentstream.entity.ApplicantProfile;
 import com.talentstream.entity.ApplicantSkills;
 import com.talentstream.entity.Job;
 import com.talentstream.repository.ApplicantProfileRepository;
+import com.talentstream.repository.ApplyJobRepository;
 import com.talentstream.repository.JobRepository;
 import com.talentstream.exception.CustomException;
 import com.talentstream.repository.RegisterRepository;
+import com.talentstream.repository.SavedJobRepository;
 
 @Service
 public class FinRecommendedJobService {
@@ -29,7 +31,18 @@ public class FinRecommendedJobService {
 	@Autowired
     private RegisterRepository registerRepository;
 	
+	@Autowired 
+	private JobService jobService;
+	
+	@Autowired
+    private RegisterRepository applicantRepository1;
 
+	@Autowired
+	   private ApplyJobRepository applyJobRepository;
+	
+	@Autowired
+    private SavedJobRepository savedJobRepository;
+	
     public List<Job> findJobsMatchingApplicantSkills(long applicantId) {
     	try {
             ApplicantProfile applicantProfile = applicantRepository.findByApplicantId(applicantId);
@@ -62,7 +75,8 @@ public class FinRecommendedJobService {
         	Applicant applicant1 = registerRepository.findById(applicantId);
             if (optionalApplicant.isEmpty() || !applicant1.getAppicantStatus().equalsIgnoreCase("active")) {
                 // Return a specific indicator, for example, -1 to signify that the applicant is not found
-                return 5;
+            	List<Job> mathedJobs=jobService.getJobsByPromoteState(applicantId,"yes");
+            	return mathedJobs.size();
             }
  
             ApplicantProfile applicant = optionalApplicant.get();
@@ -121,8 +135,10 @@ public class FinRecommendedJobService {
                matchingJobs.add(job);
                System.out.println(job.getIsSaved());
            }
+	        long applicantId=applicantProfile.getApplicant().getId();
+	        Applicant applicant = applicantRepository1.findById(applicantId);
            matchingJobs = matchingJobs.stream()
-                   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !job.getJobStatus().equalsIgnoreCase("Already Applied") && !job.getIsSaved().equalsIgnoreCase("saved")) // Assuming status is stored as a String
+        		   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !applyJobRepository.existsByApplicantAndJob(applicant, job) && !isJobSavedByApplicant(job.getId(), applicantId)) // Assuming status is stored as a String
                    .collect(Collectors.toList());
 
 	        return matchingJobs;
@@ -132,4 +148,7 @@ public class FinRecommendedJobService {
 	        throw new CustomException("Error while finding recommended jobs", HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
 	}
+   private boolean isJobSavedByApplicant(long jobId, long applicantId) {
+       return savedJobRepository.existsByApplicantIdAndJobId(applicantId, jobId);
+   }
 }
