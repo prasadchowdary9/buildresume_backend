@@ -21,11 +21,13 @@ import com.talentstream.entity.JobRecruiter;
 import com.talentstream.entity.JobSearchCriteria;
 import com.talentstream.entity.JobSpecifications;
 import com.talentstream.entity.RecuriterSkills;
+import com.talentstream.entity.SavedJob;
 import com.talentstream.exception.CustomException;
 import com.talentstream.repository.CompanyProfileRepository;
 import com.talentstream.repository.JobRecruiterRepository;
 import com.talentstream.repository.JobRepository;
 import com.talentstream.repository.RecuriterSkillsRepository;
+import com.talentstream.repository.SavedJobRepository;
 
 @Service
 public class JobService {
@@ -36,6 +38,9 @@ public class JobService {
 	    
 	    @Autowired
 	    JobRecruiterRepository jobRecruiterRepository;
+	    
+	    @Autowired
+	    private SavedJobRepository savedJobRepository;
 	    
     @Autowired
     public JobService(JobRepository jobRepository, RecuriterSkillsRepository skillsRepository,CompanyProfileRepository companyProfileRepository) {
@@ -65,16 +70,28 @@ public class JobService {
          }
     }
     public List<Job> getJobsByPromoteState(long applicantId,String promote) {
+    	List<SavedJob> savedJobs = savedJobRepository.findByApplicantId(applicantId);
+    	System.out.println(savedJobs.size());
     	List<Object[]> result =  jobRepository.findByPromote(applicantId,promote);
         List<Job> matchingJobs = new ArrayList<>();
+        List<Long> savedJobsIds=new ArrayList<>();
+        
+        for(SavedJob saved: savedJobs) {
+        	System.out.println("Saved Jobs Id "+saved.getJob().getId());
+        	savedJobsIds.add(saved.getJob().getId());
+        }
+        
         for (Object[] array : result) {
             Job job = (Job) array[0];
             job.setIsSaved((String)array[1]);
-            System.out.println(job);
-            System.out.println(job.getId()+"-----"+job.getIsSaved());
-            matchingJobs.add(job);
-            System.out.println(job.getIsSaved());
+            
+            	if(!savedJobsIds.contains(job.getId())) {
+                System.out.println(job.getId());
+            	matchingJobs.add(job);
+            }
+           
         }
+        
         return matchingJobs;
     }
 
