@@ -246,7 +246,7 @@ public void updatePassword(String userEmail, String newPassword) {
             
  
             // Define the endpoint URL
-            String resumeRegisterUrl = "http://localhost:5173/api/auth/register";
+            String resumeRegisterUrl = "http://43.204.125.6:5173/api/auth/register";
  
             try {
             
