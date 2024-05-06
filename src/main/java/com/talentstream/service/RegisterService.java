@@ -240,13 +240,13 @@ public void updatePassword(String userEmail, String newPassword) {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
  
-            
+            System.setProperty("javax.net.ssl.trustStoreType", "null");
             // Create HttpEntity with headers and resume body
             HttpEntity<ResumeRegisterDto> requestEntity = new HttpEntity<>(resume, headers);
             
  
             // Define the endpoint URL
-            String resumeRegisterUrl = "http://43.204.125.6:5173/api/auth/register";
+            String resumeRegisterUrl = "https://rb.chalowithcharan.com:5173/api/auth/register";
  
             try {
             
