@@ -102,7 +102,7 @@ public Applicant googleSignIn(String email) {
             // If the applicant does not exist, create a new one
             Applicant newApplicant = new Applicant();
             newApplicant.setEmail(email);
- 		newApplicant.setAppicantStatus("Active");
+ 		//newApplicant.setAppicantStatus("Active");
             // Generate a random number as the password
             String randomPassword = generateRandomPassword();
             newApplicant.setPassword(passwordEncoder.encode(randomPassword));

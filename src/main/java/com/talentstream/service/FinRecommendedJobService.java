@@ -47,7 +47,8 @@ public class FinRecommendedJobService {
     	try {
             ApplicantProfile applicantProfile = applicantRepository.findByApplicantId(applicantId);
             Applicant applicant = registerRepository.findById(applicantId);
-            if (applicantProfile == null || !applicant.getAppicantStatus().equalsIgnoreCase("active")) {
+         //   if (applicantProfile == null || !applicant.getAppicantStatus().equalsIgnoreCase("active")) {
+            if (applicantProfile == null) {
                 return Collections.emptyList();
             }
  
@@ -73,7 +74,9 @@ public class FinRecommendedJobService {
         try {
         	Optional<ApplicantProfile> optionalApplicant = applicantRepository.findByApplicantIdWithSkills(applicantId);
         	Applicant applicant1 = registerRepository.findById(applicantId);
-            if (optionalApplicant.isEmpty() || !applicant1.getAppicantStatus().equalsIgnoreCase("active")) {
+            //if (optionalApplicant.isEmpty() )|| !applicant1.getAppicantStatus().equalsIgnoreCase("active")){ 
+            	 if (optionalApplicant.isEmpty() )
+            	{
                 // Return a specific indicator, for example, -1 to signify that the applicant is not found
             	List<Job> mathedJobs=jobService.getJobsByPromoteState(applicantId,"yes");
             	return mathedJobs.size();
@@ -138,7 +141,9 @@ public class FinRecommendedJobService {
 	        long applicantId=applicantProfile.getApplicant().getId();
 	        Applicant applicant = applicantRepository1.findById(applicantId);
            matchingJobs = matchingJobs.stream()
-        		   .filter(job -> job.getStatus().equalsIgnoreCase("active") && !applyJobRepository.existsByApplicantAndJob(applicant, job) && !isJobSavedByApplicant(job.getId(), applicantId)) // Assuming status is stored as a String
+        		   .filter(job ->
+//        				    job.getStatus().equalsIgnoreCase("active") && 
+        				   !applyJobRepository.existsByApplicantAndJob(applicant, job) && !isJobSavedByApplicant(job.getId(), applicantId)) // Assuming status is stored as a String
                    .collect(Collectors.toList());
 
 	        return matchingJobs;
