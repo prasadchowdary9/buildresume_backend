@@ -36,9 +36,9 @@ public class Applicant {
 	@JsonIgnore
 	private Set<Alerts> alerts=new HashSet<>();
     
-    public Applicant() {
-        this.appicantStatus = "Active";
-    }
+//    public Applicant() {
+//        this.appicantStatus = "Active";
+//    }
     public Set<Alerts> getAlerts() {
 		return alerts;
 	}
@@ -48,7 +48,7 @@ public class Applicant {
     @Column(columnDefinition = "int default 0")
     private int alertCount;
 
-private String appicantStatus="Active";
+//private String appicantStatus="Active";
 @Column(name = "resume_id", columnDefinition = "VARCHAR(255) DEFAULT 'Not available'")
 private String resumeId = "Not available";
  
@@ -61,14 +61,14 @@ private String resumeId = "Not available";
 public void setResumeId(String resumeId) {
 	this.resumeId = resumeId;
 }
-    public String getAppicantStatus() {
-		return appicantStatus;
-	}
- 
-	public void setAppicantStatus(String appicantStatus) {
-		this.appicantStatus = appicantStatus;
- 
-	}
+//    public String getAppicantStatus() {
+//		return appicantStatus;
+//	}
+// 
+//	public void setAppicantStatus(String appicantStatus) {
+//		this.appicantStatus = appicantStatus;
+// 
+//	}
 	public long getId() {
 		return id;
 	}
