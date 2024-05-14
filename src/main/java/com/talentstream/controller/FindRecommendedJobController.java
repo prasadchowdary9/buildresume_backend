@@ -48,8 +48,9 @@ public class FindRecommendedJobController {
 	            long applicantIdLong = Long.parseLong(applicantId);
 	            ApplicantProfile applicantProfile = applicantRepository.findByApplicantId(applicantIdLong);
 
-	            if (applicantProfile == null || !applicantProfile.getApplicant().getAppicantStatus().equalsIgnoreCase("active")) {
-	                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
+	        //    if (applicantProfile == null || !applicantProfile.getApplicant().getAppicantStatus().equalsIgnoreCase("active")) {
+	            if (applicantProfile == null) {    
+	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
 	            }
 
 	            List<Job> recommendedJobs = finJobService.findJobsMatchingApplicantProfile(applicantProfile);

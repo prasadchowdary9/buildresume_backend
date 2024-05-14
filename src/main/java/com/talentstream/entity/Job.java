@@ -148,7 +148,7 @@ public class Job {
 	private String jobStatus="Apply Now";
 
 	@Column(nullable = false)
-    private String status = "Active"; // New field with a default value of "active"
+    private String status = "active"; // New field with a default value of "active"
 
 	@Column(columnDefinition = "int default 0")
     private int alertCount;
