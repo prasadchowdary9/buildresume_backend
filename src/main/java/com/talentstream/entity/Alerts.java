@@ -74,8 +74,16 @@ public class Alerts {
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
+	@Column
+	private boolean seen;
 	
+	public boolean isSeen() {
+		return seen;
+	}
 	
+	public void setSeen(boolean seen) {
+		this.seen = seen;
+	}
 }
 
 //import java.time.LocalDate;
