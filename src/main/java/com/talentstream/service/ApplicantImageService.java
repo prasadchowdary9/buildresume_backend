@@ -82,7 +82,6 @@ public class ApplicantImageService {
       	  } else {
    
       	    // Logic for S3 upload
-      	    String fileName = imageFile.getOriginalFilename(); // Get original filename
       	    String objectKey =  String.valueOf(applicantId)+".jpg"; // Generate unique object key
    
       	    try {
@@ -95,12 +94,6 @@ public class ApplicantImageService {
       	          new PutObjectRequest(bucketName, objectKey, imageFile.getInputStream(), createObjectMetadata(imageFile))
       	      );
       	      
-      	    
-      	      // Update applicant image entity (optional)
-      	      ApplicantImage applicantImage = new ApplicantImage();
-      	      applicantImage.setImagename(objectKey);
-      	      applicantImage.setApplicant(applicant);
-      	      applicantImageRepository.save(applicantImage);
    
       	      return objectKey; // Return the object key for reference
    
