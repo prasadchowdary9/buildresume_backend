@@ -74,15 +74,15 @@ public class Alerts {
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
-	@Column
+	@Column(nullable = false, columnDefinition = "boolean default false")
 	private boolean seen;
-	
+
 	public boolean isSeen() {
-		return seen;
+	    return seen;
 	}
-	
+
 	public void setSeen(boolean seen) {
-		this.seen = seen;
+	    this.seen = seen;
 	}
 }
 
