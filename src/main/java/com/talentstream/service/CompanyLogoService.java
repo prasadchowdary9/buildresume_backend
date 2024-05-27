@@ -1,5 +1,6 @@
 package com.talentstream.service;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 
 import java.io.IOException;
@@ -23,9 +24,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 
 import org.springframework.core.io.UrlResource;
-
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import org.springframework.util.StringUtils;
@@ -33,7 +35,20 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.core.io.InputStreamResource;
 
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.amazonaws.util.IOUtils;
 import com.talentstream.entity.CompanyLogo;
 
 import com.talentstream.entity.JobRecruiter;
@@ -59,86 +74,109 @@ public class CompanyLogoService {
     		private CompanyLogoRepository companyLogoRepository;
     		@Autowired
     		private  JobRecruiterRepository jobRecruiterRepository;
+    		
+    		@Value("${aws.s3.bucketName}")
+    	    private String bucketName;
+    	 
+    	    @Value("${aws.accessKey}")
+    	    private String accessKey;
+    	 
+    	    @Value("${aws.secretKey}")
+    	    private String secretKey;
+    	    
+    	    @Value("${aws.region}")
+    	    private String region;
     	
-    		  @Transactional
-    		    public String saveCompanyLogo(long jobRecruiterId, MultipartFile logoFile) throws IOException {
-    		        if (!isValidFormat(logoFile.getOriginalFilename())) {
-    		            throw new CustomException("Image format not accepted. ", HttpStatus.BAD_REQUEST);
+    		  
+    		    public String saveCompanyLogo(long jobRecruiterId, MultipartFile imageFile) throws IOException {
+    		 
+    			  if (imageFile.getSize() > 1 * 1024 * 1024) {
+    		            throw new CustomException("File size should be less than 1MB.", HttpStatus.BAD_REQUEST);
     		        }
-                       // check, if the size of the logo file exceeds the maximum allowed size
-    		        if (logoFile.getSize() > MAX_FILE_SIZE_BYTES) {
-				// Throw a custom exception with the error message and HTTP status code (BAD_REQUEST)
-    		            throw new CustomException("File size should be less than or equal to " + (MAX_FILE_SIZE_BYTES / 1024) + " KB. ", HttpStatus.BAD_REQUEST);
+    		        String contentType = imageFile.getContentType();
+    		        if (!"image/jpeg".equals(contentType) && !"image/png".equals(contentType)) {
+    		            throw new CustomException("Only JPG and PNG file types are allowed.", HttpStatus.BAD_REQUEST);
     		        }
+    		   
+    		      	  JobRecruiter recruiter = jobRecruiterRepository.findByRecruiterId(jobRecruiterId);
+    		          if (recruiter == null) {
+    		    		            throw new CustomException("Recruiter not found for ID: " + jobRecruiterId, HttpStatus.NOT_FOUND);
+    		    		 } else {
+    		   
+    		      	    // Logic for S3 upload
+    		      	   
+    		      	    String objectKey =  String.valueOf(jobRecruiterId)+".jpg"; // Generate unique object key
+    		   
+    		      	    try {
+    		      	      AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+    		      	          .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
+    		      	          .withRegion(Regions.US_WEST_2)
+    		      	          .build();
+    		   
+    		      	      s3Client.putObject(
+    		      	          new PutObjectRequest(bucketName, objectKey, imageFile.getInputStream(), createObjectMetadata(imageFile))
+    		      	      );
+    		      	      
+    		      	    
+    		      	      
+    		   
+    		      	      return objectKey; // Return the object key for reference
+    		   
+    		      	    } catch (AmazonServiceException ase) {
+    		      	      // Handle exceptions appropriately, e.g., log the error
+    		      	      throw new RuntimeException("Failed to upload image to S3", ase);
+    		      	    } catch (IOException e) {
+    		      	      // Handle potential IO exceptions during stream processing
+    		      	      throw new RuntimeException("Error processing image file", e);
+    		      	    }
+    		      	  }
 
-    		        JobRecruiter recruiter = jobRecruiterRepository.findByRecruiterId(jobRecruiterId);
-    		        if (recruiter == null) {
-    		            throw new CustomException("Recruiter not found for ID: " + jobRecruiterId, HttpStatus.NOT_FOUND);
-    		        } else {
-    		            String name = StringUtils.cleanPath(logoFile.getOriginalFilename());
-    		            String fileName = jobRecruiterId + ".jpg"; //fileUtility.getFileExtension(logoFile.getOriginalFilename());
-    		            Files.createDirectories(Paths.get("src/main/resources/static/images/recruiter/companylogo"));
-    		            String filePath = new File("src/main/resources/static/images/recruiter/companylogo").getAbsolutePath() + File.separator + fileName;
-    		            Files.copy(logoFile.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
-
-    		            CompanyLogo existingLogo = companyLogoRepository.findByJobRecruiterRecruiterId(jobRecruiterId);
-		                if (existingLogo != null) {
-		                    // Image record exists, update the existing record
-		                    updateCompanyLogo(existingLogo, recruiter, fileName);
-		                } else {
-		                    // No existing image record, insert a new record
-		                    insertCompanyLogo(recruiter, fileName);
-		                }
-		                return logoFile.getOriginalFilename();
-    		    }
     		  }
+    		  
+    		 	private ObjectMetadata createObjectMetadata(MultipartFile imageFile) throws IOException {
+    		      	  ObjectMetadata objectMetadata = new ObjectMetadata();
+    		      	  objectMetadata.setContentType(imageFile.getContentType());
+    		      	  objectMetadata.setContentLength(imageFile.getSize());
+    		      	  return objectMetadata;
+    		      	}
 
-    		/*    public String getFileExtension(String filename) {
-    		        int dotIndex = filename.lastIndexOf('.');
-    		        return (dotIndex == -1) ? "" : filename.substring(dotIndex);
-    		    }  */
-
-	       //validate the image format extension
-    		    private boolean isValidFormat(String filename) {
-    		        int dotIndex = filename.lastIndexOf('.');
-    		        String ext = (dotIndex == -1) ? "" : filename.substring(dotIndex + 1).toLowerCase();
-    		        return Arrays.asList(ALLOWED_EXTENSIONS).contains(ext);
-    		    }
-
-    		    private void updateCompanyLogo(CompanyLogo existingLogo, JobRecruiter recruiter, String fileName) {
-    		        // Update the existing record
-    		      //  System.out.println("Updating company logo");
-    		        existingLogo.setLogoName(fileName);
-    		        existingLogo.setJobRecruiter(recruiter);
-    		        companyLogoRepository.save(existingLogo);
-    		    }
-
-    		    private void insertCompanyLogo(JobRecruiter recruiter, String fileName) {
-    		        // Insert a new record
-    		      //  System.out.println("Inserting new company logo");
-    		        CompanyLogo companyLogo = new CompanyLogo();
-    		        companyLogo.setLogoName(fileName);
-    		        companyLogo.setJobRecruiter(recruiter);
-    		        companyLogoRepository.save(companyLogo);
-    		    }
-    		    
+    		
     		    
     		    public byte[] getCompanyLogo(long jobRecruiterId) {
-    		        CompanyLogo existingLogo = companyLogoRepository.findByJobRecruiterRecruiterId(jobRecruiterId);
+    		    	 try {
+	              	       
+    	      	            String objectKey = String.valueOf(jobRecruiterId)+".jpg";
 
-    		        if (existingLogo == null) {
-    		            throw new CustomException("Company logo not found for recruiter ID: " + jobRecruiterId, HttpStatus.NOT_FOUND);
-    		        }
+    	      	            AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+    	      	                    .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
+    	      	                    .withRegion(Regions.US_WEST_2)
+    	      	                    .build();
 
-    		        String fileName = jobRecruiterId + ".jpg";
-    		        String filePath = "src/main/resources/static/images/recruiter/companylogo/" + fileName; // Adjust the path accordingly
+    	      	            S3Object s3Object = s3Client.getObject(new GetObjectRequest(bucketName, objectKey));
+    	      	            S3ObjectInputStream inputStream = s3Object.getObjectContent();
 
-    		        try {
-    		            Path path = Paths.get(filePath);
-    		            return Files.readAllBytes(path);
-    		        } catch (IOException e) {
-    		            throw new CustomException("Error reading company logo file", HttpStatus.INTERNAL_SERVER_ERROR);
-    		        }
+    	      	            MediaType mediaType;
+    	      	            if (objectKey.toLowerCase().endsWith(".png")) {
+    	      	                mediaType = MediaType.IMAGE_PNG;
+    	      	            } else if (objectKey.toLowerCase().endsWith(".jpg") || objectKey.toLowerCase().endsWith(".jpeg")) {
+    	      	                mediaType = MediaType.IMAGE_JPEG;
+    	      	            } else {
+    	      	                throw new RuntimeException("Unsupported image file format for applicant ID: " + jobRecruiterId);
+    	      	            }
+
+    	      	          byte[] bytes = IOUtils.toByteArray(inputStream); // Convert input stream to byte array
+
+    	      	            return bytes;
+
+    	      	    } catch (Exception e) {
+    	      	        String errorMessage = "Internal Server Error";
+    	      	      byte[] errorBytes = errorMessage.getBytes();
+    	      	    ByteArrayInputStream errorStream = new ByteArrayInputStream(errorBytes);
+
+    	      	        System.out.println(e.getMessage());
+    	      	      return errorBytes;
+    	      	    }
+
     		    }
 }
  
