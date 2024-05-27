@@ -37,23 +37,26 @@ public class CompanyLogoController {
 	    	try {
 	            String filename = companyLogoService.saveCompanyLogo(jobRecruiterId,logoFile);
 	            return filename+ " Image uploaded successfully";
-	        
-	    } catch (CustomException ce) {
-	        return ce.getMessage();
-	    } catch (UnsupportedFileTypeException e) {
-	        return "Only JPG and PNG file types are allowed.";
-	    } catch (MaxUploadSizeExceededException e) {
-	        return "File size should be less than 1MB.";
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return "Image not uploaded successfully";
-	    }
+	        } 
+	    	catch (CustomException ce) {
+	            return  ce.getMessage();
+	    	}
+	    	catch (UnsupportedFileTypeException e) {
+    	        return "Only JPG and PNG file types are allowed.";
+    	    } 
+	    	catch (MaxUploadSizeExceededException e) {
+    	        return "File size should be less than 1MB.";
+    	    }
+	    	catch (IOException e) {
+	            e.printStackTrace();
+	            return "Image not uploaded successfully";
+	        }
 	    }
 	 
 	    @GetMapping("/companylogo/download/{jobRecruiterId}")
 	    public ResponseEntity<byte[]> getCompanyLogo(@PathVariable Long jobRecruiterId) {
 	        try {
-	        	byte[] imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
+	            byte[] imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
 
 	            return ResponseEntity.ok()
 	                    .contentType(MediaType.IMAGE_JPEG)

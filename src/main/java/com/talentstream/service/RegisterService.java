@@ -246,7 +246,7 @@ public void updatePassword(String userEmail, String newPassword) {
             
  
             // Define the endpoint URL
-            String resumeRegisterUrl = "https://resume.bitlabs.in/api/auth/register";
+            String resumeRegisterUrl = "https://resume.bitlabs.in:5173/api/auth/register";
  
             try {
             
