@@ -79,6 +79,7 @@ public class ApplicantImageService {
       	  if (applicant == null) {
      
       		  throw new CustomException("Applicant not found for ID: " + applicantId, HttpStatus.NOT_FOUND);
+      		  
       	  } else {
    
       	    // Logic for S3 upload
@@ -95,13 +96,13 @@ public class ApplicantImageService {
       	      );
       	      
    
-      	      return objectKey; // Return the object key for reference
+      	      return objectKey; 
    
       	    } catch (AmazonServiceException ase) {
-      	      // Handle exceptions appropriately, e.g., log the error
+      	     
       	      throw new RuntimeException("Failed to upload image to S3", ase);
       	    } catch (IOException e) {
-      	      // Handle potential IO exceptions during stream processing
+      	      
       	      throw new RuntimeException("Error processing image file", e);
       	    }
       	  }
@@ -117,7 +118,7 @@ public class ApplicantImageService {
  
       	public ResponseEntity<Resource> getProfilePicByApplicantId(long applicantId) {
       	    try {
-      	        //List<ApplicantImage> applicantImage = (List<ApplicantImage>) applicantImageRepository.findByApplicantId(applicantId);
+      	        
       	       
       	            String objectKey = String.valueOf(applicantId)+".jpg";
 
@@ -144,13 +145,7 @@ public class ApplicantImageService {
       	                    .contentType(mediaType)
       	                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + objectKey + "\"")
       	                    .body(resource);
-//      	         else {
-//      	            String errorMessage = "Please upload your profile image";
-//      	            InputStreamResource errorResource = new InputStreamResource(new ByteArrayInputStream(errorMessage.getBytes()));
-//      	            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-//      	                    .contentType(MediaType.TEXT_PLAIN)
-//      	                    .body(errorResource);
-//      	        }
+
       	    } catch (Exception e) {
       	        String errorMessage = "Internal Server Error";
       	        InputStreamResource errorResource = new InputStreamResource(new ByteArrayInputStream(errorMessage.getBytes()));
