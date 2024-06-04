@@ -147,6 +147,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apereo.cas/cas-server-core-util-api -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-cas</artifactId>
+    <versionId>5.3.0.RELEASE</versionId>
+</dependency>
+		
   	</dependencies>
 
 	<build>

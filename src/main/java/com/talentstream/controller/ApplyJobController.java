@@ -2,6 +2,7 @@ package com.talentstream.controller;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +52,7 @@ public class ApplyJobController {
 	 @Autowired
 	 private RegisterRepository applicantRepository;
 	 
-	 private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class);
+	 private static final Logger logger = LoggerFactory.getLogger(ApplyJobController.class);
 	 
 	 @PostMapping("/applicants/applyjob/{applicantId}/{jobId}")
 	    public ResponseEntity<String> saveJobForApplicant(
@@ -59,14 +60,17 @@ public class ApplyJobController {
 	            @PathVariable long jobId
 	    ){
 		 try {
+			 logger.info("Request received to save job for applicantId: {} and jobId: {}", applicantId, jobId);
 	
             String result = applyJobService.ApplicantApplyJob(applicantId, jobId);
+            logger.info("Job saved successfully for applicantId: {} and jobId: {}", applicantId, jobId);
             
             return ResponseEntity.ok(result);
         } catch (CustomException e) {
+        	 logger.error("Error saving job for applicantId: {} and jobId: {}: {}", applicantId, jobId, e.getMessage());
             return ResponseEntity.status(e.getStatus()).body(e.getMessage());
         } catch (Exception e) {
-          
+        	 logger.error("Unexpected error saving job for applicantId: {} and jobId: {}", applicantId, jobId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
         }
 	 }
@@ -74,10 +78,13 @@ public class ApplyJobController {
 	 @GetMapping("/appliedapplicants/{jobId}")
 	 public ResponseEntity<List<ApplyJob>> getAppliedApplicantsForJob(@PathVariable Long jobId) {
 	        try {
+	        	logger.info("Request received to get applied applicants for jobId: {}", jobId);
 	            List<ApplyJob> appliedApplicants = applyJobService.getAppliedApplicantsForJob(jobId);
+	            logger.info("Retrieved applied applicants successfully for jobId: {}", jobId);
 	            return ResponseEntity.ok(appliedApplicants);
 	        } catch (Exception e) {
-	                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
+	        	logger.error("Error getting applied applicants for jobId: {}: {}", jobId, e.getMessage());
+	             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
 	        }
 	    }
 	    
@@ -85,16 +92,20 @@ public class ApplyJobController {
 	 public ResponseEntity<List<JobDTO>> getAppliedJobsForApplicant(@PathVariable long applicantId) {
 	  
 	 	 try {
+	 		logger.info("Request received to get applied jobs for applicantId: {}", applicantId);
 	 	        List<JobDTO> appliedJobsDTO = applyJobService.getAppliedJobsForApplicant(applicantId);
 	  
 	 	        if (appliedJobsDTO.isEmpty()) {
+	 	        	  logger.info("No applied jobs found for applicantId: {}", applicantId);
 	 	            return ResponseEntity.noContent().build();
 	 	        }
-	  
+	 	       logger.info("Retrieved applied jobs successfully for applicantId: {}", applicantId);
 	 	        return ResponseEntity.ok(appliedJobsDTO);
 	 	    } catch (CustomException e) {
+	 	    	  logger.error("Error getting applied jobs for applicantId {}: {}", applicantId, e.getMessage());
 	 	        return ResponseEntity.status(e.getStatus()).body(new ArrayList<>());
 	 	    } catch (Exception e) {
+	 	    	 logger.error("Unexpected error getting applied jobs for applicantId: {}", applicantId, e);
 	 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
 	 	    }
 	  
@@ -104,11 +115,15 @@ public class ApplyJobController {
  @GetMapping("/countAppliedJobs/{applicantId}")
  public ResponseEntity<?> countAppliedJobsForApplicant(@PathVariable long applicantId) {
      try {
+    	 logger.info("Request received to count applied jobs for applicantId: {}", applicantId);
          long count = applyJobService.countAppliedJobsForApplicant(applicantId);
+         logger.info("Counted applied jobs successfully for applicantId: {}", applicantId);
          return ResponseEntity.ok(count);
      } catch (CustomException e) {
+    	  logger.error("Error counting applied jobs for applicantId {}: {}", applicantId, e.getMessage());
          return ResponseEntity.status(e.getStatus()).body(e.getMessage());
      } catch (Exception e) {
+    	 logger.error("Unexpected error counting applied jobs for applicantId: {}", applicantId, e);
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
      }
  }
@@ -117,11 +132,15 @@ public class ApplyJobController {
  @GetMapping("/recruiter/{jobRecruiterId}/appliedapplicants")
  public ResponseEntity<Map<String, List<AppliedApplicantInfoDTO>>> getAppliedApplicantsForRecruiter(@PathVariable long jobRecruiterId) {
       try {
+    	  logger.info("Request received to get applied applicants for recruiterId: {}", jobRecruiterId);
           Map<String, List<AppliedApplicantInfoDTO>> appliedApplicantsMap = applyJobService.getAppliedApplicants(jobRecruiterId);
+          logger.info("Retrieved applied applicants successfully for recruiterId: {}", jobRecruiterId);
           return ResponseEntity.ok(appliedApplicantsMap);
       } catch (CustomException e) {
+    	  logger.error("Error getting applied applicants for recruiterId {}: {}", jobRecruiterId, e.getMessage());
           return ResponseEntity.status(e.getStatus()).body(new HashMap<>());
       } catch (Exception e) {
+    	  logger.error("Unexpected error getting applied applicants for recruiterId: {}", jobRecruiterId, e);
           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new HashMap<>());
       }
  }
@@ -139,23 +158,30 @@ public class ApplyJobController {
          @RequestParam(required = false) String location,
          @RequestBody MatchTypes matchTypes) {
      try {
-    	 
+    	 logger.info("Request received to get applied applicants for recruiterId: {}", jobRecruiterId);
          List<AppliedApplicantInfoDTO> appliedApplicants = applyJobService.getAppliedApplicants2(jobRecruiterId,matchTypes, name, email, mobileNumber, jobTitle, applicantStatus, minimumExperience, skillName, minimumQualification, location);
+         logger.info("Retrieved applied applicants successfully for recruiterId: {}", jobRecruiterId);
          return ResponseEntity.ok(appliedApplicants);
      } catch (CustomException e) {
+    	  logger.error("Error getting applied applicants for recruiterId {}: {}", jobRecruiterId, e.getMessage());
          return ResponseEntity.status(e.getStatus()).body(null);
      } catch (Exception e) {
+    	 logger.error("Unexpected error getting applied applicants for recruiterId: {}", jobRecruiterId, e);
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
      }
  }
  @GetMapping("/recruiter/{jobRecruiterId}/appliedapplicants/{id}")
  public ResponseEntity<Map<String, List<AppliedApplicantInfoDTO>>> getAppliedApplicantsForRecruiter1(@PathVariable long jobRecruiterId,@PathVariable long id) {
       try {
+    	  logger.info("Request received to get applied applicants for recruiterId: {} and id: {}", jobRecruiterId, id);
           Map<String, List<AppliedApplicantInfoDTO>> appliedApplicantsMap = applyJobService.getAppliedApplicants1(jobRecruiterId,id);
+          logger.info("Retrieved applied applicants successfully for recruiterId: {} and id: {}", jobRecruiterId, id);
           return ResponseEntity.ok(appliedApplicantsMap);
       } catch (CustomException e) {
+    	  logger.error("Error getting applied applicants for recruiterId {} and id {}: {}", jobRecruiterId, id, e.getMessage());
           return ResponseEntity.status(e.getStatus()).body(new HashMap<>());
       } catch (Exception e) {
+    	  logger.error("Unexpected error getting applied applicants for recruiterId {} and id {}: {}", jobRecruiterId, id, e);
           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new HashMap<>());
       }
  }
@@ -165,11 +191,13 @@ public class ApplyJobController {
          @PathVariable Long applyJobId,
          @RequestBody ScheduleInterviewDTO scheduleInterviewDTO) {
 	 try {
+		  logger.info("Request received to create schedule interview for applyJobId: {}", applyJobId);
          ScheduleInterview scheduleInterview = modelMapper.map(scheduleInterviewDTO, ScheduleInterview.class);
          ScheduleInterviewDTO createdInterview = scheduleInterviewService.createScheduleInterview(applyJobId, scheduleInterview);
 
          return createdInterview != null ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
      } catch (Exception e) {
+    	 logger.error("Unexpected error creating schedule interview for applyJobId: {}", applyJobId, e);
          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
      }
  }
@@ -180,12 +208,15 @@ public class ApplyJobController {
            @PathVariable Long applyJobId,
            @PathVariable String newStatus) {
 	   try {
+		   logger.info("Request received to update applicant status for applyJobId: {} to status: {}", applyJobId, newStatus);
 	        String updateMessage = applyJobService.updateApplicantStatus(applyJobId, newStatus);
+	        logger.info("Applicant status updated successfully for applyJobId: {} to status: {}", applyJobId, newStatus);
 	        return ResponseEntity.ok(updateMessage);
 	    } catch (CustomException e) {
+	    	 logger.error("Error updating applicant status for applyJobId {}: {}", applyJobId, e.getMessage());
 	        return ResponseEntity.status(e.getStatus()).body(e.getMessage());
 	    } catch (Exception e) {
-	      
+	    	logger.error("Unexpected error updating applicant status for applyJobId {}: {}", applyJobId, e);
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
 	    }
    }
@@ -194,12 +225,15 @@ public class ApplyJobController {
            @PathVariable("recruiterId") long recruiterId,
            @PathVariable("status") String status) {
 	   try {
+		   logger.info("Request received to get applicant job interview info for recruiterId: {} with status: {}", recruiterId, status);
 	        List<ApplicantJobInterviewDTO> interviewInfo = applyJobService.getApplicantJobInterviewInfoForRecruiterAndStatus(recruiterId, status);
+	        logger.info("Retrieved applicant job interview info successfully for recruiterId: {} with status: {}", recruiterId, status);
 	        return ResponseEntity.ok(interviewInfo);
 	    } catch (CustomException e) {
+	    	logger.error("Error getting applicant job interview info for recruiterId {} with status {}: {}", recruiterId, status, e.getMessage());
 	        return ResponseEntity.status(e.getStatus()).body(new ArrayList<>());
 	    } catch (Exception e) {
-	       
+	    	 logger.error("Unexpected error getting applicant job interview info for recruiterId {} with status {}: {}", recruiterId, status, e);
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
 	    }
    }
@@ -207,12 +241,15 @@ public class ApplyJobController {
    @GetMapping("/recruiters/applyjobapplicantscount/{recruiterId}")
    public ResponseEntity<Long> countJobApplicantsByRecruiterId( @PathVariable Long recruiterId) {
 	   try {
+		   logger.info("Request received to count job applicants by recruiterId: {}", recruiterId);
 	        long count = applyJobService.countJobApplicantsByRecruiterId(recruiterId);
+	        logger.info("Counted job applicants successfully by recruiterId: {}", recruiterId);
 	        return ResponseEntity.ok(count);
 	    } catch (CustomException e) {
+	    	 logger.error("Error counting job applicants by recruiterId {}: {}", recruiterId, e.getMessage());
 	        return ResponseEntity.status(e.getStatus()).body(0L); 
 	    } catch (Exception e) {
-	     
+	    	 logger.error("Unexpected error counting job applicants by recruiterId {}: {}", recruiterId, e);
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(0L); 
 	    }
    }
@@ -221,12 +258,15 @@ public class ApplyJobController {
    public ResponseEntity<Long> countSelectedApplicants() {
        
 	   try {
+		   logger.info("Request received to count selected applicants");
 	        long count = applyJobService.countSelectedApplicants();
+	        logger.info("Counted selected applicants successfully");
 	        return ResponseEntity.ok(count);
 	    } catch (CustomException e) {
+	    	 logger.error("Error counting selected applicants: {}", e.getMessage());
 	        return ResponseEntity.status(e.getStatus()).body(0L); 
 	    } catch (Exception e) {
-	      
+	    	logger.error("Unexpected error counting selected applicants: {}", e);
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(0L); 
 	    }
    }
@@ -234,12 +274,15 @@ public class ApplyJobController {
    @GetMapping("/recruiters/countShortlistedAndInterviewed")
    public ResponseEntity<Long> countShortlistedAndInterviewedApplicants() {
 	   try {
+		   logger.info("Request received to count shortlisted and interviewed applicants");
 	        long count = applyJobService.countShortlistedAndInterviewedApplicants();
+	        logger.info("Counted shortlisted and interviewed applicants successfully");
 	        return ResponseEntity.ok(count);
 	    } catch (CustomException e) {
+	    	  logger.error("Error counting shortlisted and interviewed applicants: {}", e.getMessage());
 	        return ResponseEntity.status(e.getStatus()).body(0L); 
 	    } catch (Exception e) {
-	       
+	    	logger.error("Unexpected error counting shortlisted and interviewed applicants: {}", e);
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(0L); 
 	    }
    }
@@ -247,19 +290,23 @@ public class ApplyJobController {
    @GetMapping("/current-date")
    public ResponseEntity<List<ScheduleInterviewDTO>> getScheduleInterviewsForCurrentDate() {
        try {
+    	   logger.info("Request received to get schedule interviews for current date");
            List<ScheduleInterview> scheduleInterviews = scheduleInterviewService.getScheduleInterviewsForCurrentDate();
 
            if (scheduleInterviews.isEmpty()) {
+        	   logger.info("No schedule interviews found for the current date");
                return ResponseEntity.noContent().build();
            }
            List<ScheduleInterviewDTO> scheduleInterviewDTOs = scheduleInterviews.stream()
                    .map(interview -> modelMapper.map(interview, ScheduleInterviewDTO.class))
                    .collect(Collectors.toList());
-
+           logger.info("Retrieved schedule interviews for the current date successfully");
            return ResponseEntity.ok(scheduleInterviewDTOs);
        } catch (CustomException e) {
+    	   logger.error("Error getting schedule interviews for the current date: {}", e.getMessage());
            return ResponseEntity.status(e.getStatus()).body(new ArrayList<>());
        } catch (Exception e) {
+    	   logger.error("Unexpected error getting schedule interviews for the current date: {}", e);
            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
        }
    }
@@ -267,19 +314,24 @@ public class ApplyJobController {
    public ResponseEntity<List<ScheduleInterviewDTO>> getScheduleInterviews(
            @PathVariable Long applicantId, @PathVariable Long applyJobId) {
        try {
+    	   logger.info("Request received to get schedule interviews for applicant {} and job {}", applicantId, applyJobId);
            List<ScheduleInterview> scheduleInterviews = scheduleInterviewService.getScheduleInterviewsByApplicantAndApplyJob(applicantId, applyJobId);
 
            if (scheduleInterviews.isEmpty()) {
+        	   logger.info("No schedule interviews found for applicant {} and job {}", applicantId, applyJobId);
                return ResponseEntity.noContent().build();
            }
 
            List<ScheduleInterviewDTO> scheduleInterviewDTOs = scheduleInterviews.stream()
                    .map(interview -> modelMapper.map(interview, ScheduleInterviewDTO.class))
                    .collect(Collectors.toList());
+           logger.info("Retrieved schedule interviews successfully for applicant {} and job {}", applicantId, applyJobId);
            return ResponseEntity.ok(scheduleInterviewDTOs);
        } catch (CustomException e) {
+    	   logger.error("Error getting schedule interviews for applicant {} and job {}: {}", applicantId, applyJobId, e.getMessage());
            return ResponseEntity.status(e.getStatus()).body(new ArrayList<>());
        } catch (Exception e) {
+    	   logger.error("Unexpected error getting schedule interviews for applicant {} and job {}: {}", applicantId, applyJobId, e);
            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
        }
    }
@@ -287,53 +339,69 @@ public class ApplyJobController {
    @GetMapping("/recruiters/applyjob-status-history/{applyJobId}")
 	public ResponseEntity<List<ApplicantStatusHistory>> getApplicantStatusHistory(@PathVariable long applyJobId){
 		try {
+			 logger.info("Request received to get applicant status history for apply job {}", applyJobId);
 			List<ApplicantStatusHistory> statusHistory=applyJobService.getApplicantStatusHistory(applyJobId);
+			logger.info("Retrieved applicant status history successfully for apply job {}", applyJobId);
 			return ResponseEntity.ok(statusHistory);
 		} catch (EntityNotFoundException e) {
 			// TODO: handle exception
+			logger.error("Applicant status history not found for apply job {}: {}", applyJobId, e.getMessage());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}catch (Exception e) {
 			// TODO: handle exception
+			logger.error("Unexpected error getting applicant status history for apply job {}: {}", applyJobId, e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		}
 	}
 	@GetMapping("/applicant/job-alerts/{applicantId}")
 	public ResponseEntity<List<Alerts>> getAlerts(@PathVariable long applicantId){
 		try {
+			 logger.info("Request received to get job alerts for applicant {}", applicantId);
 			List<Alerts> notifications=applyJobService.getAlerts(applicantId);
 			// Reset alertCount to zero when fetching alerts
 	        applyJobService.resetAlertCount(applicantId);
+	        logger.info("Retrieved job alerts successfully for applicant {}", applicantId);
 			return ResponseEntity.ok(notifications);
 		} catch (EntityNotFoundException e) {
 			// TODO: handle exception
+			logger.error("Job alerts not found for applicant {}: {}", applicantId, e.getMessage());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}catch (Exception e) {
 			// TODO: handle exception
+			 logger.error("Unexpected error getting job alerts for applicant {}: {}", applicantId, e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 		}
 	}
 	@GetMapping("/applicants/{applicantId}/unread-alert-count")
 	public ResponseEntity<Integer> getUnreadAlertCount(@PathVariable long applicantId) {
 	    try {
+	    	 logger.info("Request received to get unread alert count for applicant {}", applicantId);
 	        Applicant applicant = applicantRepository.findById(applicantId);
 	        if (applicant != null) {
 	            int unreadAlertCount = applicant.getAlertCount();
+	            logger.info("Retrieved unread alert count successfully for applicant {}: {}", applicantId, unreadAlertCount);
 	            return ResponseEntity.ok(unreadAlertCount);
 	        } else {
+	        	  logger.warn("Applicant not found with ID {}", applicantId);
 	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 	        }
 	    } catch (Exception e) {
+	    	 logger.error("Unexpected error getting unread alert count for applicant {}: {}", applicantId, e);
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 	    }
 	}
 	@GetMapping("/recruiters/countShortlistedAndInterviewed/{recruiterId}")
 	   public ResponseEntity<Long> countShortlistedAndInterviewedApplicants(@PathVariable Long recruiterId) {
 		   try {
+			   logger.info("Request received to count shortlisted and interviewed applicants for recruiter {}", recruiterId);
 		        long count = applyJobService.countShortlistedAndInterviewedApplicants(recruiterId);
+		        logger.info("Counted shortlisted and interviewed applicants successfully for recruiter {}", recruiterId);
 		        return ResponseEntity.ok(count);
 		    } catch (CustomException e) {
+		    	 logger.error("Error counting shortlisted and interviewed applicants for recruiter {}: {}", recruiterId, e.getMessage());
 		        return ResponseEntity.status(e.getStatus()).body(0L);
 		    } catch (Exception e) {
+		    	logger.error("Unexpected error counting shortlisted and interviewed applicants for recruiter {}: {}", recruiterId, e);
 		        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(0L);
 		    }
 	   }
@@ -341,11 +409,15 @@ public class ApplyJobController {
 	@DeleteMapping("/scheduleInterview/{scheduleInterviewId}")
 	public ResponseEntity<String> deleteScheduledInterview(@PathVariable Long scheduleInterviewId) {
 	    try {
+	    	 logger.info("Request received to delete scheduled interview with ID {}", scheduleInterviewId);
 	        scheduleInterviewService.deleteScheduledInterview(scheduleInterviewId);
+	        logger.info("Scheduled interview with ID {} deleted successfully", scheduleInterviewId);
 	        return ResponseEntity.ok("Interview cancelled successfully");
 	    } catch (EntityNotFoundException e) {
+	    	 logger.warn("Scheduled interview with ID {} not found", scheduleInterviewId);
 	        return ResponseEntity.notFound().build();
 	    } catch (Exception e) {
+	    	
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 
 	    }
