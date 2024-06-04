@@ -1,6 +1,7 @@
 package com.talentstream.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -10,6 +11,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantImage;
 import com.talentstream.exception.CustomException;
@@ -38,6 +51,17 @@ public class ApplicantImageService {
  
     }
  
+    @Value("${aws.s3.bucketName}")
+    private String bucketName;
+ 
+    @Value("${aws.accessKey}")
+    private String accessKey;
+ 
+    @Value("${aws.secretKey}")
+    private String secretKey;
+    
+    @Value("${aws.region}")
+    private String region;
     public String uploadImage(long applicantId, MultipartFile imageFile) {
 
     	if (imageFile.getSize() > 1 * 1024 * 1024) {
