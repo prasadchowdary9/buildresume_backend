@@ -218,53 +218,47 @@ public class RegisterController {
 //        	        }
 //   	    }
 
-	@PostMapping("/changeStatus/{id}")
-	    public ResponseEntity<String> changeApplicantStatus(@PathVariable long id){
-	    	//create service layer method
-	    	//based on id fetch applicant
-	    	//if the applicant status is active change it to inactive viceversa
-	    	//return successfully status changed
-	    	try {
-	    		 logger.info("Changing status for applicant ID: {}", id);
-	    		// Fetch the applicant by id
-		    	Applicant applicant=regsiterService.findById(id);
-		    	
-		    	// Toggle the status
-	            if (applicant.getAppicantStatus().equalsIgnoreCase("active")) {
-	                applicant.setAppicantStatus("inactive");
-	            } else {
-	                applicant.setAppicantStatus("active");
-	            }
-	            
-	            // Save the updated applicant
-	            registerrepo.save(applicant);
-	            logger.info("Successfully changed status for applicant ID: {} from {} to {}", id);
-		    	return ResponseEntity.ok("Applicant status changed successfully.");
-	    	}catch (Exception e) {
-	    		logger.error("Error occurred while changing status for applicant ID: {}", id, e);
-	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while changing applicant status.");
-	        }
-	    }
-	
-	 @GetMapping("/{id}/profilestatus") // Endpoint to get applicant status by ID
-	    public ResponseEntity<String> getApplicantStatus(@PathVariable long id) {
-	        try {
-	        	 logger.info("Fetching status for applicant ID: {}", id);
-	            // Fetch the applicant by id
-	            Applicant applicant = registerService.findById(id);
-	            
-	            // Get the applicant status
-	            String status = applicant.getAppicantStatus();
-	            logger.debug("Status for applicant ID: {}: {}", id, status);
-	            return ResponseEntity.ok(status);
-	        } catch (EntityNotFoundException ex) {
-	        	  logger.error("Applicant not found with ID: {}", id, ex);
-	            return ResponseEntity.notFound().build(); // Applicant not found
-	        } catch (Exception e) {
-	        	logger.error("Error occurred while fetching status for applicant ID: {}", id, e);
-	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while fetching applicant status.");
-	        }
-	    }
+//	@PostMapping("/changeStatus/{id}")
+//	    public ResponseEntity<String> changeApplicantStatus(@PathVariable long id){
+//	    	//create service layer method
+//	    	//based on id fetch applicant
+//	    	//if the applicant status is active change it to inactive viceversa
+//	    	//return successfully status changed
+//	    	try {
+//	    		// Fetch the applicant by id
+//		    	Applicant applicant=regsiterService.findById(id);
+//		    	
+//		    	// Toggle the status
+//	            if (applicant.getAppicantStatus().equalsIgnoreCase("active")) {
+//	                applicant.setAppicantStatus("inactive");
+//	            } else {
+//	                applicant.setAppicantStatus("active");
+//	            }
+//	            
+//	            // Save the updated applicant
+//	            registerrepo.save(applicant);
+//		    	return ResponseEntity.ok("Applicant status changed successfully.");
+//	    	}catch (Exception e) {
+//	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while changing applicant status.");
+//	        }
+//	    }
+//	
+//	 @GetMapping("/{id}/profilestatus") // Endpoint to get applicant status by ID
+//	    public ResponseEntity<String> getApplicantStatus(@PathVariable long id) {
+//	        try {
+//	            // Fetch the applicant by id
+//	            Applicant applicant = registerService.findById(id);
+//	            
+//	            // Get the applicant status
+//	            String status = applicant.getAppicantStatus();
+//	            
+//	            return ResponseEntity.ok(status);
+//	        } catch (EntityNotFoundException ex) {
+//	            return ResponseEntity.notFound().build(); // Applicant not found
+//	        } catch (Exception e) {
+//	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred while fetching applicant status.");
+//	        }
+//	    }
  
 	    private ResponseEntity<Object> createAuthenticationToken(LoginDTO loginDTO,  Applicant applicant ) throws Exception {
 	    	try {

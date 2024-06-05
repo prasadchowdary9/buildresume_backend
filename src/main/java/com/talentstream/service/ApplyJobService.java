@@ -67,7 +67,18 @@ public class ApplyJobService {
 	private ApplicantProfileRepository applicantProfileRepo;
 	@Autowired
     private SavedJobRepository savedJobRepository;
+	public void markAlertAsSeen(long alertsId) {
+	    Optional<Alerts> alertOptional = alertsRepository.findById(alertsId);
+	    if (alertOptional.isPresent()) {
+	        Alerts alert = alertOptional.get();
+	        alert.setSeen(true);
+	        alertsRepository.save(alert);
+	    } else {
+	        throw new EntityNotFoundException("Alert with id " + alertsId + " not found.");
+	    }
+	}
 public String ApplicantApplyJob(long  applicantId, long jobId) {
+	
 	    	
 	    	try {
 	            Applicant applicant = applicantRepository.findById(applicantId);

@@ -43,6 +43,7 @@ import com.talentstream.repository.RegisterRepository;
 @RequestMapping("/applyjob")
 public class ApplyJobController {
 	
+	
 	  final ModelMapper modelMapper = new ModelMapper();
 	 @Autowired
 	    private ApplyJobService applyJobService;
@@ -423,6 +424,19 @@ public class ApplyJobController {
 	    }
 
 	}
+
+	 @PutMapping("/applicant/mark-alert-as-seen/{alertsId}")
+	    public ResponseEntity<String> markAlertAsSeen(@PathVariable long alertsId) {
+	        try {
+	            applyJobService.markAlertAsSeen(alertsId);
+	            return ResponseEntity.ok("Alert marked as seen successfully.");
+	        } catch (EntityNotFoundException e) {
+	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Alert with id " + alertsId + " not found.");
+	        } catch (Exception e) {
+	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to mark alert as seen.");
+	        }
+	    }
+
 }
  
 
