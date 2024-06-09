@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.talentstream.dto.ApplicantProfileDTO;
 import com.talentstream.dto.ApplicantProfileViewDTO;
+import com.talentstream.dto.BasicDetailsDTO;
 import com.talentstream.exception.CustomException;
 import com.talentstream.service.ApplicantProfileService;
 
@@ -127,5 +128,10 @@ public class ApplicantProfileController {
 		logger.debug("Fetching profile ID for applicantId: {}", applicantId);
            return applicantProfileService.getApplicantProfileById1(applicantId);
        }
+	 @PutMapping("/{id}/basic-details")
+	    public ResponseEntity<Void> updateBasicDetails(@PathVariable Long id, @RequestBody BasicDetailsDTO basicDetailsDTO) {
+	        applicantProfileService.updateBasicDetails(id, basicDetailsDTO);
+	        return ResponseEntity.ok().build();
+	    }
       
 }
