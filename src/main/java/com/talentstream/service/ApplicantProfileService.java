@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 import com.talentstream.exception.CustomException;
 import com.talentstream.dto.ApplicantProfileDTO;
 import com.talentstream.dto.ApplicantProfileViewDTO;
+import com.talentstream.dto.BasicDetailsDTO;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantProfile;
 import com.talentstream.repository.ApplicantProfileRepository;
 import com.talentstream.repository.RegisterRepository;
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 
 @Service
 public class ApplicantProfileService {
@@ -191,6 +193,23 @@ public class ApplicantProfileService {
 	        return applicantProfile != null ? applicantProfile.getProfileid() : 0;
 
 		}
+	 @Transactional
+	    public void updateBasicDetails(Long applicantId, BasicDetailsDTO basicDetailsDTO) {
+	        ApplicantProfile applicantProfile = applicantProfileRepository.findByApplicantId(applicantId);
+	                
+
+	        applicantProfile.getBasicDetails().setFirstName(basicDetailsDTO.getFirstName());
+	        applicantProfile.getBasicDetails().setLastName(basicDetailsDTO.getLastName());
+	        applicantProfile.getBasicDetails().setDateOfBirth(basicDetailsDTO.getDateOfBirth());
+	        applicantProfile.getBasicDetails().setAddress(basicDetailsDTO.getAddress());
+	        applicantProfile.getBasicDetails().setCity(basicDetailsDTO.getCity());
+	        applicantProfile.getBasicDetails().setState(basicDetailsDTO.getState());
+	        applicantProfile.getBasicDetails().setPincode(basicDetailsDTO.getPincode());
+	        applicantProfile.getBasicDetails().setEmail(basicDetailsDTO.getEmail());
+	        applicantProfile.getBasicDetails().setAlternatePhoneNumber(basicDetailsDTO.getAlternatePhoneNumber());
+
+	        applicantProfileRepository.save(applicantProfile);
+	    }
 	      
 }
 

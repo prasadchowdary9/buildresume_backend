@@ -18,4 +18,6 @@ ApplicantProfile findByApplicantId(long applicantid);
 Optional<ApplicantProfile> findByApplicantIdWithSkills(@Param("applicantId") long applicantId);
 
 
+
+
 }
