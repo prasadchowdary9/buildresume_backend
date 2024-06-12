@@ -1,6 +1,7 @@
 package com.talentstream.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,8 +23,9 @@ public class Alerts {
 
 	private String companyName;
 	private String status;
-	@Column(columnDefinition = "DATE")
-	private LocalDate changeDate;
+	@Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime changeDate;
+	
 	@ManyToOne
 	@JoinColumn(name = "applicant_id")
 	private Applicant applicant;
@@ -56,10 +58,10 @@ public class Alerts {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public LocalDate getChangeDate() {
+	public LocalDateTime getChangeDate() {
 		return changeDate;
 	}
-	public void setChangeDate(LocalDate changeDate) {
+	public void setChangeDate(LocalDateTime changeDate) {
 		this.changeDate = changeDate;
 	}
 	public Applicant getApplicant() {
