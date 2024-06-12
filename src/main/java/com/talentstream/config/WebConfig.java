@@ -33,8 +33,9 @@ public class WebConfig {
         config.addAllowedOrigin("https://jobs.bitlabs.in");
         config.addAllowedOrigin("http://localhost:3000");       
         config.addAllowedOrigin("https://talent-stream-front-end-version2-eedekarunakar.vercel.app");
-       
+        config.addAllowedOrigin("https://d1sq67t1c2pewz.cloudfront.net");
          config.addAllowedOrigin("https://talentstream-deployment-bucket.s3.amazonaws.com");
+         
          config.setAllowedHeaders(Arrays.asList(
                  HttpHeaders.AUTHORIZATION,
                  HttpHeaders.CONTENT_TYPE,
