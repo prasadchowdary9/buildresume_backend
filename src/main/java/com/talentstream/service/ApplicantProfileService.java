@@ -220,42 +220,47 @@ public class ApplicantProfileService {
 	        applicantProfileRepository.save(applicantProfile);
 	    }
 	 @Transactional
-	    public ApplicantProfile updateApplicantProfile1(int id, ApplicantProfileUpdateDTO updateDTO) {
-	        ApplicantProfile  profile = applicantProfileRepository.findById(id).get();
-	        
-	           ApplicantProfile profile1=new ApplicantProfile();
-	            // Update fields
-	            profile.setExperience(updateDTO.getExperience());
-	            System.out.println(updateDTO.getExperience());
-	            profile.setQualification(updateDTO.getQualification());
-	            System.out.println(updateDTO.getQualification());
-	            profile.setSpecialization(updateDTO.getSpecialization());
-	            System.out.println(updateDTO.getSpecialization());
-	            profile.setPreferredJobLocations(new HashSet<>(updateDTO.getPreferredJobLocations()));
+	    public String updateApplicantProfile1(long applicantId, ApplicantProfileUpdateDTO updatedProfileDTO) {
+	        // Find applicant
+	        Applicant applicant = applicantService.getApplicantById(applicantId);
+//	        if (applicant == null) {
+//	            throw new CustomException("Applicant not found " + applicantId, HttpStatus.NOT_FOUND);
+//	        } else {
+//	            // Update basic applicant details
+//	            applicant.setName(updatedProfileDTO.getApplicant().getName());
+//	            applicant.setMobilenumber(updatedProfileDTO.getApplicant().getMobilenumber());
+//	            applicantService.save(applicant);
+//	        }
 
-	            // Update skills required
+	        // Find existing profile
+	        ApplicantProfile existingProfile = applicantProfileRepository.findByApplicantId(applicantId);
+	        if (existingProfile == null) {
+	            throw new CustomException("Your profile not found and please fill profile " + applicantId, HttpStatus.NOT_FOUND);
+	        } else {
+	            // Update the necessary fields
+	            existingProfile.setExperience(updatedProfileDTO.getExperience());
+	            existingProfile.setQualification(updatedProfileDTO.getQualification());
+	            existingProfile.setSpecialization(updatedProfileDTO.getSpecialization());
+	            existingProfile.setPreferredJobLocations(new HashSet<>(updatedProfileDTO.getPreferredJobLocations()));
+
+	         // Update skills required
 	            Set<ApplicantSkills> updatedSkills = new HashSet<>();
-	            if (updateDTO.getSkillsRequired() != null) {
-	                for (ApplicantProfileUpdateDTO.SkillDTO skillDTO : updateDTO.getSkillsRequired()) {
-	                    if (skillDTO.getId() != null) {
-	                        Optional<ApplicantSkills> existingSkillOptional = applicantSkillsRepository.findById(skillDTO.getId());
-	                        existingSkillOptional.ifPresent(updatedSkills::add);
-	                    } else {
-	                        ApplicantSkills skill = new ApplicantSkills();
-	                        skill.setSkillName(skillDTO.getSkillName());
-	                        skill.setExperience(skillDTO.getExperience());
-	                        skill = applicantSkillsRepository.save(skill);
-	                        updatedSkills.add(skill);
-	                        System.out.println(skill.getSkillName());
-	                    }
+	            if (updatedProfileDTO.getSkillsRequired() != null) {
+	                for (ApplicantProfileUpdateDTO.SkillDTO skillDTO : updatedProfileDTO.getSkillsRequired()) {
+	                    ApplicantSkills skill = new ApplicantSkills();
+	                    skill.setSkillName(skillDTO.getSkillName());
+	                    skill.setExperience(skillDTO.getExperience());
+	                    updatedSkills.add(skill);
 	                }
 	            }
-	            profile.setSkillsRequired(updatedSkills);
-	            System.out.println(updatedSkills);
+	            existingProfile.setSkillsRequired(updatedSkills);
 
 	            // Save the updated profile
-	            return applicantProfileRepository.save(profile);
-	        } 
+	            applicantProfileRepository.save(existingProfile);
+	        }
+
+	        return "Profile saved successfully";
+	    }
 	    }
 
 

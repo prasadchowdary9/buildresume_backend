@@ -137,9 +137,8 @@ public class ApplicantProfileController {
 	        return ResponseEntity.ok().build();
 	    }
 	 @PutMapping("/{id}/professional-details")
-	 public ResponseEntity<ApplicantProfile> updateApplicantProfile(@PathVariable("id") int id, @RequestBody ApplicantProfileUpdateDTO updateDTO) {
-	        ApplicantProfile updatedProfile = applicantProfileService.updateApplicantProfile1(id, updateDTO);
-	        System.out.println(updatedProfile.getExperience()+updatedProfile.getPreferredJobLocations());
-	        return ResponseEntity.ok(updatedProfile);
+	 public ResponseEntity<String> updateApplicantProfile(@PathVariable("id") long id, @RequestBody ApplicantProfileUpdateDTO updateDTO) {
+	        String result = applicantProfileService.updateApplicantProfile1(id, updateDTO);
+	        return ResponseEntity.ok(result);
 	    }
 }
