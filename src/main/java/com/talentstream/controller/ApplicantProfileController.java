@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.talentstream.dto.ApplicantProfileDTO;
 import com.talentstream.dto.ApplicantProfileViewDTO;
 import com.talentstream.dto.BasicDetailsDTO;
+import com.talentstream.entity.ApplicantProfile;
+import com.talentstream.entity.ApplicantProfileUpdateDTO;
 import com.talentstream.exception.CustomException;
 import com.talentstream.service.ApplicantProfileService;
 
@@ -32,6 +34,7 @@ public class ApplicantProfileController {
 	private final ApplicantProfileService applicantProfileService;
 	
 	  private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class);
+	   
     
 	  @Autowired
     public ApplicantProfileController(ApplicantProfileService applicantProfileService) {
@@ -133,5 +136,10 @@ public class ApplicantProfileController {
 	        applicantProfileService.updateBasicDetails(id, basicDetailsDTO);
 	        return ResponseEntity.ok().build();
 	    }
-      
+	 @PutMapping("/{id}/professional-details")
+	 public ResponseEntity<ApplicantProfile> updateApplicantProfile(@PathVariable("id") int id, @RequestBody ApplicantProfileUpdateDTO updateDTO) {
+	        ApplicantProfile updatedProfile = applicantProfileService.updateApplicantProfile1(id, updateDTO);
+	        System.out.println(updatedProfile.getExperience()+updatedProfile.getPreferredJobLocations());
+	        return ResponseEntity.ok(updatedProfile);
+	    }
 }

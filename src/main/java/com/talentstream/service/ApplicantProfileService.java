@@ -1,6 +1,10 @@
 package com.talentstream.service;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -10,7 +14,10 @@ import com.talentstream.dto.ApplicantProfileViewDTO;
 import com.talentstream.dto.BasicDetailsDTO;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantProfile;
+import com.talentstream.entity.ApplicantProfileUpdateDTO;
+import com.talentstream.entity.ApplicantSkills;
 import com.talentstream.repository.ApplicantProfileRepository;
+import com.talentstream.repository.ApplicantSkillsRepository;
 import com.talentstream.repository.RegisterRepository;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
@@ -19,7 +26,9 @@ import javax.transaction.Transactional;
 public class ApplicantProfileService {
 	 private final ApplicantProfileRepository applicantProfileRepository;
 	 	 private final RegisterRepository applicantService;
-	
+
+	     @Autowired
+	     private ApplicantSkillsRepository applicantSkillsRepository;
 	 	   
 	    @Autowired
 	    public ApplicantProfileService(ApplicantProfileRepository applicantProfileRepository,RegisterRepository applicantService) {
@@ -210,7 +219,44 @@ public class ApplicantProfileService {
 
 	        applicantProfileRepository.save(applicantProfile);
 	    }
-	      
-}
+	 @Transactional
+	    public ApplicantProfile updateApplicantProfile1(int id, ApplicantProfileUpdateDTO updateDTO) {
+	        ApplicantProfile  profile = applicantProfileRepository.findById(id).get();
+	        
+	           ApplicantProfile profile1=new ApplicantProfile();
+	            // Update fields
+	            profile.setExperience(updateDTO.getExperience());
+	            System.out.println(updateDTO.getExperience());
+	            profile.setQualification(updateDTO.getQualification());
+	            System.out.println(updateDTO.getQualification());
+	            profile.setSpecialization(updateDTO.getSpecialization());
+	            System.out.println(updateDTO.getSpecialization());
+	            profile.setPreferredJobLocations(new HashSet<>(updateDTO.getPreferredJobLocations()));
+
+	            // Update skills required
+	            Set<ApplicantSkills> updatedSkills = new HashSet<>();
+	            if (updateDTO.getSkillsRequired() != null) {
+	                for (ApplicantProfileUpdateDTO.SkillDTO skillDTO : updateDTO.getSkillsRequired()) {
+	                    if (skillDTO.getId() != null) {
+	                        Optional<ApplicantSkills> existingSkillOptional = applicantSkillsRepository.findById(skillDTO.getId());
+	                        existingSkillOptional.ifPresent(updatedSkills::add);
+	                    } else {
+	                        ApplicantSkills skill = new ApplicantSkills();
+	                        skill.setSkillName(skillDTO.getSkillName());
+	                        skill.setExperience(skillDTO.getExperience());
+	                        skill = applicantSkillsRepository.save(skill);
+	                        updatedSkills.add(skill);
+	                        System.out.println(skill.getSkillName());
+	                    }
+	                }
+	            }
+	            profile.setSkillsRequired(updatedSkills);
+	            System.out.println(updatedSkills);
+
+	            // Save the updated profile
+	            return applicantProfileRepository.save(profile);
+	        } 
+	    }
+
 
 	 
