@@ -57,7 +57,7 @@ public class ApplicantProfile {
          @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="applicantid", referencedColumnName = "id")
     private Applicant applicant;
-         
+         		
      @Column(nullable = false)
     private String roles="ROLE_JOBAPPLICANT";
  
