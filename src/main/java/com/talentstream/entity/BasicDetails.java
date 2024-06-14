@@ -1,5 +1,6 @@
 package com.talentstream.entity;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -18,10 +19,11 @@ public class BasicDetails {
 	    private String city;
 	    private String state;
 
-	    @NotBlank
-	    @Pattern(regexp = "^\\d{6}$",message = "invalid mobile number")
+	    
 	    private String pincode;
-	    private  String email;
+	    @NotBlank
+	    @Email(message = "invalid email address")
+	    private String email;
 
 	    @NotBlank
 	    @Pattern(regexp = "^\\d{10}$",message = "invalid mobile number")
