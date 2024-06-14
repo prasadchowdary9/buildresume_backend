@@ -1,6 +1,10 @@
 package com.talentstream.service;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -10,7 +14,10 @@ import com.talentstream.dto.ApplicantProfileViewDTO;
 import com.talentstream.dto.BasicDetailsDTO;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantProfile;
+import com.talentstream.entity.ApplicantProfileUpdateDTO;
+import com.talentstream.entity.ApplicantSkills;
 import com.talentstream.repository.ApplicantProfileRepository;
+import com.talentstream.repository.ApplicantSkillsRepository;
 import com.talentstream.repository.RegisterRepository;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
@@ -19,7 +26,9 @@ import javax.transaction.Transactional;
 public class ApplicantProfileService {
 	 private final ApplicantProfileRepository applicantProfileRepository;
 	 	 private final RegisterRepository applicantService;
-	
+
+	     @Autowired
+	     private ApplicantSkillsRepository applicantSkillsRepository;
 	 	   
 	    @Autowired
 	    public ApplicantProfileService(ApplicantProfileRepository applicantProfileRepository,RegisterRepository applicantService) {
@@ -210,7 +219,49 @@ public class ApplicantProfileService {
 
 	        applicantProfileRepository.save(applicantProfile);
 	    }
-	      
-}
+	 @Transactional
+	    public String updateApplicantProfile1(long applicantId, ApplicantProfileUpdateDTO updatedProfileDTO) {
+	        // Find applicant
+	        Applicant applicant = applicantService.getApplicantById(applicantId);
+//	        if (applicant == null) {
+//	            throw new CustomException("Applicant not found " + applicantId, HttpStatus.NOT_FOUND);
+//	        } else {
+//	            // Update basic applicant details
+//	            applicant.setName(updatedProfileDTO.getApplicant().getName());
+//	            applicant.setMobilenumber(updatedProfileDTO.getApplicant().getMobilenumber());
+//	            applicantService.save(applicant);
+//	        }
+
+	        // Find existing profile
+	        ApplicantProfile existingProfile = applicantProfileRepository.findByApplicantId(applicantId);
+	        if (existingProfile == null) {
+	            throw new CustomException("Your profile not found and please fill profile " + applicantId, HttpStatus.NOT_FOUND);
+	        } else {
+	            // Update the necessary fields
+	            existingProfile.setExperience(updatedProfileDTO.getExperience());
+	            existingProfile.setQualification(updatedProfileDTO.getQualification());
+	            existingProfile.setSpecialization(updatedProfileDTO.getSpecialization());
+	            existingProfile.setPreferredJobLocations(new HashSet<>(updatedProfileDTO.getPreferredJobLocations()));
+
+	         // Update skills required
+	            Set<ApplicantSkills> updatedSkills = new HashSet<>();
+	            if (updatedProfileDTO.getSkillsRequired() != null) {
+	                for (ApplicantProfileUpdateDTO.SkillDTO skillDTO : updatedProfileDTO.getSkillsRequired()) {
+	                    ApplicantSkills skill = new ApplicantSkills();
+	                    skill.setSkillName(skillDTO.getSkillName());
+	                    skill.setExperience(skillDTO.getExperience());
+	                    updatedSkills.add(skill);
+	                }
+	            }
+	            existingProfile.setSkillsRequired(updatedSkills);
+
+	            // Save the updated profile
+	            applicantProfileRepository.save(existingProfile);
+	        }
+
+	        return "Profile saved successfully";
+	    }
+	    }
+
 
 	 
