@@ -181,7 +181,7 @@ public long countAppliedJobsForApplicant(long applicantId) {
 			alerts.setCompanyName(cN);
 			alerts.setStatus(applicantStatus);			
 			alerts.setJobTitle(jobTitle);
-			alerts.setChangeDate(LocalDate.now());
+			alerts.setChangeDate(LocalDateTime.now());
 			alertsRepository.save(alerts);
 			// Send email to the applicant
 	        sendEmailToApplicant(applyJob.getApplicant().getEmail(), cN, applicantStatus);
@@ -467,26 +467,30 @@ private AppliedApplicantInfoDTO mapToDTO(AppliedApplicantInfo appliedApplicantIn
 public String updateApplicantStatus(Long applyJobId, String newStatus) {
     ApplyJob applyJob = applyJobRepository.findById(applyJobId)
             .orElseThrow(() -> new EntityNotFoundException("ApplyJob not found"));
-    Job job=applyJob.getJob();
-    if(job!=null) {
-    	JobRecruiter recruiter=job.getJobRecruiter();
-    	if(recruiter!=null) {
-    		String companyName=recruiter.getCompanyname();
-    		String jobTitle = job.getJobTitle();
-    		if(companyName!=null) {
-    			applyJob.setApplicantStatus(newStatus);
-    		    applyJobRepository.save(applyJob);
-    		    //Increment alert count
-    			incrementAlertCount(applyJob.getApplicant());
-    			// Save status history
-    		    saveStatusHistory(applyJob, applyJob.getApplicantStatus());
-    		    //Send alerts
-    		    sendAlerts(applyJob,applyJob.getApplicantStatus(),companyName,jobTitle);
-    		    return "Applicant status updated to: " + newStatus;
-    		}
-    	}
+    
+    Job job = applyJob.getJob();
+    if (job != null) {
+        JobRecruiter recruiter = job.getJobRecruiter();
+        if (recruiter != null) {
+            String companyName = recruiter.getCompanyname();
+            String jobTitle = job.getJobTitle();
+            if (companyName != null) {
+                applyJob.setApplicantStatus(newStatus);
+                LocalDateTime currentDate = LocalDateTime.now();
+                applyJob.setApplicationDate(currentDate); // Update applicationDate to the current date and time
+                applyJob.setChangeDate(currentDate); // Update changeDate to the current date and time
+                applyJobRepository.save(applyJob);
+                // Increment alert count
+                incrementAlertCount(applyJob.getApplicant());
+                // Save status history
+                saveStatusHistory(applyJob, applyJob.getApplicantStatus());
+                // Send alerts
+                sendAlerts(applyJob, applyJob.getApplicantStatus(), companyName, jobTitle);
+                return "Applicant status updated to: " + newStatus;
+            }
+        }
     }
-    return "Company information not found for the given ApplyJob";    
+    return "Company information not found for the given ApplyJob";
 }
 public List<ApplicantJobInterviewDTO> getApplicantJobInterviewInfoForRecruiterAndStatus(
         long recruiterId, String applicantStatus) {
