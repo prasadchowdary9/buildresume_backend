@@ -480,5 +480,14 @@ public class RegisterController {
 			Applicant applicant=registerRepo.findById(id);
 			return ResponseEntity.ok(applicant);
 		}
+	    @GetMapping("/getResumeId/{id}")
+	    public ResponseEntity<String> getResumeIdByApplicantId(@PathVariable long id) {
+	        Applicant applicant = registerRepo.findById(id);
+	        if (applicant == null) {
+	            return ResponseEntity.notFound().build();
+	        }
+	        String resumeId = applicant.getResumeId();
+	        return ResponseEntity.ok(resumeId);
+	    }
 		
 }
