@@ -32,7 +32,7 @@ public class FindRecommendedJobController {
 	private final FinRecommendedJobService finJobService;
 	@Autowired
 	private CompanyLogoService companyLogoService;
-	 private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class);
+	 private static final Logger logger = LoggerFactory.getLogger(FindRecommendedJobController.class);
     
 	 @Autowired
 	    private ApplicantProfileRepository applicantRepository;
@@ -56,6 +56,7 @@ public class FindRecommendedJobController {
 	            List<Job> recommendedJobs = finJobService.findJobsMatchingApplicantProfile(applicantProfile);
 
 	            if (recommendedJobs.isEmpty()) {
+	            	logger.info("No recommended jobs found for applicant: {}", applicantId);
 	                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
 	            } else {
 	                List<JobDTO> jobDTOs = recommendedJobs.stream()
@@ -65,11 +66,14 @@ public class FindRecommendedJobController {
 	            }
 
 	        } catch (NumberFormatException ex) {
+	        	  logger.error("Invalid applicant ID format: {}", applicantId, ex);
 	            throw new CustomException("Invalid applicant ID format", HttpStatus.BAD_REQUEST);
 	        } catch (CustomException ce) {
+	        	logger.error("Custom exception occurred: {}", ce.getMessage());
 	            System.out.println(ce.getMessage());
 	            return ResponseEntity.status(ce.getStatus()).body(Collections.emptyList());
 	        } catch (Exception e) {
+	        	logger.error("Error occurred while processing request", e);
 	            System.out.println(e.getMessage());
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
 	        }
@@ -113,6 +117,7 @@ public class FindRecommendedJobController {
     
     @GetMapping("/countRecommendedJobsForApplicant/{applicantId}")
     public long countRecommendedJobsForApplicant(@PathVariable long applicantId) {
+    	logger.info("Count of recommended jobs for applicant {} retrieved successfully: {}");
         return finJobService.countRecommendedJobsForApplicant(applicantId);
     }
 	

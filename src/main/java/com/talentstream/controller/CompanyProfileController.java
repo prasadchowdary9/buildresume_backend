@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 @RestController
 @RequestMapping("/companyprofile")
 public class CompanyProfileController {
-	private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CompanyProfileController.class);
 	 @Autowired
 	    private final CompanyProfileService companyProfileService;
 
@@ -49,11 +49,15 @@ public class CompanyProfileController {
 	        }
 	    	
 	    	try {
+	    		
 	           companyProfileService.saveCompanyProfile(companyProfileDTO,jobRecruiterId);
+	           logger.info("Company profile saved successfully for job recruiter ID: {}", jobRecruiterId);
 	           return ResponseEntity.status(HttpStatus.OK).body("CompanyProfile saved successfully");
 	        } catch (CustomException ce) {
+	        	 logger.error("Error occurred while saving company profile for job recruiter ID: {}", jobRecruiterId, ce);
 	            return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
 	        } catch (Exception e) {
+	        	 logger.error("Internal server error occurred while saving company profile for job recruiter ID: {}", jobRecruiterId, e);
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
 	        }
 	    }
@@ -64,22 +68,32 @@ public class CompanyProfileController {
 	            @RequestParam String newStatus) {
 	        try {
 	            String message = companyProfileService.updateApprovalStatus(jobRecruiterId, newStatus);
+	            logger.info("Approval status updated successfully for job recruiter ID: {}", jobRecruiterId);
 	            return ResponseEntity.status(HttpStatus.OK).body(message);
 	        } catch (CustomException ce) {
+	        	 logger.error("Error occurred while updating approval status for job recruiter ID: {}", jobRecruiterId, ce);
 	            return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
 	        } catch (Exception e) {
+	        	  logger.error("Internal server error occurred while updating approval status for job recruiter ID: {}", jobRecruiterId, e);
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
 	        }
 	    }
 	    @GetMapping("/recruiters/getCompanyProfile/{id}")
 	    public ResponseEntity<CompanyProfileDTO> getCompanyProfileById(@PathVariable Long id) {
 	    	try {
-	            Optional<CompanyProfileDTO> companyProfileDTO = companyProfileService.getCompanyProfileById(id);
-	            return companyProfileDTO.map(profile -> new ResponseEntity<>(profile, HttpStatus.OK))
-	                    .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	    		 Optional<CompanyProfileDTO> companyProfileDTO = companyProfileService.getCompanyProfileById(id);
+	             return companyProfileDTO.map(profile -> {
+	                 logger.info("Company profile retrieved successfully for ID: {}", id);
+	                 return new ResponseEntity<>(profile, HttpStatus.OK);
+	             }).orElseGet(() -> {
+	                 logger.warn("Company profile not found for ID: {}", id);
+	                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	             });
 	        } catch (CustomException ce) {
+	        	 logger.error("Error occurred while retrieving company profile for ID: {}", id, ce);
 	            return ResponseEntity.status(ce.getStatus()).body(null);
 	        } catch (Exception e) {
+	        	logger.error("Internal server error occurred while retrieving company profile for ID: {}", id, e);
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 	        }
 	    }
@@ -88,10 +102,13 @@ public class CompanyProfileController {
 	    public ResponseEntity<String> checkApprovalStatus(@PathVariable Long jobRecruiterId) {
 	        try {
 	            String approvalStatus = companyProfileService.checkApprovalStatus(jobRecruiterId);
+	            logger.info("Approval status checked successfully for job recruiter ID: {}", jobRecruiterId);
 	            return ResponseEntity.status(HttpStatus.OK).body(approvalStatus);
 	        } catch (CustomException ce) {
+	        	  logger.error("Error occurred while checking approval status for job recruiter ID: {}", jobRecruiterId, ce);
 	            return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
 	        } catch (Exception e) {
+	        	logger.error("Internal server error occurred while checking approval status for job recruiter ID: {}", jobRecruiterId, e);
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error.");
 	        }
 	    }

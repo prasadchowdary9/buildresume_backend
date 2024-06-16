@@ -51,11 +51,19 @@ public class Applicant {
 //private String appicantStatus="Active";
 @Column(name = "resume_id", columnDefinition = "VARCHAR(255) DEFAULT 'Not available'")
 private String resumeId = "Not available";
+
+private boolean localResume;
  
  
  
     
-    public String getResumeId() {
+    public boolean isLocalResume() {
+	return localResume;
+}
+public void setLocalResume(boolean localResume) {
+	this.localResume = localResume;
+}
+	public String getResumeId() {
 	return resumeId;
 }
 public void setResumeId(String resumeId) {
