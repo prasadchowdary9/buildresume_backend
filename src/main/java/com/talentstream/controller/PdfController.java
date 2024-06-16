@@ -71,6 +71,10 @@ public class PdfController {
                      .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                      .withRegion(Regions.US_WEST_2) // Replace with your desired AWS region
                      .build();
+          // Check if the file exists
+             if (!s3Client.doesObjectExist(bucketName, fileKey)) {          
+            	 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            	 }
             S3Object s3Object = s3Client.getObject(bucketName, fileKey);
             InputStream inputStream = s3Object.getObjectContent();
             // Set response headers
