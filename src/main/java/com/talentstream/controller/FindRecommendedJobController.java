@@ -62,21 +62,6 @@ public class FindRecommendedJobController {
 	                List<JobDTO> jobDTOs = recommendedJobs.stream()
 	                        .map(job -> convertEntityToDTO(job))
 	                        .collect(Collectors.toList());
-
-	                for (JobDTO job : jobDTOs) {
-	                    long jobRecruiterId = job.getRecruiterId();
-	                    byte[] imageBytes = null;
-	                    try {
-	                        imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
-	                    } catch (CustomException ce) {
-	                    	logger.error("Error retrieving company logo for job recruiter ID: {}", jobRecruiterId, ce);
-	                        System.out.println(ce.getMessage());
-	                    }
-	                  //  System.out.println("Job Recruiter ID: " + jobRecruiterId);
-	                  //  System.out.println("Image Bytes: " + Arrays.toString(imageBytes));
-	                    job.setLogoFile(imageBytes);
-	                }
-	                logger.info("Recommended jobs retrieved successfully for applicant: {}", applicantId);
 	                return ResponseEntity.ok(jobDTOs);
 	            }
 
