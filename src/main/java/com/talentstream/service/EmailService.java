@@ -13,6 +13,7 @@ public class EmailService {
  
     public void sendOtpEmail(String to, String otp) {
         SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("no-reply@bitlabs.in"); // Explicitly set the from address
         message.setSubject("OTP for TalentStreamApplication Registration");
         message.setTo(to);
         message.setText("Your OTP is: " + otp+ "\n and this otp will be valid for 1 min");
