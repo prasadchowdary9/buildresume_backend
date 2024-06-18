@@ -16,7 +16,16 @@ public class EmailService {
         message.setFrom("no-reply@bitlabs.in"); // Explicitly set the from address
         message.setSubject("OTP for TalentStreamApplication Registration");
         message.setTo(to);
-        message.setText("Your OTP is: " + otp+ "\n and this otp will be valid for 1 min");
+        message.setText(
+        	    "Your OTP is: " + otp + "\n\n" +
+        	    "We received a request to verify your identity for bitLabs Jobs. To complete the sign-up process, please use the above One-Time Password (OTP).\n\n" +
+        	    "This OTP is valid for the next 1 minute. For your security, please do not share this code with anyone.\n\n" +
+        	    "If you did not request this verification, please ignore this email.\n\n" +
+        	    "Thank you for using bitLabs Jobs!\n\n" +
+        	    "Best regards,\n" +
+        	    "The bitLabs Jobs Team\n\n" +
+        	    "This is an auto-generated email. Please do not reply."
+        	);
         javaMailSender.send(message);
     }
 }

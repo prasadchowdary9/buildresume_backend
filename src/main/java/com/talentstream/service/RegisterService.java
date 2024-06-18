@@ -23,6 +23,7 @@ import org.springframework.web.client.RestTemplate;
 import com.talentstream.dto.ResumeRegisterDto;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import java.util.UUID;
  
 @Service
 public class RegisterService {
@@ -110,9 +111,53 @@ public Applicant googleSignIn(String email) {
             
  
             // Save the new applicant
-            applicantRepository.save(newApplicant);
+            Applicant applicant1=applicantRepository.save(newApplicant);
+            System.out.println("User resume ID: " );
+            ResumeRegisterDto resume=new ResumeRegisterDto();
+//            String[] nameParts = applicant1.getName().toLowerCase().split("\\s+");
+            
+            String firstName = UUID.randomUUID().toString().replaceAll("[^a-z0-9._-]", "").substring(0, 10);
+            resume.setName(firstName);
+            String randomString = UUID.randomUUID().toString().replaceAll("[^a-z0-9._-]", "").substring(0, 10);
+            String username = firstName + randomString;
+            resume.setUsername(username);
+            resume.setEmail(applicant1.getEmail().toLowerCase());
+            resume.setPassword(applicant1.getPassword());
+            resume.setLocale("en-US");
+         // Prepare headers
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
  
-            return newApplicant;
+//            System.setProperty("javax.net.ssl.trustStoreType", "null");
+            // Create HttpEntity with headers and resume body
+            HttpEntity<ResumeRegisterDto> requestEntity = new HttpEntity<>(resume, headers);
+            
+ 
+            // Define the endpoint URL
+            String resumeRegisterUrl = "https://resume.bitlabs.in:5173/api/auth/register";
+ 
+            try {
+            
+            	// Make POST request
+                ResponseEntity<String> response = restTemplate.postForEntity(resumeRegisterUrl, requestEntity, String.class);
+               
+                // Parse the JSON response
+                Gson gson = new Gson();
+                JsonObject jsonResponse = gson.fromJson(response.getBody(), JsonObject.class);
+                
+                // Access the nested ID field
+                String userId = jsonResponse.getAsJsonObject("user").get("id").getAsString();
+                
+                // Print the ID
+                System.out.println("User resume ID: " + userId);
+                applicant1.setResumeId(userId);
+                applicantRepository.save(applicant1);
+            	
+            }catch(Exception e) {
+         	   System.out.println(e.getMessage());
+            }
+            
+            return applicant1;
         } else {
             return applicant;
         }
@@ -232,7 +277,9 @@ public void updatePassword(String userEmail, String newPassword) {
             String[] nameParts = applicant1.getName().toLowerCase().split("\\s+");
             String firstName = nameParts[0];
             resume.setName(firstName);
-            resume.setUsername(firstName);
+            String randomString = UUID.randomUUID().toString().replaceAll("[^a-z0-9._-]", "").substring(0, 10);
+            String username = firstName + randomString;
+            resume.setUsername(username);
             resume.setEmail(applicant1.getEmail().toLowerCase());
             resume.setPassword(applicant1.getPassword());
             resume.setLocale("en-US");
