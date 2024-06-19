@@ -267,7 +267,7 @@ public class RegisterController {
 	    			System.out.println("Now I am at token gen");
 	                UserDetails userDetails = myUserDetailsService.loadUserByUsername(applicant.getEmail());
 	                final String jwt = jwtTokenUtil.generateToken(userDetails);
-	                return ResponseHandler.generateResponse("Login successfully" + userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt), applicant.getEmail(), applicant.getName(), applicant.getId());
+	                return ResponseHandler.generateResponse("Login successfully" + userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt), applicant.getEmail(), applicant.getName(), applicant.getId(), applicant.getMobilenumber());
 	            } else {
 	                // Regular login functionality
 	                authenticationManager.authenticate(
@@ -275,7 +275,7 @@ public class RegisterController {
 	                );
 	                UserDetails userDetails = myUserDetailsService.loadUserByUsername(applicant.getEmail());
 	                final String jwt = jwtTokenUtil.generateToken(userDetails);
-	                return ResponseHandler.generateResponse("Login successfully" + userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt), applicant.getEmail(), applicant.getName(), applicant.getId());
+	                return ResponseHandler.generateResponse("Login successfully" + userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt), applicant.getEmail(), applicant.getName(), applicant.getId(), applicant.getMobilenumber());
 	            }
 //	            authenticationManager.authenticate(
 //	                    new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getPassword())

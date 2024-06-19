@@ -14,7 +14,7 @@ public class EmailService {
     public void sendOtpEmail(String to, String otp) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("no-reply@bitlabs.in"); // Explicitly set the from address
-        message.setSubject("OTP for TalentStreamApplication Registration");
+        message.setSubject("OTP verification for bitLabs Jobs");
         message.setTo(to);
         message.setText(
         		"Dear Applicant,\n\n"+
