@@ -184,31 +184,37 @@ public long countAppliedJobsForApplicant(long applicantId) {
 			alerts.setChangeDate(LocalDateTime.now());
 			alertsRepository.save(alerts);
 			// Send email to the applicant
-	        sendEmailToApplicant(applyJob.getApplicant().getEmail(), cN, applicantStatus);
+	        sendEmailToApplicant(applyJob.getApplicant().getEmail(), cN, applicantStatus,jobTitle);
 		}
-		//This method is to send interview status to the applicant mail id
-		private void sendEmailToApplicant(String toEmail, String cN, String applicantStatus) {
-			// TODO Auto-generated method stub
-			try {
-				SimpleMailMessage message=new SimpleMailMessage();
-				// Set email properties
-				message.setTo(toEmail);
-				message.setSubject("Job Alert Notification");
-				// Customize your email content
-	            String content = "Dear Applicant,\n\n"
-	                    + "Your job application status has been updated to: " + applicantStatus + "\n"
-	                    + "Company: " + cN + "\n\n"
-	                    + "Thank you.\n\n"
-	                    + "Best regards,\n"
-	                    + "Your Company Name";
-	            message.setText(content);
-	            // Send the email
-	            javaMailSender.send(message);
-	        } catch (Exception e) {
-	            // Handle exceptions, log, and consider appropriate error handling
-	        	e.printStackTrace();
-	        }
-		}
+	  //This method is to send interview status to the applicant mail id
+	  		private void sendEmailToApplicant(String toEmail, String cN, String applicantStatus,String jobTitle) {
+	  			// TODO Auto-generated method stub
+	  			try {
+	  				SimpleMailMessage message=new SimpleMailMessage();
+	  				// Set email properties
+	  				 message.setFrom("no-reply@bitlabs.in");
+	  				message.setTo(toEmail);
+	  				message.setSubject("Your Application for "+jobTitle + " at "+ cN +" has been Submitted");
+	  				// Customize your email content
+	  	            String content = "Dear Applicant,\n\n"
+	  	                    + "Thank you for applying for the position of "+jobTitle +" at "+ cN + " through bitLabs Jobs. We have received your application and it has been successfully submitted to the employer. " + "\n\n"
+	  	                    + "What’s Next?\n\n"
+	  	                    + "1.Your application will be screened.\n"
+	  	                    + "2.If you are shortlisted, the employer will contact you directly for the next steps.\n"
+	  	                    + "3.Meanwhile, you can track your application status by logging into your bitLabs Jobs account & by clicking on applied jobs.\n\n"
+	  	                    + "Happy job searching! \n\n"
+	  	                    + "Regards\n"
+	  	                    + "The bitLabs Jobs Team.\n\n"
+	  	                    + "This is an auto-generated email. Please do not reply.";
+	  	            message.setText(content);
+	  	            // Send the email
+	  	            javaMailSender.send(message);
+	  	        } catch (Exception e) {
+	  	            // Handle exceptions, log, and consider appropriate error handling
+	  	        	e.printStackTrace();
+	  	        }
+	  		}
+		
 		//This method is to save the track of statuses that updated by recruiter
 		private void saveStatusHistory(ApplyJob applyJob, String applicationStatus) {
 			// TODO Auto-generated method stub
