@@ -93,10 +93,13 @@ public class JobRecruiterController {
     	
     	JobRecruiter recruiter = convertToEntity(recruiterDTO);
         try {
+        	  logger.info("Registering recruiter with email: {}", recruiter.getEmail());
 	             return recruiterService.saveRecruiter(recruiterDTO);
 	        } catch (CustomException e) {
+	        	  logger.error("Error registering recruiter with email: {}", recruiter.getEmail(), e);
 	            return ResponseEntity.badRequest().body(e.getMessage());
 	        } catch (Exception e) {
+	        	 logger.error("Internal server error occurred while registering recruiter with email: {}", recruiter.getEmail(), e);
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error registering applicant");
 	        }
     }
@@ -112,10 +115,11 @@ public class JobRecruiterController {
             boolean emailExists = recruiterService.emailExists(loginRequest.getEmail());
  
             if (emailExists) {
+            	  logger.warn("Login failed for recruiter with email: {}. Incorrect password.", loginRequest.getEmail());
               
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Incorrect password");
             } else {
-             
+            	 logger.warn("Login failed. No account found with email: {}", loginRequest.getEmail());
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No account found with this email address");
             }
         }
@@ -144,9 +148,11 @@ public class JobRecruiterController {
             String otp = otpService.generateOtp(userEmail);
             emailService.sendOtpEmail(userEmail, otp);
             otpVerificationMap.put(userEmail, true); 
+            logger.info("OTP sent successfully to email: {}", userEmail);
             return ResponseEntity.ok("OTP sent to your email.");
         }
         else {
+        	logger.warn("Registration failed. Email {} is already registered.", userEmail);
         	 return ResponseEntity.badRequest().body("Email is already  registered.");
         }
     }
@@ -158,19 +164,27 @@ public class JobRecruiterController {
 			);
 		}
 		catch (BadCredentialsException e) {
+			logger.warn("Login failed for recruiter with email: {}. Incorrect username or password.", login.getEmail());
 			throw new Exception("Incorrect username or password", e);
 		}
     	final UserDetails userDetails = myUserDetailsService.loadUserByUsername(recruiter.getEmail());
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
+<<<<<<< HEAD
 		return ResponseHandler.generateResponse("Login successfully"+userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt),recruiter.getEmail(),recruiter.getCompanyname(),recruiter.getRecruiterId(),recruiter.getMobilenumber());
+=======
+		  logger.info("Login successful for recruiter with email: {}", recruiter.getEmail());
+		return ResponseHandler.generateResponse("Login successfully"+userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt),recruiter.getEmail(),recruiter.getCompanyname(),recruiter.getRecruiterId());
+>>>>>>> 05934e9857eb2e57d97af2c1f8043ed136fbc87f
 	}
  
     @GetMapping("/viewRecruiters")
     public ResponseEntity<List<JobRecruiterDTO>> getAllJobRecruiters() {
         try {
             List<JobRecruiterDTO> jobRecruiters = recruiterService.getAllJobRecruiters();
+            logger.info("Retrieved all job recruiters successfully");
             return ResponseHandler.generateResponse1("List of Job Recruiters", HttpStatus.OK, jobRecruiters);
         } catch (Exception e) {
+        	 logger.error("Error retrieving job recruiters", e);
             return ResponseHandler.generateResponse1("Error retrieving job recruiters", HttpStatus.INTERNAL_SERVER_ERROR, null);
         }
     }
@@ -204,9 +218,11 @@ public class JobRecruiterController {
 //	            recruiterRepository.save(recruiter);
 	            return ResponseEntity.ok(unreadAlertCount);
 	        } else {
+	        	 logger.warn("No recruiter found with ID: {}", recruiterId);
 	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 	        }
 	    } catch (Exception e) {
+	    	  logger.error("Error getting unread alert count", e);
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 	    }
 	}
@@ -237,11 +253,13 @@ public class JobRecruiterController {
           JobRecruiter recruiter = recruiterRepository.findByRecruiterId(recruiterId);
           recruiter.setAlertCount(0);
           recruiterRepository.save(recruiter);
-
+          logger.warn("No recruiter found with ID: {}", recruiterId);
           return ResponseEntity.ok(notifications);
       } catch (EntityNotFoundException e) {
+    	  logger.warn("No recruiter found with ID: {}", recruiterId);
           return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
       } catch (Exception e) {
+    	  logger.error("Error getting job alerts", e);
           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
       }
   }

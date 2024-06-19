@@ -181,34 +181,40 @@ public long countAppliedJobsForApplicant(long applicantId) {
 			alerts.setCompanyName(cN);
 			alerts.setStatus(applicantStatus);			
 			alerts.setJobTitle(jobTitle);
-			alerts.setChangeDate(LocalDate.now());
+			alerts.setChangeDate(LocalDateTime.now());
 			alertsRepository.save(alerts);
 			// Send email to the applicant
-	        sendEmailToApplicant(applyJob.getApplicant().getEmail(), cN, applicantStatus);
+	        sendEmailToApplicant(applyJob.getApplicant().getEmail(), cN, applicantStatus,jobTitle);
 		}
-		//This method is to send interview status to the applicant mail id
-		private void sendEmailToApplicant(String toEmail, String cN, String applicantStatus) {
-			// TODO Auto-generated method stub
-			try {
-				SimpleMailMessage message=new SimpleMailMessage();
-				// Set email properties
-				message.setTo(toEmail);
-				message.setSubject("Job Alert Notification");
-				// Customize your email content
-	            String content = "Dear Applicant,\n\n"
-	                    + "Your job application status has been updated to: " + applicantStatus + "\n"
-	                    + "Company: " + cN + "\n\n"
-	                    + "Thank you.\n\n"
-	                    + "Best regards,\n"
-	                    + "Your Company Name";
-	            message.setText(content);
-	            // Send the email
-	            javaMailSender.send(message);
-	        } catch (Exception e) {
-	            // Handle exceptions, log, and consider appropriate error handling
-	        	e.printStackTrace();
-	        }
-		}
+	  //This method is to send interview status to the applicant mail id
+	  		private void sendEmailToApplicant(String toEmail, String cN, String applicantStatus,String jobTitle) {
+	  			// TODO Auto-generated method stub
+	  			try {
+	  				SimpleMailMessage message=new SimpleMailMessage();
+	  				// Set email properties
+	  				 message.setFrom("no-reply@bitlabs.in");
+	  				message.setTo(toEmail);
+	  				message.setSubject("Your Application for "+jobTitle + " at "+ cN +" has been Submitted");
+	  				// Customize your email content
+	  	            String content = "Dear Applicant,\n\n"
+	  	                    + "Thank you for applying for the position of "+jobTitle +" at "+ cN + " through bitLabs Jobs. We have received your application and it has been successfully submitted to the employer. " + "\n\n"
+	  	                    + "What’s Next?\n\n"
+	  	                    + "1.Your application will be screened.\n"
+	  	                    + "2.If you are shortlisted, the employer will contact you directly for the next steps.\n"
+	  	                    + "3.Meanwhile, you can track your application status by logging into your bitLabs Jobs account & by clicking on applied jobs.\n\n"
+	  	                    + "Happy job searching! \n\n"
+	  	                    + "Regards\n"
+	  	                    + "The bitLabs Jobs Team.\n\n"
+	  	                    + "This is an auto-generated email. Please do not reply.";
+	  	            message.setText(content);
+	  	            // Send the email
+	  	            javaMailSender.send(message);
+	  	        } catch (Exception e) {
+	  	            // Handle exceptions, log, and consider appropriate error handling
+	  	        	e.printStackTrace();
+	  	        }
+	  		}
+		
 		//This method is to save the track of statuses that updated by recruiter
 		private void saveStatusHistory(ApplyJob applyJob, String applicationStatus) {
 			// TODO Auto-generated method stub
@@ -467,26 +473,30 @@ private AppliedApplicantInfoDTO mapToDTO(AppliedApplicantInfo appliedApplicantIn
 public String updateApplicantStatus(Long applyJobId, String newStatus) {
     ApplyJob applyJob = applyJobRepository.findById(applyJobId)
             .orElseThrow(() -> new EntityNotFoundException("ApplyJob not found"));
-    Job job=applyJob.getJob();
-    if(job!=null) {
-    	JobRecruiter recruiter=job.getJobRecruiter();
-    	if(recruiter!=null) {
-    		String companyName=recruiter.getCompanyname();
-    		String jobTitle = job.getJobTitle();
-    		if(companyName!=null) {
-    			applyJob.setApplicantStatus(newStatus);
-    		    applyJobRepository.save(applyJob);
-    		    //Increment alert count
-    			incrementAlertCount(applyJob.getApplicant());
-    			// Save status history
-    		    saveStatusHistory(applyJob, applyJob.getApplicantStatus());
-    		    //Send alerts
-    		    sendAlerts(applyJob,applyJob.getApplicantStatus(),companyName,jobTitle);
-    		    return "Applicant status updated to: " + newStatus;
-    		}
-    	}
+    
+    Job job = applyJob.getJob();
+    if (job != null) {
+        JobRecruiter recruiter = job.getJobRecruiter();
+        if (recruiter != null) {
+            String companyName = recruiter.getCompanyname();
+            String jobTitle = job.getJobTitle();
+            if (companyName != null) {
+                applyJob.setApplicantStatus(newStatus);
+                LocalDateTime currentDate = LocalDateTime.now();
+                applyJob.setApplicationDate(currentDate); // Update applicationDate to the current date and time
+                applyJob.setChangeDate(currentDate); // Update changeDate to the current date and time
+                applyJobRepository.save(applyJob);
+                // Increment alert count
+                incrementAlertCount(applyJob.getApplicant());
+                // Save status history
+                saveStatusHistory(applyJob, applyJob.getApplicantStatus());
+                // Send alerts
+                sendAlerts(applyJob, applyJob.getApplicantStatus(), companyName, jobTitle);
+                return "Applicant status updated to: " + newStatus;
+            }
+        }
     }
-    return "Company information not found for the given ApplyJob";    
+    return "Company information not found for the given ApplyJob";
 }
 public List<ApplicantJobInterviewDTO> getApplicantJobInterviewInfoForRecruiterAndStatus(
         long recruiterId, String applicantStatus) {

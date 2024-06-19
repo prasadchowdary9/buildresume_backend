@@ -26,6 +26,17 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+
 
 
 
@@ -33,7 +44,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @EnableWebMvc
 @EnableScheduling
 public class TalentStreamApplication {
- 
+	private static final Logger logger = LoggerFactory.getLogger(TalentStreamApplication.class);
 	public static void main(String[] args) {
 		SpringApplication.run(TalentStreamApplication.class, args);
 	}
@@ -88,4 +99,5 @@ public class TalentStreamApplication {
 	                .paths(PathSelectors.any())
 	                .build();
 	    }
+	 
 	 }

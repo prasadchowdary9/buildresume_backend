@@ -1,6 +1,8 @@
 
 package com.talentstream.entity;
 
+import java.time.LocalDateTime;
+
 //import java.util.Date;
 //import java.util.List;
 // 
@@ -134,15 +136,27 @@ public class ApplyJob {
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Job job;
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date applicationDate;
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime applicationDate;
     @Column(nullable = false)
     private String applicantStatus = "New";
     @OneToMany(mappedBy = "applyJob", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<ScheduleInterview> scheduleInterviews;
+    
+    
   
+    @Column(columnDefinition = "TIMESTAMP")
+    private LocalDateTime changeDate;
+
+  
+	public LocalDateTime getChangeDate() {
+		return changeDate;
+	}
+	public void setChangeDate(LocalDateTime changeDate) {
+		this.changeDate = changeDate;
+	}
+	
 	public List<ScheduleInterview> getScheduleInterviews() {
 		return scheduleInterviews;
 	}
@@ -155,15 +169,15 @@ public class ApplyJob {
 	public void setApplyjobid(Long applyjobid) {
 		this.applyjobid = applyjobid;
 	}
-   public void setApplicationDate(Date applicationDate) {
-		this.applicationDate = applicationDate;
-	}
-	public Date getApplicationDate() {
+	public LocalDateTime getApplicationDate() {
 		return applicationDate;
+	}
+	public void setApplicationDate(LocalDateTime applicationDate) {
+		this.applicationDate = applicationDate;
 	}
 @PrePersist
 	private void setApplicationDate() {
-	    applicationDate = new Date();
+	    applicationDate = LocalDateTime.now();
 	}
 	public Applicant getApplicant() {
 		return applicant;
