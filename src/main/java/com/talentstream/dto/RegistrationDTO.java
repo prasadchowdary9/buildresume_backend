@@ -32,8 +32,15 @@ public class RegistrationDTO {
     private String password;
     
 	private String appicantStatus="Active";
+	boolean localResume=false;
 	
-	    public String getAppicantStatus() {
+	    public boolean isLocalResume() {
+		return localResume;
+	}
+	public void setLocalResume(boolean localResume) {
+		this.localResume = localResume;
+	}
+		public String getAppicantStatus() {
 			return appicantStatus;
 		}
 		public void setAppicantStatus(String appicantStatus) {

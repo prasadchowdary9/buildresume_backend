@@ -52,7 +52,7 @@ public class Applicant {
 @Column(name = "resume_id", columnDefinition = "VARCHAR(255) DEFAULT 'Not available'")
 private String resumeId = "Not available";
 
-private boolean localResume;
+private boolean localResume=false;
  
  
  
