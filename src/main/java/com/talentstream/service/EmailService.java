@@ -17,6 +17,7 @@ public class EmailService {
         message.setSubject("OTP for TalentStreamApplication Registration");
         message.setTo(to);
         message.setText(
+        		"Dear Applicant,\n\n"+
         	    "Your OTP is: " + otp + "\n\n" +
         	    "We received a request to verify your identity for bitLabs Jobs. To complete the sign-up process, please use the above One-Time Password (OTP).\n\n" +
         	    "This OTP is valid for the next 1 minute. For your security, please do not share this code with anyone.\n\n" +
