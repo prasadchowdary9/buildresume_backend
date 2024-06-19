@@ -169,8 +169,7 @@ public class JobRecruiterController {
 		}
     	final UserDetails userDetails = myUserDetailsService.loadUserByUsername(recruiter.getEmail());
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
-		  logger.info("Login successful for recruiter with email: {}", recruiter.getEmail());
-		return ResponseHandler.generateResponse("Login successfully"+userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt),recruiter.getEmail(),recruiter.getCompanyname(),recruiter.getRecruiterId());
+		return ResponseHandler.generateResponse("Login successfully"+userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt),recruiter.getEmail(),recruiter.getCompanyname(),recruiter.getRecruiterId(),recruiter.getMobilenumber());
 	}
  
     @GetMapping("/viewRecruiters")

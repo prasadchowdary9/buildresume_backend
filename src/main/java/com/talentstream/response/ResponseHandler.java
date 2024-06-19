@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class ResponseHandler {                                          //user defined class
 	
-    public static ResponseEntity<Object> generateResponse(String message, HttpStatus status, Object responseObj,String email,String username,long id) { //object class accept any type of data. 
+    public static ResponseEntity<Object> generateResponse(String message, HttpStatus status, Object responseObj,String email,String username,long id, String mobilenumber) { //object class accept any type of data. 
         Map<String, Object> map = new HashMap<String, Object>();
             map.put("message", message);
             map.put("status", status.value());
@@ -20,7 +20,7 @@ public class ResponseHandler {                                          //user d
             map.put("email", email);
             map.put("username", username);
             map.put("id", id);
-
+            map.put("mobilenumber", mobilenumber);
             return new ResponseEntity<Object>(map,status);
     }
     
