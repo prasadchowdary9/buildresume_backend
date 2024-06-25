@@ -548,7 +548,12 @@ public List<ApplicantStatusHistory> getApplicantStatusHistory(long applyJobId) {
 //	return alertsRepository.findByApplyJob_applyJobIdOrderByChangeDateDesc(applyjobid);
 //}
 public List<Alerts> getAlerts(long applicantId) {
-	return alertsRepository.findByApplicantIdOrderByChangeDateDesc(applicantId);
+	//return alertsRepository.findByApplicantIdOrderByChangeDateDesc(applicantId);
+List<Alerts> alerts= alertsRepository.findByApplicantIdOrderByChangeDateDesc(applicantId);
+	
+	return alerts.stream()
+            .filter(alert -> !"New".equals(alert.getApplyJob().getApplicantStatus()))
+            .collect(Collectors.toList());
 }
 //This method is to reset count of alerts to zero once after reading all the alert messages.
 public void resetAlertCount(long applicantId) {
