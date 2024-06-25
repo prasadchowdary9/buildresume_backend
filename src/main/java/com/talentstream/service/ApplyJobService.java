@@ -483,8 +483,17 @@ public String updateApplicantStatus(Long applyJobId, String newStatus) {
             if (companyName != null) {
                 applyJob.setApplicantStatus(newStatus);
                 LocalDateTime currentDate = LocalDateTime.now();
-                applyJob.setApplicationDate(currentDate); // Update applicationDate to the current date and time
-                applyJob.setChangeDate(currentDate); // Update changeDate to the current date and time
+               
+                // Get the current change date and time
+                LocalDateTime currentChangeDateTime = currentDate;
+//                System.out.println(currentChangeDateTime + " Utc");
+                // Add 5 hours and 30 minutes to the current change date and time
+                LocalDateTime updatedChangeDateTime = currentChangeDateTime
+                        .plusHours(5)
+                        .plusMinutes(30);
+                applyJob.setApplicationDate(updatedChangeDateTime); 
+                applyJob.setChangeDate(updatedChangeDateTime);
+//                System.out.println(updatedChangeDateTime + " IST");
                 applyJobRepository.save(applyJob);
                 // Increment alert count
                 incrementAlertCount(applyJob.getApplicant());
@@ -539,7 +548,12 @@ public List<ApplicantStatusHistory> getApplicantStatusHistory(long applyJobId) {
 //	return alertsRepository.findByApplyJob_applyJobIdOrderByChangeDateDesc(applyjobid);
 //}
 public List<Alerts> getAlerts(long applicantId) {
-	return alertsRepository.findByApplicantIdOrderByChangeDateDesc(applicantId);
+	//return alertsRepository.findByApplicantIdOrderByChangeDateDesc(applicantId);
+List<Alerts> alerts= alertsRepository.findByApplicantIdOrderByChangeDateDesc(applicantId);
+	
+	return alerts.stream()
+            .filter(alert -> !"New".equals(alert.getApplyJob().getApplicantStatus()))
+            .collect(Collectors.toList());
 }
 //This method is to reset count of alerts to zero once after reading all the alert messages.
 public void resetAlertCount(long applicantId) {

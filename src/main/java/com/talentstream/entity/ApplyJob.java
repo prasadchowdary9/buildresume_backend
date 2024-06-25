@@ -175,10 +175,12 @@ public class ApplyJob {
 	public void setApplicationDate(LocalDateTime applicationDate) {
 		this.applicationDate = applicationDate;
 	}
-@PrePersist
-	private void setApplicationDate() {
-	    applicationDate = LocalDateTime.now();
-	}
+	@PrePersist
+	private void onPrePersist() {         
+		LocalDateTime now = LocalDateTime.now();         
+		this.changeDate = now;         
+		this.applicationDate = now; 
+		}
 	public Applicant getApplicant() {
 		return applicant;
 	}
