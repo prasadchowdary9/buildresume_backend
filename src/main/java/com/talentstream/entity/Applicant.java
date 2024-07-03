@@ -11,6 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -21,8 +24,16 @@ public class Applicant {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    
+    @NotBlank(message = "Email is required.")
+    @Pattern(
+            regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            message = "Invalid email format and white spaces are not allowed."
+        )
     private String email;
     @Column(name = "mobile")
+    @NotBlank(message = "Mobile number is required.")
+    @Pattern(regexp = "^$|^[6789]\\d{9}$", message = "Mobile number should begin with 6, 7, 8, or 9 and be 10 digits long.")
     private String mobilenumber;
     private String password; 
     @OneToMany(mappedBy="applicant")

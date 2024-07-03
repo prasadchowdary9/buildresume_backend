@@ -2,6 +2,7 @@ package com.talentstream.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +22,11 @@ import com.talentstream.service.ApplicantProfileService;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,8 +46,28 @@ public class ApplicantProfileController {
     }
 
     @PostMapping("/createprofile/{applicantid}")
-    public ResponseEntity<String> createOrUpdateApplicantProfile(@PathVariable long applicantid, @RequestBody ApplicantProfileDTO applicantProfileDTO) throws IOException {
-    	 logger.debug("Request to create/update profile for applicantId: {}", applicantid);
+    public ResponseEntity<String> createOrUpdateApplicantProfile(@Valid @RequestBody ApplicantProfileDTO applicantProfileDTO, BindingResult bindingResult,@PathVariable long applicantid) throws IOException {
+    	if (bindingResult.hasErrors()) {
+            // Handle validation errors
+            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
+            bindingResult.getFieldErrors().forEach(fieldError -> {
+                String fieldName = fieldError.getField();
+                String errorMessage = fieldError.getDefaultMessage();
+
+                // Append each field and its error message on a new line
+                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+            });
+
+            // Construct the response body with each field and its error message on separate lines
+            StringBuilder responseBody = new StringBuilder();
+            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+            logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
+            return ResponseEntity.badRequest().body(responseBody.toString());
+        }
+ 
+    	
+    	logger.debug("Request to create/update profile for applicantId: {}", applicantid);
         
         try {
             String result = applicantProfileService.createOrUpdateApplicantProfile(applicantid, applicantProfileDTO);

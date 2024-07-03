@@ -3,15 +3,18 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 @Embeddable
 public class BasicDetails {
-	 @NotBlank
-	    @Pattern(regexp = "^[a-zA-Z ]{3,19}$",message = "invalid username")
+	    @NotBlank(message = "Firstname is required.")
+        @Pattern(regexp = "^[a-zA-Z ]{3,19}$", message = "invalid username")
+        @Size(min = 3, message = "First name must be at least 3 characters long.")
 	    private String firstName;
-	    @NotBlank
-	    @Pattern(regexp = "^[a-zA-Z ]{3,19}$",message = "invalid username")
+	    @NotBlank(message = "Lastname is required.")
+	    @Pattern(regexp = "^[a-zA-Z ]{3,19}$", message = "invalid username")
+	    @Size(min = 3, message = "Last name must be at least 3 characters long.")
 	    private String lastName;
 
 	    private String dateOfBirth;

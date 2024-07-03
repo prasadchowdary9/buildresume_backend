@@ -153,8 +153,27 @@ public class RegisterController {
 //	    }
 	    
 	  @PostMapping("/applicantLogin")
-	    public ResponseEntity<Object> login(@RequestBody LoginDTO loginDTO) throws Exception {
-	        try {
+	    public ResponseEntity<Object> login(@Valid @RequestBody LoginDTO loginDTO, BindingResult bindingResult) throws Exception {
+		  if (bindingResult.hasErrors()) {
+	            // Handle validation errors
+	            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
+	            bindingResult.getFieldErrors().forEach(fieldError -> {
+	                String fieldName = fieldError.getField();
+	                String errorMessage = fieldError.getDefaultMessage();
+
+	                // Append each field and its error message on a new line
+	                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+	            });
+
+	            // Construct the response body with each field and its error message on separate lines
+	            StringBuilder responseBody = new StringBuilder();
+	            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+	            logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
+	            return ResponseEntity.badRequest().body(responseBody.toString());
+	        }
+		  
+		  try {
 	            Applicant applicant = null;
 	            logger.info("Attempting to login with email: {}", loginDTO.getEmail());
 
@@ -291,7 +310,25 @@ public class RegisterController {
  
  
 	   @PostMapping("/applicantsendotp")
-	    public ResponseEntity<String> sendOtp(@RequestBody Applicant request) {
+	    public ResponseEntity<String> sendOtp(@Valid @RequestBody Applicant request, BindingResult bindingResult) {
+		   if (bindingResult.hasErrors()) {
+	            // Handle validation errors
+	            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
+	            bindingResult.getFieldErrors().forEach(fieldError -> {
+	                String fieldName = fieldError.getField();
+	                String errorMessage = fieldError.getDefaultMessage();
+
+	                // Append each field and its error message on a new line
+	                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+	            });
+
+	            // Construct the response body with each field and its error message on separate lines
+	            StringBuilder responseBody = new StringBuilder();
+	            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+	            logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
+	            return ResponseEntity.badRequest().body(responseBody.toString());
+	        }
 	        String userEmail = request.getEmail();
 	        String userMobile = request.getMobilenumber();
 	        logger.info("Attempting to send OTP to email: {} and mobile: {}", userEmail, userMobile);
@@ -333,7 +370,26 @@ public class RegisterController {
 	        }
 	    }
 	    @PostMapping("/forgotpasswordsendotp")
-	    public ResponseEntity<String> ForgotsendOtp(@RequestBody Applicant  request) {
+	    public ResponseEntity<String> ForgotsendOtp(@Valid @RequestBody Applicant  request, BindingResult bindingResult) {
+	    	
+	    	  if (bindingResult.hasErrors()) {
+		            // Handle validation errors
+		            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
+		            bindingResult.getFieldErrors().forEach(fieldError -> {
+		                String fieldName = fieldError.getField();
+		                String errorMessage = fieldError.getDefaultMessage();
+
+		                // Append each field and its error message on a new line
+		                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+		            });
+
+		            // Construct the response body with each field and its error message on separate lines
+		            StringBuilder responseBody = new StringBuilder();
+		            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+		            logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
+		            return ResponseEntity.badRequest().body(responseBody.toString());
+		        }
 	    	String userEmail = request.getEmail();
 	    	  logger.info("Sending OTP for password recovery to email: {}", userEmail);
 	        Applicant applicant = regsiterService.findByEmail(userEmail);
@@ -353,10 +409,26 @@ public class RegisterController {
 	    }
  
 	    @PostMapping("/applicantverify-otp")
-	    public ResponseEntity<String> verifyOtp( @RequestBody  OtpVerificationRequest verificationRequest
- 
-	    )
+	    public ResponseEntity<String> verifyOtp(@Valid @RequestBody  OtpVerificationRequest verificationRequest, BindingResult bindingResult)
 	    {
+	    	if (bindingResult.hasErrors()) {
+	            // Handle validation errors
+	            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
+	            bindingResult.getFieldErrors().forEach(fieldError -> {
+	                String fieldName = fieldError.getField();
+	                String errorMessage = fieldError.getDefaultMessage();
+
+	                // Append each field and its error message on a new line
+	                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+	            });
+
+	            // Construct the response body with each field and its error message on separate lines
+	            StringBuilder responseBody = new StringBuilder();
+	            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+	            logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
+	            return ResponseEntity.badRequest().body(responseBody.toString());
+	        }
 	    	try {
 	            String otp = verificationRequest.getOtp();
 	            String email = verificationRequest.getEmail();
@@ -381,7 +453,26 @@ public class RegisterController {
 	    }
  
 	    @PostMapping("/applicantreset-password/{email}")
-	    public ResponseEntity<String> setNewPassword(@RequestBody NewPasswordRequest request,@PathVariable String email) {
+	    public ResponseEntity<String> setNewPassword(@Valid @RequestBody NewPasswordRequest request, BindingResult bindingResult, @PathVariable String email) {
+	    	 if (bindingResult.hasErrors()) {
+		            // Handle validation errors
+		            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
+		            bindingResult.getFieldErrors().forEach(fieldError -> {
+		                String fieldName = fieldError.getField();
+		                String errorMessage = fieldError.getDefaultMessage();
+
+		                // Append each field and its error message on a new line
+		                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+		            });
+
+		            // Construct the response body with each field and its error message on separate lines
+		            StringBuilder responseBody = new StringBuilder();
+		            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+		            logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
+		            return ResponseEntity.badRequest().body(responseBody.toString());
+		        }
+	    	
 	    	try {
 	    		 logger.info("Request to reset password for email: {}", email);
 
@@ -389,7 +480,7 @@ public class RegisterController {
 	            String confirmedPassword = request.getConfirmedPassword();
 	            	
 	            if (email == null) {
-	                  throw new CustomException("Email not found.", HttpStatus.BAD_REQUEST);
+	                  throw new CustomException("Email not found or is invalid.", HttpStatus.BAD_REQUEST);
 	            }
 	           
 	            Applicant applicant = regsiterService.findByEmail(email);
@@ -444,13 +535,34 @@ public class RegisterController {
 			
 		}
 		@PostMapping("/authenticateUsers/{id}")
-	    public String authenticateUser( @RequestBody PasswordRequest passwordRequest, @PathVariable long id) {
-			 logger.info("Authenticating user with ID: {}", id);
+	    public ResponseEntity<String> authenticateUser(@Valid @RequestBody PasswordRequest passwordRequest,BindingResult bindingResult,  @PathVariable long id) {
+			 
+			if (bindingResult.hasErrors()) {
+	            // Handle validation errors
+	            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
+	            bindingResult.getFieldErrors().forEach(fieldError -> {
+	                String fieldName = fieldError.getField();
+	                String errorMessage = fieldError.getDefaultMessage();
+
+	                // Append each field and its error message on a new line
+	                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+	            });
+
+	            // Construct the response body with each field and its error message on separate lines
+	            StringBuilder responseBody = new StringBuilder();
+	            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+	            logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
+	            return ResponseEntity.badRequest().body(responseBody.toString());
+	        }
+			
+			logger.info("Authenticating user with ID: {}", id);
 
 	        String newpassword = passwordRequest.getNewPassword();
 	        String oldpassword = passwordRequest.getOldPassword();
 	        logger.info("Authentication result for user ID {}: {}", id);
-	        return regsiterService.authenticateUser(id, oldpassword, newpassword);
+	       String result1= regsiterService.authenticateUser(id, oldpassword, newpassword);
+	       return ResponseEntity.ok(result1);
 	    }
 	public JobRecruiter findByEmail(String userEmail) {
 			try {
