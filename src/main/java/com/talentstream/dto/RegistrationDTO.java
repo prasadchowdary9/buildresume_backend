@@ -10,7 +10,8 @@ import lombok.Data;
 public class RegistrationDTO {
 	@NotBlank(message = "Full name is required.")
     @Pattern(regexp = "^$|^[a-zA-Z ]+$", message = "Please enter a valid full name without numbers or special characters.")
-    private String name;
+	@Size(min = 3, message = "Full name must be at least 3 characters long.") 
+	private String name;
  
     @NotBlank(message = "Email is required.")
     @Pattern(

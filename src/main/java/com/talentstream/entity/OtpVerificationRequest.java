@@ -1,12 +1,23 @@
 package com.talentstream.entity;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class OtpVerificationRequest {
 
     public OtpVerificationRequest() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+    @NotBlank(message = "OTP is required.")
+    @Size(min = 6, message = "OTP must be at least 6 characters long.")
 	private String otp;
+	@NotBlank(message = "Email is required.")
+    @Pattern(
+            regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            message = "Invalid email format and white spaces are not allowed."
+        )
     private String email;
 	public String getOtp() {
 		return otp;

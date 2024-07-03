@@ -3,14 +3,17 @@ package com.talentstream.dto;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 public class BasicDetailsDTO {
     @NotBlank
     @Pattern(regexp = "^[a-zA-Z ]{3,19}$", message = "invalid username")
+    @Size(min = 3, message = "First name must be at least 3 characters long.")
     private String firstName;
 
     @NotBlank
     @Pattern(regexp = "^[a-zA-Z ]{3,19}$", message = "invalid username")
+    @Size(min = 3, message = "Last name must be at least 3 characters long.")
     private String lastName;
 
     private String dateOfBirth;
@@ -21,12 +24,15 @@ public class BasicDetailsDTO {
    
     private String pincode;
     
-    @NotBlank
-    @Email(message = "invalid email address")
+    @NotBlank(message = "Email is required.")
+    @Pattern(
+            regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            message = "Invalid email format and white spaces are not allowed."
+        )
     private String email;
 
-    @NotBlank
-    @Pattern(regexp = "^\\d{10}$", message = "invalid mobile number")
+    @NotBlank(message = "Mobile number is required.")
+    @Pattern(regexp = "^$|^[6789]\\d{9}$", message = "Mobile number should begin with 6, 7, 8, or 9 and be 10 digits long.")
     private String alternatePhoneNumber;
 
     // Getters and Setters
