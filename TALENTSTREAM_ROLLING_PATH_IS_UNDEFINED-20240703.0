@@ -33,3 +33,4 @@
 03-07-2024_09:51:50.626{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
 03-07-2024_09:51:50.626{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
 03-07-2024_12:38:30.554{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+
