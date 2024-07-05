@@ -1,10 +1,26 @@
 package com.talentstream.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import lombok.Data;
 
 
 public class LoginDTO {
+	
+	 @NotBlank(message = "Email is required.")
+	    @Pattern(
+	            regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+	            message = "Invalid email format and white spaces are not allowed."
+	        )
     private String email;
+	 @NotBlank(message = "Password is required.")
+	    @Size(min = 6, message = "Password must be at least 6 characters long.")
+	    @Pattern(
+	            regexp = "^$|^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])(?!.*\\s).+$",
+	            message = "Password must contain at least one uppercase letter, one digit, one special character, and no white spaces and 6 characters long."
+	        )
     private String password;
 
 	private String status = "active"; // New field with a default value of "active"
