@@ -34,6 +34,15 @@ public class RegistrationDTO {
 	private String appicantStatus="Active";
 	boolean localResume=false;
 	
+	 private String utmSource;
+
+	    public String getUtmSource() {
+		return utmSource;
+	    }
+	    public void setUtmSource(String utmSource) {
+		this.utmSource = utmSource;
+	     }
+	
 	    public boolean isLocalResume() {
 		return localResume;
 	}

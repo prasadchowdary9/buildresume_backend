@@ -159,11 +159,12 @@ public class RegisterController {
 	            logger.info("Attempting to login with email: {}", loginDTO.getEmail());
 
  
+	            
 	            if (regsiterService.isGoogleSignIn(loginDTO)) {
 	                // Handle Google Sign-In
 	                System.out.println("Before " + loginDTO.getEmail());
 	                logger.debug("Handling Google Sign-In for email: {}", loginDTO.getEmail());
-	                applicant = regsiterService.googleSignIn(loginDTO.getEmail());
+	                applicant = regsiterService.googleSignIn(loginDTO.getEmail(),loginDTO.getUtmSource());
 	                logger.debug("Google Sign-In successful for: {}", applicant.getEmail());
 	                System.out.println(applicant.getEmail());
 	                System.out.println("could return obj successfully");
@@ -267,7 +268,7 @@ public class RegisterController {
 	    			System.out.println("Now I am at token gen");
 	                UserDetails userDetails = myUserDetailsService.loadUserByUsername(applicant.getEmail());
 	                final String jwt = jwtTokenUtil.generateToken(userDetails);
-	                return ResponseHandler.generateResponse("Login successfully" + userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt), applicant.getEmail(), applicant.getName(), applicant.getId(), applicant.getMobilenumber());
+	                return ResponseHandler.generateResponse("Login successfully" + userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt), applicant.getEmail(), applicant.getName(), applicant.getId(), applicant.getMobilenumber(), applicant.getUtmSource());
 	            } else {
 	                // Regular login functionality
 	                authenticationManager.authenticate(
@@ -275,7 +276,7 @@ public class RegisterController {
 	                );
 	                UserDetails userDetails = myUserDetailsService.loadUserByUsername(applicant.getEmail());
 	                final String jwt = jwtTokenUtil.generateToken(userDetails);
-	                return ResponseHandler.generateResponse("Login successfully" + userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt), applicant.getEmail(), applicant.getName(), applicant.getId(), applicant.getMobilenumber());
+	                return ResponseHandler.generateResponse("Login successfully" + userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt), applicant.getEmail(), applicant.getName(), applicant.getId(), applicant.getMobilenumber(), applicant.getUtmSource());
 	            }
 //	            authenticationManager.authenticate(
 //	                    new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getPassword())
