@@ -155,13 +155,51 @@ public class ApplicantProfileController {
            return applicantProfileService.getApplicantProfileById1(applicantId);
        }
 	 @PutMapping("/{id}/basic-details")
-	    public ResponseEntity<Void> updateBasicDetails(@PathVariable Long id, @RequestBody BasicDetailsDTO basicDetailsDTO) {
-	        applicantProfileService.updateBasicDetails(id, basicDetailsDTO);
+	    public ResponseEntity<String> updateBasicDetails(@Valid @RequestBody BasicDetailsDTO basicDetailsDTO, BindingResult bindingResult ,@PathVariable Long id) {
+		 if (bindingResult.hasErrors()) {
+	            // Handle validation errors
+	            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
+	            bindingResult.getFieldErrors().forEach(fieldError -> {
+	                String fieldName = fieldError.getField();
+	                String errorMessage = fieldError.getDefaultMessage();
+
+	                // Append each field and its error message on a new line
+	                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+	            });
+
+	            // Construct the response body with each field and its error message on separate lines
+	            StringBuilder responseBody = new StringBuilder();
+	            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+	            logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
+	            return ResponseEntity.badRequest().body(responseBody.toString());
+	        }
+		 
+		 applicantProfileService.updateBasicDetails(id, basicDetailsDTO);
 	        return ResponseEntity.ok().build();
 	    }
 	 @PutMapping("/{id}/professional-details")
-	 public ResponseEntity<String> updateApplicantProfile(@PathVariable("id") long id, @RequestBody ApplicantProfileUpdateDTO updateDTO) {
-	        String result = applicantProfileService.updateApplicantProfile1(id, updateDTO);
+	 public ResponseEntity<String> updateApplicantProfile(@Valid @RequestBody ApplicantProfileUpdateDTO updateDTO, BindingResult bindingResult, @PathVariable("id") long id) {
+		 if (bindingResult.hasErrors()) {
+	            // Handle validation errors
+	            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
+	            bindingResult.getFieldErrors().forEach(fieldError -> {
+	                String fieldName = fieldError.getField();
+	                String errorMessage = fieldError.getDefaultMessage();
+
+	                // Append each field and its error message on a new line
+	                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+	            });
+
+	            // Construct the response body with each field and its error message on separate lines
+	            StringBuilder responseBody = new StringBuilder();
+	            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+	            logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
+	            return ResponseEntity.badRequest().body(responseBody.toString());
+	        }
+		 
+		 String result = applicantProfileService.updateApplicantProfile1(id, updateDTO);
 	        return ResponseEntity.ok(result);
 	    }
 }
