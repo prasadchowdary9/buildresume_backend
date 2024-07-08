@@ -15,15 +15,20 @@ public class LoginDTO {
 	            message = "Invalid email format and white spaces are not allowed."
 	        )
     private String email;
-	 @NotBlank(message = "Password is required.")
-	    @Size(min = 6, message = "Password must be at least 6 characters long.")
-	    @Pattern(
-	            regexp = "^$|^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])(?!.*\\s).+$",
-	            message = "Password must contain at least one uppercase letter, one digit, one special character, and no white spaces and 6 characters long."
-	        )
+	 
     private String password;
 
 	private String status = "active"; // New field with a default value of "active"
+	
+	
+    private String utmSource;
+
+    public String getUtmSource() {
+	return utmSource;
+    }
+    public void setUtmSource(String utmSource) {
+	this.utmSource = utmSource;
+     }
 	    public String getStatus() {
 	        return status;
 	    }
