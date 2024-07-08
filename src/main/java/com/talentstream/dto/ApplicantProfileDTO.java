@@ -3,6 +3,12 @@ package com.talentstream.dto;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
 import com.talentstream.entity.BasicDetails;
 import com.talentstream.entity.ExperienceDetails;
 import com.talentstream.entity.GraduationDetails;
@@ -10,19 +16,37 @@ import com.talentstream.entity.IntermediateDetails;
 import com.talentstream.entity.XClassDetails;
 import com.talentstream.entity.ApplicantSkills;
 
-public class ApplicantProfileDTO {
+public class ApplicantProfileDTO
+ {
+	
+	@Valid
 	private BasicDetails basicDetails;
+	@Valid
     private XClassDetails xClassDetails;
+	@Valid
     private IntermediateDetails intermediateDetails;
+	@Valid
     private GraduationDetails graduationDetails;
+	
+	@NotEmpty(message = "Skills required cannot be empty")
     private Set<ApplicantSkills> skillsRequired;
-    private List<ExperienceDetails> experienceDetails;  
+	
+	@NotEmpty(message = "Experience details cannot be empty")
+    private List<ExperienceDetails> experienceDetails; 
+	
+	@NotBlank(message = "Experience is required")
+	@Pattern(regexp = "\\d+", message = "Experience must be numeric")
 	 private String experience;
 
+	@Pattern(regexp = "^[a-zA-Z\\s\\p{Punct}]+$", message = "Qualification must contain letters, spaces, and special characters")
+    @NotBlank(message = "Qualification is required")
     private String qualification;
 
+    @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Specialization must contain only letters and spaces")
+    @NotBlank(message = "Specialization is required")
     private String specialization;
 
+    @NotEmpty(message = "Skills required cannot be empty")
     private Set<String> preferredJobLocations = new HashSet<>();
 	
     private String roles;
