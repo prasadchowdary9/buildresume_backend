@@ -575,3 +575,769 @@
 09-07-2024_11:28:14.658{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
 09-07-2024_11:28:14.659{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 1 ms
 09-07-2024_11:28:14.675{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_11:28:14.676{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_11:28:14.676{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_11:56:33.345{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_11:56:33.346{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_11:56:33.346{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_11:56:33.418{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: madarsahebdudekula@gmail.com
+09-07-2024_11:56:33.418{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: madarsahebdudekula@gmail.com
+09-07-2024_11:56:33.579{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: madarsahebdudekula@gmail.com
+09-07-2024_11:56:33.802{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:33.802{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:33.802{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:33.806{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_11:56:33.902{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_11:56:33.903{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_11:56:33.903{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_11:56:35.748{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_11:56:35.752{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_11:56:35.761{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_11:56:35.842{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.842{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.843{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:35.844{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 2
+09-07-2024_11:56:35.860{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.860{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.860{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:35.862{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_11:56:35.870{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 2: 0
+09-07-2024_11:56:35.879{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.879{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.879{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:35.881{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+09-07-2024_11:56:35.914{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.915{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.915{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:35.931{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.931{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.931{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.932{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:35.932{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.932{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:35.934{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 2
+09-07-2024_11:56:35.935{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_11:56:35.968{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.968{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:35.968{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:35.998{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.000{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 2
+09-07-2024_11:56:36.000{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.000{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:36.000{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_11:56:36.001{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 2
+09-07-2024_11:56:36.004{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_11:56:36.004{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_11:56:36.005{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_11:56:36.031{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 2: 0
+09-07-2024_11:56:36.089{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.089{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.089{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.089{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.089{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:36.089{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:36.090{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 2
+09-07-2024_11:56:36.090{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_11:56:36.133{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.134{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.134{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:36.155{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 2
+09-07-2024_11:56:36.157{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.157{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.157{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:36.159{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_11:56:36.216{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_11:56:36.360{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.361{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.361{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:36.362{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_11:56:36.415{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_11:56:36.567{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.567{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.567{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:36.568{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_11:56:36.626{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_11:56:36.818{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.818{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:36.818{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:40.134{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:40.135{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:40.135{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:40.136{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_11:56:40.150{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:40.150{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:40.150{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:40.151{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_11:56:40.242{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:40.242{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:40.242{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:40.243{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_11:56:41.348{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:41.349{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:41.349{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:41.350{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+09-07-2024_11:56:50.896{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:50.896{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:50.896{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:52.318{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:52.319{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:52.319{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:52.320{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:52.321{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:52.321{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:52.322{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_11:56:58.149{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:58.150{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:58.150{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:56:59.064{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:59.065{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:56:59.065{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:57:00.181{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:57:00.182{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:57:00.182{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:57:00.183{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_11:57:04.195{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:57:04.196{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:57:04.196{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:57:04.197{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_11:57:24.199{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:57:24.200{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:57:24.200{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:57:24.200{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:57:24.200{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:57:24.201{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:57:24.201{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_11:57:24.201{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_11:57:52.341{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_11:58:09.681{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_11:58:32.931{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_11:58:37.424{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:37.425{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:37.425{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:58:37.429{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_11:58:37.455{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:37.456{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:37.456{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:58:37.464{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:37.464{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:37.464{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:58:37.466{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant status history for apply job 87
+09-07-2024_11:58:37.537{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant status history successfully for apply job 87
+09-07-2024_11:58:37.649{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:37.649{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:37.649{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:58:37.650{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant status history for apply job 87
+09-07-2024_11:58:37.702{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant status history successfully for apply job 87
+09-07-2024_11:58:38.679{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:38.679{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_11:58:38.679{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_11:58:39.638{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_13:07:58.739{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+09-07-2024_13:07:58.788{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:07:58.789{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+09-07-2024_13:07:58.792{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+09-07-2024_13:07:58.798{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+09-07-2024_13:07:58.799{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [java-sdk-http-connection-reaper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/java.lang.Thread.sleep(Native Method)
+ app//com.amazonaws.http.IdleConnectionReaper.run(IdleConnectionReaper.java:188)
+09-07-2024_13:07:58.801{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:07:58.804{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:07:58.825{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+09-07-2024_13:07:58.828{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+09-07-2024_13:07:58.834{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+09-07-2024_13:08:01.689{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+09-07-2024_13:08:01.708{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 1524 (C:\Users\Madar\Desktop\TS4\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\TS4\TalentStreamBE)
+09-07-2024_13:08:01.709{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+09-07-2024_13:08:01.710{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+09-07-2024_13:08:02.818{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09-07-2024_13:08:02.936{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 108 ms. Found 19 JPA repository interfaces.
+09-07-2024_13:08:03.577{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+09-07-2024_13:08:03.585{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:08:03.586{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+09-07-2024_13:08:03.586{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+09-07-2024_13:08:03.719{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+09-07-2024_13:08:03.719{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1949 ms
+09-07-2024_13:08:03.878{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+09-07-2024_13:08:03.925{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+09-07-2024_13:08:04.079{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+09-07-2024_13:08:04.168{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+09-07-2024_13:08:04.956{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+09-07-2024_13:08:04.976{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+09-07-2024_13:08:09.971{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09-07-2024_13:08:09.985{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+09-07-2024_13:08:10.373{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+09-07-2024_13:08:10.411{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09-07-2024_13:08:10.658{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+09-07-2024_13:08:11.708{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2a64e2d0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@651e3cc9, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b6abf4e, org.springframework.security.web.header.HeaderWriterFilter@628fa8ea, org.springframework.security.web.authentication.logout.LogoutFilter@5697f801, com.talentstream.filter.JwtRequestFilter@154cbb46, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@794daa09, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@128579a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45dce9f7, org.springframework.security.web.session.SessionManagementFilter@7e32442d, org.springframework.security.web.access.ExceptionTranslationFilter@3a649f9a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dd22110]
+09-07-2024_13:08:11.898{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:08:11.922{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+09-07-2024_13:08:12.644{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 11.418 seconds (JVM running for 12.633)
+09-07-2024_13:08:12.711{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+09-07-2024_13:08:12.711{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+09-07-2024_13:08:12.713{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 1 ms
+09-07-2024_13:08:12.728{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_13:08:12.728{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_13:08:12.728{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_13:08:22.090{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:22.090{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:22.090{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:22.091{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:22.091{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:22.091{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:22.091{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:22.091{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:22.091{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:22.102{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:08:22.102{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_13:08:22.112{UTC}|report-tool|WARN ||o.s.w.s.m.s.DefaultHandlerExceptionResolver|Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+09-07-2024_13:08:28.096{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:28.096{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:28.096{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:29.702{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.702{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.703{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:29.705{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_13:08:29.706{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.706{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.706{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.706{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.707{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:29.707{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:29.709{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+09-07-2024_13:08:29.709{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:08:29.713{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.714{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.714{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:29.715{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 2
+09-07-2024_13:08:29.758{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_13:08:29.778{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 2
+09-07-2024_13:08:29.842{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.842{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.842{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:29.859{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.859{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.859{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:29.860{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:08:29.926{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.926{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:29.926{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:29.929{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 2
+09-07-2024_13:08:29.982{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 2
+09-07-2024_13:08:30.011{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:30.011{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:30.011{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:30.011{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:30.011{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:30.011{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:30.013{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_13:08:30.094{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_13:08:35.323{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:35.324{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:35.325{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:35.326{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+09-07-2024_13:08:36.089{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:36.090{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:36.090{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:41.976{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:41.977{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:08:41.977{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:08:41.979{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_13:09:32.006{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_13:09:52.116{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_13:10:17.922{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:10:17.922{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:10:17.923{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:10:17.923{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:10:17.923{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:10:17.924{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:10:17.925{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:10:17.925{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_13:10:18.075{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:10:18.075{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:10:18.075{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:10:18.076{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:10:37.930{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:10:37.930{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:10:37.930{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:10:37.932{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_13:11:24.341{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_13:11:49.688{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_13:11:58.452{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:58.452{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:58.452{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:11:58.454{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:11:58.454{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:58.454{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:58.454{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:11:58.454{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant status history for apply job 87
+09-07-2024_13:11:58.469{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:58.469{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:58.469{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:11:58.517{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant status history successfully for apply job 87
+09-07-2024_13:11:58.640{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:58.640{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:58.640{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:11:58.641{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant status history for apply job 87
+09-07-2024_13:11:58.685{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant status history successfully for apply job 87
+09-07-2024_13:11:59.923{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:59.923{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:11:59.923{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:12:10.076{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:12:10.076{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:12:10.076{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:12:10.077{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:12:10.084{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:12:10.085{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:12:10.085{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:12:10.087{UTC}|report-tool|WARN ||o.s.w.s.m.s.DefaultHandlerExceptionResolver|Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+09-07-2024_13:12:10.093{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:12:10.093{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:12:10.094{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:12:10.095{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_13:12:30.103{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:12:30.103{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:12:30.103{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:12:30.104{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_13:13:16.310{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_13:13:23.918{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:23.919{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:23.919{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:13:23.920{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:13:23.941{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:23.941{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:23.942{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:13:23.943{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant status history for apply job 87
+09-07-2024_13:13:23.953{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:23.953{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:23.953{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:13:23.998{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant status history successfully for apply job 87
+09-07-2024_13:13:24.141{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:24.142{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:24.142{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:13:24.143{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant status history for apply job 87
+09-07-2024_13:13:24.203{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant status history successfully for apply job 87
+09-07-2024_13:13:25.193{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:25.193{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQyMzkzLCJpYXQiOjE3MjA1MDYzOTN9.c9W7wXIspRaxk_WFUFZCtlvPPjyUw0RdIejc70yuDQw
+09-07-2024_13:13:25.193{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:13:39.995{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
+09-07-2024_13:23:06.180{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+09-07-2024_13:23:06.204{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:23:06.204{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+09-07-2024_13:23:06.206{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+09-07-2024_13:23:06.209{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+09-07-2024_13:23:06.211{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [java-sdk-http-connection-reaper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/java.lang.Thread.sleep(Native Method)
+ app//com.amazonaws.http.IdleConnectionReaper.run(IdleConnectionReaper.java:188)
+09-07-2024_13:23:06.211{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:23:06.214{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:23:06.226{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+09-07-2024_13:23:06.227{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+09-07-2024_13:23:06.234{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+09-07-2024_13:23:09.175{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+09-07-2024_13:23:09.200{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 18516 (C:\Users\Madar\Desktop\TS4\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\TS4\TalentStreamBE)
+09-07-2024_13:23:09.201{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+09-07-2024_13:23:09.202{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+09-07-2024_13:23:10.201{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09-07-2024_13:23:10.325{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 114 ms. Found 19 JPA repository interfaces.
+09-07-2024_13:23:11.005{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+09-07-2024_13:23:11.014{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:23:11.015{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+09-07-2024_13:23:11.016{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+09-07-2024_13:23:11.167{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+09-07-2024_13:23:11.167{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1899 ms
+09-07-2024_13:23:11.329{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+09-07-2024_13:23:11.375{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+09-07-2024_13:23:11.538{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+09-07-2024_13:23:11.646{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+09-07-2024_13:23:12.355{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+09-07-2024_13:23:12.372{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+09-07-2024_13:23:16.645{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+09-07-2024_13:23:16.661{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+09-07-2024_13:23:17.057{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+09-07-2024_13:23:17.093{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09-07-2024_13:23:17.324{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+09-07-2024_13:23:18.340{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@50a2034c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@190ec769, org.springframework.security.web.context.SecurityContextPersistenceFilter@5b0fc8c2, org.springframework.security.web.header.HeaderWriterFilter@54d8236c, org.springframework.security.web.authentication.logout.LogoutFilter@23182d4d, com.talentstream.filter.JwtRequestFilter@58fbecde, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ebc2975, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b5afde5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27bd124a, org.springframework.security.web.session.SessionManagementFilter@40a32c25, org.springframework.security.web.access.ExceptionTranslationFilter@3adf3670, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b42eb0f]
+09-07-2024_13:23:18.538{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+09-07-2024_13:23:18.560{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+09-07-2024_13:23:19.283{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 10.553 seconds (JVM running for 11.689)
+09-07-2024_13:23:19.352{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+09-07-2024_13:23:19.352{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+09-07-2024_13:23:19.354{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+09-07-2024_13:23:19.367{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_13:23:19.367{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_13:23:19.368{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_13:25:50.737{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_13:25:50.738{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_13:25:50.738{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_13:25:51.264{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_13:25:51.264{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_13:25:51.264{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_13:25:51.359{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.361{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.361{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.389{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.390{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.389{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.390{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.390{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.390{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.392{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+09-07-2024_13:25:51.392{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 5
+09-07-2024_13:25:51.402{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.402{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.402{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.402{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.402{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.402{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.402{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.402{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.403{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.404{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count shortlisted and interviewed applicants for recruiter 5
+09-07-2024_13:25:51.417{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 5 with status: Interviewing
+09-07-2024_13:25:51.423{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+09-07-2024_13:25:51.427{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+09-07-2024_13:25:51.427{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+09-07-2024_13:25:51.427{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+09-07-2024_13:25:51.428{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 5
+09-07-2024_13:25:51.439{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 5 successfully.
+09-07-2024_13:25:51.456{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 5 with status: Interviewing
+09-07-2024_13:25:51.463{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.464{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.464{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.464{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.464{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.464{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.465{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+09-07-2024_13:25:51.466{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 5
+09-07-2024_13:25:51.476{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.477{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.477{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.484{UTC}|report-tool|WARN ||o.h.e.j.s.SqlExceptionHelper|SQL Error: 0, SQLState: 42P01
+09-07-2024_13:25:51.484{UTC}|report-tool|ERROR||o.h.e.j.s.SqlExceptionHelper|ERROR: relation "apply_job" does not exist
+  Position: 22
+09-07-2024_13:25:51.491{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+09-07-2024_13:25:51.491{UTC}|report-tool|ERROR||c.t.c.ApplyJobController|Error counting shortlisted and interviewed applicants for recruiter 5: Failed to count shortlisted and interviewed applicants
+09-07-2024_13:25:51.493{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.493{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.493{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.496{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 5
+09-07-2024_13:25:51.527{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 5 successfully.
+09-07-2024_13:25:51.528{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.529{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.529{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.531{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 5 with status: Interviewing
+09-07-2024_13:25:51.537{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.537{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.537{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.539{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count shortlisted and interviewed applicants for recruiter 5
+09-07-2024_13:25:51.560{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.560{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:51.561{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:51.563{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 5 with status: Interviewing
+09-07-2024_13:25:51.571{UTC}|report-tool|WARN ||o.h.e.j.s.SqlExceptionHelper|SQL Error: 0, SQLState: 42P01
+09-07-2024_13:25:51.571{UTC}|report-tool|ERROR||o.h.e.j.s.SqlExceptionHelper|ERROR: relation "apply_job" does not exist
+  Position: 22
+09-07-2024_13:25:51.571{UTC}|report-tool|ERROR||c.t.c.ApplyJobController|Error counting shortlisted and interviewed applicants for recruiter 5: Failed to count shortlisted and interviewed applicants
+09-07-2024_13:25:52.787{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 5
+09-07-2024_13:25:52.852{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:52.852{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:52.852{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:53.756{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 5
+09-07-2024_13:25:54.044{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:54.044{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:54.045{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:54.046{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied applicants for recruiterId: 5
+09-07-2024_13:25:54.155{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied applicants successfully for recruiterId: 5
+09-07-2024_13:25:54.214{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:54.215{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:54.215{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:54.217{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied applicants for recruiterId: 5
+09-07-2024_13:25:54.298{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied applicants successfully for recruiterId: 5
+09-07-2024_13:25:59.336{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:59.336{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:25:59.337{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:25:59.338{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to update applicant status for applyJobId: 566 to status: Shortlisted
+09-07-2024_13:26:04.856{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Applicant status updated successfully for applyJobId: 566 to status: Shortlisted
+09-07-2024_13:26:10.815{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.815{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.816{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:26:10.817{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.817{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.817{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:26:10.844{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.844{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.844{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:26:10.846{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied applicants for recruiterId: 5
+09-07-2024_13:26:10.894{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.894{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.895{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:26:10.936{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied applicants successfully for recruiterId: 5
+09-07-2024_13:26:10.966{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.966{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.967{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:26:10.967{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied applicants for recruiterId: 5
+09-07-2024_13:26:10.988{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.988{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:10.988{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:26:11.050{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied applicants successfully for recruiterId: 5
+09-07-2024_13:26:11.054{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:11.055{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:11.055{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:26:11.640{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 5
+09-07-2024_13:26:11.698{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:11.698{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:26:11.698{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:26:12.510{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 5
+09-07-2024_13:27:11.394{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:11.394{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:11.394{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:27:11.396{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to update applicant status for applyJobId: 566 to status: Shortlisted
+09-07-2024_13:27:15.633{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Applicant status updated successfully for applyJobId: 566 to status: Shortlisted
+09-07-2024_13:27:22.958{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:22.959{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:22.960{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:27:22.960{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:22.961{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:22.961{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:27:22.983{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:22.983{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:22.983{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:27:22.984{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied applicants for recruiterId: 5
+09-07-2024_13:27:23.075{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.075{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.075{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:27:23.105{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied applicants successfully for recruiterId: 5
+09-07-2024_13:27:23.143{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.143{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.143{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:27:23.174{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.175{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.175{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:27:23.177{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied applicants for recruiterId: 5
+09-07-2024_13:27:23.215{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.215{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.215{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:27:23.290{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied applicants successfully for recruiterId: 5
+09-07-2024_13:27:23.887{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 5
+09-07-2024_13:27:23.955{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.955{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:27:23.955{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:27:24.915{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 5
+09-07-2024_13:29:51.019{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:29:51.020{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:29:51.020{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:29:51.031{UTC}|report-tool|ERROR||o.a.c.c.C.[.[.[.[dispatcherServlet]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "com.talentstream.entity.Applicant.getEmail()" because "user" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "com.talentstream.entity.Applicant.getEmail()" because "user" is null
+	at com.talentstream.controller.RegisterController.signOut(RegisterController.java:522)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.talentstream.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+09-07-2024_13:30:17.848{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:30:17.849{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:30:17.849{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:30:17.866{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: madarsahebdudekula@gmail.com
+09-07-2024_13:30:17.866{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: madarsahebdudekula@gmail.com
+09-07-2024_13:30:17.897{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: madarsahebdudekula@gmail.com
+09-07-2024_13:30:18.065{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:18.065{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:18.065{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:18.066{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:30:18.217{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:30:18.217{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:30:18.217{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:30:20.343{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:30:20.344{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:30:20.344{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:30:20.363{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.363{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.363{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.364{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_13:30:20.369{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.369{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.369{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.377{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.377{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.378{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.379{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 2
+09-07-2024_13:30:20.399{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.399{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.399{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.401{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:30:20.402{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.403{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.403{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.404{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+09-07-2024_13:30:20.409{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 2: 4
+09-07-2024_13:30:20.418{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_13:30:20.440{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.440{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.441{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.444{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 2
+09-07-2024_13:30:20.473{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.473{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.473{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.506{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 2
+09-07-2024_13:30:20.507{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:30:20.508{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMDU0Nzc1MSwiaWF0IjoxNzIwNTExNzUxfQ.PdC_pMV7MJ4K69aPBgOoyLzLoB1Yxeka6sBHmNKfdy0
+09-07-2024_13:30:20.508{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+09-07-2024_13:30:20.583{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.583{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.583{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.585{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 2
+09-07-2024_13:30:20.586{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.586{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.587{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.588{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:30:20.614{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 2: 4
+09-07-2024_13:30:20.621{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.621{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.621{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.621{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.621{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.621{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.622{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 2
+09-07-2024_13:30:20.622{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_13:30:20.690{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 2
+09-07-2024_13:30:20.691{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_13:30:20.692{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.692{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.692{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.838{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.838{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:20.838{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:20.839{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_13:30:20.892{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_13:30:21.051{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:21.051{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:21.051{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:21.052{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 2
+09-07-2024_13:30:21.112{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 2
+09-07-2024_13:30:21.282{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:21.282{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:21.282{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:23.877{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:23.877{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:23.877{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:23.877{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:23.877{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:23.877{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:23.879{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:30:23.879{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_13:30:24.029{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:24.029{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:24.029{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:24.030{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 2
+09-07-2024_13:30:26.010{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:26.010{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:26.010{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:26.011{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+09-07-2024_13:30:43.893{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:43.894{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhcnNhaGViZHVkZWt1bGFAZ21haWwuY29tIiwiZXhwIjoxNzIwNTQ4MDE3LCJpYXQiOjE3MjA1MTIwMTd9.BVRrWBCycN7-Pjdv_N95WTOHO7KC4WZmQLwWtFXRl9I
+09-07-2024_13:30:43.894{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madarsahebdudekula@gmail.com
+09-07-2024_13:30:43.894{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 2
+09-07-2024_13:31:33.381{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 2
