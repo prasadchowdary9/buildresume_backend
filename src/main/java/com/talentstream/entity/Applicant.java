@@ -17,6 +17,10 @@ import javax.validation.constraints.Pattern;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+/**
+ * @author Madar
+ *
+ */
 @Entity 
 public class Applicant {
  
@@ -61,12 +65,18 @@ public class Applicant {
 @Column(name = "resume_id", columnDefinition = "VARCHAR(255) DEFAULT 'Not available'")
 private String resumeId = "Not available";
 
+
 private boolean localResume=false;
+@Column(name = "utm_source", columnDefinition = "VARCHAR(255) DEFAULT 'Self'")
+private String utmSource;
  
- 
- 
-    
-    public boolean isLocalResume() {
+    public String getUtmSource() {
+	return utmSource;
+}
+public void setUtmSource(String utmSource) {
+	this.utmSource = utmSource;
+}
+	public boolean isLocalResume() {
 	return localResume;
 }
 public void setLocalResume(boolean localResume) {
