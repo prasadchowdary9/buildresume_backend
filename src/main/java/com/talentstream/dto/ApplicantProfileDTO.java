@@ -21,17 +21,17 @@ public class ApplicantProfileDTO
 	
 	@Valid
 	private BasicDetails basicDetails;
-	@Valid
+
     private XClassDetails xClassDetails;
-	@Valid
+	
     private IntermediateDetails intermediateDetails;
-	@Valid
+	
     private GraduationDetails graduationDetails;
 	
 	@NotEmpty(message = "Skills required cannot be empty")
     private Set<ApplicantSkills> skillsRequired;
 	
-	@NotEmpty(message = "Experience details cannot be empty")
+	
     private List<ExperienceDetails> experienceDetails; 
 	
 	@NotBlank(message = "Experience is required")
@@ -46,7 +46,7 @@ public class ApplicantProfileDTO
     @NotBlank(message = "Specialization is required")
     private String specialization;
 
-    @NotEmpty(message = "Skills required cannot be empty")
+    @NotEmpty(message = "preferredJobLocations cannot be empty")
     private Set<String> preferredJobLocations = new HashSet<>();
 	
     private String roles;

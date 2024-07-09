@@ -32,8 +32,6 @@ public class Applicant {
         )
     private String email;
     @Column(name = "mobile")
-    @NotBlank(message = "Mobile number is required.")
-    @Pattern(regexp = "^$|^[6789]\\d{9}$", message = "Mobile number should begin with 6, 7, 8, or 9 and be 10 digits long.")
     private String mobilenumber;
     private String password; 
     @OneToMany(mappedBy="applicant")
