@@ -19,11 +19,11 @@ public class ApplicantProfileUpdateDTO {
 	@Pattern(regexp = "\\d+", message = "Experience must be numeric")
 	 private String experience;
 
-	@Pattern(regexp = "^[a-zA-Z\\s\\p{Punct}]+$", message = "Qualification must contain letters, spaces, and special characters")
+	//@Pattern(regexp = "^[a-zA-Z\\s\\p{Punct}]+$", message = "Qualification must contain letters, spaces, and special characters")
     @NotBlank(message = "Qualification is required")
     private String qualification;
 
-    @Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Specialization must contain only letters and spaces")
+    //@Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Specialization must contain only letters and spaces")
     @NotBlank(message = "Specialization is required")
     private String specialization;
 
