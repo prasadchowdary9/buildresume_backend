@@ -12,7 +12,7 @@ public class ApplicantProfileUpdateDTO {
 	
     
 	
-	@NotEmpty(message = "Experience details cannot be empty")
+	
     private List<ExperienceDetails> experienceDetails; 
 	
 	@NotBlank(message = "Experience is required")

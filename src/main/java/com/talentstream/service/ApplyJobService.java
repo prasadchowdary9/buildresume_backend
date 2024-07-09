@@ -1,5 +1,6 @@
 package com.talentstream.service;
  
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -225,11 +226,23 @@ public long countAppliedJobsForApplicant(long applicantId) {
 		
 		//This method is to save the track of statuses that updated by recruiter
 		private void saveStatusHistory(ApplyJob applyJob, String applicationStatus) {
+			
+			// Get the current date and time
+	        LocalDateTime currentDateTime = LocalDateTime.now();
+	        System.out.println("before addition "+currentDateTime);
+	        
+	        // Add 5 hours and 30 minutes to the current date and time
+	        LocalDateTime updatedDateTime = currentDateTime.plus(Duration.ofHours(5).plusMinutes(30));
+	        System.out.println("after addition "+updatedDateTime);
+	        
+	        // Convert to LocalDate if required
+	        LocalDate updatedDate = updatedDateTime.toLocalDate();
+	        
 			// TODO Auto-generated method stub
 			ApplicantStatusHistory statusHistory=new ApplicantStatusHistory();
 			statusHistory.setApplyJob(applyJob);
 			statusHistory.setStatus(applicationStatus);
-			statusHistory.setChangeDate(LocalDate.now());
+			statusHistory.setChangeDate(updatedDate);
 			statusHistoryRepository.save(statusHistory);
 		}
 	    public List<ApplyJob> getAppliedApplicantsForJob(Long jobId) {
