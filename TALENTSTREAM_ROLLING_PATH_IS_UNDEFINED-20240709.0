@@ -655,3 +655,4 @@ io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-07-08T22:22:27Z. Curren
 09-07-2024_12:15:48.392{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdWhlbHNoYWlrMTEzMUBnbWFpbC5jb20iLCJleHAiOjE3MjA1NDI3MjQsImlhdCI6MTcyMDUwNjcyNH0.IIhQApw9fKpK8klr0BKub_Mat_YlsPNRlEO5FGpdgUA
 09-07-2024_12:15:48.392{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: suhelshaik1131@gmail.com
 09-07-2024_12:15:48.393{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied jobs for applicantId: 17
+09-07-2024_12:15:53.405{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied jobs successfully for applicantId: 17
