@@ -35,7 +35,6 @@ public class ApplicantProfileDTO
     private List<ExperienceDetails> experienceDetails; 
 	
 	@NotBlank(message = "Experience is required")
-	@Pattern(regexp = "\\d+", message = "Experience must be numeric")
 	 private String experience;
 
 
