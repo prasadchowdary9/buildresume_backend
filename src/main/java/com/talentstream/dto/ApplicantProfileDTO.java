@@ -3,6 +3,12 @@ package com.talentstream.dto;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
 import com.talentstream.entity.BasicDetails;
 import com.talentstream.entity.ExperienceDetails;
 import com.talentstream.entity.GraduationDetails;
@@ -10,19 +16,36 @@ import com.talentstream.entity.IntermediateDetails;
 import com.talentstream.entity.XClassDetails;
 import com.talentstream.entity.ApplicantSkills;
 
-public class ApplicantProfileDTO {
+public class ApplicantProfileDTO
+ {
+	
+	@Valid
 	private BasicDetails basicDetails;
+
     private XClassDetails xClassDetails;
+	
     private IntermediateDetails intermediateDetails;
+	
     private GraduationDetails graduationDetails;
+	
+	@NotEmpty(message = "Skills required cannot be empty")
     private Set<ApplicantSkills> skillsRequired;
-    private List<ExperienceDetails> experienceDetails;  
+	
+	
+    private List<ExperienceDetails> experienceDetails; 
+	
+	@NotBlank(message = "Experience is required")
 	 private String experience;
 
+
+    @NotBlank(message = "Qualification is required")
     private String qualification;
 
+    
+    @NotBlank(message = "Specialization is required")
     private String specialization;
 
+    @NotEmpty(message = "preferredJobLocations cannot be empty")
     private Set<String> preferredJobLocations = new HashSet<>();
 	
     private String roles;

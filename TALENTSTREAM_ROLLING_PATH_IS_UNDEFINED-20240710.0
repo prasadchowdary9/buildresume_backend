@@ -502,3 +502,7 @@
 10-07-2024_11:12:26.117{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
 10-07-2024_11:12:29.203{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
 10-07-2024_11:12:29.204{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:12:29.204{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:12:29.217{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:12:29.219{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:12:29.219{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
