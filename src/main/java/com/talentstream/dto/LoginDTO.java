@@ -1,13 +1,34 @@
 package com.talentstream.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import lombok.Data;
 
 
 public class LoginDTO {
+	
+	 @NotBlank(message = "Email is required.")
+	    @Pattern(
+	            regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+	            message = "Invalid email format and white spaces are not allowed."
+	        )
     private String email;
+	 
     private String password;
 
 	private String status = "active"; // New field with a default value of "active"
+	
+	
+    private String utmSource;
+
+    public String getUtmSource() {
+	return utmSource;
+    }
+    public void setUtmSource(String utmSource) {
+	this.utmSource = utmSource;
+     }
 	    public String getStatus() {
 	        return status;
 	    }

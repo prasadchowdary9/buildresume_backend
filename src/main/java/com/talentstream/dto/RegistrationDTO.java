@@ -10,7 +10,8 @@ import lombok.Data;
 public class RegistrationDTO {
 	@NotBlank(message = "Full name is required.")
     @Pattern(regexp = "^$|^[a-zA-Z ]+$", message = "Please enter a valid full name without numbers or special characters.")
-    private String name;
+	@Size(min = 3, message = "Full name must be at least 3 characters long.") 
+	private String name;
  
     @NotBlank(message = "Email is required.")
     @Pattern(
@@ -34,6 +35,15 @@ public class RegistrationDTO {
 	private String appicantStatus="Active";
 	boolean localResume=false;
 	
+	 private String utmSource;
+
+	    public String getUtmSource() {
+		return utmSource;
+	    }
+	    public void setUtmSource(String utmSource) {
+		this.utmSource = utmSource;
+	     }
+	
 	    public boolean isLocalResume() {
 		return localResume;
 	}
@@ -47,7 +57,7 @@ public class RegistrationDTO {
 			this.appicantStatus = appicantStatus;
 		}
 	
-public String getName() {
+        public String getName() {
 			return name;
 		}
 		public void setName(String name) {

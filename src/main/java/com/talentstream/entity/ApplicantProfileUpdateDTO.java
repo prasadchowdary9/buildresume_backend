@@ -4,11 +4,32 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
 public class ApplicantProfileUpdateDTO {
-    private String experience;
+	
+    
+	
+	
+    private List<ExperienceDetails> experienceDetails; 
+	
+	@NotBlank(message = "Experience is required")
+	@Pattern(regexp = "\\d+", message = "Experience must be numeric")
+	 private String experience;
+
+	//@Pattern(regexp = "^[a-zA-Z\\s\\p{Punct}]+$", message = "Qualification must contain letters, spaces, and special characters")
+    @NotBlank(message = "Qualification is required")
     private String qualification;
+
+    //@Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Specialization must contain only letters and spaces")
+    @NotBlank(message = "Specialization is required")
     private String specialization;
-    private Set<String> preferredJobLocations;
+
+    @NotEmpty(message = "Skills required cannot be empty")
+    private Set<String> preferredJobLocations = new HashSet<>();
+    @NotEmpty(message = "Skills required cannot be empty")
     private List<SkillDTO> skillsRequired;// Updated to accept skill names instead of IDs// Initialize to an empty set  // assuming skills are referenced by their IDs
 
     // Getters and Setters

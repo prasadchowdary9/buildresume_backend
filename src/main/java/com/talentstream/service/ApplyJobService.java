@@ -1,5 +1,6 @@
 package com.talentstream.service;
  
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import com.talentstream.dto.JobDTO;
 import com.talentstream.dto.RecuriterSkillsDTO;
@@ -29,6 +31,9 @@ import com.talentstream.entity.Job;
 import com.talentstream.entity.MatchTypes;
 import com.talentstream.entity.AppliedApplicantInfo;
 import java.util.stream.Collectors;
+
+import javax.mail.internet.InternetAddress;
+
 import com.talentstream.entity.JobRecruiter;
 import com.talentstream.entity.RecuriterSkills;
 import com.talentstream.entity.SavedJob;
@@ -116,7 +121,7 @@ public String ApplicantApplyJob(long  applicantId, long jobId) {
 	    				jobRepository.save(job);
 	    	            
 	    	            // Increment alert count
-	    		        incrementAlertCount(applyJob.getApplicant());
+	    		        //incrementAlertCount(applyJob.getApplicant());
 	    		        
 	    		        //SaveStatusHistory
 	    	            saveStatusHistory(applyJob, applyJob.getApplicantStatus());
@@ -196,41 +201,57 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	        sendEmailToApplicant(applyJob.getApplicant().getEmail(), cN, applicantStatus,jobTitle);
 		}
 	  //This method is to send interview status to the applicant mail id
-	  		private void sendEmailToApplicant(String toEmail, String cN, String applicantStatus,String jobTitle) {
-	  			// TODO Auto-generated method stub
-	  			try {
-	  				SimpleMailMessage message=new SimpleMailMessage();
-	  				// Set email properties
-	  				 message.setFrom("no-reply@bitlabs.in");
-	  				message.setTo(toEmail);
-	  				message.setSubject("Your Application for "+jobTitle + " at "+ cN +" has been Submitted");
-	  				// Customize your email content
-	  	            String content = "Dear Applicant,\n\n"
-	  	                    + "Thank you for applying for the position of "+jobTitle +" at "+ cN + " through bitLabs Jobs. We have received your application and it has been successfully submitted to the employer. " + "\n\n"
-	  	                    + "What’s Next?\n\n"
-	  	                    + "1.Your application will be screened.\n"
-	  	                    + "2.If you are shortlisted, the employer will contact you directly for the next steps.\n"
-	  	                    + "3.Meanwhile, you can track your application status by logging into your bitLabs Jobs account & by clicking on applied jobs.\n\n"
-	  	                    + "Happy job searching! \n\n"
-	  	                    + "Regards\n"
-	  	                    + "The bitLabs Jobs Team.\n\n"
-	  	                    + "This is an auto-generated email. Please do not reply.";
-	  	            message.setText(content);
-	  	            // Send the email
-	  	            javaMailSender.send(message);
-	  	        } catch (Exception e) {
-	  	            // Handle exceptions, log, and consider appropriate error handling
-	  	        	e.printStackTrace();
-	  	        }
-	  		}
+	    private void sendEmailToApplicant(String toEmail, String cN, String applicantStatus,String jobTitle) {
+  			// TODO Auto-generated method stub
+  			try {
+  			    javax.mail.internet.MimeMessage message = javaMailSender.createMimeMessage();
+  			    MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+  			    // Set the email properties
+  			    helper.setFrom(new InternetAddress( "no-reply@bitlabs.in" ,"bitLabs Jobs"));
+  			    helper.setTo(toEmail);
+  			    helper.setSubject("Your Application for " + jobTitle + " at " + cN + " has been Submitted");
+
+  			    // Customize your email content
+  			    String content = "Dear Applicant,\n\n"
+  			            + "Thank you for applying for the position of " + jobTitle + " at " + cN + " through bitLabs Jobs. We have received your application and it has been successfully submitted to the employer. " + "\n\n"
+  			            + "What’s Next?\n\n"
+  			            + "1. Your application will be screened.\n"
+  			            + "2. If you are shortlisted, the employer will contact you directly for the next steps.\n"
+  			            + "3. Meanwhile, you can track your application status by logging into your bitLabs Jobs account & by clicking on applied jobs.\n\n"
+  			            + "Happy job searching! \n\n"
+  			            + "Regards\n"
+  			            + "The bitLabs Jobs Team.\n\n"
+  			            + "This is an auto-generated email. Please do not reply.";
+  			    helper.setText(content);
+
+  			    // Send the email
+  			    javaMailSender.send(message);
+  			} catch (Exception e) {
+  	            // Handle exceptions, log, and consider appropriate error handling
+  	        	e.printStackTrace();
+  	        }
+  		}
 		
 		//This method is to save the track of statuses that updated by recruiter
 		private void saveStatusHistory(ApplyJob applyJob, String applicationStatus) {
+			
+			// Get the current date and time
+	        LocalDateTime currentDateTime = LocalDateTime.now();
+	        System.out.println("before addition "+currentDateTime);
+	        
+	        // Add 5 hours and 30 minutes to the current date and time
+	        LocalDateTime updatedDateTime = currentDateTime.plus(Duration.ofHours(5).plusMinutes(30));
+	        System.out.println("after addition "+updatedDateTime);
+	        
+	        // Convert to LocalDate if required
+	        LocalDate updatedDate = updatedDateTime.toLocalDate();
+	        
 			// TODO Auto-generated method stub
 			ApplicantStatusHistory statusHistory=new ApplicantStatusHistory();
 			statusHistory.setApplyJob(applyJob);
 			statusHistory.setStatus(applicationStatus);
-			statusHistory.setChangeDate(LocalDate.now());
+			statusHistory.setChangeDate(updatedDate);
 			statusHistoryRepository.save(statusHistory);
 		}
 	    public List<ApplyJob> getAppliedApplicantsForJob(Long jobId) {
@@ -250,11 +271,8 @@ public long countAppliedJobsForApplicant(long applicantId) {
             jobDTO.setId(job.getId());
             jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
             jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
-            jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
-            jobDTO.setEmail(job.getJobRecruiter().getEmail());
             jobDTO.setJobTitle(job.getJobTitle());
             jobDTO.setMinimumExperience(job.getMinimumExperience());
-            jobDTO.setMaximumExperience(job.getMaximumExperience());
             jobDTO.setMaxSalary(job.getMaxSalary());
             jobDTO.setMinSalary(job.getMinSalary());
             jobDTO.setLocation(job.getLocation());
@@ -266,11 +284,9 @@ public long countAppliedJobsForApplicant(long applicantId) {
             for (RecuriterSkills skill : job.getSkillsRequired()) {
                 RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
                 skillDTO.setSkillName(skill.getSkillName());
-           //     skillDTO.setMinimumExperience(skill.getMinimumExperience());
                 skillsDTOSet.add(skillDTO);
             }
             jobDTO.setSkillsRequired(skillsDTOSet);
-        //    jobDTO.setJobHighlights(job.getJobHighlights());
             jobDTO.setDescription(job.getDescription());
             jobDTO.setCreationDate(job.getCreationDate());
             jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
@@ -278,20 +294,6 @@ public long countAppliedJobsForApplicant(long applicantId) {
             jobDTO.setEmail(job.getJobRecruiter().getEmail());	           
             jobDTO.setApplyJobId(appliedJob.getApplyjobid());
  
-       		    long jobRecruiterId = appliedJob.getJob().getJobRecruiter().getRecruiterId();
-       		    byte[] imageBytes = null;
-       		    try {
-       		    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
-       		    }catch (CustomException ce) {
-       	        	System.out.println(ce.getMessage());
-       	        } 
-       		    System.out.println("Job Recruiter ID: " + jobRecruiterId);
-       		    System.out.println("Image Bytes: " + Arrays.toString(imageBytes));
-
-       		 jobDTO.setLogoFile(imageBytes);
- 
- 
-
             result.add(jobDTO);
         }
     } catch (Exception e) {

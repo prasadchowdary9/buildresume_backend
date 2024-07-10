@@ -50,6 +50,7 @@ public Applicant login(String email, String password) {
 	try {
 	Applicant applicant = applicantRepository.findByEmail(email);
 	 if (applicant != null && passwordEncoder.matches(password, applicant.getPassword())) {
+		 applicant.setUtmSource("Not first time");
 	        return applicant;
 	    } else {
 	        return null;
@@ -93,7 +94,7 @@ public boolean isGoogleSignIn(LoginDTO loginDTO) {
 //	return applicant;
 //}
  
-public Applicant googleSignIn(String email) {
+public Applicant googleSignIn(String email,String utmSource) {
     Applicant applicant = null;
  
     try {
@@ -103,6 +104,7 @@ public Applicant googleSignIn(String email) {
             // If the applicant does not exist, create a new one
             Applicant newApplicant = new Applicant();
             newApplicant.setEmail(email);
+            newApplicant.setUtmSource(utmSource);
  		//newApplicant.setAppicantStatus("Active");
             // Generate a random number as the password
             String randomPassword = generateRandomPassword();
@@ -112,6 +114,7 @@ public Applicant googleSignIn(String email) {
  
             // Save the new applicant
             Applicant applicant1=applicantRepository.save(newApplicant);
+            applicant1.setUtmSource("first time");
             System.out.println("User resume ID: " );
             ResumeRegisterDto resume=new ResumeRegisterDto();
 //            String[] nameParts = applicant1.getName().toLowerCase().split("\\s+");
@@ -341,7 +344,8 @@ public void updatePassword(String userEmail, String newPassword) {
         applicant.setName(registrationDTO.getName());
         applicant.setEmail(registrationDTO.getEmail());
         applicant.setMobilenumber(registrationDTO.getMobilenumber());
-        applicant.setPassword(registrationDTO.getPassword());       
+        applicant.setPassword(registrationDTO.getPassword());  
+        applicant.setUtmSource(registrationDTO.getUtmSource());
         return applicant;
     }
 	
