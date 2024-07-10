@@ -186,7 +186,16 @@ public long countAppliedJobsForApplicant(long applicantId) {
 			alerts.setCompanyName(cN);
 			alerts.setStatus(applicantStatus);			
 			alerts.setJobTitle(jobTitle);
-			alerts.setChangeDate(LocalDateTime.now());
+            LocalDateTime currentDate = LocalDateTime.now();
+            
+            // Get the current change date and time
+            LocalDateTime currentChangeDateTime = currentDate;
+          // System.out.println(currentChangeDateTime + " Utc");
+            // Add 5 hours and 30 minutes to the current change date and time
+            LocalDateTime updatedChangeDateTime = currentChangeDateTime
+                    .plusHours(5)
+                    .plusMinutes(30);
+			alerts.setChangeDate(updatedChangeDateTime);
 			alertsRepository.save(alerts);
 			// Send email to the applicant
 	        sendEmailToApplicant(applyJob.getApplicant().getEmail(), cN, applicantStatus,jobTitle);
