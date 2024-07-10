@@ -1,0 +1,504 @@
+10-07-2024_09:44:27.190{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+10-07-2024_09:44:27.230{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 17948 (C:\Users\Madar\Desktop\TS3\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\TS3\TalentStreamBE)
+10-07-2024_09:44:27.230{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+10-07-2024_09:44:27.231{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+10-07-2024_09:44:28.555{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10-07-2024_09:44:28.700{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 133 ms. Found 19 JPA repository interfaces.
+10-07-2024_09:44:30.594{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+10-07-2024_09:44:30.626{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+10-07-2024_09:44:30.627{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+10-07-2024_09:44:30.628{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+10-07-2024_09:44:30.800{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+10-07-2024_09:44:30.800{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 3495 ms
+10-07-2024_09:44:31.043{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+10-07-2024_09:44:31.143{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+10-07-2024_09:44:31.394{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10-07-2024_09:44:31.554{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+10-07-2024_09:44:31.813{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+10-07-2024_09:44:31.844{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+10-07-2024_09:44:33.091{UTC}|report-tool|INFO ||o.h.o.c.access|HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@df04d12] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+10-07-2024_09:44:33.632{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10-07-2024_09:44:33.648{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+10-07-2024_09:44:34.122{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+10-07-2024_09:44:34.196{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07-2024_09:44:34.494{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+10-07-2024_09:44:35.917{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@43b41cb9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d3e9629, org.springframework.security.web.context.SecurityContextPersistenceFilter@4832813d, org.springframework.security.web.header.HeaderWriterFilter@198c97d0, org.springframework.security.web.authentication.logout.LogoutFilter@4df8f4e9, com.talentstream.filter.JwtRequestFilter@1dcc0bb8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@276ac94c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27df4dcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65c97eeb, org.springframework.security.web.session.SessionManagementFilter@12c55199, org.springframework.security.web.access.ExceptionTranslationFilter@16cc5e51, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5a2ce458]
+10-07-2024_09:44:36.202{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+10-07-2024_09:44:36.238{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+10-07-2024_09:44:37.183{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 10.697 seconds (JVM running for 12.465)
+10-07-2024_09:44:37.285{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+10-07-2024_09:44:37.285{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+10-07-2024_09:44:37.289{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 4 ms
+10-07-2024_09:44:37.315{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_09:44:37.316{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_09:44:37.316{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_09:54:37.059{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+10-07-2024_09:54:37.084{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+10-07-2024_09:54:37.084{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+10-07-2024_09:54:37.087{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+10-07-2024_09:54:37.091{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+10-07-2024_09:54:37.092{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+10-07-2024_09:54:37.095{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+10-07-2024_09:54:37.106{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+10-07-2024_09:54:37.108{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+10-07-2024_09:54:37.112{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+10-07-2024_09:54:40.184{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+10-07-2024_09:54:40.203{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 11052 (C:\Users\Madar\Desktop\TS3\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\TS3\TalentStreamBE)
+10-07-2024_09:54:40.203{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+10-07-2024_09:54:40.204{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+10-07-2024_09:54:41.404{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10-07-2024_09:54:41.532{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 120 ms. Found 19 JPA repository interfaces.
+10-07-2024_09:54:42.245{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+10-07-2024_09:54:42.256{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+10-07-2024_09:54:42.257{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+10-07-2024_09:54:42.257{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+10-07-2024_09:54:42.410{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+10-07-2024_09:54:42.410{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 2142 ms
+10-07-2024_09:54:42.621{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+10-07-2024_09:54:42.705{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+10-07-2024_09:54:42.957{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10-07-2024_09:54:43.106{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+10-07-2024_09:54:43.317{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+10-07-2024_09:54:43.340{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+10-07-2024_09:54:44.516{UTC}|report-tool|INFO ||o.h.o.c.access|HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@12c30824] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+10-07-2024_09:54:45.046{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10-07-2024_09:54:45.057{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+10-07-2024_09:54:45.441{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+10-07-2024_09:54:45.473{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07-2024_09:54:45.748{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+10-07-2024_09:54:46.838{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@64f55630, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@336b6e93, org.springframework.security.web.context.SecurityContextPersistenceFilter@12c55199, org.springframework.security.web.header.HeaderWriterFilter@5a5cd0af, org.springframework.security.web.authentication.logout.LogoutFilter@69ca71b3, com.talentstream.filter.JwtRequestFilter@2f541f60, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5565d718, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@ab5e63, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@40fd9358, org.springframework.security.web.session.SessionManagementFilter@7280785f, org.springframework.security.web.access.ExceptionTranslationFilter@105e9fef, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@f6921b7]
+10-07-2024_09:54:47.032{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+10-07-2024_09:54:47.059{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+10-07-2024_09:54:47.808{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 8.094 seconds (JVM running for 9.366)
+10-07-2024_09:54:47.897{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+10-07-2024_09:54:47.897{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+10-07-2024_09:54:47.898{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 1 ms
+10-07-2024_09:54:47.914{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_09:54:47.914{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_09:54:47.914{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:01:52.242{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:01:52.243{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:01:52.243{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:01:52.392{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_10:01:52.392{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_10:01:53.381{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_10:01:53.527{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjIxOTEzLCJpYXQiOjE3MjA1ODU5MTN9.kk_dzAsvt-krbJPfxX4qr92LGPWF-IjzHsnOj2u9P0I
+10-07-2024_10:01:53.527{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjIxOTEzLCJpYXQiOjE3MjA1ODU5MTN9.kk_dzAsvt-krbJPfxX4qr92LGPWF-IjzHsnOj2u9P0I
+10-07-2024_10:01:53.527{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_10:01:53.531{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 6
+10-07-2024_10:01:53.557{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:01:53.557{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:01:53.557{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:01:58.709{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:01:58.709{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:01:58.709{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:01:58.727{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:01:58.727{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:01:58.728{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:03:44.363{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:03:44.363{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:03:44.364{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:03:44.368{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_10:03:44.368{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_10:03:44.948{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_10:03:46.574{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjIyMDI0LCJpYXQiOjE3MjA1ODYwMjR9.QvbkKIn1Zk4zguI3HifCTaIDUyzkmws0Kkyh5KLctAs
+10-07-2024_10:03:46.574{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjIyMDI0LCJpYXQiOjE3MjA1ODYwMjR9.QvbkKIn1Zk4zguI3HifCTaIDUyzkmws0Kkyh5KLctAs
+10-07-2024_10:03:46.574{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_10:03:46.575{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 7
+10-07-2024_10:03:46.585{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:03:46.586{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:03:46.586{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:04:03.779{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:04:03.780{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:04:03.781{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:04:03.804{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:04:03.805{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:04:03.805{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:04:36.974{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:04:36.974{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:04:36.974{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:04:36.976{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_10:04:36.978{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_10:04:36.980{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_10:04:36.999{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjIyMDc2LCJpYXQiOjE3MjA1ODYwNzZ9.jcXqF06fxvsJPsGg7dj-y_bJOJ7VAx4onzTK4sv8CGQ
+10-07-2024_10:04:36.999{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjIyMDc2LCJpYXQiOjE3MjA1ODYwNzZ9.jcXqF06fxvsJPsGg7dj-y_bJOJ7VAx4onzTK4sv8CGQ
+10-07-2024_10:04:37.000{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_10:04:37.001{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 7
+10-07-2024_10:04:37.013{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:04:37.013{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:04:37.013{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:04:47.240{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:04:47.241{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:04:47.241{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:04:47.253{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:04:47.254{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:04:47.254{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:46:35.410{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:46:35.412{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:46:35.412{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:46:35.418{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_10:46:35.418{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_10:46:35.981{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_10:46:37.022{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI0NTk1LCJpYXQiOjE3MjA1ODg1OTV9.Pv03rHt_yGf-Eq2Lh4i0cVcFGXh5nxOsjiqSscBKi1k
+10-07-2024_10:46:37.022{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI0NTk1LCJpYXQiOjE3MjA1ODg1OTV9.Pv03rHt_yGf-Eq2Lh4i0cVcFGXh5nxOsjiqSscBKi1k
+10-07-2024_10:46:37.022{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_10:46:37.028{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 8
+10-07-2024_10:46:37.038{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:46:37.038{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:46:37.039{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:46:39.518{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:46:39.519{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:46:39.519{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:46:39.529{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:46:39.530{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:46:39.530{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:48:00.401{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+10-07-2024_10:48:00.433{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:00.433{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+10-07-2024_10:48:00.437{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+10-07-2024_10:48:00.444{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+10-07-2024_10:48:00.445{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [java-sdk-http-connection-reaper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/java.lang.Thread.sleep(Native Method)
+ app//com.amazonaws.http.IdleConnectionReaper.run(IdleConnectionReaper.java:188)
+10-07-2024_10:48:00.447{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:00.450{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:00.468{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+10-07-2024_10:48:00.473{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+10-07-2024_10:48:00.478{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+10-07-2024_10:48:04.455{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+10-07-2024_10:48:04.474{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 2628 (C:\Users\Madar\Desktop\TS3\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\TS3\TalentStreamBE)
+10-07-2024_10:48:04.474{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+10-07-2024_10:48:04.475{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+10-07-2024_10:48:05.665{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10-07-2024_10:48:05.778{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 103 ms. Found 19 JPA repository interfaces.
+10-07-2024_10:48:06.444{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+10-07-2024_10:48:06.456{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:06.457{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+10-07-2024_10:48:06.457{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+10-07-2024_10:48:06.603{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+10-07-2024_10:48:06.604{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 2065 ms
+10-07-2024_10:48:06.779{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+10-07-2024_10:48:06.855{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+10-07-2024_10:48:07.056{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10-07-2024_10:48:07.158{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+10-07-2024_10:48:07.341{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+10-07-2024_10:48:07.364{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+10-07-2024_10:48:08.513{UTC}|report-tool|INFO ||o.h.o.c.access|HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@c3c63c1] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+10-07-2024_10:48:09.015{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10-07-2024_10:48:09.028{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+10-07-2024_10:48:09.407{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+10-07-2024_10:48:09.444{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07-2024_10:48:09.701{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+10-07-2024_10:48:10.746{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@336b6e93, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40fd9358, org.springframework.security.web.context.SecurityContextPersistenceFilter@63f6811e, org.springframework.security.web.header.HeaderWriterFilter@16cc5e51, org.springframework.security.web.authentication.logout.LogoutFilter@371a7fd5, com.talentstream.filter.JwtRequestFilter@63e4bbf9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4832813d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a434cdd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43b41cb9, org.springframework.security.web.session.SessionManagementFilter@589dd717, org.springframework.security.web.access.ExceptionTranslationFilter@47858d7c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19cee7ed]
+10-07-2024_10:48:10.950{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:10.983{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+10-07-2024_10:48:11.746{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 7.703 seconds (JVM running for 8.886)
+10-07-2024_10:48:11.818{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+10-07-2024_10:48:11.819{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+10-07-2024_10:48:11.821{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+10-07-2024_10:48:11.839{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:48:11.839{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:48:11.839{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:48:25.584{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:48:25.584{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:48:25.585{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:48:25.662{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_10:48:25.662{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_10:48:25.714{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_10:48:25.803{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI0NzA1LCJpYXQiOjE3MjA1ODg3MDV9.nuQtduT2XCMPsmQ23cX2TxigLTrJtCTU_i7Vm3-sjr8
+10-07-2024_10:48:25.803{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI0NzA1LCJpYXQiOjE3MjA1ODg3MDV9.nuQtduT2XCMPsmQ23cX2TxigLTrJtCTU_i7Vm3-sjr8
+10-07-2024_10:48:25.803{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_10:48:25.807{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 8
+10-07-2024_10:48:25.831{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:48:25.831{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:48:25.831{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:48:28.655{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:48:28.655{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:48:28.655{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:48:28.675{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:48:28.675{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:48:28.675{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:48:35.938{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+10-07-2024_10:48:35.960{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:35.961{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+10-07-2024_10:48:35.963{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+10-07-2024_10:48:35.966{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+10-07-2024_10:48:35.967{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [java-sdk-http-connection-reaper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/java.lang.Thread.sleep(Native Method)
+ app//com.amazonaws.http.IdleConnectionReaper.run(IdleConnectionReaper.java:188)
+10-07-2024_10:48:35.968{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:35.971{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:35.981{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+10-07-2024_10:48:35.983{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+10-07-2024_10:48:35.986{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+10-07-2024_10:48:38.707{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+10-07-2024_10:48:38.735{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 26472 (C:\Users\Madar\Desktop\TS3\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\TS3\TalentStreamBE)
+10-07-2024_10:48:38.735{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+10-07-2024_10:48:38.735{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+10-07-2024_10:48:39.714{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10-07-2024_10:48:39.827{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 104 ms. Found 19 JPA repository interfaces.
+10-07-2024_10:48:40.452{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+10-07-2024_10:48:40.460{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:40.461{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+10-07-2024_10:48:40.462{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+10-07-2024_10:48:40.611{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+10-07-2024_10:48:40.612{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1817 ms
+10-07-2024_10:48:40.775{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+10-07-2024_10:48:40.819{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+10-07-2024_10:48:40.976{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10-07-2024_10:48:41.071{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+10-07-2024_10:48:41.286{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+10-07-2024_10:48:41.305{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+10-07-2024_10:48:42.449{UTC}|report-tool|INFO ||o.h.o.c.access|HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e75cf7a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+10-07-2024_10:48:42.903{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10-07-2024_10:48:42.913{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+10-07-2024_10:48:43.291{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+10-07-2024_10:48:43.329{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07-2024_10:48:43.576{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+10-07-2024_10:48:44.719{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c8e1233, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72117fc0, org.springframework.security.web.context.SecurityContextPersistenceFilter@7c2d4398, org.springframework.security.web.header.HeaderWriterFilter@1268ac94, org.springframework.security.web.authentication.logout.LogoutFilter@3470c771, com.talentstream.filter.JwtRequestFilter@1b62ad1e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7280785f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5565d718, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ca37d40, org.springframework.security.web.session.SessionManagementFilter@160b7ccd, org.springframework.security.web.access.ExceptionTranslationFilter@59ffb0af, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3a892b9f]
+10-07-2024_10:48:44.925{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:48:44.950{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+10-07-2024_10:48:45.701{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 7.459 seconds (JVM running for 8.51)
+10-07-2024_10:48:45.773{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+10-07-2024_10:48:45.773{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+10-07-2024_10:48:45.775{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 1 ms
+10-07-2024_10:48:45.796{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:48:45.796{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:48:45.797{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:51:04.050{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+10-07-2024_10:51:04.076{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:51:04.077{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+10-07-2024_10:51:04.078{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+10-07-2024_10:51:04.081{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+10-07-2024_10:51:04.082{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:51:04.085{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:51:04.100{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+10-07-2024_10:51:04.102{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+10-07-2024_10:51:04.107{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+10-07-2024_10:51:06.761{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+10-07-2024_10:51:06.782{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 12048 (C:\Users\Madar\Desktop\TS3\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\TS3\TalentStreamBE)
+10-07-2024_10:51:06.783{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+10-07-2024_10:51:06.783{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+10-07-2024_10:51:07.897{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+10-07-2024_10:51:08.030{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 122 ms. Found 19 JPA repository interfaces.
+10-07-2024_10:51:08.779{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+10-07-2024_10:51:08.803{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:51:08.804{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+10-07-2024_10:51:08.804{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+10-07-2024_10:51:08.950{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+10-07-2024_10:51:08.950{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 2106 ms
+10-07-2024_10:51:09.151{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+10-07-2024_10:51:09.228{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+10-07-2024_10:51:09.395{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+10-07-2024_10:51:09.518{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+10-07-2024_10:51:09.759{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+10-07-2024_10:51:09.785{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+10-07-2024_10:51:11.139{UTC}|report-tool|INFO ||o.h.o.c.access|HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@df04d12] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+10-07-2024_10:51:11.754{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+10-07-2024_10:51:11.767{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+10-07-2024_10:51:12.234{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+10-07-2024_10:51:12.279{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07-2024_10:51:12.575{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+10-07-2024_10:51:13.915{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d3e9629, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65c97eeb, org.springframework.security.web.context.SecurityContextPersistenceFilter@70c3483b, org.springframework.security.web.header.HeaderWriterFilter@25e9f5e6, org.springframework.security.web.authentication.logout.LogoutFilter@7785430c, com.talentstream.filter.JwtRequestFilter@6f6998b6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ccc07ae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ddd5715, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49825659, org.springframework.security.web.session.SessionManagementFilter@63f6811e, org.springframework.security.web.access.ExceptionTranslationFilter@72090a80, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c8e1233]
+10-07-2024_10:51:14.175{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+10-07-2024_10:51:14.207{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+10-07-2024_10:51:15.055{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 8.735 seconds (JVM running for 9.87)
+10-07-2024_10:51:15.132{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+10-07-2024_10:51:15.132{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+10-07-2024_10:51:15.135{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+10-07-2024_10:51:15.156{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:51:15.157{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:51:15.157{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:53:34.810{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:53:34.811{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:53:34.812{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:53:34.933{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_10:53:34.933{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_10:53:34.993{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_10:53:35.123{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1MDE1LCJpYXQiOjE3MjA1ODkwMTV9.ZMJjmWbv3sZdlRXOtLTeTlTY5KnpI0VIx4Jy_jdp7Q4
+10-07-2024_10:53:35.123{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1MDE1LCJpYXQiOjE3MjA1ODkwMTV9.ZMJjmWbv3sZdlRXOtLTeTlTY5KnpI0VIx4Jy_jdp7Q4
+10-07-2024_10:53:35.123{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_10:53:35.127{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 8
+10-07-2024_10:53:35.156{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:53:35.156{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:53:35.156{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:53:38.291{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:53:38.292{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:53:38.292{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:53:38.318{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:53:38.318{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:53:38.320{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:55:36.458{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:55:36.459{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:55:36.459{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:55:36.462{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_10:55:36.462{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_10:55:37.240{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_10:55:38.016{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1MTM3LCJpYXQiOjE3MjA1ODkxMzd9.yteC0_lrw-0nI6lSWFW2YqBr4sC2RVSS5h3KKQrELMs
+10-07-2024_10:55:38.016{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1MTM3LCJpYXQiOjE3MjA1ODkxMzd9.yteC0_lrw-0nI6lSWFW2YqBr4sC2RVSS5h3KKQrELMs
+10-07-2024_10:55:38.016{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_10:55:38.019{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 9
+10-07-2024_10:55:38.028{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:55:38.028{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:55:38.028{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:55:40.499{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:55:40.500{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:55:40.501{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:55:40.511{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:55:40.511{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:55:40.511{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:57:06.680{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:57:06.680{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:57:06.680{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:57:06.683{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_10:57:06.683{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_10:57:06.686{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_10:57:06.708{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1MjI2LCJpYXQiOjE3MjA1ODkyMjZ9.LQHVCz65XMwC2gth3jkQ2xqfqD8zIahkHTkpBYu6xUs
+10-07-2024_10:57:06.708{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1MjI2LCJpYXQiOjE3MjA1ODkyMjZ9.LQHVCz65XMwC2gth3jkQ2xqfqD8zIahkHTkpBYu6xUs
+10-07-2024_10:57:06.708{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_10:57:06.711{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 9
+10-07-2024_10:57:06.724{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:57:06.725{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:57:06.725{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:57:09.448{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:57:09.449{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:57:09.449{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:57:09.465{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:57:09.465{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:57:09.465{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:59:33.788{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:59:33.789{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:59:33.789{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:59:33.791{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_10:59:33.791{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_10:59:34.216{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_10:59:35.500{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1Mzc0LCJpYXQiOjE3MjA1ODkzNzR9.ZEgxgUhjJ-oPdawba03_1K5s6j9xWfHkCkb2HF-X_iA
+10-07-2024_10:59:35.501{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1Mzc0LCJpYXQiOjE3MjA1ODkzNzR9.ZEgxgUhjJ-oPdawba03_1K5s6j9xWfHkCkb2HF-X_iA
+10-07-2024_10:59:35.501{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_10:59:35.503{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 10
+10-07-2024_10:59:35.512{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:59:35.512{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:59:35.512{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:59:40.335{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:59:40.336{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:59:40.337{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_10:59:40.356{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_10:59:40.356{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_10:59:40.357{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:01:20.371{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:01:20.371{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:01:20.372{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:01:20.374{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_11:01:20.374{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_11:01:20.389{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_11:01:20.419{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1NDgwLCJpYXQiOjE3MjA1ODk0ODB9.P3es1hA5kPNm5rbh753JecW2O8vhF84qTf1pe4_JbR4
+10-07-2024_11:01:20.423{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI1NDgwLCJpYXQiOjE3MjA1ODk0ODB9.P3es1hA5kPNm5rbh753JecW2O8vhF84qTf1pe4_JbR4
+10-07-2024_11:01:20.423{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_11:01:20.426{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 10
+10-07-2024_11:01:20.452{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:01:20.452{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:01:20.452{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:01:22.664{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:01:22.664{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:01:22.665{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:01:22.676{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:01:22.676{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:01:22.678{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:03:52.382{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:03:52.382{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:03:52.382{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:03:52.391{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to send OTP to email: 9618912817madar@gmail.com and mobile: 9876589412
+10-07-2024_11:03:57.677{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|OTP sent successfully to 9618912817madar@gmail.com
+10-07-2024_11:04:24.567{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:04:24.568{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:04:24.568{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:04:24.583{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Verifying OTP for email: 9618912817madar@gmail.com, OTP: 457833
+10-07-2024_11:04:24.584{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|OTP verified successfully for email: 9618912817madar@gmail.com
+10-07-2024_11:04:24.609{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:04:24.610{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:04:24.610{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:04:24.619{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Registering new applicant
+10-07-2024_11:09:48.646{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:09:48.647{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:09:48.647{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:09:48.650{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to send OTP to email: 9618912817madar@gmail.com and mobile: 9632569874
+10-07-2024_11:09:53.206{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|OTP sent successfully to 9618912817madar@gmail.com
+10-07-2024_11:10:09.845{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:10:09.846{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:10:09.848{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:10:09.851{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Verifying OTP for email: 9618912817madar@gmail.com, OTP: 513617
+10-07-2024_11:10:09.851{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|OTP verified successfully for email: 9618912817madar@gmail.com
+10-07-2024_11:10:09.873{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:10:09.873{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:10:09.873{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:10:09.876{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Registering new applicant
+10-07-2024_11:11:16.140{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:11:16.140{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:11:16.140{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:11:16.143{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_11:11:16.143{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_11:11:16.586{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_11:11:17.841{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI2MDc2LCJpYXQiOjE3MjA1OTAwNzZ9.-sIKuZKcgpg1Bg5GYqQE2u9c2BtkP6-SA_G3tUH0sYw
+10-07-2024_11:11:17.842{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI2MDc2LCJpYXQiOjE3MjA1OTAwNzZ9.-sIKuZKcgpg1Bg5GYqQE2u9c2BtkP6-SA_G3tUH0sYw
+10-07-2024_11:11:17.842{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_11:11:17.844{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 13
+10-07-2024_11:11:17.852{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:11:17.853{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:11:17.853{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:11:20.450{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:11:20.451{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:11:20.455{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:11:20.468{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:11:20.468{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:11:20.468{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:12:26.075{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:12:26.075{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:12:26.076{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:12:26.079{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: 9618912817madar@gmail.com
+10-07-2024_11:12:26.079{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: 9618912817madar@gmail.com
+10-07-2024_11:12:26.082{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: 9618912817madar@gmail.com
+10-07-2024_11:12:26.101{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI2MTQ2LCJpYXQiOjE3MjA1OTAxNDZ9.cJQ2Perh1fgpJCjiUH-1ExU5a79_aGsU-h7X0jeczv4
+10-07-2024_11:12:26.101{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIwNjI2MTQ2LCJpYXQiOjE3MjA1OTAxNDZ9.cJQ2Perh1fgpJCjiUH-1ExU5a79_aGsU-h7X0jeczv4
+10-07-2024_11:12:26.102{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+10-07-2024_11:12:26.103{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 13
+10-07-2024_11:12:26.117{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:12:26.117{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+10-07-2024_11:12:26.117{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+10-07-2024_11:12:29.203{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+10-07-2024_11:12:29.204{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
