@@ -28,7 +28,7 @@ public ResponseEntity<JobDTO> getJobDetailsForApplicant(Long jobId) {
         JobDTO jobDTO = new JobDTO();
         jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
         jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
-        jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+        //jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
         jobDTO.setEmail(job.getJobRecruiter().getEmail());
         jobDTO.setJobStatus(job.getJobStatus());
         jobDTO.setJobTitle(job.getJobTitle());
@@ -39,23 +39,23 @@ public ResponseEntity<JobDTO> getJobDetailsForApplicant(Long jobId) {
         jobDTO.setLocation(job.getLocation());
         jobDTO.setEmployeeType(job.getEmployeeType());
         jobDTO.setIndustryType(job.getIndustryType());
-        jobDTO.setMinimumQualification(job.getMinimumQualification());
+        //jobDTO.setMinimumQualification(job.getMinimumQualification());
         jobDTO.setSpecialization(job.getSpecialization());
       //  jobDTO.setJobHighlights(job.getJobHighlights());
         jobDTO.setDescription(job.getDescription());
         jobDTO.setCreationDate(job.getCreationDate());
         long jobRecruiterId = job.getJobRecruiter().getRecruiterId();
 	    byte[] imageBytes = null;
-	    try {
-	    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
-	    }catch (CustomException ce) {
-        	System.out.println(ce.getMessage());
-        } 
+//	    try {
+//	    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
+//	    }catch (CustomException ce) {
+//        	System.out.println(ce.getMessage());
+//        } 
 	    System.out.println("Job Recruiter ID: " + jobRecruiterId);
 	    System.out.println("Image Bytes: " + Arrays.toString(imageBytes));
  
 	   
-	        jobDTO.setLogoFile(imageBytes);
+	        //jobDTO.setLogoFile(imageBytes);
         return ResponseEntity.ok(jobDTO);
     } else {
         throw new CustomException("Job with ID " + jobId + " not found.", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -70,18 +70,18 @@ public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId)
     	JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
         jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
         jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
-        jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+        //jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
         jobDTO.setEmail(job.getJobRecruiter().getEmail());
 
         long jobRecruiterId = job.getJobRecruiter().getRecruiterId();
 	    byte[] imageBytes = null;
-	    try {
-	    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
-	    }catch (CustomException ce) {
-        	System.out.println(ce.getMessage());
-        } 
+//	    try {
+//	    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
+//	    }catch (CustomException ce) {
+//        	System.out.println(ce.getMessage());
+//        } 
 
-	    jobDTO.setLogoFile(imageBytes);
+	    //jobDTO.setLogoFile(imageBytes);
 
  
         ApplyJob applyJob = applyJobService.getByJobAndApplicant(jobId, applicantId);
