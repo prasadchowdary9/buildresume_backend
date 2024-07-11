@@ -23,7 +23,7 @@ public class Alerts {
 
 	private String companyName;
 	private String status;
-	@Column(columnDefinition = "TIMESTAMP")
+	 @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime changeDate;
 	
 	@ManyToOne
