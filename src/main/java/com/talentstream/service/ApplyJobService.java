@@ -1,5 +1,6 @@
 package com.talentstream.service;
  
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -185,7 +186,16 @@ public long countAppliedJobsForApplicant(long applicantId) {
 			alerts.setCompanyName(cN);
 			alerts.setStatus(applicantStatus);			
 			alerts.setJobTitle(jobTitle);
-			alerts.setChangeDate(LocalDateTime.now());
+            LocalDateTime currentDate = LocalDateTime.now();
+            
+            // Get the current change date and time
+            LocalDateTime currentChangeDateTime = currentDate;
+          // System.out.println(currentChangeDateTime + " Utc");
+            // Add 5 hours and 30 minutes to the current change date and time
+            LocalDateTime updatedChangeDateTime = currentChangeDateTime
+                    .plusHours(5)
+                    .plusMinutes(30);
+			alerts.setChangeDate(updatedChangeDateTime);
 			alertsRepository.save(alerts);
 			// Send email to the applicant
 	        sendEmailToApplicant(applyJob.getApplicant().getEmail(), cN, applicantStatus,jobTitle);
@@ -225,11 +235,23 @@ public long countAppliedJobsForApplicant(long applicantId) {
 		
 		//This method is to save the track of statuses that updated by recruiter
 		private void saveStatusHistory(ApplyJob applyJob, String applicationStatus) {
+			
+			// Get the current date and time
+	        LocalDateTime currentDateTime = LocalDateTime.now();
+	        System.out.println("before addition "+currentDateTime);
+	        
+	        // Add 5 hours and 30 minutes to the current date and time
+	        LocalDateTime updatedDateTime = currentDateTime.plus(Duration.ofHours(5).plusMinutes(30));
+	        System.out.println("after addition "+updatedDateTime);
+	        
+	        // Convert to LocalDate if required
+	        LocalDate updatedDate = updatedDateTime.toLocalDate();
+	        
 			// TODO Auto-generated method stub
 			ApplicantStatusHistory statusHistory=new ApplicantStatusHistory();
 			statusHistory.setApplyJob(applyJob);
 			statusHistory.setStatus(applicationStatus);
-			statusHistory.setChangeDate(LocalDate.now());
+			statusHistory.setChangeDate(updatedDate);
 			statusHistoryRepository.save(statusHistory);
 		}
 	    public List<ApplyJob> getAppliedApplicantsForJob(Long jobId) {

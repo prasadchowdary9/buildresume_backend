@@ -50,6 +50,7 @@ public Applicant login(String email, String password) {
 	try {
 	Applicant applicant = applicantRepository.findByEmail(email);
 	 if (applicant != null && passwordEncoder.matches(password, applicant.getPassword())) {
+		 applicant.setUtmSource("Not first time");
 	        return applicant;
 	    } else {
 	        return null;
@@ -113,6 +114,7 @@ public Applicant googleSignIn(String email,String utmSource) {
  
             // Save the new applicant
             Applicant applicant1=applicantRepository.save(newApplicant);
+            applicant1.setUtmSource("first time");
             System.out.println("User resume ID: " );
             ResumeRegisterDto resume=new ResumeRegisterDto();
 //            String[] nameParts = applicant1.getName().toLowerCase().split("\\s+");
@@ -160,6 +162,7 @@ public Applicant googleSignIn(String email,String utmSource) {
             
             return applicant1;
         } else {
+        	applicant.setUtmSource("not first time");
             return applicant;
         }
     } catch (Exception e) {
