@@ -63,25 +63,25 @@ public class SavedJobController {
             		.map(job -> {
         	            JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
         	            jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
-        	            jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+        	            //jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
         	            jobDTO.setEmail(job.getJobRecruiter().getEmail());
         	            jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
         	            return jobDTO;
         	        })
         	        .collect(Collectors.toList());
-	 for (JobDTO job : savedJobsDTO) {
-		    long jobRecruiterId = job.getRecruiterId();
-		    byte[] imageBytes = null;
-		    try {
-		    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
-		    }catch (CustomException ce) {
-	        	System.out.println(ce.getMessage());
-	        } 
-
- 
-		   
-		        job.setLogoFile(imageBytes);
-		}
+//	 for (JobDTO job : savedJobsDTO) {
+//		    long jobRecruiterId = job.getRecruiterId();
+//		    byte[] imageBytes = null;
+//		    try {
+//		    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
+//		    }catch (CustomException ce) {
+//	        	System.out.println(ce.getMessage());
+//	        } 
+//
+// 
+//		   
+//		        job.setLogoFile(imageBytes);
+//		}
  
             return ResponseEntity.ok(savedJobsDTO);
         } catch (CustomException e) {
