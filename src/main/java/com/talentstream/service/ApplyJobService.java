@@ -1,5 +1,5 @@
 package com.talentstream.service;
- 
+
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -281,16 +281,16 @@ public long countAppliedJobsForApplicant(long applicantId) {
             jobDTO.setMinimumQualification(job.getMinimumQualification());
             jobDTO.setSpecialization(job.getSpecialization());
             Set<RecuriterSkillsDTO> skillsDTOSet = new HashSet<>();
-            for (RecuriterSkills skill : job.getSkillsRequired()) {
-                RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
-                skillDTO.setSkillName(skill.getSkillName());
-                skillsDTOSet.add(skillDTO);
-            }
+//            for (RecuriterSkills skill : job.getSkillsRequired()) {
+//                RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
+//                skillDTO.setSkillName(skill.getSkillName());
+//                skillsDTOSet.add(skillDTO);
+//            }
             jobDTO.setSkillsRequired(skillsDTOSet);
             jobDTO.setDescription(job.getDescription());
             jobDTO.setCreationDate(job.getCreationDate());
             jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
-            jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+            //jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
             jobDTO.setEmail(job.getJobRecruiter().getEmail());	           
             jobDTO.setApplyJobId(appliedJob.getApplyjobid());
  
@@ -310,37 +310,52 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	        System.out.println(matchTypes.getMobilenumber());
 	        
 	        for(AppliedApplicantInfo appliedApplicantInfo : all1) {
+	        	try {
 	        	long id1=appliedApplicantInfo.getId();
 	            ApplicantProfile applicantProfile=applicantProfileRepo.findByApplicantId(id1);
 	            AppliedApplicantInfoDTO dto1=mapToDTO(appliedApplicantInfo);
 	            dto1.setExperience(applicantProfile.getExperience());
 	            dto1.setMinimumQualification(applicantProfile.getQualification());
 	            all.add(dto1);
+	        	}catch(Exception e) {
+	        		 e.printStackTrace();
+	        	}
 	        }
 
-	        List<AppliedApplicantInfoDTO> filteredList = all.stream()
-	                .filter(applicant ->
-	                        (name == null || applyMatchType(applicant.getName(), name, matchTypes.getName(), "is")) &&
-	                        (email == null || applyMatchType(applicant.getEmail(), email, matchTypes.getEmail(), "contains")) &&
-	                        (mobileNumber == null || applyMobileType(applicant.getMobilenumber(), mobileNumber, matchTypes.getMobilenumber(), "is")) &&
-	                        (jobTitle == null || applyMatchType(applicant.getJobTitle(), jobTitle, matchTypes.getJobTitle(), "contains")) &&
-	                        (applicantStatus == null || applyMatchType(applicant.getApplicantStatus(), applicantStatus, matchTypes.getApplicantStatus(), "contains")) &&
-//	                        (skillName == null || applyMatchType(applicant.getSkillName(), skillName, matchTypes.getSkillName(), "contains")) &&
-	                        (minimumQualification == null || applyMatchType(applicant.getMinimumQualification(), minimumQualification, matchTypes.getMinimumQualification(), "contains")) &&
-	                        (location == null || applyMatchType(applicant.getLocation(), location, matchTypes.getLocation(), "contains")) &&
-	                        (minimumExperience == null || applyExperienceMatchType(applicant.getExperience(), minimumExperience, matchTypes.getMinimumExperience(), "lessThan")))
-	                .collect(Collectors.toList());
+	        List<AppliedApplicantInfoDTO> filteredList = null;
+	        try {
+	            filteredList = all.stream()
+	                    .filter(applicant ->
+	                            (name == null || applyMatchType(applicant.getName(), name, matchTypes.getName(), "is")) &&
+	                            (email == null || applyMatchType(applicant.getEmail(), email, matchTypes.getEmail(), "contains")) &&
+	                            (mobileNumber == null || applyMobileType(applicant.getMobilenumber(), mobileNumber, matchTypes.getMobilenumber(), "is")) &&
+	                            (jobTitle == null || applyMatchType(applicant.getJobTitle(), jobTitle, matchTypes.getJobTitle(), "contains")) &&
+	                            (applicantStatus == null || applyMatchType(applicant.getApplicantStatus(), applicantStatus, matchTypes.getApplicantStatus(), "contains")) &&
+//	                            (skillName == null || applyMatchType(applicant.getSkillName(), skillName, matchTypes.getSkillName(), "contains")) &&
+	                            (minimumQualification == null || applyMatchType(applicant.getMinimumQualification(), minimumQualification, matchTypes.getMinimumQualification(), "contains")) &&
+	                            (location == null || applyMatchType(applicant.getLocation(), location, matchTypes.getLocation(), "contains")) &&
+	                            (minimumExperience == null || applyExperienceMatchType(applicant.getExperience(), minimumExperience, matchTypes.getMinimumExperience(), "lessThan")))
+	                    .collect(Collectors.toList());
+	        } catch (Exception e) {
+	            
+	            e.printStackTrace();
+	            filteredList = new ArrayList<>();
+	        }
 
 	     // Eliminate duplicates based on applyjobid while preserving order
 	        Set<Long> uniqueApplyJobIds = new HashSet<>();
 	        List<AppliedApplicantInfoDTO> uniqueList = new ArrayList<>();
 
 	        for (AppliedApplicantInfoDTO applicant : filteredList) {
+	        	try {
 	            long applyJobId = applicant.getApplyjobid();
 	            if (!uniqueApplyJobIds.contains(applyJobId) && applyJobId >=1) {
 	                uniqueApplyJobIds.add(applyJobId);
 	                uniqueList.add(applicant);
 	            }
+	        	}catch(Exception e) {
+	        		 e.printStackTrace();
+	        	}
 	        }
 	        return uniqueList;
 	    }
@@ -390,15 +405,22 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	public Map<String, List<AppliedApplicantInfoDTO>> getAppliedApplicants(long jobRecruiterId) {
 	    List<AppliedApplicantInfo> appliedApplicants = applyJobRepository.findAppliedApplicantsInfo(jobRecruiterId);
 	    Map<String, List<AppliedApplicantInfoDTO>> applicantMap = new HashMap<>();
+	    
 	    for (AppliedApplicantInfo appliedApplicantInfo : appliedApplicants) {
 	        String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
 	        if (!applicantMap.containsKey(applicantKey)) {
 	            List<AppliedApplicantInfoDTO> dtoList = new ArrayList<>();
 	            long id1=appliedApplicantInfo.getId();
-	            ApplicantProfile applicantProfile=applicantProfileRepo.findByApplicantId(id1);
 	            AppliedApplicantInfoDTO dto1=mapToDTO(appliedApplicantInfo);
+	            ApplicantProfile applicantProfile=null;
+	            try {
+	             applicantProfile=applicantProfileRepo.findByApplicantId(id1);
+	            
 	            dto1.setExperience(applicantProfile.getExperience());
 	            dto1.setMinimumQualification(applicantProfile.getQualification());
+	            }catch(Exception e) {
+	            	 e.printStackTrace();
+	            }
 	            dtoList.add(dto1);
 	            
 	            applicantMap.put(applicantKey, dtoList);
@@ -406,18 +428,27 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	            List<AppliedApplicantInfoDTO> existingDTOList = applicantMap.get(applicantKey);
 	            boolean found = false;
 	            for (AppliedApplicantInfoDTO existingDTO : existingDTOList) {
+	            	try {
 	                if (existingDTO.getName().equals(appliedApplicantInfo.getName())) {
 	                    existingDTO.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
 	                    found = true;
 	                    break;
 	                }
+	            	}catch(Exception e) {
+	            		 e.printStackTrace();
+	            	}
 	            }
 	            if (!found) {
+	            	try {
 	                AppliedApplicantInfoDTO dto = mapToDTO(appliedApplicantInfo);
 	                existingDTOList.add(dto);
+	            	}catch(Exception e) {
+	            		 e.printStackTrace();
+	            	}
 	            }
 	        }
 	    }
+	   
 	    return applicantMap;
 	}
 
@@ -425,8 +456,10 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	    List<AppliedApplicantInfo> appliedApplicants = applyJobRepository.findAppliedApplicantsInfoWithJobId(jobRecruiterId, id);
 	    Map<String, List<AppliedApplicantInfoDTO>> applicantMap = new HashMap<>();
 	    for (AppliedApplicantInfo appliedApplicantInfo : appliedApplicants) {
+	    	
 	        String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
 	        if (!applicantMap.containsKey(applicantKey)) {
+	        	try {
 	            List<AppliedApplicantInfoDTO> dtoList = new ArrayList<>();
 	            long id1=appliedApplicantInfo.getId();
 	            ApplicantProfile applicantProfile=applicantProfileRepo.findByApplicantId(id1);
@@ -436,19 +469,30 @@ public long countAppliedJobsForApplicant(long applicantId) {
 	            dtoList.add(dto1);
 	            
 	            applicantMap.put(applicantKey, dtoList);
+	        	}catch (Exception e) {
+	        		e.printStackTrace();
+	        	}
 	        } else {
 	            List<AppliedApplicantInfoDTO> existingDTOList = applicantMap.get(applicantKey);
 	            boolean found = false;
 	            for (AppliedApplicantInfoDTO existingDTO : existingDTOList) {
+	            	try {
 	                if (existingDTO.getName().equals(appliedApplicantInfo.getName())) {
 	                    existingDTO.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
 	                    found = true;
 	                    break;
 	                }
+	            	}catch(Exception e) {
+	            		e.printStackTrace();
+	            	}
 	            }
 	            if (!found) {
+	            	try {
 	                AppliedApplicantInfoDTO dto = mapToDTO(appliedApplicantInfo);
 	                existingDTOList.add(dto);
+	            	}catch(Exception e) {
+	            		e.printStackTrace();
+	            	}
 	            }
 	        }
 	    }
