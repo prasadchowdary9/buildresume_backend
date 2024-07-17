@@ -1,10 +1,11 @@
 package com.talentstream.entity;
+
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class ApplicantJobInterviewDTO {
 	private Long id;
-    public Long getId() {
+
+	public Long getId() {
 		return id;
 	}
 
@@ -13,15 +14,15 @@ public class ApplicantJobInterviewDTO {
 	}
 
 	private String name;
-    private String email;
-    private String mobilenumber;
-    private String jobTitle;
-    private LocalDateTime timeAndDate;
-    private String location;
-    private String modeOfInterview;
-    private int round;
-    private String interviewLink;
-    private String interviewPerson;
+	private String email;
+	private String mobilenumber;
+	private String jobTitle;
+	private LocalDateTime timeAndDate;
+	private String location;
+	private String modeOfInterview;
+	private int round;
+	private String interviewLink;
+	private String interviewPerson;
 
 	public String getName() {
 		return name;
@@ -130,5 +131,4 @@ public class ApplicantJobInterviewDTO {
 
 	}
 
-  
 }

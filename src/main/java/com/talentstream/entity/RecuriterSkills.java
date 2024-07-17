@@ -19,18 +19,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class RecuriterSkills {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-	
-	@ManyToMany(fetch = FetchType.LAZY,
-		      cascade = {
-		              CascadeType.PERSIST,
-		              CascadeType.MERGE
-	          })
-	 @JsonIgnore
-    private Set<Job> jobs=new HashSet<>();
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {
+			CascadeType.PERSIST,
+			CascadeType.MERGE
+	})
+	@JsonIgnore
+	private Set<Job> jobs = new HashSet<>();
+
 	public Set<Job> getJobs() {
 		return jobs;
 	}
@@ -40,12 +38,7 @@ public class RecuriterSkills {
 	}
 
 	@Column(nullable = false)
-    private String skillName;
-
-//	@Column(nullable = false, columnDefinition = "int default 0")
-//	private int minimumExperience;
-
-   
+	private String skillName;
 
 	public Long getId() {
 		return id;
@@ -63,13 +56,4 @@ public class RecuriterSkills {
 		this.skillName = skillName;
 	}
 
-//	public int getMinimumExperience() {
-//		return minimumExperience;
-//	}
-//
-//	public void setMinimumExperience(int minimumExperience) {
-//		this.minimumExperience = minimumExperience;
-//	}
-    
-    
 }

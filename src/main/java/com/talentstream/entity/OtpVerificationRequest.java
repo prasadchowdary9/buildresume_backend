@@ -6,36 +6,38 @@ import javax.validation.constraints.Size;
 
 public class OtpVerificationRequest {
 
-    public OtpVerificationRequest() {
+	public OtpVerificationRequest() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
-    @NotBlank(message = "OTP is required.")
-    @Size(min = 6, message = "OTP must be at least 6 characters long.")
+
+	@NotBlank(message = "OTP is required.")
+	@Size(min = 6, message = "OTP must be at least 6 characters long.")
 	private String otp;
 	@NotBlank(message = "Email is required.")
-    @Pattern(
-            regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
-            message = "Invalid email format and white spaces are not allowed."
-        )
-    private String email;
+	@Pattern(regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", message = "Invalid email format and white spaces are not allowed.")
+	private String email;
+
 	public String getOtp() {
 		return otp;
 	}
+
 	public void setOtp(String otp) {
 		this.otp = otp;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public OtpVerificationRequest(String otp, String email) {
 		super();
 		this.otp = otp;
 		this.email = email;
 	}
-    
 
 }
