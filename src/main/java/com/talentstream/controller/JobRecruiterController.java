@@ -37,141 +37,144 @@ import com.talentstream.service.EmailService;
 import com.talentstream.service.JobRecruiterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/recuriters")
 public class JobRecruiterController {
-	@Autowired
-    private OtpService otpService;
-	 private Map<String, Boolean> otpVerificationMap = new HashMap<>();
-	 private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class);
- 
     @Autowired
-    private EmailService emailService; // Your email service
-	@Autowired
-     JobRecruiterService recruiterService;
-     @Autowired
-	private AuthenticationManager authenticationManager;
-     @Autowired
-	private JwtUtil jwtTokenUtil;
-     @Autowired
-     MyUserDetailsService myUserDetailsService;
-     @Autowired
-	private JobRecruiterRepository recruiterRepository;
+    private OtpService otpService;
+    private Map<String, Boolean> otpVerificationMap = new HashMap<>();
+    private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileController.class);
 
-	 @Autowired
-     private JobRepository jobRepository;
- 
-	 @Autowired
-	RegisterRepository applicantRepository;
- 
- 
+    @Autowired
+    private EmailService emailService;
+    @Autowired
+    JobRecruiterService recruiterService;
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    @Autowired
+    private JwtUtil jwtTokenUtil;
+    @Autowired
+    MyUserDetailsService myUserDetailsService;
+    @Autowired
+    private JobRecruiterRepository recruiterRepository;
+
+    @Autowired
+    private JobRepository jobRepository;
+
+    @Autowired
+    RegisterRepository applicantRepository;
+
     @Autowired
     public JobRecruiterController(JobRecruiterService recruiterService) {
         this.recruiterService = recruiterService;
     }
+
     @PostMapping("/saverecruiters")
-    public ResponseEntity<String> registerRecruiter(@Valid @RequestBody JobRecruiterDTO recruiterDTO, BindingResult bindingResult) {
-    	if (bindingResult.hasErrors()) {
+    public ResponseEntity<String> registerRecruiter(@Valid @RequestBody JobRecruiterDTO recruiterDTO,
+            BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             // Handle validation errors
             Map<String, String> fieldErrors = new LinkedHashMap<>();
- 
+
             bindingResult.getFieldErrors().forEach(fieldError -> {
                 String fieldName = fieldError.getField();
                 String errorMessage = fieldError.getDefaultMessage();
- 
+
                 // Append each field and its error message on a new line
-                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+                fieldErrors.merge(fieldName, errorMessage,
+                        (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
             });
- 
-            // Construct the response body with each field and its error message on separate lines
+
+            // Construct the response body with each field and its error message on separate
+            // lines
             StringBuilder responseBody = new StringBuilder();
-            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
- 
+            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ")
+                    .append(errorMessage).append("\n"));
+
             return ResponseEntity.badRequest().body(responseBody.toString());
         }
-    	
-    	JobRecruiter recruiter = convertToEntity(recruiterDTO);
+
+        JobRecruiter recruiter = convertToEntity(recruiterDTO);
         try {
-        	  logger.info("Registering recruiter with email: {}", recruiter.getEmail());
-	             return recruiterService.saveRecruiter(recruiterDTO);
-	        } catch (CustomException e) {
-	        	  logger.error("Error registering recruiter with email: {}", recruiter.getEmail(), e);
-	            return ResponseEntity.badRequest().body(e.getMessage());
-	        } catch (Exception e) {
-	        	 logger.error("Internal server error occurred while registering recruiter with email: {}", recruiter.getEmail(), e);
-	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error registering applicant");
-	        }
+            logger.info("Registering recruiter with email: {}", recruiter.getEmail());
+            return recruiterService.saveRecruiter(recruiterDTO);
+        } catch (CustomException e) {
+            logger.error("Error registering recruiter with email: {}", recruiter.getEmail(), e);
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            logger.error("Internal server error occurred while registering recruiter with email: {}",
+                    recruiter.getEmail(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error registering applicant");
+        }
     }
- 
- 
+
     @PostMapping("/recruiterLogin")
     public ResponseEntity<Object> login(@RequestBody RecruiterLogin loginRequest) throws Exception {
         JobRecruiter recruiter = recruiterService.login(loginRequest.getEmail(), loginRequest.getPassword());
- 
+
         if (recruiter != null) {
             return createAuthenticationToken(loginRequest, recruiter);
         } else {
             boolean emailExists = recruiterService.emailExists(loginRequest.getEmail());
- 
+
             if (emailExists) {
-            	  logger.warn("Login failed for recruiter with email: {}. Incorrect password.", loginRequest.getEmail());
-              
+                logger.warn("Login failed for recruiter with email: {}. Incorrect password.", loginRequest.getEmail());
+
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Incorrect password");
             } else {
-            	 logger.warn("Login failed. No account found with email: {}", loginRequest.getEmail());
+                logger.warn("Login failed. No account found with email: {}", loginRequest.getEmail());
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No account found with this email address");
             }
         }
     }
- 
+
     @PostMapping("/registration-send-otp")
     public ResponseEntity<String> sendOtp(@RequestBody ResetPasswordRequest request) {
         String userEmail = request.getEmail();
         if (applicantRepository.existsByEmail(request.getEmail())) {
-           return ResponseEntity.ok("Email already registered as applicant");
+            return ResponseEntity.ok("Email already registered as applicant");
         }
-    	if(recruiterRepository.existsByEmail(request.getEmail())) {
-    		return ResponseEntity.ok("Email already registered recruiter");
-    	}
-    	if(applicantRepository.existsByMobilenumber(request.getMobilenumber()))
-        {
-		return ResponseEntity.ok("Mobile number already existed in applicant");
+        if (recruiterRepository.existsByEmail(request.getEmail())) {
+            return ResponseEntity.ok("Email already registered recruiter");
         }
-	 if(recruiterRepository.existsByMobilenumber(request.getMobilenumber())) {
-		return ResponseEntity.ok("Mobile number already existed in recruiter");
-	 }
- 
-	 
+        if (applicantRepository.existsByMobilenumber(request.getMobilenumber())) {
+            return ResponseEntity.ok("Mobile number already existed in applicant");
+        }
+        if (recruiterRepository.existsByMobilenumber(request.getMobilenumber())) {
+            return ResponseEntity.ok("Mobile number already existed in recruiter");
+        }
+
         JobRecruiter jobRecruiter = recruiterService.findByEmail(userEmail);
         if (jobRecruiter == null) {
             String otp = otpService.generateOtp(userEmail);
             emailService.sendOtpEmail(userEmail, otp);
-            otpVerificationMap.put(userEmail, true); 
+            otpVerificationMap.put(userEmail, true);
             logger.info("OTP sent successfully to email: {}", userEmail);
             return ResponseEntity.ok("OTP sent to your email.");
-        }
-        else {
-        	logger.warn("Registration failed. Email {} is already registered.", userEmail);
-        	 return ResponseEntity.badRequest().body("Email is already  registered.");
+        } else {
+            logger.warn("Registration failed. Email {} is already registered.", userEmail);
+            return ResponseEntity.badRequest().body("Email is already  registered.");
         }
     }
- 
-    private ResponseEntity<Object> createAuthenticationToken(RecruiterLogin login, JobRecruiter recruiter) throws Exception {
-		    	try {
-			authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(login.getEmail(), login.getPassword())
-			);
-		}
-		catch (BadCredentialsException e) {
-			logger.warn("Login failed for recruiter with email: {}. Incorrect username or password.", login.getEmail());
-			throw new Exception("Incorrect username or password", e);
-		}
-    	final UserDetails userDetails = myUserDetailsService.loadUserByUsername(recruiter.getEmail());
-		final String jwt = jwtTokenUtil.generateToken(userDetails);
-		return ResponseHandler.generateResponse2("Login successfully"+userDetails.getAuthorities(), HttpStatus.OK, new AuthenticationResponse(jwt),recruiter.getEmail(),recruiter.getCompanyname(),recruiter.getRecruiterId(),recruiter.getMobilenumber());
-	}
- 
+
+    private ResponseEntity<Object> createAuthenticationToken(RecruiterLogin login, JobRecruiter recruiter)
+            throws Exception {
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(login.getEmail(), login.getPassword()));
+        } catch (BadCredentialsException e) {
+            logger.warn("Login failed for recruiter with email: {}. Incorrect username or password.", login.getEmail());
+            throw new Exception("Incorrect username or password", e);
+        }
+        final UserDetails userDetails = myUserDetailsService.loadUserByUsername(recruiter.getEmail());
+        final String jwt = jwtTokenUtil.generateToken(userDetails);
+        return ResponseHandler.generateResponse2("Login successfully" + userDetails.getAuthorities(), HttpStatus.OK,
+                new AuthenticationResponse(jwt), recruiter.getEmail(), recruiter.getCompanyname(),
+                recruiter.getRecruiterId(), recruiter.getMobilenumber());
+    }
+
     @GetMapping("/viewRecruiters")
     public ResponseEntity<List<JobRecruiterDTO>> getAllJobRecruiters() {
         try {
@@ -179,83 +182,83 @@ public class JobRecruiterController {
             logger.info("Retrieved all job recruiters successfully");
             return ResponseHandler.generateResponse1("List of Job Recruiters", HttpStatus.OK, jobRecruiters);
         } catch (Exception e) {
-        	 logger.error("Error retrieving job recruiters", e);
-            return ResponseHandler.generateResponse1("Error retrieving job recruiters", HttpStatus.INTERNAL_SERVER_ERROR, null);
+            logger.error("Error retrieving job recruiters", e);
+            return ResponseHandler.generateResponse1("Error retrieving job recruiters",
+                    HttpStatus.INTERNAL_SERVER_ERROR, null);
         }
     }
-	private JobRecruiter convertToEntity(JobRecruiterDTO recruiterDTO) {
+
+    private JobRecruiter convertToEntity(JobRecruiterDTO recruiterDTO) {
         JobRecruiter recruiter = new JobRecruiter();
-        //recruiter.setRecruiterId(recruiterDTO.getRecruiterId());
         recruiter.setCompanyname(recruiterDTO.getCompanyname());
         recruiter.setMobilenumber(recruiterDTO.getMobilenumber());
         recruiter.setEmail(recruiterDTO.getEmail());
         recruiter.setPassword(recruiterDTO.getPassword());
-        recruiter.setRoles(recruiterDTO.getRoles());        
- 
+        recruiter.setRoles(recruiterDTO.getRoles());
+
         return recruiter;
     }
 
- 
-@PostMapping("/authenticateRecruiter/{id}")
+    @PostMapping("/authenticateRecruiter/{id}")
     public String authenticateRecruiter(@PathVariable Long id, @RequestBody PasswordRequest passwordRequest) {
         String newpassword = passwordRequest.getNewPassword();
         String oldpassword = passwordRequest.getOldPassword();
         return recruiterService.authenticateRecruiter(id, oldpassword, newpassword);
     }
 
-	@GetMapping("/appledjobs/{recruiterId}/unread-alert-count")
-  public ResponseEntity<Integer> getUnreadAlertCount(@PathVariable long recruiterId) {
-	    try {
-	        JobRecruiter recruiter = recruiterRepository.findByRecruiterId(recruiterId);
-	        if (recruiter != null) {
-	            int unreadAlertCount = recruiter.getAlertCount();
-//	            recruiter.setAlertCount(0);
-//	            recruiterRepository.save(recruiter);
-	            return ResponseEntity.ok(unreadAlertCount);
-	        } else {
-	        	 logger.warn("No recruiter found with ID: {}", recruiterId);
-	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-	        }
-	    } catch (Exception e) {
-	    	  logger.error("Error getting unread alert count", e);
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-	    }
-	}
-  @GetMapping("/job-alerts/{recruiterId}")
-  public ResponseEntity<List<Job>> getAlerts(@PathVariable long recruiterId) {
-      try {
-          LocalDateTime minDateTime = LocalDateTime.now().minusDays(7); // Filter jobs from the last 7 days
-          List<Job> notifications = jobRepository.findJobsWithAlertCountAndRecentDateTimeGreaterThanAndRecruiterId(minDateTime,recruiterId);
+    @GetMapping("/appledjobs/{recruiterId}/unread-alert-count")
+    public ResponseEntity<Integer> getUnreadAlertCount(@PathVariable long recruiterId) {
+        try {
+            JobRecruiter recruiter = recruiterRepository.findByRecruiterId(recruiterId);
+            if (recruiter != null) {
+                int unreadAlertCount = recruiter.getAlertCount();
+                return ResponseEntity.ok(unreadAlertCount);
+            } else {
+                logger.warn("No recruiter found with ID: {}", recruiterId);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            }
+        } catch (Exception e) {
+            logger.error("Error getting unread alert count", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
 
-          // Sort notifications based on recentApplicationDateTime in descending order
-          Collections.sort(notifications, (job1, job2) -> {
-              LocalDateTime dateTime1 = job1.getRecentApplicationDateTime();
-              LocalDateTime dateTime2 = job2.getRecentApplicationDateTime();
+    @GetMapping("/job-alerts/{recruiterId}")
+    public ResponseEntity<List<Job>> getAlerts(@PathVariable long recruiterId) {
+        try {
+            LocalDateTime minDateTime = LocalDateTime.now().minusDays(7); // Filter jobs from the last 7 days
+            List<Job> notifications = jobRepository
+                    .findJobsWithAlertCountAndRecentDateTimeGreaterThanAndRecruiterId(minDateTime, recruiterId);
 
-              if (dateTime1 == null && dateTime2 == null) {
-                  return 0;
-              } else if (dateTime1 == null) {
-                  return 1;
-              } else if (dateTime2 == null) {
-                  return -1;
-              }
+            // Sort notifications based on recentApplicationDateTime in descending order
+            Collections.sort(notifications, (job1, job2) -> {
+                LocalDateTime dateTime1 = job1.getRecentApplicationDateTime();
+                LocalDateTime dateTime2 = job2.getRecentApplicationDateTime();
 
-              // Compare in descending order
-              return dateTime2.compareTo(dateTime1);
-          });
+                if (dateTime1 == null && dateTime2 == null) {
+                    return 0;
+                } else if (dateTime1 == null) {
+                    return 1;
+                } else if (dateTime2 == null) {
+                    return -1;
+                }
 
-          // Reset alert count for the recruiter
-          JobRecruiter recruiter = recruiterRepository.findByRecruiterId(recruiterId);
-          recruiter.setAlertCount(0);
-          recruiterRepository.save(recruiter);
-          logger.warn("No recruiter found with ID: {}", recruiterId);
-          return ResponseEntity.ok(notifications);
-      } catch (EntityNotFoundException e) {
-    	  logger.warn("No recruiter found with ID: {}", recruiterId);
-          return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-      } catch (Exception e) {
-    	  logger.error("Error getting job alerts", e);
-          return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-      }
-  }
+                // Compare in descending order
+                return dateTime2.compareTo(dateTime1);
+            });
+
+            // Reset alert count for the recruiter
+            JobRecruiter recruiter = recruiterRepository.findByRecruiterId(recruiterId);
+            recruiter.setAlertCount(0);
+            recruiterRepository.save(recruiter);
+            logger.warn("No recruiter found with ID: {}", recruiterId);
+            return ResponseEntity.ok(notifications);
+        } catch (EntityNotFoundException e) {
+            logger.warn("No recruiter found with ID: {}", recruiterId);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (Exception e) {
+            logger.error("Error getting job alerts", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
 }
