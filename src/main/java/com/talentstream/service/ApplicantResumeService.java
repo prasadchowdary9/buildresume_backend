@@ -20,6 +20,7 @@ import java.net.MalformedURLException;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+
 @Service
 public class ApplicantResumeService {
 
@@ -29,23 +30,25 @@ public class ApplicantResumeService {
     @Autowired
     private RegisterRepository applicantService;
 
+    // Uploads a PDF resume for the specified applicant; validates file size and
+    // type; throws CustomException for errors.
     public String UploadPdf(long applicantId, MultipartFile pdfFile) throws IOException {
-        
-    	  if (pdfFile.getSize() > 1 * 1024 * 1024) {
-              throw new CustomException("File size should be less than 1MB.", HttpStatus.BAD_REQUEST);
-          }
 
-          String contentType = pdfFile.getContentType();
-          if (!"application/pdf".equals(contentType)) {
-              throw new CustomException("Only PDF file types are allowed.", HttpStatus.BAD_REQUEST);
-          }
-          
+        if (pdfFile.getSize() > 1 * 1024 * 1024) {
+            throw new CustomException("File size should be less than 1MB.", HttpStatus.BAD_REQUEST);
+        }
+
+        String contentType = pdfFile.getContentType();
+        if (!"application/pdf".equals(contentType)) {
+            throw new CustomException("Only PDF file types are allowed.", HttpStatus.BAD_REQUEST);
+        }
+
         Applicant applicant = applicantService.getApplicantById(applicantId);
         if (applicant == null)
             throw new CustomException("Applicant not found for ID: " + applicantId, HttpStatus.NOT_FOUND);
         else {
-        	ApplicantResume existingpdf = applicantResumeRepository.findByApplicant(applicant);
-        	if (existingpdf!= null) {             
+            ApplicantResume existingpdf = applicantResumeRepository.findByApplicant(applicant);
+            if (existingpdf != null) {
                 String folderPath = "src/main/resources/applicant/resumes";
                 String existingFileName = existingpdf.getPdfname();
                 String existingFilePath = Paths.get(folderPath, existingFileName).toString();
@@ -55,7 +58,7 @@ public class ApplicantResumeService {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            
+
                 String name = StringUtils.cleanPath(pdfFile.getOriginalFilename());
                 String newFileName = applicantId + "_" + name;
                 String filePath = Paths.get(folderPath, newFileName).toString();
@@ -71,31 +74,32 @@ public class ApplicantResumeService {
                 return name;
             } else {
 
-            String name = StringUtils.cleanPath(pdfFile.getOriginalFilename());
-            String fileName = applicantId + "_" + name;
-            String folderPath = "src/main/resources/applicant/resumes";
-            String filePath = Paths.get(folderPath, fileName).toString();
-            try
-            {
-            	Files.createDirectories(Paths.get(folderPath)); 
-            Files.copy(pdfFile.getInputStream(), Paths.get(filePath ), StandardCopyOption.REPLACE_EXISTING);
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-            ApplicantResume applicantResume = new ApplicantResume();
-            applicantResume.setPdfname(fileName);
-            applicantResume.setApplicant(applicant);
-            applicantResumeRepository.save(applicantResume);
+                String name = StringUtils.cleanPath(pdfFile.getOriginalFilename());
+                String fileName = applicantId + "_" + name;
+                String folderPath = "src/main/resources/applicant/resumes";
+                String filePath = Paths.get(folderPath, fileName).toString();
+                try {
+                    Files.createDirectories(Paths.get(folderPath));
+                    Files.copy(pdfFile.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ApplicantResume applicantResume = new ApplicantResume();
+                applicantResume.setPdfname(fileName);
+                applicantResume.setApplicant(applicant);
+                applicantResumeRepository.save(applicantResume);
 
-            return name;
+                return name;
+            }
         }
     }
-    }
-  
-    public ResponseEntity<org.springframework.core.io.Resource> getResumeByApplicantId(long applicantId) throws IOException {
-         
-    	ApplicantResume applicantResume = applicantResumeRepository.findByApplicantId(applicantId);
+
+    // Retrieves the resume for the specified applicant by ID; returns a Resource
+    // for the PDF file; throws CustomException if not found.
+    public ResponseEntity<org.springframework.core.io.Resource> getResumeByApplicantId(long applicantId)
+            throws IOException {
+
+        ApplicantResume applicantResume = applicantResumeRepository.findByApplicantId(applicantId);
         if (applicantResume != null) {
             String fileName = applicantResume.getPdfname();
             Path filePath = Paths.get("src/main/resources/applicant/resumes", fileName);
@@ -104,7 +108,8 @@ public class ApplicantResumeService {
 
                 return ResponseEntity.ok()
                         .contentType(MediaType.APPLICATION_PDF)
-                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                        .header(HttpHeaders.CONTENT_DISPOSITION,
+                                "attachment; filename=\"" + resource.getFilename() + "\"")
                         .body(resource);
             } catch (MalformedURLException e) {
                 throw new RuntimeException("Error reading the resume file for applicant ID: " + applicantId, e);
@@ -114,5 +119,4 @@ public class ApplicantResumeService {
         }
     }
 
-    
 }

@@ -1,56 +1,34 @@
 package com.talentstream.dto;
 
-import java.util.List;
-import java.util.List;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 public class JobRecruiterDTO {
-//	private Long recruiterId;
- 	@NotBlank(message = "Company Name required.")
-    private String companyname;
- 	@NotBlank(message = "Mobile Number required.")
- 	@Pattern(regexp = "^$|^[6789]\\d{9}$", message = "Mobile number should begin with 6, 7, 8, or 9 and be 10 digits long.")
-    private String mobilenumber;
- 	@NotBlank(message = "Email required.")
- 	@Pattern(
-            regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
-            message = "Invalid email format and white spaces are not allowed."
-        )
-    private String email;
- 	@NotBlank(message = "Password required.")
- 	@Pattern(
- 		    regexp = "^$|^(?=.{6,}$)(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])(?!.*\\s).*$",
- 		    message = "Password must be at least 6 characters long and contain at least one uppercase letter, one digit, one special character, and no white spaces."
- 		)
-    private String password;
-   // private List<JobDTO> jobs;
-    private String roles = "ROLE_JOBRECRUITER";
-   // private List<TeamMemberDTO> teamMembers;
+	@NotBlank(message = "Company Name required.")
+	private String companyname;
+	@NotBlank(message = "Mobile Number required.")
+	@Pattern(regexp = "^$|^[6789]\\d{9}$", message = "Mobile number should begin with 6, 7, 8, or 9 and be 10 digits long.")
+	private String mobilenumber;
+	@NotBlank(message = "Email required.")
+	@Pattern(regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", message = "Invalid email format and white spaces are not allowed.")
+	private String email;
+	@NotBlank(message = "Password required.")
+	@Pattern(regexp = "^$|^(?=.{6,}$)(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])(?!.*\\s).*$", message = "Password must be at least 6 characters long and contain at least one uppercase letter, one digit, one special character, and no white spaces.")
+	private String password;
+	private String roles = "ROLE_JOBRECRUITER";
 
-    public JobRecruiterDTO() {
-    }
+	public JobRecruiterDTO() {
+	}
 
-    public JobRecruiterDTO(String companyname, String mobilenumber, String email, String password/*,List<JobDTO> jobs, String roles, List<TeamMemberDTO> teamMembers*/) {
-        
-        this.companyname = companyname;
-        this.mobilenumber = mobilenumber;
-        this.email = email;
-        this.password = password;
-       // this.jobs = jobs;
-        this.roles = roles;
-       // this.teamMembers = teamMembers;
-    }
+	public JobRecruiterDTO(String companyname, String mobilenumber, String email, String password) {
 
-//	public Long getRecruiterId() {
-//		return recruiterId;
-//	}
-//
-//	public void setRecruiterId(Long recruiterId) {
-//		this.recruiterId = recruiterId;
-//	}
+		this.companyname = companyname;
+		this.mobilenumber = mobilenumber;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+
+	}
 
 	public String getCompanyname() {
 		return companyname;

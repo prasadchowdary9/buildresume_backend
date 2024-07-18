@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.talentstream.entity.Job;
 import com.talentstream.exception.CustomException;
@@ -31,65 +30,71 @@ import com.talentstream.service.JobService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 @RestController
-@RequestMapping("/job")  
+@RequestMapping("/job")
 public class JobController {
-	
-	  final ModelMapper modelMapper = new ModelMapper();
+
+    final ModelMapper modelMapper = new ModelMapper();
     private final JobService jobService;
     private static final Logger logger = LoggerFactory.getLogger(JobController.class);
-    
+
     @Autowired
-    	private CompanyLogoService companyLogoService;
-    
+    private CompanyLogoService companyLogoService;
+
     @Autowired
     public JobController(JobService jobService) {
         this.jobService = jobService;
     }
-    
+
     @PostMapping("/recruiters/saveJob/{jobRecruiterId}")
-    public ResponseEntity<String> saveJob(@Valid @RequestBody JobDTO jobDTO, BindingResult bindingResult, @PathVariable Long jobRecruiterId) {
-    	if (bindingResult.hasErrors()) {
+    public ResponseEntity<String> saveJob(@Valid @RequestBody JobDTO jobDTO, BindingResult bindingResult,
+            @PathVariable Long jobRecruiterId) {
+        if (bindingResult.hasErrors()) {
             // Handle validation errors
-    		Map<String, String> fieldErrors = new LinkedHashMap<>();
- 
+            Map<String, String> fieldErrors = new LinkedHashMap<>();
+
             bindingResult.getFieldErrors().forEach(fieldError -> {
                 String fieldName = fieldError.getField();
                 String errorMessage = fieldError.getDefaultMessage();
- 
+
                 // Append each field and its error message on a new line
-                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+                fieldErrors.merge(fieldName, errorMessage,
+                        (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
             });
- 
-            // Construct the response body with each field and its error message on separate lines
+
+            // Construct the response body with each field and its error message on separate
+            // lines
             StringBuilder responseBody = new StringBuilder();
-            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ")
+                    .append(errorMessage).append("\n"));
             logger.error("Validation errors occurred while saving job.");
             return ResponseEntity.badRequest().body(responseBody.toString());
         }
-    	try {
+        try {
             return jobService.saveJob(jobDTO, jobRecruiterId);
         } catch (CustomException ce) {
-        	 logger.error("CustomException occurred while saving job: {}", ce.getMessage());
+            logger.error("CustomException occurred while saving job: {}", ce.getMessage());
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	 logger.error("Internal server error occurred while saving job.", e);
+            logger.error("Internal server error occurred while saving job.", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
-        }        
+        }
     }
+
     @GetMapping("/recruiters/viewJobs/{jobRecruiterId}")
     public ResponseEntity<?> getJobsByRecruiter(@PathVariable Long jobRecruiterId) {
-    	try {
+        try {
             List<Job> jobs = jobService.getJobsByRecruiter(jobRecruiterId);
- 
+
             if (jobs.isEmpty()) {
                 return ResponseEntity.notFound().build();
             }
- 
+
             List<JobDTO> jobDTOs = jobs.stream()
-            		.map(job -> {
+                    .map(job -> {
                         JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
-                       
+
                         jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
                         jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
                         jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
@@ -99,28 +104,30 @@ public class JobController {
                     })
                     .collect(Collectors.toList());
             for (JobDTO job : jobDTOs) {
-    		    long jobRecruiterId1 = job.getRecruiterId();
-    		    byte[] imageBytes = null;
-    		    try {
-    		    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId1);
-    		    }catch (CustomException ce) {
-    		    	logger.error("CustomException occurred while getting company logo for job with ID {}: {}", job.getId(), ce.getMessage());
-    	        	System.out.println(ce.getMessage());  	        }
-     
-    		      		        job.setLogoFile(imageBytes);
-    		}
- 
+                long jobRecruiterId1 = job.getRecruiterId();
+                byte[] imageBytes = null;
+                try {
+                    imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId1);
+                } catch (CustomException ce) {
+                    logger.error("CustomException occurred while getting company logo for job with ID {}: {}",
+                            job.getId(), ce.getMessage());
+                    System.out.println(ce.getMessage());
+                }
+
+                job.setLogoFile(imageBytes);
+            }
+
             return ResponseEntity.ok(jobDTOs);
         } catch (CustomException ce) {
-        	  logger.error("CustomException occurred while getting jobs by recruiter ID {}: {}", jobRecruiterId, ce.getMessage());
+            logger.error("CustomException occurred while getting jobs by recruiter ID {}: {}", jobRecruiterId,
+                    ce.getMessage());
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	  logger.error("Internal server error occurred while getting jobs by recruiter ID {}", jobRecruiterId, e);
+            logger.error("Internal server error occurred while getting jobs by recruiter ID {}", jobRecruiterId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
-	
-    
+
     @GetMapping("/search")
     public ResponseEntity<?> searchJobs(@ModelAttribute JobSearchCriteria searchCriteria) {
         try {
@@ -130,30 +137,29 @@ public class JobController {
                 return ResponseEntity.notFound().build();
             }
 
-             List<JobDTO> jobDTOs = jobs.stream()
-                    .map(job ->{ JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
-    	            jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
-    	            jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
-    	            jobDTO.setEmail(job.getJobRecruiter().getEmail());
-    	            return jobDTO;
-    	        })
-    	        .collect(Collectors.toList());
+            List<JobDTO> jobDTOs = jobs.stream()
+                    .map(job -> {
+                        JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
+                        jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
+                        jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+                        jobDTO.setEmail(job.getJobRecruiter().getEmail());
+                        return jobDTO;
+                    })
+                    .collect(Collectors.toList());
 
             return ResponseEntity.ok(jobDTOs);
         } catch (CustomException ce) {
-        	 logger.error("CustomException occurred while searching jobs: {}", ce.getMessage());
+            logger.error("CustomException occurred while searching jobs: {}", ce.getMessage());
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	logger.error("Internal server error occurred while searching jobs.", e);
+            logger.error("Internal server error occurred while searching jobs.", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
 
-    
-    
     @GetMapping("/recruiters/viewJobs")
-    public ResponseEntity<?>  getAllJobs() {
-    	try {
+    public ResponseEntity<?> getAllJobs() {
+        try {
             List<Job> jobs = jobService.getAllJobs();
             List<JobDTO> jobDTOs = jobs.stream()
                     .map(job -> convertEntityToDTO(job))
@@ -161,10 +167,10 @@ public class JobController {
             logger.info("Retrieved all jobs successfully.");
             return ResponseEntity.ok(jobDTOs);
         } catch (CustomException ce) {
-        	logger.error("CustomException occurred while retrieving all jobs: {}", ce.getMessage());
+            logger.error("CustomException occurred while retrieving all jobs: {}", ce.getMessage());
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	 logger.error("Internal server error occurred while retrieving all jobs.", e);
+            logger.error("Internal server error occurred while retrieving all jobs.", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
@@ -179,18 +185,17 @@ public class JobController {
                 logger.info("Retrieved job with ID {} successfully.", jobId);
                 return ResponseEntity.ok(jobDTO);
             } else {
-            	 logger.warn("Job with ID {} not found.", jobId);
+                logger.warn("Job with ID {} not found.", jobId);
                 return ResponseEntity.notFound().build();
             }
         } catch (CustomException ce) {
-        	logger.error("CustomException occurred while retrieving job with ID {}: {}", jobId, ce.getMessage());
+            logger.error("CustomException occurred while retrieving job with ID {}: {}", jobId, ce.getMessage());
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	logger.error("Internal server error occurred while retrieving job with ID {}.", jobId, e);
+            logger.error("Internal server error occurred while retrieving job with ID {}.", jobId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
-   
 
     @GetMapping("/recruiterscountjobs/{recruiterId}")
     public ResponseEntity<?> countJobsByRecruiter(@PathVariable Long recruiterId) {
@@ -199,17 +204,19 @@ public class JobController {
             logger.info("Retrieved job count for recruiter with ID {} successfully.", recruiterId);
             return ResponseEntity.ok(jobCount);
         } catch (CustomException ce) {
-        	 logger.error("CustomException occurred while retrieving job count for recruiter with ID {}: {}", recruiterId, ce.getMessage());
+            logger.error("CustomException occurred while retrieving job count for recruiter with ID {}: {}",
+                    recruiterId, ce.getMessage());
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	 logger.error("Internal server error occurred while retrieving job count for recruiter with ID {}.", recruiterId, e);
+            logger.error("Internal server error occurred while retrieving job count for recruiter with ID {}.",
+                    recruiterId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
+
     private RecuriterSkillsDTO convertSkillsEntityToDTO(RecuriterSkills skill) {
         RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
         skillDTO.setSkillName(skill.getSkillName());
-   //     skillDTO.setMinimumExperience(skill.getMinimumExperience());
         return skillDTO;
     }
 
@@ -226,32 +233,36 @@ public class JobController {
         jobDTO.setIndustryType(job.getIndustryType());
         jobDTO.setMinimumQualification(job.getMinimumQualification());
         jobDTO.setSpecialization(job.getSpecialization());
-	     jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
+        jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
         jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
         jobDTO.setEmail(job.getJobRecruiter().getEmail());
-        jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber()); 
+        jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
         jobDTO.setCreationDate(job.getCreationDate());
         jobDTO.setIsSaved(job.getIsSaved());
         Set<RecuriterSkillsDTO> skillsDTOList = job.getSkillsRequired().stream()
                 .map(this::convertSkillsEntityToDTO)
                 .collect(Collectors.toSet());
-        jobDTO.setSkillsRequired(skillsDTOList);  
+        jobDTO.setSkillsRequired(skillsDTOList);
         return jobDTO;
     }
-	@PostMapping("/changeStatus/{jobId}/{newStatus}")
+
+    @PostMapping("/changeStatus/{jobId}/{newStatus}")
     public ResponseEntity<String> changeJobStatus(@PathVariable Long jobId, @PathVariable String newStatus) {
         try {
             jobService.changeJobStatus(jobId, newStatus);
             logger.info("Job status changed to '{}' for jobId={}", newStatus, jobId);
             return ResponseEntity.ok("Job status changed successfully.");
         } catch (CustomException ce) {
-        	 logger.error("Failed to change job status for jobId={}, status={}, error={}", jobId, newStatus, ce.getMessage(), ce);
+            logger.error("Failed to change job status for jobId={}, status={}, error={}", jobId, newStatus,
+                    ce.getMessage(), ce);
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	logger.error("Internal server error while changing job status for jobId={}, status={}", jobId, newStatus, e);
+            logger.error("Internal server error while changing job status for jobId={}, status={}", jobId, newStatus,
+                    e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
+
     @GetMapping("/getStatus/{jobId}")
     public ResponseEntity<String> getJobStatus(@PathVariable Long jobId) {
         try {
@@ -260,58 +271,62 @@ public class JobController {
             logger.info("Successfully retrieved job status for jobId={}: {}", jobId, jobStatus);
             return ResponseEntity.ok(jobStatus);
         } catch (CustomException ce) {
-        	 logger.error("Error retrieving job status for jobId={}, error={}", jobId, ce.getMessage(), ce);
+            logger.error("Error retrieving job status for jobId={}, error={}", jobId, ce.getMessage(), ce);
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	 logger.error("Internal server error retrieving job status for jobId={}", jobId, e);
+            logger.error("Internal server error retrieving job status for jobId={}", jobId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
 
-	@GetMapping("/{jobId}/{recruiterId}")
-    public ResponseEntity<?> getJobById(@PathVariable Long jobId,@PathVariable Long recruiterId) {
+    @GetMapping("/{jobId}/{recruiterId}")
+    public ResponseEntity<?> getJobById(@PathVariable Long jobId, @PathVariable Long recruiterId) {
         try {
             Job job = jobService.getJobById(jobId);
- 
+
             if (job != null) {
                 JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
                 logger.info("Job found for jobId={} and recruiterId={}", jobId, recruiterId);
                 return ResponseEntity.ok(jobDTO);
             } else {
-            	  logger.warn("No job found for jobId={} and recruiterId={}", jobId, recruiterId);
+                logger.warn("No job found for jobId={} and recruiterId={}", jobId, recruiterId);
                 return ResponseEntity.notFound().build();
             }
         } catch (CustomException ce) {
-        	logger.error("Error retrieving job for jobId={} and recruiterId={}, error={}", jobId, recruiterId, ce.getMessage(), ce);
+            logger.error("Error retrieving job for jobId={} and recruiterId={}, error={}", jobId, recruiterId,
+                    ce.getMessage(), ce);
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	 logger.error("Internal server error retrieving job for jobId={} and recruiterId={}", jobId, recruiterId, e);
+            logger.error("Internal server error retrieving job for jobId={} and recruiterId={}", jobId, recruiterId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
 
-	@PutMapping("/editJob/{jobId}/{recruiterId}")
-    public ResponseEntity<String> editJob(@RequestBody @Valid JobDTO jobDTO, @PathVariable Long jobId,@PathVariable Long recruiterId) {
+    @PutMapping("/editJob/{jobId}/{recruiterId}")
+    public ResponseEntity<String> editJob(@RequestBody @Valid JobDTO jobDTO, @PathVariable Long jobId,
+            @PathVariable Long recruiterId) {
         try {
-        	 logger.info("Attempting to edit job for jobId={} by recruiterId={}", jobId, recruiterId);
+            logger.info("Attempting to edit job for jobId={} by recruiterId={}", jobId, recruiterId);
             return jobService.editJob(jobDTO, jobId);
         } catch (CustomException ce) {
-        	logger.error("Error editing job for jobId={}, recruiterId={}, error={}", jobId, recruiterId, ce.getMessage(), ce);
+            logger.error("Error editing job for jobId={}, recruiterId={}, error={}", jobId, recruiterId,
+                    ce.getMessage(), ce);
             return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
         } catch (Exception e) {
-        	logger.error("Internal server error while editing job for jobId={}, recruiterId={}", jobId, recruiterId, e);
+            logger.error("Internal server error while editing job for jobId={}, recruiterId={}", jobId, recruiterId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
-	@GetMapping("/promote/{applicantId}/{promote}")
-    public List<Job> getJobsByPromoteState(@PathVariable long applicantId,@PathVariable String promote) {
-		 logger.info("Retrieving jobs by promote state={} for applicantId={}", promote, applicantId);
-        return jobService.getJobsByPromoteState(applicantId,promote);
+
+    @GetMapping("/promote/{applicantId}/{promote}")
+    public List<Job> getJobsByPromoteState(@PathVariable long applicantId, @PathVariable String promote) {
+        logger.info("Retrieving jobs by promote state={} for applicantId={}", promote, applicantId);
+        return jobService.getJobsByPromoteState(applicantId, promote);
     }
-	
-	@GetMapping("/{recruiterId}/active")
+
+    @GetMapping("/{recruiterId}/active")
     public ResponseEntity<?> getActiveJobsForRecruiter(@PathVariable Long recruiterId) {
-		try {
+        try {
             logger.info("Retrieving active jobs for recruiterId={}", recruiterId);
             return ResponseEntity.ok(jobService.getActiveJobsForRecruiter(recruiterId));
         } catch (Exception e) {
@@ -322,7 +337,7 @@ public class JobController {
 
     @GetMapping("/{recruiterId}/inactive")
     public ResponseEntity<?> getInactiveJobsForRecruiter(@PathVariable Long recruiterId) {
-    	try {
+        try {
             logger.info("Retrieving inactive jobs for recruiterId={}", recruiterId);
             return ResponseEntity.ok(jobService.getInactiveJobsForRecruiter(recruiterId));
         } catch (Exception e) {
@@ -330,37 +345,25 @@ public class JobController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
-    
-    
-//    @PostMapping("/recruiters/cloneJob/{jobId}/{jobRecruiterId}")
-//    public ResponseEntity<String> cloneJob(@PathVariable Long jobId,@PathVariable Long jobRecruiterId) {
-//        try {
-//            String result = jobService.cloneJob(jobId,jobRecruiterId);
-//            return ResponseEntity.ok(result);
-//        } catch (CustomException ce) {
-//            return ResponseEntity.status(ce.getStatus()).body(null);
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-//        }
-//    }
 
     @PostMapping("/recruiters/cloneJob/{jobId}/{jobRecruiterId}")
     public ResponseEntity<Map<String, String>> cloneJob(@PathVariable Long jobId, @PathVariable Long jobRecruiterId) {
-    	try {
-    		 logger.info("Initiating job cloning for jobId={}, jobRecruiterId={}", jobId, jobRecruiterId);
+        try {
+            logger.info("Initiating job cloning for jobId={}, jobRecruiterId={}", jobId, jobRecruiterId);
             String result = jobService.cloneJob(jobId, jobRecruiterId);
             Map<String, String> response = new HashMap<>();
             response.put("message", result);
             logger.info("Job cloning successful for jobId={}, jobRecruiterId={}", jobId, jobRecruiterId);
             return ResponseEntity.ok(response);
         } catch (CustomException ce) {
-        	 logger.error("Custom exception occurred while cloning job for jobId={}, jobRecruiterId={}: {}", jobId, jobRecruiterId, ce.getMessage());
+            logger.error("Custom exception occurred while cloning job for jobId={}, jobRecruiterId={}: {}", jobId,
+                    jobRecruiterId, ce.getMessage());
             return ResponseEntity.status(ce.getStatus()).body(null);
         } catch (Exception e) {
-        	logger.error("Internal server error while cloning job for jobId={}, jobRecruiterId={}", jobId, jobRecruiterId, e);
+            logger.error("Internal server error while cloning job for jobId={}, jobRecruiterId={}", jobId,
+                    jobRecruiterId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
-    
 }
