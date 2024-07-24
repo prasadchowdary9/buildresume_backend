@@ -265,4 +265,16 @@ public class ApplicantProfileService {
 
 		return "Profile saved successfully";
 	}
+
+	public Applicant changeResumeSource(long applicantid) {
+		Applicant applicant = applicantService.getApplicantById(applicantid);
+
+		applicant.setLocalResume(false);
+
+		System.out.println("Applicant id: " + applicant.getId());
+
+		return applicantService.save(applicant);
+
+	}
+
 }

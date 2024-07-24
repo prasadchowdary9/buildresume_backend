@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.talentstream.dto.ApplicantProfileDTO;
 import com.talentstream.dto.ApplicantProfileViewDTO;
 import com.talentstream.dto.BasicDetailsDTO;
+import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantProfileUpdateDTO;
 import com.talentstream.exception.CustomException;
 import com.talentstream.service.ApplicantProfileService;
@@ -43,6 +44,20 @@ public class ApplicantProfileController {
     public ApplicantProfileController(ApplicantProfileService applicantProfileService) {
         this.applicantProfileService = applicantProfileService;
         logger.debug("ApplicantProfileController initialized");
+    }
+
+    @PutMapping("/updateResumeSource/{applicantid}")
+    public ResponseEntity<String> changeResumeSource(@PathVariable long applicantid) {
+
+        System.out.println("Applicant id: ..... " + applicantid);
+        Applicant applicant = applicantProfileService.changeResumeSource(applicantid);
+
+        if (applicant != null) {
+            return ResponseEntity.ok("Your resume has been saved successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+
     }
 
     @PostMapping("/createprofile/{applicantid}")
