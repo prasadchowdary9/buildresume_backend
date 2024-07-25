@@ -11,6 +11,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.talentstream.entity.ApplicantSkills;
+
 public class JobDTO {
 	private Long id;
 	   private Long recruiterId;
@@ -112,12 +114,37 @@ public class JobDTO {
 		@NotNull(message = "Skills required")
 		private Set<RecuriterSkillsDTO> skillsRequired;
 		
+		private Set<ApplicantSkills> matchedSkills;
+		
+		private int matchPercentage;
+		 private String matchStatus;
+		
+		public int getMatchPercentage() {
+			return matchPercentage;
+		}
+		public void setMatchPercentage(int matchPercentage) {
+			this.matchPercentage = matchPercentage;
+		}
+		public String getMatchStatus() {
+			return matchStatus;
+		}
+		public void setMatchStatus(String matchStatus) {
+			this.matchStatus = matchStatus;
+		}
+
 		private String companyname;
 	    private String mobilenumber;
 	    private String email;
 	    private LocalDate creationDate;
 	    private String jobStatus="Apply Now";	   
-	    private Long applyJobId;
+	    public Set<ApplicantSkills> getMatchedSkills() {
+			return matchedSkills;
+		}
+		public void setMatchedSkills(Set<ApplicantSkills> matchedSkills) {
+			this.matchedSkills = matchedSkills;
+		}
+
+		private Long applyJobId;
 	    private String promote = "no";
 	    public String getPromote() {
 			return promote;

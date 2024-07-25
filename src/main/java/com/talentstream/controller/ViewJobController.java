@@ -45,6 +45,7 @@ public class ViewJobController {
 	    public ResponseEntity<?> getJobDetailsForApplicant(
 	            @PathVariable Long jobId,
 	            @PathVariable Long applicantId) {
+		   
 
 	        try {
 	            ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicant(jobId, applicantId);
