@@ -2,7 +2,7 @@ package com.talentstream.dto;
 
 import java.time.LocalDate;
 import java.util.Set;
- 
+
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
@@ -15,50 +15,61 @@ import com.talentstream.entity.ApplicantSkills;
 
 public class JobDTO {
 	private Long id;
-	   private Long recruiterId;
-	   private byte[] logoFile;
+	private Long recruiterId;
+	private byte[] logoFile;
 
-	   private
-	   String saveJobStatus="Not Saved";
-	   
-	   private String isSaved;
-	   public String getIsSaved() {
-			return isSaved;
-		}
-		public void setIsSaved(String isSaved) {
-			this.isSaved = isSaved;
-		}
-	   
-		public String getSaveJobStatus() {
+	private String saveJobStatus = "Not Saved";
+
+	private String isSaved;
+
+	public String getIsSaved() {
+		return isSaved;
+	}
+
+	public void setIsSaved(String isSaved) {
+		this.isSaved = isSaved;
+	}
+
+	public String getSaveJobStatus() {
 		return saveJobStatus;
 	}
+
 	public void setSaveJobStatus(String saveJobStatus) {
 		this.saveJobStatus = saveJobStatus;
 	}
-		public byte[] getLogoFile() {
+
+	public byte[] getLogoFile() {
 		return logoFile;
 	}
+
 	public void setLogoFile(byte[] imageBytes) {
 		this.logoFile = imageBytes;
 	}
-		public String getCompanyname() {
+
+	public String getCompanyname() {
 		return companyname;
 	}
+
 	public void setCompanyname(String companyname) {
 		this.companyname = companyname;
 	}
+
 	public String getMobilenumber() {
 		return mobilenumber;
 	}
+
 	public void setMobilenumber(String mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 		
 		@NotBlank(message = "JobTitle required")
 		private String jobTitle;
@@ -260,5 +271,6 @@ public class JobDTO {
 		public void setCreationDate(LocalDate creationDate) {
 			this.creationDate = creationDate;
 		}
+
 
 }

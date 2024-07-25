@@ -8,17 +8,17 @@ import java.util.Set;
 
 @Entity
 public class Eligibility {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @ElementCollection
-    private List<String> typeOfDegreeList = new ArrayList<>();
+	@ElementCollection
+	private List<String> typeOfDegreeList = new ArrayList<>();
 
-    @ElementCollection
-    private Set<String> specializationSet = new HashSet<>(); // Use Set to avoid duplicates
-    @ElementCollection
-    private Set<Integer> yearOfPassedOutSet = new HashSet<>(); // Use Set to avoid duplicates
+	@ElementCollection
+	private Set<String> specializationSet = new HashSet<>();
+	@ElementCollection
+	private Set<Integer> yearOfPassedOutSet = new HashSet<>();
 
 	public Long getId() {
 		return id;
@@ -65,6 +65,4 @@ public class Eligibility {
 		super();
 	}
 
-    // Constructors, getters, setters, etc.
-    
 }

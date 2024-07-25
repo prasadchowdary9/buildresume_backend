@@ -1,6 +1,5 @@
 package com.talentstream.dto;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -21,14 +20,10 @@ public class BasicDetailsDTO {
     private String city;
     private String state;
 
-   
     private String pincode;
-    
+
     @NotBlank(message = "Email is required.")
-    @Pattern(
-            regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
-            message = "Invalid email format and white spaces are not allowed."
-        )
+    @Pattern(regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", message = "Invalid email format and white spaces are not allowed.")
     private String email;
 
     @NotBlank(message = "Mobile number is required.")

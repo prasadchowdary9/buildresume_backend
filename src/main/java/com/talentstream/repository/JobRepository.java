@@ -69,7 +69,7 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
 	@Query("SELECT DISTINCT j, asj.saveJobStatus FROM Job j " +
 		       "JOIN j.skillsRequired s " +
 		       "LEFT JOIN SavedJob asj ON asj.job = j  AND asj.applicant.id = :applicantId " +
-		       "WHERE  " +
+		       "WHERE j.status != 'inactive' AND " +
 		       "((LOWER(s.skillName) IN :skillNames) or " +
 		       "(j.location IN :preferredLocations) or " +
 		       "(j.minimumExperience = :experience) or " +
