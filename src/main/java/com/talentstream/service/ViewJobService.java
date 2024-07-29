@@ -1,6 +1,9 @@
 package com.talentstream.service;
  
 import java.util.Arrays;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
  
 import com.talentstream.dto.JobDTO;
+import com.talentstream.dto.RecuriterSkillsDTO;
+import com.talentstream.entity.ApplicantProfile;
+import com.talentstream.entity.ApplicantSkills;
 import com.talentstream.entity.ApplyJob;
 import com.talentstream.entity.Job;
+import com.talentstream.entity.RecuriterSkills;
+import com.talentstream.repository.ApplicantProfileRepository;
 import com.talentstream.repository.JobRepository;
 import com.talentstream.exception.CustomException;
 @Service
@@ -21,6 +29,9 @@ public class ViewJobService {
 	private CompanyLogoService companyLogoService;
 	@Autowired
     private ApplyJobService applyJobService;
+	@Autowired
+	private final ApplicantProfileRepository applicantProfileRepository=null;
+	
 public ResponseEntity<JobDTO> getJobDetailsForApplicant(Long jobId) {
     final ModelMapper modelMapper = new ModelMapper();
 	Job job = jobRepository.findById(jobId).orElse(null);
@@ -62,39 +73,82 @@ public ResponseEntity<JobDTO> getJobDetailsForApplicant(Long jobId) {
     }
 }
 public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId) {
- 
     final ModelMapper modelMapper = new ModelMapper();
     Job job = jobRepository.findById(jobId).orElse(null);
- 
-    if (job != null) {
-    	JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
-        jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
-        jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
-        //jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
-        jobDTO.setEmail(job.getJobRecruiter().getEmail());
 
-        long jobRecruiterId = job.getJobRecruiter().getRecruiterId();
-	    byte[] imageBytes = null;
-//	    try {
-//	    	imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
-//	    }catch (CustomException ce) {
-//        	System.out.println(ce.getMessage());
-//        } 
-
-	    //jobDTO.setLogoFile(imageBytes);
-
- 
-        ApplyJob applyJob = applyJobService.getByJobAndApplicant(jobId, applicantId);
-        if (applyJob != null) {
-            jobDTO.setJobStatus("Already Applied");
-        } else {
-            jobDTO.setJobStatus("Apply now");
-        }
- 
-        return ResponseEntity.ok(jobDTO);
-    } else {
+    if (job == null) {
         throw new CustomException("Job with ID " + jobId + " not found.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    ApplicantProfile applicantProfile = applicantProfileRepository.findByApplicantId(applicantId);
+    if (applicantProfile == null) {
+        throw new CustomException("Applicant with ID " + applicantId + " not found.", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    Set<ApplicantSkills> applicantSkills = applicantProfile.getSkillsRequired();
+    Set<RecuriterSkills> jobSkills = job.getSkillsRequired(); // Assuming Job has a method to get required skills
+    
+    Set<ApplicantSkills> matchedSkills = new HashSet<>();
+    
+    
+    for (ApplicantSkills applicantSkill : applicantSkills) {
+        boolean isMatched = jobSkills.stream()
+            .anyMatch(jobSkill -> jobSkill.getSkillName().equalsIgnoreCase(applicantSkill.getSkillName()));
+        
+        if (isMatched) {
+        	
+            matchedSkills.add(applicantSkill);
+        } 
+        
+    }
+    
+    double matchPercentage = ((double) matchedSkills.size() / jobSkills.size()) * 100;
+    int roundedMatchPercentage = (int) Math.round(matchPercentage);
+    String matchStatus;
+    if (matchPercentage <= 45) {
+        matchStatus = "Poor Match";
+    } else if (matchPercentage <= 79) {
+        matchStatus = "Fair Match";
+    } else {
+        matchStatus = "Good Match";
+    }
+    
+ // Remove matched skills from jobSkills
+    jobSkills.removeIf(jobSkill -> matchedSkills.stream()
+        .anyMatch(matchedSkill -> matchedSkill.getSkillName().equalsIgnoreCase(jobSkill.getSkillName())));
+    
+    job.setSkillsRequired(jobSkills);
+    
+
+    JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
+    jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
+    jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
+    // jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+    jobDTO.setEmail(job.getJobRecruiter().getEmail());
+    jobDTO.setMatchedSkills(matchedSkills);
+    jobDTO.setMatchPercentage(roundedMatchPercentage);
+    jobDTO.setMatchStatus(matchStatus);
+   
+    
+
+    long jobRecruiterId = job.getJobRecruiter().getRecruiterId();
+    byte[] imageBytes = null;
+    // try {
+    //     imageBytes = companyLogoService.getCompanyLogo(jobRecruiterId);
+    // } catch (CustomException ce) {
+    //     System.out.println(ce.getMessage());
+    // }
+    // jobDTO.setLogoFile(imageBytes);
+
+    ApplyJob applyJob = applyJobService.getByJobAndApplicant(jobId, applicantId);
+    if (applyJob != null) {
+        jobDTO.setJobStatus("Already Applied");
+    } else {
+        jobDTO.setJobStatus("Apply now");
+    }
+
+    return ResponseEntity.ok(jobDTO);
 }
+
  
 }
