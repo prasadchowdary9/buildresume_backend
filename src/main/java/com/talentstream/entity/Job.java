@@ -20,6 +20,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.talentstream.dto.RecuriterSkillsDTO;
 
 @Entity
 @JsonIgnoreProperties({ "jobRecruiters" })
