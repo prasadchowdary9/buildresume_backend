@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.talentstream.entity.ApplicantSkills;
+import com.talentstream.entity.ScreeningQuestion;
 
 public class JobDTO {
 	private Long id;
@@ -21,6 +22,8 @@ public class JobDTO {
 	private String saveJobStatus = "Not Saved";
 
 	private String isSaved;
+	
+	private Set<ScreeningQuestion> screeningQuestions;
 
 	public String getIsSaved() {
 		return isSaved;
@@ -271,6 +274,12 @@ public class JobDTO {
 		public void setCreationDate(LocalDate creationDate) {
 			this.creationDate = creationDate;
 		}
+		  public Set<ScreeningQuestion> getScreeningQuestions() {
+		        return screeningQuestions;
+		    }
 
+		    public void setScreeningQuestions(Set<ScreeningQuestion> screeningQuestions) {
+		        this.screeningQuestions = screeningQuestions;
+		    }
 
 }
