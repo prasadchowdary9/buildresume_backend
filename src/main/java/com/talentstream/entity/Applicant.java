@@ -1,6 +1,5 @@
 package com.talentstream.entity;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,86 +15,76 @@ import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 /**
  * @author Madar
  *
  */
-@Entity 
+@Entity
 public class Applicant {
- 
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String name;
-    
-    @NotBlank(message = "Email is required.")
-    @Pattern(
-            regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
-            message = "Invalid email format and white spaces are not allowed."
-        )
-    private String email;
-    @Column(name = "mobile")
-    private String mobilenumber;
-    private String password; 
-    @OneToMany(mappedBy="applicant")
-    @JsonIgnore
-    private Set<ApplyJob> appliedJobs = new HashSet<>();
-    @OneToMany(mappedBy="applicant")
-    @JsonIgnore
-    private Set<SavedJob> savedJobs = new HashSet<>();
-    
-    @OneToMany(mappedBy = "applicant", cascade = CascadeType.ALL)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	private String name;
+
+	@NotBlank(message = "Email is required.")
+	@Pattern(regexp = "^$|^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", message = "Invalid email format and white spaces are not allowed.")
+	private String email;
+	@Column(name = "mobile")
+	private String mobilenumber;
+	private String password;
+	@OneToMany(mappedBy = "applicant")
 	@JsonIgnore
-	private Set<Alerts> alerts=new HashSet<>();
-    
-//    public Applicant() {
-//        this.appicantStatus = "Active";
-//    }
-    public Set<Alerts> getAlerts() {
+	private Set<ApplyJob> appliedJobs = new HashSet<>();
+	@OneToMany(mappedBy = "applicant")
+	@JsonIgnore
+	private Set<SavedJob> savedJobs = new HashSet<>();
+
+	@OneToMany(mappedBy = "applicant", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<Alerts> alerts = new HashSet<>();
+
+	public Set<Alerts> getAlerts() {
 		return alerts;
 	}
-    @Column(nullable = false)
-    private String roles="ROLE_JOBAPPLICANT";
-    
-    @Column(columnDefinition = "int default 0")
-    private int alertCount;
 
-//private String appicantStatus="Active";
-@Column(name = "resume_id", columnDefinition = "VARCHAR(255) DEFAULT 'Not available'")
-private String resumeId = "Not available";
+	@Column(nullable = false)
+	private String roles = "ROLE_JOBAPPLICANT";
 
+	@Column(columnDefinition = "int default 0")
+	private int alertCount;
 
-private boolean localResume=false;
-@Column(name = "utm_source", columnDefinition = "VARCHAR(255) DEFAULT 'Self'")
-private String utmSource;
- 
-    public String getUtmSource() {
-	return utmSource;
-}
-public void setUtmSource(String utmSource) {
-	this.utmSource = utmSource;
-}
+	@Column(name = "resume_id", columnDefinition = "VARCHAR(255) DEFAULT 'Not available'")
+	private String resumeId = "Not available";
+
+	private boolean localResume = false;
+	@Column(name = "utm_source", columnDefinition = "VARCHAR(255) DEFAULT 'Self'")
+	private String utmSource;
+
+	public String getUtmSource() {
+		return utmSource;
+	}
+
+	public void setUtmSource(String utmSource) {
+		this.utmSource = utmSource;
+	}
+
 	public boolean isLocalResume() {
-	return localResume;
-}
-public void setLocalResume(boolean localResume) {
-	this.localResume = localResume;
-}
+		return localResume;
+	}
+
+	public void setLocalResume(boolean localResume) {
+		this.localResume = localResume;
+	}
+
 	public String getResumeId() {
-	return resumeId;
-}
-public void setResumeId(String resumeId) {
-	this.resumeId = resumeId;
-}
-//    public String getAppicantStatus() {
-//		return appicantStatus;
-//	}
-// 
-//	public void setAppicantStatus(String appicantStatus) {
-//		this.appicantStatus = appicantStatus;
-// 
-//	}
+		return resumeId;
+	}
+
+	public void setResumeId(String resumeId) {
+		this.resumeId = resumeId;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -170,5 +159,5 @@ public void setResumeId(String resumeId) {
 
 	public void setAlerts(Set<Alerts> alerts) {
 		this.alerts = alerts;
-	} 	
+	}
 }

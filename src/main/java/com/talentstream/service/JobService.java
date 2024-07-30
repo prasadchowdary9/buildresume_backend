@@ -192,16 +192,16 @@ public class JobService {
  
 	            job.setStatus(newStatus.toLowerCase());
 	            //saved job needs to removed.
-//	            Job job1 = jobRepository.findById(jobId).orElse(null);
-//	            JobDTO jobDTO = null;
-//	            
-//	            if ( job1 == null) {
-//	                throw new CustomException("Applicant or Job not found", HttpStatus.INTERNAL_SERVER_ERROR);
-//	            }
-//
-//	            List<SavedJob> savedJobs = savedJobRepository.findByJob(job1);
-//
-//	            savedJobRepository.deleteAll(savedJobs);
+	            Job job1 = jobRepository.findById(jobId).orElse(null);
+	            JobDTO jobDTO = null;
+	            
+	            if ( job1 == null) {
+	                throw new CustomException("Applicant or Job not found", HttpStatus.INTERNAL_SERVER_ERROR);
+	            }
+
+	            List<SavedJob> savedJobs = savedJobRepository.findByJob(job1);
+
+	            savedJobRepository.deleteAll(savedJobs);
 	            
 	            jobRepository.save(job);
 	        } catch (CustomException ce) {

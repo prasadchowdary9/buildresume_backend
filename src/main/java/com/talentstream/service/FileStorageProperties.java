@@ -2,10 +2,14 @@ package com.talentstream.service;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+
 @Component
 @ConfigurationProperties(prefix = "file")
+
+// Holds properties for file storage configuration, including the upload
+// directory.
 public class FileStorageProperties {
-	private String uploadDir;
+    private String uploadDir;
 
     public String getUploadDir() {
         return uploadDir;
