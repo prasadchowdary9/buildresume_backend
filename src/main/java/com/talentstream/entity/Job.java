@@ -15,10 +15,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.talentstream.dto.RecuriterSkillsDTO;
 
@@ -147,6 +149,10 @@ public class Job {
 
 	@Column(name = "new_status", columnDefinition = "VARCHAR(255) DEFAULT 'oldApplicants'")
 	private String newStatus;
+	
+	@OneToMany(mappedBy = "job", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private Set<ScreeningQuestion> screeningQuestions = new HashSet<>();
 
 	public String getNewStatus() {
 		return newStatus;
@@ -291,5 +297,23 @@ public class Job {
 	public void setJobStatus(String jobStatus) {
 		this.jobStatus = jobStatus;
 	}
+	 public void addScreeningQuestion(ScreeningQuestion question) {
+	        screeningQuestions.add(question);
+	        question.setJob(this);
+	    }
 
+	    public void removeScreeningQuestion(ScreeningQuestion question) {
+	        screeningQuestions.remove(question);
+	        question.setJob(null);
+	    }
+	    
+	    public Set<ScreeningQuestion> getScreeningQuestions() {
+	        return screeningQuestions;
+	    }
+	    public void setScreeningQuestions(Set<ScreeningQuestion> screeningQuestions) {
+	        this.screeningQuestions.clear();
+	        if (screeningQuestions != null) {
+	            this.screeningQuestions.addAll(screeningQuestions);
+	        }
+	    }
 }
