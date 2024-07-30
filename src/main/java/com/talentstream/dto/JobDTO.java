@@ -1,6 +1,7 @@
 package com.talentstream.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
  
 import javax.validation.constraints.AssertTrue;
@@ -118,7 +119,15 @@ public class JobDTO {
 		
 		private int matchPercentage;
 		 private String matchStatus;
+		 private List<String> sugesstedCourses;
 		
+		 
+		public List<String> getSugesstedCourses() {
+			return sugesstedCourses;
+		}
+		public void setSugesstedCourses(List<String> sugesstedCourses) {
+			this.sugesstedCourses = sugesstedCourses;
+		}
 		public int getMatchPercentage() {
 			return matchPercentage;
 		}
