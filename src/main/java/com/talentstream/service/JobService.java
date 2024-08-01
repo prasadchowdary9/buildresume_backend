@@ -23,6 +23,7 @@ import com.talentstream.entity.JobSearchCriteria;
 import com.talentstream.entity.JobSpecifications;
 import com.talentstream.entity.RecuriterSkills;
 import com.talentstream.entity.SavedJob;
+import com.talentstream.entity.ScreeningQuestion;
 import com.talentstream.exception.CustomException;
 import com.talentstream.repository.CompanyProfileRepository;
 import com.talentstream.repository.JobRecruiterRepository;
@@ -101,24 +102,35 @@ public class JobService {
     }
 
     public ResponseEntity<String> saveJob(JobDTO jobDTO, Long jobRecruiterId) {
-    	 try {
-             JobRecruiter jobRecruiter = jobRecruiterRepository.findByRecruiterId(jobRecruiterId);
-             if (jobRecruiter != null) {
-                 Job job = convertDTOToEntity(jobDTO);
-                 job.setJobRecruiter(jobRecruiter);
-                 jobRepository.save(job);
-                 return ResponseEntity.status(HttpStatus.OK).body("Job saved successfully.");
-             } else {
-                 throw new CustomException("JobRecruiter with ID " + jobRecruiterId + " not found.", HttpStatus.NOT_FOUND);
-             }
-         } catch (CustomException ce) {
-             throw ce;
-         } catch (Exception e) {
-             throw new CustomException("Error while saving job", HttpStatus.INTERNAL_SERVER_ERROR);
-         }
-    	
+        try {
+            JobRecruiter jobRecruiter = jobRecruiterRepository.findByRecruiterId(jobRecruiterId);
+            if (jobRecruiter != null) {
+                Job job = convertDTOToEntity(jobDTO);
+                job.setJobRecruiter(jobRecruiter);
 
-}
+                // Set screening questions
+                if (jobDTO.getScreeningQuestions() != null) {
+                    Set<ScreeningQuestion> screeningQuestions = jobDTO.getScreeningQuestions().stream()
+                        .map(questionDTO -> {
+                            ScreeningQuestion question = new ScreeningQuestion();
+                            question.setQuestionText(questionDTO.getQuestionText());
+                            question.setJob(job);
+                            return question;
+                        }).collect(Collectors.toSet());
+                    job.setScreeningQuestions(screeningQuestions);
+                }
+
+                jobRepository.save(job);
+                return ResponseEntity.status(HttpStatus.OK).body("Job saved successfully.");
+            } else {
+                throw new CustomException("JobRecruiter with ID " + jobRecruiterId + " not found.", HttpStatus.NOT_FOUND);
+            }
+        } catch (CustomException ce) {
+            throw ce;
+        } catch (Exception e) {
+            throw new CustomException("Error while saving job", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     public Job getJobById(Long jobId) {
     	  try {
@@ -169,6 +181,16 @@ public class JobService {
         job.setDescription(jobDTO.getDescription());
         job.setCreationDate(jobDTO.getCreationDate());
               //  job.setUploadDocument(Base64.getDecoder().decode(jobDTO.getUploadDocument())); // Decode base64 string
+        if (jobDTO.getScreeningQuestions() != null) {
+            Set<ScreeningQuestion> screeningQuestions = jobDTO.getScreeningQuestions().stream()
+                .map(questionDTO -> {
+                    ScreeningQuestion question = new ScreeningQuestion();
+                    question.setQuestionText(questionDTO.getQuestionText());
+                    question.setJob(job);
+                    return question;
+                }).collect(Collectors.toSet());
+            job.setScreeningQuestions(screeningQuestions);
+        }
 
         return job;
     }

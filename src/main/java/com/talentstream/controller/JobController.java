@@ -237,6 +237,7 @@ public class JobController {
         jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
         jobDTO.setEmail(job.getJobRecruiter().getEmail());
         jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+        jobDTO.setScreeningQuestions(job.getScreeningQuestions());
         jobDTO.setCreationDate(job.getCreationDate());
         jobDTO.setIsSaved(job.getIsSaved());
         Set<RecuriterSkillsDTO> skillsDTOList = job.getSkillsRequired().stream()
