@@ -10,12 +10,16 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import com.talentstream.dto.JobDTO;
 import com.talentstream.dto.RecuriterSkillsDTO;
+import com.talentstream.dto.ScreeningAnswerDTO;
+import com.talentstream.entity.Applicant;
 import com.talentstream.entity.CompanyProfile;
 import com.talentstream.entity.Job;
 import com.talentstream.entity.JobRecruiter;
@@ -23,13 +27,16 @@ import com.talentstream.entity.JobSearchCriteria;
 import com.talentstream.entity.JobSpecifications;
 import com.talentstream.entity.RecuriterSkills;
 import com.talentstream.entity.SavedJob;
+import com.talentstream.entity.ScreeningAnswer;
 import com.talentstream.entity.ScreeningQuestion;
 import com.talentstream.exception.CustomException;
+import com.talentstream.repository.ApplicantRepository;
 import com.talentstream.repository.CompanyProfileRepository;
 import com.talentstream.repository.JobRecruiterRepository;
 import com.talentstream.repository.JobRepository;
 import com.talentstream.repository.RecuriterSkillsRepository;
 import com.talentstream.repository.SavedJobRepository;
+import com.talentstream.repository.ScreeningAnswerRepository;
 
 @Service
 public class JobService {
@@ -47,6 +54,12 @@ public class JobService {
 	    
 	    @Autowired
 	    private SavedJobRepository savedJobRepository;
+	    
+	    @Autowired
+	    private ScreeningAnswerRepository screeningAnswerRepository;
+	    
+	    @Autowired
+	    private ApplicantRepository applicantRepository;
 	    
     @Autowired
     public JobService(JobRepository jobRepository, RecuriterSkillsRepository skillsRepository,CompanyProfileRepository companyProfileRepository) {
@@ -332,6 +345,31 @@ public class JobService {
 	    // Convert the saved cloned job entity to DTO and return
 	    return "Job Reposted successfully";
 	}
+	
+	
+	 @Transactional
+	    public void saveScreeningAnswers(Long applicantId, Long jobId, List<ScreeningAnswerDTO> screeningAnswerDTOs) {
+		 if (screeningAnswerDTOs == null || screeningAnswerDTOs.isEmpty()) {
+	            throw new IllegalArgumentException("Screening answers cannot be null or empty");
+	        }
+	        Applicant applicant = applicantRepository.findById(applicantId)
+	                .orElseThrow(() -> new CustomException("Applicant not found", HttpStatus.NOT_FOUND));
+	        Job job = jobRepository.findById(jobId)
+	                .orElseThrow(() -> new CustomException("Job not found", HttpStatus.NOT_FOUND));
 
+	        for (ScreeningAnswerDTO screeningAnswerDTO : screeningAnswerDTOs) {
+	            ScreeningQuestion question = job.getScreeningQuestions().stream()
+	                    .filter(q -> q.getId().equals(screeningAnswerDTO.getQuestionId()))
+	                    .findFirst()
+	                    .orElseThrow(() -> new CustomException("Screening question not found for the specified job", HttpStatus.NOT_FOUND));
+
+	            ScreeningAnswer screeningAnswer = new ScreeningAnswer();
+	            screeningAnswer.setApplicant(applicant);
+	            screeningAnswer.setScreeningQuestion(question);
+	            screeningAnswer.setAnswerText(screeningAnswerDTO.getAnswerText());
+
+	            screeningAnswerRepository.save(screeningAnswer);
+	        }
+	    }
 	
 }
