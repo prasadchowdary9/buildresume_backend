@@ -3,6 +3,8 @@ package com.talentstream.entity;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +24,7 @@ public class ScreeningQuestion {
     private Job job;
 
     @OneToMany(mappedBy = "screeningQuestion", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private Set<ScreeningAnswer> answers = new HashSet<>();
 
     // Getters and setters
