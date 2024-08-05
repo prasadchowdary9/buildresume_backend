@@ -2,6 +2,9 @@ package com.talentstream.entity;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class ScreeningAnswer {
     @Id
@@ -10,6 +13,7 @@ public class ScreeningAnswer {
 
     @ManyToOne
     @JoinColumn(name = "screening_question_id", nullable = false)
+    @JsonBackReference
     private ScreeningQuestion screeningQuestion;
 
     @ManyToOne
