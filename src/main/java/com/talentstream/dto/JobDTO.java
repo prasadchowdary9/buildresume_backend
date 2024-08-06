@@ -1,6 +1,7 @@
 package com.talentstream.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.constraints.AssertTrue;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.talentstream.entity.ApplicantSkills;
+import com.talentstream.entity.ScreeningQuestion;
 
 public class JobDTO {
 	private Long id;
@@ -21,6 +23,8 @@ public class JobDTO {
 	private String saveJobStatus = "Not Saved";
 
 	private String isSaved;
+	
+	private Set<ScreeningQuestion> screeningQuestions;
 
 	public String getIsSaved() {
 		return isSaved;
@@ -129,7 +133,15 @@ public class JobDTO {
 		
 		private int matchPercentage;
 		 private String matchStatus;
+		 private List<String> sugesstedCourses;
 		
+		 
+		public List<String> getSugesstedCourses() {
+			return sugesstedCourses;
+		}
+		public void setSugesstedCourses(List<String> sugesstedCourses) {
+			this.sugesstedCourses = sugesstedCourses;
+		}
 		public int getMatchPercentage() {
 			return matchPercentage;
 		}
@@ -271,6 +283,12 @@ public class JobDTO {
 		public void setCreationDate(LocalDate creationDate) {
 			this.creationDate = creationDate;
 		}
+		  public Set<ScreeningQuestion> getScreeningQuestions() {
+		        return screeningQuestions;
+		    }
 
+		    public void setScreeningQuestions(Set<ScreeningQuestion> screeningQuestions) {
+		        this.screeningQuestions = screeningQuestions;
+		    }
 
 }

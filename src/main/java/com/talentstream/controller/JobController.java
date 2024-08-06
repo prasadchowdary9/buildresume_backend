@@ -8,6 +8,8 @@ import javax.validation.Valid;
 
 import com.talentstream.dto.JobDTO;
 import com.talentstream.dto.RecuriterSkillsDTO;
+import com.talentstream.dto.ScreeningAnswerDTO;
+import com.talentstream.dto.ScreeningAnswersWrapperDTO;
 import com.talentstream.entity.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -237,6 +239,7 @@ public class JobController {
         jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
         jobDTO.setEmail(job.getJobRecruiter().getEmail());
         jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+        jobDTO.setScreeningQuestions(job.getScreeningQuestions());
         jobDTO.setCreationDate(job.getCreationDate());
         jobDTO.setIsSaved(job.getIsSaved());
         Set<RecuriterSkillsDTO> skillsDTOList = job.getSkillsRequired().stream()
@@ -366,4 +369,18 @@ public class JobController {
         }
     }
 
+    @PostMapping("/applicants/{applicantId}/saveAnswers/{jobId}")
+    public ResponseEntity<String> saveScreeningAnswers(@PathVariable Long applicantId, @PathVariable Long jobId, @RequestBody ScreeningAnswersWrapperDTO answersWrapper) {
+        try {
+            jobService.saveScreeningAnswers(applicantId, jobId, answersWrapper.getAnswers());
+            return ResponseEntity.ok("Answers saved successfully.");
+        } catch (CustomException ce) {
+            logger.error("CustomException occurred while saving answers for job ID {}: {}", jobId, ce.getMessage());
+            return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
+        } catch (Exception e) {
+            logger.error("Internal server error occurred while saving answers for job ID {}.", jobId, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
+        }
+    }
+    
 }

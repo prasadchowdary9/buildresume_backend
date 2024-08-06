@@ -355,3 +355,30 @@ io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-07-25T04:15:36Z. Curren
 25-07-2024_11:00:15.822{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIxOTE3MzYwLCJpYXQiOjE3MjE4ODEzNjB9.shoGATluYnapVcvNCKAeA_2tjfZUrxmIP5_VwRAFOIY
 25-07-2024_11:00:15.822{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
 25-07-2024_11:00:30.890{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIxOTE3MzYwLCJpYXQiOjE3MjE4ODEzNjB9.shoGATluYnapVcvNCKAeA_2tjfZUrxmIP5_VwRAFOIY
+25-07-2024_11:00:30.890{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzIxOTE3MzYwLCJpYXQiOjE3MjE4ODEzNjB9.shoGATluYnapVcvNCKAeA_2tjfZUrxmIP5_VwRAFOIY
+25-07-2024_11:00:30.890{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
+25-07-2024_12:20:01.828{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+25-07-2024_12:20:01.828{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+25-07-2024_12:20:01.828{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+25-07-2024_12:32:13.789{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+25-07-2024_12:32:13.869{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+25-07-2024_12:32:13.869{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+25-07-2024_12:32:13.878{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+25-07-2024_12:32:13.913{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+25-07-2024_12:32:13.918{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [java-sdk-http-connection-reaper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/java.lang.Thread.sleep(Native Method)
+ app//com.amazonaws.http.IdleConnectionReaper.run(IdleConnectionReaper.java:188)
+25-07-2024_12:32:13.918{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+25-07-2024_12:32:13.928{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+25-07-2024_12:32:13.958{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+25-07-2024_12:32:13.973{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+25-07-2024_12:32:14.048{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
