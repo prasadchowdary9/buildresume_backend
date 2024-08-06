@@ -1,5 +1,6 @@
 package com.talentstream.service;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -21,6 +22,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.talentstream.AwsSecretsManagerUtil;
 import com.talentstream.entity.Applicant;
 import com.talentstream.exception.CustomException;
 import com.talentstream.repository.ApplicantImageRepository;
@@ -47,18 +49,33 @@ public class ApplicantImageService {
 
 	}
 
-	@Value("${aws.s3.bucketName}")
-	private String bucketName;
+	@Autowired
+    private AwsSecretsManagerUtil secretsManagerUtil;
 
-	@Value("${aws.accessKey}")
-	private String accessKey;
+    
+    private String bucketName;
 
-	@Value("${aws.secretKey}")
-	private String secretKey;
+    private String getSecret() {
+        return secretsManagerUtil.getSecret();
+    }
 
-	@Value("${aws.region}")
-	private String region;
+    private AmazonS3 initializeS3Client() {
+       
+        String secret = getSecret();
 
+        JSONObject jsonObject = new JSONObject(secret);
+        String accessKey = jsonObject.getString("AWS_ACCESS_KEY_ID");
+        String secretKey = jsonObject.getString("AWS_SECRET_ACCESS_KEY");
+        bucketName = jsonObject.getString("AWS_S3_BUCKET_NAME");
+        String region = jsonObject.getString("AWS_REGION");
+        
+        
+        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretKey);
+        return AmazonS3ClientBuilder.standard()
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+                .withRegion(Regions.fromName(region))
+                .build();
+    }
 	// Uploads an image for the specified applicant, validating size and type;
 	// throws CustomException for issues.
 	public String uploadImage(long applicantId, MultipartFile imageFile) {
@@ -82,11 +99,7 @@ public class ApplicantImageService {
 			String objectKey = String.valueOf(applicantId) + ".jpg"; // Generate unique object key
 
 			try {
-				AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-						.withCredentials(
-								new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
-						.withRegion(Regions.US_WEST_2)
-						.build();
+				AmazonS3 s3Client = initializeS3Client();
 
 				s3Client.putObject(
 						new PutObjectRequest(bucketName, objectKey, imageFile.getInputStream(),
@@ -120,10 +133,7 @@ public class ApplicantImageService {
 
 			String objectKey = String.valueOf(applicantId) + ".jpg";
 
-			AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-					.withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
-					.withRegion(Regions.US_WEST_2)
-					.build();
+			AmazonS3 s3Client = initializeS3Client();
 
 			S3Object s3Object = s3Client.getObject(new GetObjectRequest(bucketName, objectKey));
 			S3ObjectInputStream inputStream = s3Object.getObjectContent();

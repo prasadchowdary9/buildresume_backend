@@ -3,7 +3,11 @@ package com.talentstream.service;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
 import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +17,7 @@ import org.springframework.stereotype.Service;
  
 import com.talentstream.dto.JobDTO;
 import com.talentstream.dto.RecuriterSkillsDTO;
+import com.talentstream.dto.SkillDTO;
 import com.talentstream.entity.ApplicantProfile;
 import com.talentstream.entity.ApplicantSkills;
 import com.talentstream.entity.ApplyJob;
@@ -75,6 +80,24 @@ public ResponseEntity<JobDTO> getJobDetailsForApplicant(Long jobId) {
 public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId) {
     final ModelMapper modelMapper = new ModelMapper();
     Job job = jobRepository.findById(jobId).orElse(null);
+ // Define the mapping between skills and suggested courses
+    Map<String, String> skillToCourseMap = new HashMap<>();
+    skillToCourseMap.put("HTML", "HTML&CSS");
+    skillToCourseMap.put("CSS", "HTML&CSS");
+    skillToCourseMap.put("JAVA", "JAVA");
+    skillToCourseMap.put("PYTHON", "PYTHON");
+    skillToCourseMap.put("MYSQL", "MYSQL");
+    skillToCourseMap.put("SQL", "MYSQL");
+    skillToCourseMap.put("SQL-SERVER", "MYSQL");
+    skillToCourseMap.put("JAVASCRIPT", "JAVASCRIPT");
+    skillToCourseMap.put("REACT", "REACT");
+    skillToCourseMap.put("SPRING", "SPRING BOOT");
+    skillToCourseMap.put("SPRING BOOT", "SPRING BOOT");
+   
+    
+    
+    
+    List<String> suggestedCourses = List.of("HTML&CSS", "JAVA", "PYTHON", "MYSQL","SQL","JAVASCRIPT","REACT","SPRING","SPRING BOOT","SQL-SERVER");
 
     if (job == null) {
         throw new CustomException("Job with ID " + jobId + " not found.", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -114,11 +137,36 @@ public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId)
     }
     
  // Remove matched skills from jobSkills
+    Set<RecuriterSkills> nonMatchedSkills = new HashSet<>(jobSkills);
+    nonMatchedSkills.removeIf(jobSkill -> matchedSkills.stream()
+        .anyMatch(matchedSkill -> matchedSkill.getSkillName().equalsIgnoreCase(jobSkill.getSkillName())));
+    
+   
+    
+    // Determine suggested courses based on non-matched skills
+    List<String> nonMatchedSkillNames = nonMatchedSkills.stream()
+        .map(RecuriterSkills::getSkillName)
+        .map(String::toUpperCase) // Ensure case-insensitive comparison
+        .collect(Collectors.toList());
+    
+    List<String> matchedCourses = nonMatchedSkillNames.stream()
+            .map(skill -> skillToCourseMap.get(skill))
+            .filter(course -> course != null && suggestedCourses.contains(course))
+            .distinct()
+            .collect(Collectors.toList());
+    
+//    List<String> matchedCourses = new ArrayList<String>();
+    
+ // Remove matched skills from jobSkills
     jobSkills.removeIf(jobSkill -> matchedSkills.stream()
         .anyMatch(matchedSkill -> matchedSkill.getSkillName().equalsIgnoreCase(jobSkill.getSkillName())));
     
     job.setSkillsRequired(jobSkills);
     
+ 
+    
+   
+   
 
     JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
     jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
@@ -128,7 +176,7 @@ public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId)
     jobDTO.setMatchedSkills(matchedSkills);
     jobDTO.setMatchPercentage(roundedMatchPercentage);
     jobDTO.setMatchStatus(matchStatus);
-   
+    jobDTO.setSugesstedCourses(matchedCourses);
     
 
     long jobRecruiterId = job.getJobRecruiter().getRecruiterId();
