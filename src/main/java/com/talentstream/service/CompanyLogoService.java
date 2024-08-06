@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 
 import java.io.IOException;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +27,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.amazonaws.util.IOUtils;
-
+import com.talentstream.AwsSecretsManagerUtil;
 import com.talentstream.entity.JobRecruiter;
 
 import com.talentstream.exception.CustomException;
@@ -46,17 +47,33 @@ public class CompanyLogoService {
 	@Autowired
 	private JobRecruiterRepository jobRecruiterRepository;
 
-	@Value("${aws.s3.bucketName}")
-	private String bucketName;
+	@Autowired
+    private AwsSecretsManagerUtil secretsManagerUtil;
 
-	@Value("${aws.accessKey}")
-	private String accessKey;
+    
+    private String bucketName;
 
-	@Value("${aws.secretKey}")
-	private String secretKey;
+    private String getSecret() {
+        return secretsManagerUtil.getSecret();
+    }
 
-	@Value("${aws.region}")
-	private String region;
+    private AmazonS3 initializeS3Client() {
+       
+        String secret = getSecret();
+
+        JSONObject jsonObject = new JSONObject(secret);
+        String accessKey = jsonObject.getString("AWS_ACCESS_KEY_ID");
+        String secretKey = jsonObject.getString("AWS_SECRET_ACCESS_KEY");
+        bucketName = jsonObject.getString("AWS_S3_BUCKET_NAME");
+        String region = jsonObject.getString("AWS_REGION");
+        
+        
+        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretKey);
+        return AmazonS3ClientBuilder.standard()
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+                .withRegion(Regions.fromName(region))
+                .build();
+    }
 
 	// Validates the image file and uploads it to S3, returning the object key if
 	// successful.
@@ -80,11 +97,7 @@ public class CompanyLogoService {
 			String objectKey = String.valueOf(jobRecruiterId) + ".jpg"; // Generate unique object key
 
 			try {
-				AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-						.withCredentials(
-								new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
-						.withRegion(Regions.US_WEST_2)
-						.build();
+				AmazonS3 s3Client = initializeS3Client();
 
 				s3Client.putObject(
 						new PutObjectRequest(bucketName, objectKey, imageFile.getInputStream(),
@@ -118,10 +131,7 @@ public class CompanyLogoService {
 
 			String objectKey = String.valueOf(jobRecruiterId) + ".jpg";
 
-			AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-					.withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
-					.withRegion(Regions.US_WEST_2)
-					.build();
+			AmazonS3 s3Client = initializeS3Client();
 
 			S3Object s3Object = s3Client.getObject(new GetObjectRequest(bucketName, objectKey));
 			S3ObjectInputStream inputStream = s3Object.getObjectContent();
