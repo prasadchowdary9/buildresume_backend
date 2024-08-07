@@ -21,8 +21,9 @@ public class AwsSecretsManagerUtil {
 		
 		
         
-		  String secretName = System.getenv("SECRET_NAME");
-		  JSONObject jsonObject = new JSONObject(secretName);
+		  String secretName = "/secret/myS3SecretKey";
+		  String secrets = System.getenv("AWS_ACCESS_KEY_ID");
+		  JSONObject jsonObject = new JSONObject(secrets);
 	        String accessKey = jsonObject.getString("AWS_ACCESS_KEY_ID");
 	        String secretKey = jsonObject.getString("AWS_SECRET_ACCESS_KEY");
 	        String region1 = jsonObject.getString("AWS_REGION");
@@ -31,7 +32,6 @@ public class AwsSecretsManagerUtil {
           
 	        System.out.println("accessKey "+accessKey);
 	        System.out.println("secretKey "+secretKey);
-	        System.out.println("secretName"+secretName);
 	        System.out.println("REGION "+region1);
 	        
 	        
