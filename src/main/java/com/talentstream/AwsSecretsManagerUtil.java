@@ -15,18 +15,26 @@ import org.springframework.context.annotation.Configuration;
 public class AwsSecretsManagerUtil {
 
 	
-	
+	 @Value("${AWS_ACCESS_KEY_ID}")
+	    private static String accessKey;
+
+	    @Value("${AWS_SECRET_ACCESS_KEY}")
+	    private static String secretKey;
+	    
 	public static String getSecret() {
+		
+		System.out.println(accessKey);
+        System.out.println(secretKey);
+        
 		  String secretName = System.getenv("SECRET_NAME");
 		  String region1 = System.getenv("AWS_REGION");
 	        Region region = Region.of(region1);
-	        String accessKey = System.getenv("AWS_ACCESS_KEY_ID");
-	        String secretKey = System.getenv("AWS_SECRET_ACCESS_KEY");
+//	        String accessKey = System.getenv("AWS_ACCESS_KEY_ID");
+//	        String secretKey = System.getenv("AWS_SECRET_ACCESS_KEY");
           
 	        System.out.println(secretName);
 	        System.out.println(region1);
-	        System.out.println(accessKey);
-	        System.out.println(secretKey);
+	        
 	        
 	        if (accessKey == null || secretKey == null) {
 	            System.err.println("AWS credentials are not set in environment variables.");
