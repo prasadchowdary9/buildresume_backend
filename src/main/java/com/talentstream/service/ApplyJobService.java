@@ -431,6 +431,7 @@ public class ApplyJobService {
 		Map<String, List<AppliedApplicantInfoDTO>> applicantMap = new HashMap<>();
 
 		for (AppliedApplicantInfo appliedApplicantInfo : appliedApplicants) {
+
 			String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
 			if (!applicantMap.containsKey(applicantKey)) {
 				List<AppliedApplicantInfoDTO> dtoList = new ArrayList<>();
@@ -541,6 +542,7 @@ public class ApplyJobService {
 		AppliedApplicantInfoDTO dto = new AppliedApplicantInfoDTO();
 		dto.setApplyjobid(appliedApplicantInfo.getApplyjobid());
 		dto.setName(appliedApplicantInfo.getName());
+		dto.setJobId(appliedApplicantInfo.getJobId());
 		dto.setId(appliedApplicantInfo.getId());
 		dto.setEmail(appliedApplicantInfo.getEmail());
 		dto.setMobilenumber(appliedApplicantInfo.getMobilenumber());
