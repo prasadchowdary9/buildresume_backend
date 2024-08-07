@@ -328,6 +328,7 @@ public class ApplyJobService {
 			}
 		}
 
+		
 		List<AppliedApplicantInfoDTO> filteredList = null;
 		try {
 			filteredList = all.stream()
