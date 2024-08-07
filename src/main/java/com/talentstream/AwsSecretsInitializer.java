@@ -19,9 +19,18 @@ public class AwsSecretsInitializer {
         String secrets = awsSecretsManagerUtil.getSecret();
         JSONObject jsonObject = new JSONObject(secrets);
 
-        for (String key : jsonObject.keySet()) {
-            System.setProperty(key, jsonObject.getString(key));
-        }
+        String url=jsonObject.getString("SPRING_DATASOURCE_URL");
+        String username=jsonObject.getString("SPRING_DATASOURCE_USERNAME");
+        String password=jsonObject.getString("SPRING_DATASOURCE_PASSWORD");
+        
+        System.out.print(url);
+        System.out.print(username);
+        System.out.print(password);
+        
+            System.setProperty("SPRING_DATASOURCE_URL", jsonObject.getString("SPRING_DATASOURCE_URL"));
+            System.setProperty("SPRING_DATASOURCE_USERNAME", jsonObject.getString("SPRING_DATASOURCE_USERNAME"));
+            System.setProperty("SPRING_DATASOURCE_PASSWORD", jsonObject.getString("SPRING_DATASOURCE_PASSWORD"));
+        
     }
 }
 
