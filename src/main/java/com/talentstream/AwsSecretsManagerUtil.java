@@ -7,7 +7,7 @@ import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
 import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueRequest;
 import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
 import software.amazon.awssdk.services.secretsmanager.model.SecretsManagerException;
-
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,25 +15,24 @@ import org.springframework.context.annotation.Configuration;
 public class AwsSecretsManagerUtil {
 
 	
-	 @Value("${AWS_ACCESS_KEY_ID}")
-	    private static String accessKey;
-
-	    @Value("${AWS_SECRET_ACCESS_KEY}")
-	    private static String secretKey;
+	
 	    
 	public static String getSecret() {
 		
-		System.out.println("accessKey "+accessKey);
-        System.out.println("secretKey "+secretKey);
+		
         
 		  String secretName = System.getenv("SECRET_NAME");
-		  String region1 = System.getenv("AWS_REGION");
+		  JSONObject jsonObject = new JSONObject(secretName);
+	        String accessKey = jsonObject.getString("AWS_ACCESS_KEY_ID");
+	        String secretKey = jsonObject.getString("AWS_SECRET_ACCESS_KEY");
+	        String region1 = jsonObject.getString("AWS_REGION");
 	        Region region = Region.of(region1);
-//	        String accessKey = System.getenv("AWS_ACCESS_KEY_ID");
-//	        String secretKey = System.getenv("AWS_SECRET_ACCESS_KEY");
+	        
           
-	        System.out.println("secretName "+secretName);
-	        System.out.println("region1 "+region1);
+	        System.out.println("accessKey "+accessKey);
+	        System.out.println("secretKey "+secretKey);
+	        System.out.println("secretName"+secretName);
+	        System.out.println("REGION "+region1);
 	        
 	        
 	        if (accessKey == null || secretKey == null) {
