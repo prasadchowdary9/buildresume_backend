@@ -23,6 +23,11 @@ public class AwsSecretsManagerUtil {
 	        String accessKey = System.getenv("AWS_ACCESS_KEY_ID");
 	        String secretKey = System.getenv("AWS_SECRET_ACCESS_KEY");
           
+	        System.out.println(secretName);
+	        System.out.println(region1);
+	        System.out.println(accessKey);
+	        System.out.println(secretKey);
+	        
 	        if (accessKey == null || secretKey == null) {
 	            System.err.println("AWS credentials are not set in environment variables.");
 	            return null;
