@@ -446,8 +446,6 @@ public class ApplyJobService {
 	                dto.setExperience(applicantProfile.getExperience());
 	                String name=applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName();
 	                dto.setName(name);
-	                System.out.println(name);
-	                System.out.println(applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName());
 	                dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
 	                dto.setMinimumQualification(applicantProfile.getQualification());
 	            } catch (Exception e) {
