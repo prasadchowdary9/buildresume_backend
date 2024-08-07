@@ -319,7 +319,8 @@ public class ApplyJobService {
 				ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(id1);
 				AppliedApplicantInfoDTO dto1 = mapToDTO(appliedApplicantInfo);
 				dto1.setExperience(applicantProfile.getExperience());
-				dto1.setName(applicantProfile.getBasicDetails().getFirstName());
+				String name1=applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName();
+                dto1.setName(name1);
 	            dto1.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
 				dto1.setMinimumQualification(applicantProfile.getQualification());
 				all.add(dto1);
@@ -443,7 +444,10 @@ public class ApplyJobService {
 	            try {
 	                ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(appliedApplicantInfo.getId());
 	                dto.setExperience(applicantProfile.getExperience());
-	                dto.setName(applicantProfile.getBasicDetails().getFirstName());
+	                String name=applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName();
+	                dto.setName(name);
+	                System.out.println(name);
+	                System.out.println(applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName());
 	                dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
 	                dto.setMinimumQualification(applicantProfile.getQualification());
 	            } catch (Exception e) {
@@ -482,7 +486,8 @@ public class ApplyJobService {
 	                ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(id1);
 	                AppliedApplicantInfoDTO dto = mapToDTO(appliedApplicantInfo);
 	                dto.setExperience(applicantProfile.getExperience());
-	                dto.setName(applicantProfile.getBasicDetails().getFirstName());
+	                String name=applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName();
+	                dto.setName(name);
 	                dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
 	                dto.setMinimumQualification(applicantProfile.getQualification());
 	                dto.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());

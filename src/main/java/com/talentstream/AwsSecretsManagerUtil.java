@@ -23,8 +23,8 @@ public class AwsSecretsManagerUtil {
 	    
 	public static String getSecret() {
 		
-		System.out.println(accessKey);
-        System.out.println(secretKey);
+		System.out.println("accessKey "+accessKey);
+        System.out.println("secretKey "+secretKey);
         
 		  String secretName = System.getenv("SECRET_NAME");
 		  String region1 = System.getenv("AWS_REGION");
@@ -32,8 +32,8 @@ public class AwsSecretsManagerUtil {
 //	        String accessKey = System.getenv("AWS_ACCESS_KEY_ID");
 //	        String secretKey = System.getenv("AWS_SECRET_ACCESS_KEY");
           
-	        System.out.println(secretName);
-	        System.out.println(region1);
+	        System.out.println("secretName "+secretName);
+	        System.out.println("region1 "+region1);
 	        
 	        
 	        if (accessKey == null || secretKey == null) {
