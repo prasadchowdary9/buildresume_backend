@@ -14,13 +14,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AwsSecretsManagerUtil {
 
-	
-	
-	    
 	public static String getSecret() {
-		
-		
-        
+
 		  String secretName = "/secret/myS3SecretKey";
 		  String secrets = System.getenv("AWS_ACCESS_KEY_ID");
 		  JSONObject jsonObject = new JSONObject(secrets);
@@ -28,11 +23,6 @@ public class AwsSecretsManagerUtil {
 	        String secretKey = jsonObject.getString("AWS_SECRET_ACCESS_KEY");
 	        String region1 = jsonObject.getString("AWS_REGION");
 	        Region region = Region.of(region1);
-	        
-          
-	        System.out.println("accessKey "+accessKey);
-	        System.out.println("secretKey "+secretKey);
-	        System.out.println("REGION "+region1);
 	        
 	        
 	        if (accessKey == null || secretKey == null) {
