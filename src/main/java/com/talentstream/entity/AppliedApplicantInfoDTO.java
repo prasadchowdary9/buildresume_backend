@@ -11,6 +11,7 @@ public class AppliedApplicantInfoDTO {
 	private String email;
 	private String mobilenumber;
 	private String jobTitle;
+	private Long jobId;
 	private String applicantStatus;
 	private int minimumExperience;
 	private List<String> skillName;
@@ -18,7 +19,16 @@ public class AppliedApplicantInfoDTO {
 	private String location;
 	private String newStatus;
 	private String experience;
+	
 
+	public Long getJobId() {
+		return jobId;
+	}
+ 
+	public void setJobId(Long jobId) {
+		this.jobId = jobId;
+	}
+	
 	public Map<String, Integer> getSkills() {
 		return skills;
 	}

@@ -7,6 +7,7 @@ public class AppliedApplicantInfo {
 	private String email;
 	private String mobilenumber;
 	private String jobTitle;
+	private	Long jobId;
 	private String applicantStatus;
 	private int minimumExperience;
 	private String skillName;
@@ -15,7 +16,7 @@ public class AppliedApplicantInfo {
 	private String newStatus;
 
 	public AppliedApplicantInfo(Long applyjobid, String name, Long id, String email, String mobile, String newStatus,
-			String jobTitle, String applicantStatus, int minimumExperience, String skillName,
+			String jobTitle,Long jobId, String applicantStatus, int minimumExperience, String skillName,
 			String minimumQualification, String location) {
 		this.applyjobid = applyjobid;
 		this.name = name;
@@ -24,12 +25,21 @@ public class AppliedApplicantInfo {
 		this.mobilenumber = mobile;
 		this.newStatus = newStatus;
 		this.jobTitle = jobTitle;
+		this.jobId=jobId;
 		this.applicantStatus = applicantStatus;
 		this.minimumExperience = minimumExperience;
 		this.skillName = skillName;
 		this.minimumQualification = minimumQualification;
 		this.location = location;
 
+	}
+	
+	public Long getJobId() {
+		return jobId;
+	}
+ 
+	public void setJobId(Long jobId) {
+		this.jobId = jobId;
 	}
 
 	public String getNewStatus() {

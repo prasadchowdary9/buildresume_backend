@@ -16,7 +16,7 @@ public interface ApplyJobRepository extends JpaRepository<ApplyJob, Long> {
 	List<ApplyJob> findByApplicantId(long applicantId);
 
 	@Query("SELECT NEW com.talentstream.entity.AppliedApplicantInfo(" +
-		       " aj.applyjobid,a.name,a.id, a.email, a.mobilenumber, j.newStatus, j.jobTitle, aj.applicantStatus, " +
+		       " aj.applyjobid,a.name,a.id, a.email, a.mobilenumber, j.newStatus, j.jobTitle,j.id,aj.applicantStatus," +
 		       " j.minimumExperience, s.skillName, " +
 		       "j.minimumQualification, j.location) " +
 		       "FROM ApplyJob aj " +
@@ -28,7 +28,7 @@ public interface ApplyJobRepository extends JpaRepository<ApplyJob, Long> {
 		List<AppliedApplicantInfo> findAppliedApplicantsInfo(@Param("jobRecruiterId") long jobRecruiterId);
 	
 	@Query("SELECT NEW com.talentstream.entity.AppliedApplicantInfo(" +
-		       " aj.applyjobid,a.name,a.id, a.email, a.mobilenumber, j.newStatus, j.jobTitle, aj.applicantStatus, " +
+		       " aj.applyjobid,a.name,a.id, a.email, a.mobilenumber, j.newStatus, j.jobTitle,j.id, aj.applicantStatus, " +
 		       " j.minimumExperience, s.skillName, " +
 		       " j.minimumQualification, j.location) " +
 		       "FROM ApplyJob aj " +
