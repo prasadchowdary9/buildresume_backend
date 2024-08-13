@@ -1,0 +1,179 @@
+07-08-2024_09:46:58.963{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+07-08-2024_09:46:59.000{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 22660 (C:\Users\Madar\Desktop\TS5\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\TS5\TalentStreamBE)
+07-08-2024_09:46:59.000{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+07-08-2024_09:46:59.002{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+07-08-2024_09:47:01.815{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07-08-2024_09:47:02.092{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 254 ms. Found 20 JPA repository interfaces.
+07-08-2024_09:47:03.168{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+07-08-2024_09:47:03.182{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+07-08-2024_09:47:03.183{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+07-08-2024_09:47:03.183{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+07-08-2024_09:47:03.443{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+07-08-2024_09:47:03.443{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 4312 ms
+07-08-2024_09:47:04.005{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+07-08-2024_09:47:04.097{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+07-08-2024_09:47:04.424{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07-08-2024_09:47:04.616{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+07-08-2024_09:47:05.326{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+07-08-2024_09:47:05.367{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+07-08-2024_09:47:10.072{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07-08-2024_09:47:10.092{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-08-2024_09:47:10.870{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+07-08-2024_09:47:10.924{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07-08-2024_09:47:11.291{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+07-08-2024_09:47:12.927{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d70dab8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53e6c017, org.springframework.security.web.context.SecurityContextPersistenceFilter@6b3bcab7, org.springframework.security.web.header.HeaderWriterFilter@1cb09347, org.springframework.security.web.authentication.logout.LogoutFilter@7caa5387, com.talentstream.filter.JwtRequestFilter@5984742f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5fe5f2f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35c646b5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d123d10, org.springframework.security.web.session.SessionManagementFilter@75edfe9a, org.springframework.security.web.access.ExceptionTranslationFilter@412bb41f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@47de4dce]
+07-08-2024_09:47:13.287{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+07-08-2024_09:47:13.323{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+07-08-2024_09:47:14.551{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 16.317 seconds (JVM running for 17.536)
+07-08-2024_09:47:14.642{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+07-08-2024_09:47:14.643{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+07-08-2024_09:47:14.645{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+07-08-2024_09:47:14.669{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+07-08-2024_09:47:14.669{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+07-08-2024_09:47:14.669{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+07-08-2024_09:48:01.443{UTC}|report-tool|ERROR||o.a.c.c.C.[.[.[.[dispatcherServlet]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-08-07T05:45:39Z. Current time: 2024-08-07T09:48:01Z, a difference of 14542443 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:385)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541)
+	at com.talentstream.service.JwtUtil.extractAllClaims(JwtUtil.java:33)
+	at com.talentstream.service.JwtUtil.extractClaim(JwtUtil.java:29)
+	at com.talentstream.service.JwtUtil.extractUsername(JwtUtil.java:21)
+	at com.talentstream.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:89)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+07-08-2024_09:59:48.537{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+07-08-2024_09:59:48.538{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+07-08-2024_09:59:48.538{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+07-08-2024_09:59:49.183{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+07-08-2024_09:59:49.184{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+07-08-2024_09:59:49.184{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+07-08-2024_09:59:49.258{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.258{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.258{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.281{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.281{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.282{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.282{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.282{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.282{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.284{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+07-08-2024_09:59:49.285{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.286{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.286{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.288{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.289{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.289{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.290{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.290{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.290{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.292{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 24
+07-08-2024_09:59:49.293{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count shortlisted and interviewed applicants for recruiter 24
+07-08-2024_09:59:49.304{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 24 with status: Interviewing
+07-08-2024_09:59:49.310{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+07-08-2024_09:59:49.314{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+07-08-2024_09:59:49.315{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+07-08-2024_09:59:49.315{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+07-08-2024_09:59:49.326{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 24 successfully.
+07-08-2024_09:59:49.329{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 24
+07-08-2024_09:59:49.335{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 24 with status: Interviewing
+07-08-2024_09:59:49.348{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.348{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.348{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.349{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+07-08-2024_09:59:49.361{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.361{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.361{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.361{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.361{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.362{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.368{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.368{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.368{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.368{UTC}|report-tool|WARN ||o.h.e.j.s.SqlExceptionHelper|SQL Error: 0, SQLState: 42P01
+07-08-2024_09:59:49.368{UTC}|report-tool|ERROR||o.h.e.j.s.SqlExceptionHelper|ERROR: relation "apply_job" does not exist
+  Position: 22
+07-08-2024_09:59:49.369{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 24
+07-08-2024_09:59:49.375{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+07-08-2024_09:59:49.376{UTC}|report-tool|ERROR||c.t.c.ApplyJobController|Error counting shortlisted and interviewed applicants for recruiter 24: Failed to count shortlisted and interviewed applicants
+07-08-2024_09:59:49.385{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 24 successfully.
+07-08-2024_09:59:49.396{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 24
+07-08-2024_09:59:49.407{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.407{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.407{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.407{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.408{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.408{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.410{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 24 with status: Interviewing
+07-08-2024_09:59:49.411{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count shortlisted and interviewed applicants for recruiter 24
+07-08-2024_09:59:49.431{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.432{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:49.432{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:49.433{UTC}|report-tool|WARN ||o.h.e.j.s.SqlExceptionHelper|SQL Error: 0, SQLState: 42P01
+07-08-2024_09:59:49.433{UTC}|report-tool|ERROR||o.h.e.j.s.SqlExceptionHelper|ERROR: relation "apply_job" does not exist
+  Position: 22
+07-08-2024_09:59:49.434{UTC}|report-tool|ERROR||c.t.c.ApplyJobController|Error counting shortlisted and interviewed applicants for recruiter 24: Failed to count shortlisted and interviewed applicants
+07-08-2024_09:59:49.436{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 24 with status: Interviewing
+07-08-2024_09:59:51.003{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:51.003{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:51.004{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:51.005{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied applicants for recruiterId: 24
+07-08-2024_09:59:52.700{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 24
+07-08-2024_09:59:52.758{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:52.758{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:52.758{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:52.952{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied applicants successfully for recruiterId: 24
+07-08-2024_09:59:53.017{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:53.017{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTcyMzA0MDk4OSwiaWF0IjoxNzIzMDA0OTg5fQ.aWcFpi8S4wjkCarZWrR8p8rlLPklV7YTKIOz6cENWps
+07-08-2024_09:59:53.018{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+07-08-2024_09:59:53.018{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applied applicants for recruiterId: 24
+07-08-2024_09:59:54.427{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 24
+07-08-2024_09:59:55.007{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applied applicants successfully for recruiterId: 24
+07-08-2024_12:33:54.272{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+07-08-2024_12:33:54.274{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
