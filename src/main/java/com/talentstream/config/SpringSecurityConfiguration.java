@@ -70,7 +70,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						"/team/teammembers/{recruiterId}", "/team/{teamMemberId}",
 						"/team/{teamMemberId}/reset-password", "/job/recruiterscountjobs/{recruiterId}")
 				.hasAnyRole("JOBRECRUITER")
-				.antMatchers("/savedjob/applicants/deletejob/{applicantId}/{jobId}", "/applicant/{id}/profilestatus",
+				.antMatchers("/skill-badges/{id}/skill-badges","/skill-badges/save","/savedjob/applicants/deletejob/{applicantId}/{jobId}", "/applicant/{id}/profilestatus",
 						"/applicantprofile/{applicantId}/profile-view", "/applicantprofile/updateprofile/{applicantid}",
 						"/viewjob/applicant/viewjob/{jobId}/{applicantId}",
 						"/applicantprofile/createprofile/{applicantid}", "/applicantprofile/getdetails/{applicantid}",
@@ -83,7 +83,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						"/applicant-pdf/{applicantId}/upload", "/applicant-image/{applicantId}/upload",
 						"/applicant-image/getphoto/{applicantId}")
 				.hasAnyRole("JOBAPPLICANT")
-				.antMatchers("/resume/pdf/{id}", "/applicant/getApplicantById/{id}", "/send-message", "/health",
+				.antMatchers("/resume/retryResumeRegistration","/resume/pdf/{id}", "/applicant/getApplicantById/{id}", "/send-message", "/health",
 						"/applicant/signOut", "/forgotpassword/recuriterverify-otp",
 						"/forgotpassword/recuritersend-otp",
 						"/forgotpassword/recuriterreset-password/set-new-password/{email}",
