@@ -9,4 +9,6 @@ import com.talentstream.entity.ApplicantSkillBadge;
 public interface ApplicantSkillBadgeRepository extends JpaRepository<ApplicantSkillBadge, Long> {
 	
     List<ApplicantSkillBadge> findByApplicantId(Long applicantId);
+  
+	ApplicantSkillBadge findByApplicantIdAndSkillBadgeId(Long applicantId, Long skillBadgeId);
 }

@@ -48,13 +48,19 @@ public class SkillBadgeService {
             Applicant applicant = applicantRepository.findById(applicantId)
                 .orElseThrow(() -> new RuntimeException("Applicant not found with ID: " + applicantId));
             SkillBadge skillBadge = skillBadgeRepository.findByName(skillBadgeName);
+            
+            ApplicantSkillBadge applicantSkillBadge1=applicantSkillBadgeRepository.findByApplicantIdAndSkillBadgeId(applicantId, skillBadge.getId());
 
+            
             // If the skillBadge is not found, throw a custom exception or return an error
             if (skillBadge == null) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("SkillBadge with name '" + skillBadgeName + "' not found.");
             }
-
+            if (applicantSkillBadge1 != null && applicantSkillBadge1.getStatus().equalsIgnoreCase("FAILED")) {
+            	applicantSkillBadge1.setStatus(status);
+            	applicantSkillBadgeRepository.save(applicantSkillBadge1);
+            }else {
             // Create and save the ApplicantSkillBadge
             ApplicantSkillBadge applicantSkillBadge = new ApplicantSkillBadge();
             applicantSkillBadge.setApplicant(applicant);
@@ -64,7 +70,7 @@ public class SkillBadgeService {
 
             // Save to the repository
             applicantSkillBadgeRepository.save(applicantSkillBadge);
-
+            }
             // Return success message
             return ResponseEntity.ok("ApplicantSkillBadge saved successfully");
 
