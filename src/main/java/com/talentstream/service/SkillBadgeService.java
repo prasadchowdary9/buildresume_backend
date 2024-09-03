@@ -59,6 +59,7 @@ public class SkillBadgeService {
             }
             if (applicantSkillBadge1 != null && applicantSkillBadge1.getStatus().equalsIgnoreCase("FAILED")) {
             	applicantSkillBadge1.setStatus(status);
+            	applicantSkillBadge1.setTestTaken(LocalDateTime.now());
             	applicantSkillBadgeRepository.save(applicantSkillBadge1);
             }else {
             // Create and save the ApplicantSkillBadge
