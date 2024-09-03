@@ -1801,3 +1801,4 @@ Caused by: org.postgresql.util.PSQLException: This connection has been closed.
 03-09-2024_16:28:40.198{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5NjE4OTEyODE3bWFkYXJAZ21haWwuY29tIiwiZXhwIjoxNzI1Mzg4NTIwLCJpYXQiOjE3MjUzNTI1MjB9.QozBOzFCMtvddNGVUl-SEmjQYR8PHXgOV-_l8jkl-SU
 03-09-2024_16:28:40.198{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: 9618912817madar@gmail.com
 03-09-2024_16:28:40.201{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 12338
+03-09-2024_16:28:42.548{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 12338
