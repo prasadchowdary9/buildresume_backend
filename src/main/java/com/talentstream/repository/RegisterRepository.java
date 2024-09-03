@@ -1,5 +1,7 @@
 package com.talentstream.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.talentstream.entity.Applicant;
@@ -13,5 +15,6 @@ public interface RegisterRepository extends JpaRepository<Applicant,Integer> {
 	boolean existsByMobilenumber(String mobilenumber);
 	boolean existsById(long applicantId);
 	Applicant findByMobilenumber(String userMobile);
+	List<Applicant> findAllByResumeId(String string);
  
 }
