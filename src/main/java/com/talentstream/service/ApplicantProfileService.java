@@ -87,7 +87,14 @@ public class ApplicantProfileService {
 			dto.setxClassDetails(applicantProfile.getxClassDetails());
 			dto.setIntermediateDetails(applicantProfile.getIntermediateDetails());
 			dto.setGraduationDetails(applicantProfile.getGraduationDetails());
-			dto.setSkillsRequired(applicantProfile.getSkillsRequired());
+			Set<ApplicantSkills> unmatchedSkills = applicantProfile.getSkillsRequired().stream()
+				    .filter(skill -> applicantProfile.getApplicant().getApplicantSkillBadges().stream()
+				        .noneMatch(badge -> badge.getSkillBadge().getName().trim().equalsIgnoreCase(skill.getSkillName().trim()))
+				    )
+				    .collect(Collectors.toSet());  // Collect unmatched skills as a Set
+
+				// Setting the unmatched skills into the DTO
+				dto.setSkillsRequired(unmatchedSkills);
 			dto.setExperienceDetails(applicantProfile.getExperienceDetails());
 			dto.setExperience(applicantProfile.getExperience());
 			dto.setQualification(applicantProfile.getQualification());
