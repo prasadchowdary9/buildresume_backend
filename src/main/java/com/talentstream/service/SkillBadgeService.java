@@ -70,6 +70,7 @@ public class SkillBadgeService {
             applicantSkillBadge.setTestTaken(LocalDateTime.now());
 
             // Save to the repository
+            
             applicantSkillBadgeRepository.save(applicantSkillBadge);
             }
             // Return success message
