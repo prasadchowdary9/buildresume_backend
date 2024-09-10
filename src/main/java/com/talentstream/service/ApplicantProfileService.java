@@ -94,7 +94,7 @@ public class ApplicantProfileService {
 				    .collect(Collectors.toSet());  // Collect unmatched skills as a Set
 
 				// Setting the unmatched skills into the DTO
-				dto.setSkillsRequired(unmatchedSkills);
+				
 			dto.setExperienceDetails(applicantProfile.getExperienceDetails());
 			dto.setExperience(applicantProfile.getExperience());
 			dto.setQualification(applicantProfile.getQualification());
@@ -250,12 +250,33 @@ public class ApplicantProfileService {
 			throw new CustomException("Your profile not found and please fill profile " + applicantId,
 					HttpStatus.NOT_FOUND);
 		} else {
+			
+			 // Extract existing skills from the database
+	        Set<String> existingSkillNames = existingProfile.getSkillsRequired().stream()
+	                .map(ApplicantSkills::getSkillName)
+	                .collect(Collectors.toSet());
+
+	        // Extract updated skills from the DTO
+	        Set<String> updatedSkillNames = new HashSet<>();
+	        if (updatedProfileDTO.getSkillsRequired() != null) {
+	            for (ApplicantProfileUpdateDTO.SkillDTO skillDTO : updatedProfileDTO.getSkillsRequired()) {
+	                updatedSkillNames.add(skillDTO.getSkillName());
+	            }
+	        }
+
+	        // Find removed skills (skills in the database but not in the updated list)
+	        Set<String> removedSkills = new HashSet<>(existingSkillNames);
+	        removedSkills.removeAll(updatedSkillNames);
+	        
+	        System.out.println(removedSkills);
+	        
 			// Update the necessary fields
 			existingProfile.setExperience(updatedProfileDTO.getExperience());
 			existingProfile.setQualification(updatedProfileDTO.getQualification());
 			existingProfile.setSpecialization(updatedProfileDTO.getSpecialization());
 			existingProfile.setPreferredJobLocations(new HashSet<>(updatedProfileDTO.getPreferredJobLocations()));
 
+			 
 			// Update skills required
 			Set<ApplicantSkills> updatedSkills = new HashSet<>();
 			if (updatedProfileDTO.getSkillsRequired() != null) {
