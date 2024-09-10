@@ -32,6 +32,7 @@ public class SkillBadgeService {
 
     @Autowired
     private SkillBadgeRepository skillBadgeRepository;
+    
 
     @Autowired
     private ApplicantRepository applicantRepository;

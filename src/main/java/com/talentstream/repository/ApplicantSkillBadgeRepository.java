@@ -11,4 +11,6 @@ public interface ApplicantSkillBadgeRepository extends JpaRepository<ApplicantSk
     List<ApplicantSkillBadge> findByApplicantId(Long applicantId);
   
 	ApplicantSkillBadge findByApplicantIdAndSkillBadgeId(Long applicantId, Long skillBadgeId);
+	
+	void deleteByApplicantIdAndSkillBadgeId(Long applicantId, Long skillBadgeId);
 }
