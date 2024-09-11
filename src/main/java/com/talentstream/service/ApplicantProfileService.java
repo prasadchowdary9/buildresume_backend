@@ -99,11 +99,14 @@ public class ApplicantProfileService {
 			dto.setIntermediateDetails(applicantProfile.getIntermediateDetails());
 			dto.setGraduationDetails(applicantProfile.getGraduationDetails());
 			Set<ApplicantSkills> unmatchedSkills = applicantProfile.getSkillsRequired().stream()
-				    .filter(skill -> applicantProfile.getApplicant().getApplicantSkillBadges().stream()
-				        .noneMatch(badge -> badge.getSkillBadge().getName().trim().equalsIgnoreCase(skill.getSkillName().trim()))
+				    .filter(skill -> 
+				        applicantProfile.getApplicant().getApplicantSkillBadges().stream()
+				            .noneMatch(badge -> 
+				                badge.getSkillBadge().getName().trim().equalsIgnoreCase(skill.getSkillName().trim()) 
+				                && !badge.getFlag().equalsIgnoreCase("removed") // Exclude badges with flag 'removed'
+				            )
 				    )
 				    .collect(Collectors.toSet());  // Collect unmatched skills as a Set
-
 			// Setting the unmatched skills into the DTO
 			dto.setSkillsRequired(unmatchedSkills);
 				
@@ -280,6 +283,21 @@ public class ApplicantProfileService {
 	        Set<String> removedSkills = new HashSet<>(existingSkillNames);
 	        removedSkills.removeAll(updatedSkillNames);
 	        
+	     // Find added skills (skills in the updated list but not in the database)
+	        Set<String> addedSkills = new HashSet<>(updatedSkillNames);
+	        addedSkills.removeAll(existingSkillNames);
+	        
+	        if(addedSkills != null) {
+	        	for(String skillBadgeName: addedSkills) {
+	        		try {
+	        			SkillBadge skillBadge = skillBadgeRepository.findByName(skillBadgeName);
+	        	    	applicantSkillBadgeRepository.updateFlagAsAdded(applicantId, skillBadge.getId());
+	        	    }catch(Exception e) {
+	        	    	System.out.println(e.getMessage());
+	        	    }
+	        	}
+	        }
+	        
 	        if(removedSkills != null) {
 	        for(String skillBadgeName: removedSkills ) {
 	        	
@@ -287,7 +305,8 @@ public class ApplicantProfileService {
 	        	    SkillBadge skillBadge = skillBadgeRepository.findByName(skillBadgeName);
 	        	    System.out.println(skillBadge.getId()+"   "+skillBadge.getName());
 	        	    try {
-	        	    applicantSkillBadgeRepository.deleteByApplicantIdAndSkillBadgeId(applicantId, skillBadge.getId());
+	        	    	applicantSkillBadgeRepository.updateFlagAsRemoved(applicantId, skillBadge.getId());
+//	        	    applicantSkillBadgeRepository.deleteByApplicantIdAndSkillBadgeId(applicantId, skillBadge.getId());
 	        	    }catch(Exception e) {
 	        	    	System.out.println(e.getMessage());
 	        	    }

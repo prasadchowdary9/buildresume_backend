@@ -96,7 +96,7 @@ public class SkillBadgeService {
     public ResponseEntity<ApplicantSkillBadgeDTO> getApplicantSkillBadges(Long id) {
         
         // Find applicant skills based on applicant ID
-        List<ApplicantSkillBadge> applicantSkills = applicantSkillBadgeRepository.findByApplicantId(id);
+        List<ApplicantSkillBadge> applicantSkills = applicantSkillBadgeRepository.findByApplicantIdAndFlagAdded(id);
 
         // Find applicant profile, and handle any potential exception
         ApplicantProfile applicantProfile = null;
