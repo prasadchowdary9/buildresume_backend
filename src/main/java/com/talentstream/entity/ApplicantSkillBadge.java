@@ -29,12 +29,23 @@ public class ApplicantSkillBadge {
 
     private LocalDateTime testTaken;
     
+    private String flag = "added";  // Default value
+    
     @PrePersist
     @PreUpdate
     protected void onPersistOrUpdate() {
         this.testTaken = LocalDateTime.now();
     }
 
+    public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+
+    
 	public Long getId() {
 		return id;
 	}
