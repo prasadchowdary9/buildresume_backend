@@ -1,11 +1,13 @@
 package com.talentstream.entity;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * @author Madar
@@ -60,6 +63,20 @@ public class Applicant {
 	private boolean localResume = false;
 	@Column(name = "utm_source", columnDefinition = "VARCHAR(255) DEFAULT 'Self'")
 	private String utmSource;
+
+	
+	@OneToMany(mappedBy = "applicant", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<ApplicantSkillBadge> applicantSkillBadges;
+	
+	
+	public List<ApplicantSkillBadge> getApplicantSkillBadges() {
+		return applicantSkillBadges;
+	}
+
+	public void setApplicantSkillBadges(List<ApplicantSkillBadge> applicantSkillBadges) {
+		this.applicantSkillBadges = applicantSkillBadges;
+	}
 
 	public String getUtmSource() {
 		return utmSource;
