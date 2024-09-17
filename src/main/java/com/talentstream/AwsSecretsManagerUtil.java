@@ -17,34 +17,37 @@ public class AwsSecretsManagerUtil {
 	public static String getSecret() {
 
 		  String secretName = "/secret/myS3SecretKey";
-//		  String secrets = System.getenv("AWS_ACCESS_KEY_ID");
-//		  System.out.println("Secretes  "+secrets);
-//		  JSONObject jsonObject = new JSONObject(secrets);
-//	        String accessKey = jsonObject.getString("AWS_ACCESS_KEY_ID");
-//	        String secretKey = jsonObject.getString("AWS_SECRET_ACCESS_KEY");
-//	        String region1 = jsonObject.getString("AWS_REGION");
-//	        Region region = Region.of(region1);
-//	        
-//	        
-//	        if (accessKey == null || secretKey == null) {
-//	            System.err.println("AWS credentials are not set in environment variables.");
-//	            return null;
-//	        }
+		  String secrets = System.getenv("AWS_ACCESS_KEY_ID");
+		  System.out.println("Secretes  "+secrets);
+		  JSONObject jsonObject = new JSONObject(secrets);
+	        String accessKey = jsonObject.getString("AWS_ACCESS_KEY_ID");
+	        System.out.println("accessKey  "+accessKey);
+	        String secretKey = jsonObject.getString("AWS_SECRET_ACCESS_KEY");
+	        System.out.println("secretKey  "+secretKey);
+	        String region1 = jsonObject.getString("AWS_REGION");
+	        System.out.println("region1  "+region1);
+	        Region region = Region.of(region1);
+	        
+	        
+	        if (accessKey == null || secretKey == null) {
+	            System.err.println("AWS credentials are not set in environment variables.");
+	            return null;
+	        }
 		  
-		// Directly get environment variables without parsing them as JSON
-		  System.out.println("debug -1");
-		    String accessKey = System.getenv("AWS_ACCESS_KEY_ID");
-		    System.out.println(accessKey+"debug -2");
-		    String secretKey = System.getenv("AWS_SECRET_ACCESS_KEY");
-		    String region1 = System.getenv("AWS_REGION");
-		    System.out.println(region1+" debug -3");
-		 // Create an AWS Region object
-		    Region region = Region.of("us-west-2");
-		    
-		    if (accessKey == null || accessKey.isEmpty() || secretKey == null || secretKey.isEmpty()) {
-		        System.err.println("AWS credentials are not set in environment variables.");
-		        return null;
-		    }
+//		// Directly get environment variables without parsing them as JSON
+//		  System.out.println("debug -1");
+//		    String accessKey = System.getenv("AWS_ACCESS_KEY_ID");
+//		    System.out.println(accessKey+"debug -2");
+//		    String secretKey = System.getenv("AWS_SECRET_ACCESS_KEY");
+//		    String region1 = System.getenv("AWS_REGION");
+//		    System.out.println(region1+" debug -3");
+//		 // Create an AWS Region object
+//		    Region region = Region.of("us-west-2");
+//		    
+//		    if (accessKey == null || accessKey.isEmpty() || secretKey == null || secretKey.isEmpty()) {
+//		        System.err.println("AWS credentials are not set in environment variables.");
+//		        return null;
+//		    }
 
 		    
 		    
