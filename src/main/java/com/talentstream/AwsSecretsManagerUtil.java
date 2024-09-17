@@ -21,11 +21,11 @@ public class AwsSecretsManagerUtil {
 		  System.out.println("Secretes  "+secrets);
 		  JSONObject jsonObject = new JSONObject(secrets);
 	        String accessKey = jsonObject.getString("AWS_ACCESS_KEY_ID");
-	        System.out.println("Secretes  "+accessKey);
+	        System.out.println("accessKey  "+accessKey);
 	        String secretKey = jsonObject.getString("AWS_SECRET_ACCESS_KEY");
-	        System.out.println("Secretes  "+secretKey);
+	        System.out.println("secretKey  "+secretKey);
 	        String region1 = jsonObject.getString("AWS_REGION");
-	        System.out.println("Secretes  "+region1);
+	        System.out.println("region1  "+region1);
 	        Region region = Region.of(region1);
 	        
 	        
