@@ -35,7 +35,7 @@ public class CompanyProfileService {
             if (!companyProfileRepository.existsByJobRecruiterId(jobRecruiterId)) {
                 CompanyProfile companyProfile = convertDTOToEntity(companyProfileDTO);
                 companyProfile.setJobRecruiter(jobRecruiter);
-                companyProfile.setApprovalStatus("PENDING");
+                companyProfile.setApprovalStatus("APPROVED");
                 companyProfileRepository.save(companyProfile);
                 return "profile saved sucessfully";
             } else {
