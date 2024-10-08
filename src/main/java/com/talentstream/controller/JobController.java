@@ -215,6 +215,23 @@ public class JobController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
         }
     }
+    
+    @GetMapping("/recruiterscountinactivejobs/{recruiterId}")
+    public ResponseEntity<?>countInActiveJobsByRecruiter(@PathVariable Long recruiterId){
+    	try {
+    		long jobCount = jobService.countInActiveJobs(recruiterId);
+    		logger.info("Retrieved inactive job counts for recruiter with ID {} successfully.", recruiterId);
+    		return ResponseEntity.ok(jobCount);
+    	}
+    	catch(CustomException ce) {
+    		logger.error("exception occurred while retrieving inactive job counts for recruiter with ID {}:{}",recruiterId, ce.getMessage());
+    		 return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
+    	}
+    	catch(Exception e) {
+    		logger.error("Internal server error occurred while retrieving inactive job count for recruiter with ID {}.",recruiterId, e);
+    		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
+    	}
+    }
 
     private RecuriterSkillsDTO convertSkillsEntityToDTO(RecuriterSkills skill) {
         RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
