@@ -130,7 +130,17 @@ public class JobDTO {
 		private Set<RecuriterSkillsDTO> skillsRequired;
 		
 		private Set<ApplicantSkills> matchedSkills;
+		private Set<ApplicantSkills> additionalSkills;
 		
+		public Set<ApplicantSkills> getAdditionalSkills() {
+			return additionalSkills;
+		}
+
+		public void setAdditionalSkills(Set<ApplicantSkills> additionalSkills) {
+			this.additionalSkills = additionalSkills;
+		}
+
+
 		private int matchPercentage;
 		 private String matchStatus;
 		 private List<String> sugesstedCourses;
@@ -169,6 +179,8 @@ public class JobDTO {
 
 		private Long applyJobId;
 	    private String promote = "no";
+	    
+	    
 	    public String getPromote() {
 			return promote;
 		}

@@ -14,16 +14,21 @@ import java.util.HashMap;
 import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
+import com.talentstream.dto.ApplicantSkillBadgeDTO;
 import com.talentstream.dto.JobDTO;
 import com.talentstream.dto.RecuriterSkillsDTO;
 import com.talentstream.entity.Alerts;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantJobInterviewDTO;
 import com.talentstream.entity.ApplicantProfile;
+import com.talentstream.entity.ApplicantSkillBadge;
 import com.talentstream.entity.ApplicantStatusHistory;
+import com.talentstream.entity.ApplicantTest;
 import com.talentstream.entity.AppliedApplicantInfo;
 import com.talentstream.entity.AppliedApplicantInfoDTO;
 import com.talentstream.entity.ApplyJob;
@@ -71,6 +76,12 @@ public class ApplyJobService {
 	private ApplicantProfileRepository applicantProfileRepo;
 	@Autowired
 	private SavedJobRepository savedJobRepository;
+	@Autowired
+    private ApplicantTestService applicantTestService;
+	@Autowired
+    private ViewJobService viewJobService;
+	@Autowired
+    private SkillBadgeService skillBadgeService;
 
 	// Marks the specified alert as seen by updating its status in the repository.
 	public void markAlertAsSeen(long alertsId) {
@@ -442,12 +453,77 @@ public class ApplyJobService {
 	        if (!applicantMap.containsKey(applicantKey)) {
 	            dto = mapToDTO(appliedApplicantInfo);
 	            try {
-	                ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(appliedApplicantInfo.getId());
+	            	
+	            	ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(appliedApplicantInfo.getId());
 	                dto.setExperience(applicantProfile.getExperience());
 	                String name=applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName();
 	                dto.setName(name);
 	                dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
 	                dto.setMinimumQualification(applicantProfile.getQualification());
+	                dto.setPreferredJobLocations(applicantProfile.getPreferredJobLocations());
+	                dto.setQualification(applicantProfile.getQualification());
+	                dto.setSpecialization(applicantProfile.getSpecialization());
+	                
+	                ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicant(dto.getJobId(), appliedApplicantInfo.getId());
+		             // Extract the body from the ResponseEntity
+		                Object responseBody = jobDetails.getBody();
+		             // Assuming the body is of type JobDetailsResponse (replace with actual class name)
+		                if (responseBody instanceof JobDTO) {
+		                	JobDTO jobDetailsResponse = (JobDTO) responseBody;
+		                    
+		                    dto.setMatchPercentage(jobDetailsResponse.getMatchPercentage());
+		                    dto.setMatchedSkills(jobDetailsResponse.getMatchedSkills());
+		                    dto.setNonMatchedSkills(jobDetailsResponse.getSkillsRequired());
+		                    dto.setAdditionalSkills(jobDetailsResponse.getAdditionalSkills());
+		                   
+		                } else {
+		                    System.out.println("Unexpected response body type: " + responseBody.getClass().getName());
+		                }
+		                
+	            	List<ApplicantTest> tests = applicantTestService.getTestsByApplicantId(appliedApplicantInfo.getId());
+	            	
+	               for(ApplicantTest test: tests) {
+	            	   
+	            	   if(test.getTestName().equalsIgnoreCase("General Aptitude Test")) {
+	            		   
+	            		   dto.setApptitudeScore(test.getTestScore());
+	            	   }else if(test.getTestName().equalsIgnoreCase("Technical Test")|| test.getTestName().equalsIgnoreCase("Technical")) {
+	            		   dto.setTechnicalScore(test.getTestScore());
+	            	   }
+	               }
+	                try {    
+	                if(dto.getApptitudeScore()>=70.00 && dto.getTechnicalScore()>=70.00) {
+	                	dto.setPreScreenedCondition("PreScreened");
+	                }else {
+	                	dto.setPreScreenedCondition("NotPreScreened");
+	                }
+	                }catch(Exception e) {
+	                	
+	                }
+	                ResponseEntity<ApplicantSkillBadgeDTO> skillBadge = skillBadgeService.getApplicantSkillBadges(appliedApplicantInfo.getId());
+	                ApplicantSkillBadgeDTO responseBody1 = skillBadge.getBody();
+
+	                if (responseBody1 != null && responseBody1.getApplicantSkillBadges().size() >= 1) {
+	                	List<ApplicantSkillBadge> applicantSkillBadges=responseBody1.getApplicantSkillBadges();
+	                	List<ApplicantSkillBadge> applicantSkillBadges1=new ArrayList<>();
+	                    for (ApplicantSkillBadge badge : applicantSkillBadges) {
+	                        if ("PASSED".equalsIgnoreCase(badge.getStatus())) {
+	                        	applicantSkillBadges1.add(badge);
+	                            System.out.println("Skill Badge: " + badge.getSkillBadge().getName() + " - Status: " + badge.getStatus());
+	                        }
+	                    }
+	                    dto.setApplicantSkillBadges(applicantSkillBadges1);
+	                } else {
+	                    System.out.println("No skill badges found.");
+	                }
+	                
+
+	                
+//	                if(responseBody1.getApplicantSkillBadges().get(0).getStatus().equalsIgnoreCase("PASSED")) {
+//	                	
+//	                }
+	                
+	               
 	            } catch (Exception e) {
 	                e.printStackTrace();
 	            }

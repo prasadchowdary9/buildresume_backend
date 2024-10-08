@@ -111,7 +111,10 @@ public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId)
     Set<ApplicantSkills> applicantSkills = applicantProfile.getSkillsRequired();
     Set<RecuriterSkills> jobSkills = job.getSkillsRequired(); // Assuming Job has a method to get required skills
     
+   
     Set<ApplicantSkills> matchedSkills = new HashSet<>();
+   
+    Set<ApplicantSkills> neitherMatchedNorNonMatchedSkills = new HashSet<>(applicantSkills);
     
     
     for (ApplicantSkills applicantSkill : applicantSkills) {
@@ -119,12 +122,14 @@ public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId)
             .anyMatch(jobSkill -> jobSkill.getSkillName().equalsIgnoreCase(applicantSkill.getSkillName()));
         
         if (isMatched) {
-        	
+     
             matchedSkills.add(applicantSkill);
+            neitherMatchedNorNonMatchedSkills.remove(applicantSkill);
         } 
         
     }
     
+   
     double matchPercentage = ((double) matchedSkills.size() / jobSkills.size()) * 100;
     int roundedMatchPercentage = (int) Math.round(matchPercentage);
     String matchStatus;
@@ -177,6 +182,9 @@ public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId)
     jobDTO.setMatchPercentage(roundedMatchPercentage);
     jobDTO.setMatchStatus(matchStatus);
     jobDTO.setSugesstedCourses(matchedCourses);
+    jobDTO.setMatchPercentage(roundedMatchPercentage);
+    jobDTO.setAdditionalSkills(neitherMatchedNorNonMatchedSkills);
+    
     
 
     long jobRecruiterId = job.getJobRecruiter().getRecruiterId();
