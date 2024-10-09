@@ -250,6 +250,22 @@ public class JobService {
 	  public List<Job> getActiveJobsForRecruiter(Long recruiterId) {
 	        return jobRepository.findJobsByRecruiterAndStatus(recruiterId, "active");
 	    }
+	  
+	  public long countInActiveJobs(Long recruiterId) {
+			JobRecruiter jobRecruiter = jobRecruiterRepository.findByRecruiterId(recruiterId);
+	        if(jobRecruiter==null) {
+	        	System.out.println("recruiter not found : "+recruiterId);
+	        	throw new CustomException("recruiter not found : "+recruiterId,HttpStatus.NOT_FOUND);
+	        }	
+			try {
+				 System.out.println("inactive job count is " + jobRepository.countInActiveJobsByRecruiterId(recruiterId));
+				return jobRepository.countInActiveJobsByRecruiterId(recruiterId) ;
+			}
+			catch(Exception e) {
+				throw new CustomException("Error while counting inactive jobs for recruiter id",HttpStatus.INTERNAL_SERVER_ERROR);
+				
+			}
+			}
 
 	    public List<Job> getInactiveJobsForRecruiter(Long recruiterId) {
 	        return jobRepository.findJobsByRecruiterAndStatus(recruiterId, "inactive");
