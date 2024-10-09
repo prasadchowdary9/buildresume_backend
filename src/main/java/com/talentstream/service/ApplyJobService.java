@@ -42,7 +42,9 @@ import com.talentstream.entity.JobRecruiter;
 import com.talentstream.entity.SavedJob;
 import com.talentstream.repository.AlertsRepository;
 import com.talentstream.repository.ApplicantProfileRepository;
+import com.talentstream.repository.ApplicantSkillBadgeRepository;
 import com.talentstream.repository.ApplicantStatusHistoryRepository;
+import com.talentstream.repository.ApplicantTestRepository;
 import com.talentstream.repository.ApplyJobRepository;
 import com.talentstream.repository.JobRepository;
 import com.talentstream.repository.JobRecruiterRepository;
@@ -77,11 +79,11 @@ public class ApplyJobService {
 	@Autowired
 	private SavedJobRepository savedJobRepository;
 	@Autowired
-    private ApplicantTestService applicantTestService;
+    private ApplicantTestRepository applicantTestRepository;
 	@Autowired
     private ViewJobService viewJobService;
 	@Autowired
-    private SkillBadgeService skillBadgeService;
+    private ApplicantSkillBadgeRepository applicantSkillBadgeRepository;
 
 	// Marks the specified alert as seen by updating its status in the repository.
 	public void markAlertAsSeen(long alertsId) {
@@ -464,7 +466,7 @@ public class ApplyJobService {
 	                dto.setQualification(applicantProfile.getQualification());
 	                dto.setSpecialization(applicantProfile.getSpecialization());
 	                
-	                ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicant(dto.getJobId(), appliedApplicantInfo.getId());
+	                ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicantSkillMatch(dto.getJobId(), appliedApplicantInfo.getId());
 		             // Extract the body from the ResponseEntity
 		                Object responseBody = jobDetails.getBody();
 		             // Assuming the body is of type JobDetailsResponse (replace with actual class name)
@@ -479,50 +481,31 @@ public class ApplyJobService {
 		                } else {
 		                    System.out.println("Unexpected response body type: " + responseBody.getClass().getName());
 		                }
+	               
 		                
-	            	List<ApplicantTest> tests = applicantTestService.getTestsByApplicantId(appliedApplicantInfo.getId());
-	            	
-	               for(ApplicantTest test: tests) {
-	            	   
-	            	   if(test.getTestName().equalsIgnoreCase("General Aptitude Test")) {
-	            		   
-	            		   dto.setApptitudeScore(test.getTestScore());
-	            	   }else if(test.getTestName().equalsIgnoreCase("Technical Test")|| test.getTestName().equalsIgnoreCase("Technical")) {
-	            		   dto.setTechnicalScore(test.getTestScore());
-	            	   }
-	               }
-	                try {    
-	                if(dto.getApptitudeScore()>=70.00 && dto.getTechnicalScore()>=70.00) {
-	                	dto.setPreScreenedCondition("PreScreened");
-	                }else {
-	                	dto.setPreScreenedCondition("NotPreScreened");
-	                }
-	                }catch(Exception e) {
-	                	
-	                }
-	                ResponseEntity<ApplicantSkillBadgeDTO> skillBadge = skillBadgeService.getApplicantSkillBadges(appliedApplicantInfo.getId());
-	                ApplicantSkillBadgeDTO responseBody1 = skillBadge.getBody();
+	                Map<String, Double> testScores = applicantTestRepository.findTestScoresByApplicantId(appliedApplicantInfo.getId());
+	                
+	                Double aptitudeScore = testScores.get("aptitudeScore");
+	                Double technicalScore = testScores.get("technicalScore");
 
-	                if (responseBody1 != null && responseBody1.getApplicantSkillBadges().size() >= 1) {
-	                	List<ApplicantSkillBadge> applicantSkillBadges=responseBody1.getApplicantSkillBadges();
-	                	List<ApplicantSkillBadge> applicantSkillBadges1=new ArrayList<>();
-	                    for (ApplicantSkillBadge badge : applicantSkillBadges) {
-	                        if ("PASSED".equalsIgnoreCase(badge.getStatus())) {
-	                        	applicantSkillBadges1.add(badge);
-	                            System.out.println("Skill Badge: " + badge.getSkillBadge().getName() + " - Status: " + badge.getStatus());
-	                        }
-	                    }
-	                    dto.setApplicantSkillBadges(applicantSkillBadges1);
+	                dto.setApptitudeScore(aptitudeScore);
+	                dto.setTechnicalScore(technicalScore);
+
+	                if (aptitudeScore != null && technicalScore != null && aptitudeScore >= 70.00 && technicalScore >= 70.00) {
+	                    dto.setPreScreenedCondition("PreScreened");
 	                } else {
-	                    System.out.println("No skill badges found.");
+	                    dto.setPreScreenedCondition("NotPreScreened");
 	                }
 	                
-
 	                
-//	                if(responseBody1.getApplicantSkillBadges().get(0).getStatus().equalsIgnoreCase("PASSED")) {
-//	                	
-//	                }
 	                
+	             // Find applicant skills based on applicant ID
+	                List<ApplicantSkillBadge> applicantSkills = applicantSkillBadgeRepository.findPassedSkillBadgesByApplicantId(appliedApplicantInfo.getId());
+                    
+	                if (applicantSkills != null && !applicantSkills.isEmpty()) {
+	                    // Use the already retrieved applicantSkills to set the DTO
+	                    dto.setApplicantSkillBadges(applicantSkills);
+	                }
 	               
 	            } catch (Exception e) {
 	                e.printStackTrace();
