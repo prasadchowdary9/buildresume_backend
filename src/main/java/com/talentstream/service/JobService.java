@@ -270,6 +270,7 @@ public class JobService {
 	    public List<Job> getInactiveJobsForRecruiter(Long recruiterId) {
 	        return jobRepository.findJobsByRecruiterAndStatus(recruiterId, "inactive");
 	    }
+	   
 	 public String getJobStatus(Long jobId) {
 	        Optional<Job> optionalJob = jobRepository.findById(jobId);
  

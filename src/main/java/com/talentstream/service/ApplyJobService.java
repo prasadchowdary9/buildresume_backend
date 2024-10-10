@@ -14,16 +14,21 @@ import java.util.HashMap;
 import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
+import com.talentstream.dto.ApplicantSkillBadgeDTO;
 import com.talentstream.dto.JobDTO;
 import com.talentstream.dto.RecuriterSkillsDTO;
 import com.talentstream.entity.Alerts;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantJobInterviewDTO;
 import com.talentstream.entity.ApplicantProfile;
+import com.talentstream.entity.ApplicantSkillBadge;
 import com.talentstream.entity.ApplicantStatusHistory;
+import com.talentstream.entity.ApplicantTest;
 import com.talentstream.entity.AppliedApplicantInfo;
 import com.talentstream.entity.AppliedApplicantInfoDTO;
 import com.talentstream.entity.ApplyJob;
@@ -37,7 +42,9 @@ import com.talentstream.entity.JobRecruiter;
 import com.talentstream.entity.SavedJob;
 import com.talentstream.repository.AlertsRepository;
 import com.talentstream.repository.ApplicantProfileRepository;
+import com.talentstream.repository.ApplicantSkillBadgeRepository;
 import com.talentstream.repository.ApplicantStatusHistoryRepository;
+import com.talentstream.repository.ApplicantTestRepository;
 import com.talentstream.repository.ApplyJobRepository;
 import com.talentstream.repository.JobRepository;
 import com.talentstream.repository.JobRecruiterRepository;
@@ -71,6 +78,12 @@ public class ApplyJobService {
 	private ApplicantProfileRepository applicantProfileRepo;
 	@Autowired
 	private SavedJobRepository savedJobRepository;
+	@Autowired
+    private ApplicantTestRepository applicantTestRepository;
+	@Autowired
+    private ViewJobService viewJobService;
+	@Autowired
+    private ApplicantSkillBadgeRepository applicantSkillBadgeRepository;
 
 	// Marks the specified alert as seen by updating its status in the repository.
 	public void markAlertAsSeen(long alertsId) {
@@ -442,12 +455,58 @@ public class ApplyJobService {
 	        if (!applicantMap.containsKey(applicantKey)) {
 	            dto = mapToDTO(appliedApplicantInfo);
 	            try {
-	                ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(appliedApplicantInfo.getId());
+	            	
+	            	ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(appliedApplicantInfo.getId());
 	                dto.setExperience(applicantProfile.getExperience());
 	                String name=applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName();
 	                dto.setName(name);
 	                dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
 	                dto.setMinimumQualification(applicantProfile.getQualification());
+	                dto.setPreferredJobLocations(applicantProfile.getPreferredJobLocations());
+	                dto.setQualification(applicantProfile.getQualification());
+	                dto.setSpecialization(applicantProfile.getSpecialization());
+	                
+	                ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicantSkillMatch(dto.getJobId(), appliedApplicantInfo.getId());
+		             // Extract the body from the ResponseEntity
+		                Object responseBody = jobDetails.getBody();
+		             // Assuming the body is of type JobDetailsResponse (replace with actual class name)
+		                if (responseBody instanceof JobDTO) {
+		                	JobDTO jobDetailsResponse = (JobDTO) responseBody;
+		                    
+		                    dto.setMatchPercentage(jobDetailsResponse.getMatchPercentage());
+		                    dto.setMatchedSkills(jobDetailsResponse.getMatchedSkills());
+		                    dto.setNonMatchedSkills(jobDetailsResponse.getSkillsRequired());
+		                    dto.setAdditionalSkills(jobDetailsResponse.getAdditionalSkills());
+		                   
+		                } else {
+		                    System.out.println("Unexpected response body type: " + responseBody.getClass().getName());
+		                }
+	               
+		                
+	                Map<String, Double> testScores = applicantTestRepository.findTestScoresByApplicantId(appliedApplicantInfo.getId());
+	                
+	                Double aptitudeScore = testScores.get("aptitudeScore");
+	                Double technicalScore = testScores.get("technicalScore");
+
+	                dto.setApptitudeScore(aptitudeScore);
+	                dto.setTechnicalScore(technicalScore);
+
+	                if (aptitudeScore != null && technicalScore != null && aptitudeScore >= 70.00 && technicalScore >= 70.00) {
+	                    dto.setPreScreenedCondition("PreScreened");
+	                } else {
+	                    dto.setPreScreenedCondition("NotPreScreened");
+	                }
+	                
+	                
+	                
+	             // Find applicant skills based on applicant ID
+	                List<ApplicantSkillBadge> applicantSkills = applicantSkillBadgeRepository.findPassedSkillBadgesByApplicantId(appliedApplicantInfo.getId());
+                    
+	                if (applicantSkills != null && !applicantSkills.isEmpty()) {
+	                    // Use the already retrieved applicantSkills to set the DTO
+	                    dto.setApplicantSkillBadges(applicantSkills);
+	                }
+	               
 	            } catch (Exception e) {
 	                e.printStackTrace();
 	            }
