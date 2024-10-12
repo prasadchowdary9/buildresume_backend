@@ -1,6 +1,7 @@
 package com.talentstream.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,4 +22,5 @@ public interface CompanyProfileRepository extends JpaRepository<CompanyProfile, 
 	@Query("SELECT CASE WHEN COUNT(c) > 0 THEN true ELSE false END FROM CompanyProfile c WHERE c.jobRecruiter.recruiterId = :recruiterId")
     boolean existsByJobRecruiterId(@Param("recruiterId") Long recruiterId);	
 	CompanyProfile findByJobRecruiter_RecruiterId(Long jobRecruiterId);
+	Optional<CompanyProfile>  findAllByJobRecruiter_RecruiterId(Long jobRecruiterId);
 }
