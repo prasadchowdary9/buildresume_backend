@@ -1,6 +1,8 @@
 package com.talentstream.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import com.talentstream.dto.CompanyProfileDTO;
@@ -15,6 +17,8 @@ import java.util.Optional;
 public class CompanyProfileService {
 
     private final CompanyProfileRepository companyProfileRepository;
+    
+    private static  final  Logger logger = LoggerFactory.getLogger(CompanyProfileService.class);
 
     @Autowired
     JobRecruiterRepository jobRecruiterRepository;
@@ -52,6 +56,52 @@ public class CompanyProfileService {
         return companyProfile.map(this::convertEntityToDTO);
     }
 
+    public Optional<CompanyProfileDTO> getCompanyProfileDetailsByRecruiterId(Long jobRecruiterId){
+    	Optional<CompanyProfile> companyProfile = companyProfileRepository.findAllByJobRecruiter_RecruiterId(jobRecruiterId);
+    	if(jobRecruiterId==null) {
+    		logger.info("recruiter not found for this id",jobRecruiterId);
+    		return Optional.empty();
+    	}
+    	logger.info("sucessfully got company details",jobRecruiterId);
+    	return companyProfile.map(this::convertEntityToDTO);
+    	
+    } 
+    
+    public String updateCompanyDetails(CompanyProfileDTO companyProfileDTO, Long jobRecruiterId) throws Exception {
+    	JobRecruiter jobRecruiter = jobRecruiterRepository.findByRecruiterId(jobRecruiterId);
+    	if(jobRecruiter == null) {
+    		 throw new CustomException("Recruiter not found for ID: " + jobRecruiterId, HttpStatus.NOT_FOUND);
+    	}
+    	logger.info("Recruiter not found for ID: {}", jobRecruiterId);
+    	
+        CompanyProfile companyProfile = companyProfileRepository.findByJobRecruiter_RecruiterId(jobRecruiterId);
+        if(companyProfile == null) {
+        	 throw new CustomException("CompanyProfile not found.", HttpStatus.NOT_FOUND);
+        }
+        logger.info(" company profile found", jobRecruiterId);
+    	    companyProfile.setCompanyName(companyProfileDTO.getCompanyName());
+    	    if(!companyProfileDTO.getCompanyName().equals(jobRecruiter.getCompanyname())) {
+    	    	jobRecruiter.setCompanyname(companyProfileDTO.getCompanyName());
+    	    	jobRecruiterRepository.save(jobRecruiter);
+    	    	logger.info("company details updated in job recruiter table",jobRecruiterId);
+    	    	} 
+           else
+    	    {
+    	    	logger.info("company name not updated in job recruiter table",jobRecruiterId);
+    	    }
+    	    companyProfile.setWebsite(companyProfileDTO.getWebsite());
+    	    companyProfile.setPhoneNumber(companyProfileDTO.getPhoneNumber());
+    	    companyProfile.setEmail(companyProfileDTO.getEmail());
+    	    companyProfile.setHeadOffice(companyProfileDTO.getHeadOffice());
+    	    companyProfile.setAboutCompany(companyProfileDTO.getAboutCompany());
+    	    logger.info("about company updated sucessfully");
+            companyProfile.setSocialProfiles(companyProfileDTO.getSocialProfiles());
+            companyProfileRepository.save(companyProfile);
+            logger.info("company details updated",jobRecruiterId);
+            
+            return "CompanyProfile updated sucessfully";
+    	}
+
     // Converts a CompanyProfile entity to a CompanyProfileDTO.
     private CompanyProfileDTO convertEntityToDTO(CompanyProfile companyProfile) {
         CompanyProfileDTO dto = new CompanyProfileDTO();
@@ -62,6 +112,7 @@ public class CompanyProfileService {
         dto.setEmail(companyProfile.getEmail());
         dto.setHeadOffice(companyProfile.getHeadOffice());
         dto.setSocialProfiles(companyProfile.getSocialProfiles());
+        dto.setAboutCompany(companyProfile.getAboutCompany()); 
         return dto;
     }
 
@@ -76,6 +127,7 @@ public class CompanyProfileService {
         entity.setEmail(companyProfileDTO.getEmail());
         entity.setHeadOffice(companyProfileDTO.getHeadOffice());
         entity.setSocialProfiles(companyProfileDTO.getSocialProfiles());
+        entity.setAboutCompany(companyProfileDTO.getAboutCompany());
         return entity;
     }
 
