@@ -98,6 +98,61 @@ public class CompanyProfileController {
 	        }
 	    }
 	    
+	    @GetMapping("/recruiter/getCompanyProfile/{jobRecruiterId}")
+	    public ResponseEntity<CompanyProfileDTO> getCompanyProfileByRecruiterId(@PathVariable Long jobRecruiterId ){
+	    	try {
+	    		 Optional<CompanyProfileDTO> companyProfileDTO = companyProfileService.getCompanyProfileDetailsByRecruiterId(jobRecruiterId);
+	             return companyProfileDTO.map(profile -> {
+	                 logger.info("Company profile retrieved successfully for RecruiterID: {}", jobRecruiterId);
+	                 return new ResponseEntity<>(profile, HttpStatus.OK);
+	             }).orElseGet(() -> {
+	                 logger.info("Company profile not found for RecruiterID: {}", jobRecruiterId);
+	                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	             });
+	        } catch (CustomException ce) {
+	        	 logger.info("Error occurred while retrieving company profile for RecruiterID: {}", jobRecruiterId, ce);
+	            return ResponseEntity.status(ce.getStatus()).body(null);
+	        } catch (Exception e) {
+	        	logger.info("Internal server error occurred while retrieving company profile for RecruiterID: {}", jobRecruiterId, e);
+	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+	        }
+	    }
+	    
+	    @PutMapping("/companyprofile/update-companyprofile/{jobRecruiterId}")
+	    public ResponseEntity<String> updateCompanyProfile(@PathVariable Long jobRecruiterId, @Valid @RequestBody CompanyProfileDTO companyProfileDTO, BindingResult bindingResult ){
+	    	if (bindingResult.hasErrors()) {
+	            // Handle validation errors
+	    		Map<String, String> fieldErrors = new LinkedHashMap<>();
+	    		bindingResult.getFieldErrors().forEach(fieldError -> {
+	                String fieldName = fieldError.getField();
+	                String errorMessage = fieldError.getDefaultMessage();
+ 
+	                // Append each field and its error message on a new line
+	                fieldErrors.merge(fieldName, errorMessage, (existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
+	            });
+ 
+	            // Construct the response body with each field and its error message on separate lines
+	            StringBuilder responseBody = new StringBuilder();
+	            fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ").append(errorMessage).append("\n"));
+ 
+	            return ResponseEntity.badRequest().body(responseBody.toString());
+	        }
+	    	
+	    	try {
+	    		
+	           companyProfileService.updateCompanyDetails(companyProfileDTO,jobRecruiterId);
+	           logger.info("Company profile updated successfully for job recruiter ID: {}", jobRecruiterId);
+	           return ResponseEntity.status(HttpStatus.OK).body("CompanyProfile updated successfully");
+	        } catch (CustomException ce) {
+	        	 logger.error("Error occurred while updating company profile details for job recruiter ID: {}", jobRecruiterId, ce);
+	            return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
+	        } catch (Exception e) {
+	        	 logger.error("Internal server error occurred while updating company profile for job recruiter ID: {}", jobRecruiterId, e);
+	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");
+	        }
+	    }
+	    	
+	    
 	    @GetMapping("/companyprofile/approval-status/{jobRecruiterId}")
 	    public ResponseEntity<String> checkApprovalStatus(@PathVariable Long jobRecruiterId) {
 	        try {
