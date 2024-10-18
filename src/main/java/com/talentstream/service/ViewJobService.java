@@ -225,6 +225,7 @@ public ResponseEntity<?> getJobDetailsForApplicantSkillMatch(Long jobId, Long ap
 			    Set<ApplicantSkills> matchedSkills = new HashSet<>();
 			   
 			    Set<ApplicantSkills> neitherMatchedNorNonMatchedSkills = new HashSet<>(applicantSkills);
+			    int originalJobSkillsSize = jobSkills.size();
 			    
 			    
 			    for (ApplicantSkills applicantSkill : applicantSkills) {
@@ -246,9 +247,10 @@ public ResponseEntity<?> getJobDetailsForApplicantSkillMatch(Long jobId, Long ap
 			    job.setSkillsRequired(jobSkills);
 		
 			
-			 double matchPercentage = ((double) matchedSkills.size() / jobSkills.size()) * 100;
+			 double matchPercentage = ((double) matchedSkills.size() / originalJobSkillsSize) * 100;
+			 System.out.println(matchPercentage+" match ");
 			    int roundedMatchPercentage = (int) Math.round(matchPercentage);
-			
+			    System.out.println(roundedMatchPercentage+" round ");
 			    JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
 			jobDTO.setMatchPercentage(roundedMatchPercentage);
 			jobDTO.setMatchedSkills(matchedSkills);
