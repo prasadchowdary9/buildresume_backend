@@ -488,8 +488,9 @@ public class ApplyJobService {
 	                Double aptitudeScore = testScores.get("aptitudeScore");
 	                Double technicalScore = testScores.get("technicalScore");
 
-	                dto.setApptitudeScore(aptitudeScore);
-	                dto.setTechnicalScore(technicalScore);
+	                dto.setApptitudeScore(aptitudeScore != null ? aptitudeScore : 0.0);
+	                dto.setTechnicalScore(technicalScore != null ? technicalScore : 0.0);
+
 
 	                if (aptitudeScore != null && technicalScore != null && aptitudeScore >= 70.00 && technicalScore >= 70.00) {
 	                    dto.setPreScreenedCondition("PreScreened");
