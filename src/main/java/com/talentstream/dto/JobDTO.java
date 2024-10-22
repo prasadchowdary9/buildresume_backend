@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.talentstream.entity.ApplicantSkillBadge;
 import com.talentstream.entity.ApplicantSkills;
 import com.talentstream.entity.ScreeningQuestion;
 
@@ -25,6 +26,36 @@ public class JobDTO {
 	private String isSaved;
 	
 	private Set<ScreeningQuestion> screeningQuestions;
+	
+	private Double aptitudeScore;  
+	
+	private Double technicalScore;
+	
+	private List<ApplicantSkillBadge> applicantSkillBadges;
+
+	public List<ApplicantSkillBadge> getApplicantSkillBadges() {
+		return applicantSkillBadges;
+	}
+
+	public void setApplicantSkillBadges(List<ApplicantSkillBadge> applicantSkillBadges) {
+		this.applicantSkillBadges = applicantSkillBadges;
+	}
+
+	public Double getAptitudeScore() {
+		return aptitudeScore;
+	}
+
+	public void setAptitudeScore(Double aptitudeScore) {
+		this.aptitudeScore = aptitudeScore;
+	}
+
+	public Double getTechnicalScore() {
+		return technicalScore;
+	}
+
+	public void setTechnicalScore(Double technicalScore) {
+		this.technicalScore = technicalScore;
+	}
 
 	public String getIsSaved() {
 		return isSaved;
