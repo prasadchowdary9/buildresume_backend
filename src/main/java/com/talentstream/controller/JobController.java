@@ -332,6 +332,7 @@ public class JobController {
         try {
             logger.info("Retrieving active jobs for recruiterId={}", recruiterId);
             return ResponseEntity.ok(jobService.getActiveJobsForRecruiter(recruiterId));
+            
         } catch (Exception e) {
             logger.error("Internal server error while retrieving active jobs for recruiterId={}", recruiterId, e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error occurred.");

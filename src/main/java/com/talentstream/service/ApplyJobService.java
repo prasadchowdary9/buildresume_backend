@@ -548,6 +548,52 @@ public class ApplyJobService {
 	                dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
 	                dto.setMinimumQualification(applicantProfile.getQualification());
 	                dto.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
+	                dto.setPreferredJobLocations(applicantProfile.getPreferredJobLocations());
+	                dto.setQualification(applicantProfile.getQualification());
+	                dto.setSpecialization(applicantProfile.getSpecialization());
+	                
+	                ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicantSkillMatch(dto.getJobId(), appliedApplicantInfo.getId());
+		             // Extract the body from the ResponseEntity
+		                Object responseBody = jobDetails.getBody();
+		             // Assuming the body is of type JobDetailsResponse (replace with actual class name)
+		                if (responseBody instanceof JobDTO) {
+		                	JobDTO jobDetailsResponse = (JobDTO) responseBody;
+		                    
+		                    dto.setMatchPercentage(jobDetailsResponse.getMatchPercentage());
+		                    dto.setMatchedSkills(jobDetailsResponse.getMatchedSkills());
+		                    dto.setNonMatchedSkills(jobDetailsResponse.getSkillsRequired());
+		                    dto.setAdditionalSkills(jobDetailsResponse.getAdditionalSkills());
+		                   
+		                } else {
+		                    System.out.println("Unexpected response body type: " + responseBody.getClass().getName());
+		                }
+	               
+		                
+	                Map<String, Double> testScores = applicantTestRepository.findTestScoresByApplicantId(appliedApplicantInfo.getId());
+	                
+	                Double aptitudeScore = testScores.get("aptitudeScore");
+	                Double technicalScore = testScores.get("technicalScore");
+
+	                dto.setApptitudeScore(aptitudeScore != null ? aptitudeScore : 0.0);
+	                dto.setTechnicalScore(technicalScore != null ? technicalScore : 0.0);
+
+
+	                if (aptitudeScore != null && technicalScore != null && aptitudeScore >= 70.00 && technicalScore >= 70.00) {
+	                    dto.setPreScreenedCondition("PreScreened");
+	                } else {
+	                    dto.setPreScreenedCondition("NotPreScreened");
+	                }
+	                
+	                
+	                
+	             // Find applicant skills based on applicant ID
+	                List<ApplicantSkillBadge> applicantSkills = applicantSkillBadgeRepository.findPassedSkillBadgesByApplicantId(appliedApplicantInfo.getId());
+                   
+	                if (applicantSkills != null && !applicantSkills.isEmpty()) {
+	                    // Use the already retrieved applicantSkills to set the DTO
+	                    dto.setApplicantSkillBadges(applicantSkills);
+	                }
+	                
 	                applicantMap.put(applicantKey, dto);
 	            } catch (Exception e) {
 	                e.printStackTrace();
