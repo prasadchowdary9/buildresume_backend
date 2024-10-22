@@ -234,4 +234,16 @@ public class ApplicantProfileController {
         String result = applicantProfileService.updateApplicantProfile1(id, updateDTO);
         return ResponseEntity.ok(result);
     }
+    
+    @GetMapping("getalldetails/{applicantId}/{jobId}")
+    public ResponseEntity<?> getApplicantDetails(@PathVariable Long applicantId, @PathVariable Long jobId) {
+    	logger.debug("fetching applicant id and job id :{}",applicantId,jobId);
+    	try {
+    		logger.info("details fetched sucessfully for applicant id and job id: {}",applicantId,jobId);
+    		return applicantProfileService.getJobDetailsForApplicantSkillMatch(applicantId,jobId);
+        }catch (CustomException e) {
+        	logger.error("details not found for applicantId and jobId :{}",applicantId,jobId);
+        	return ResponseEntity.notFound().build();
+        }
+    }
 }

@@ -3,30 +3,41 @@ package com.talentstream.service;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.talentstream.exception.CustomException;
 import com.talentstream.dto.ApplicantProfileDTO;
 import com.talentstream.dto.ApplicantProfileViewDTO;
 import com.talentstream.dto.BasicDetailsDTO;
+import com.talentstream.dto.JobDTO;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantProfile;
 import com.talentstream.entity.ApplicantProfileUpdateDTO;
+import com.talentstream.entity.ApplicantSkillBadge;
 import com.talentstream.entity.ApplicantSkills;
+import com.talentstream.entity.Job;
+import com.talentstream.entity.RecuriterSkills;
 import com.talentstream.entity.SkillBadge;
 import com.talentstream.repository.ApplicantProfileRepository;
 import com.talentstream.repository.ApplicantSkillBadgeRepository;
 import com.talentstream.repository.ApplicantSkillsRepository;
+import com.talentstream.repository.ApplicantTestRepository;
+import com.talentstream.repository.JobRepository;
 import com.talentstream.repository.RegisterRepository;
 import com.talentstream.repository.SkillBadgeRepository;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class ApplicantProfileService {
@@ -41,6 +52,14 @@ public class ApplicantProfileService {
 	
 	@Autowired
     private ApplicantSkillBadgeRepository applicantSkillBadgeRepository;
+	
+	@Autowired
+	private JobRepository  jobRepository;
+	
+	@Autowired
+	private ApplicantTestRepository applicantTestRepository;
+	
+	private static final Logger logger = LoggerFactory.getLogger(ApplicantProfileService.class);
 
 	@Autowired
 	public ApplicantProfileService(ApplicantProfileRepository applicantProfileRepository,
@@ -345,5 +364,75 @@ public class ApplicantProfileService {
 		return applicantService.save(applicant);
 
 	}
+	
+	public ResponseEntity<?> getJobDetailsForApplicantSkillMatch(Long applicantId, Long jobId) {
+	    System.out.println("Got job ID: " + jobId + " and applicant ID: " + applicantId);
+ 
+	    if (jobId == null) {
+	        System.out.println("Job ID is null");
+	        return ResponseEntity.badRequest().body("Job ID cannot be null.");
+	    }
+ 
+	    final ModelMapper modelMapper = new ModelMapper();
+	    Job job = jobRepository.findById(jobId).orElseThrow(() ->
+	        new CustomException("Job with ID " + jobId + " not found.", HttpStatus.INTERNAL_SERVER_ERROR));
+ 
+	    ApplicantProfile applicantProfile = applicantProfileRepository.findByApplicantId(applicantId);
+	    if (applicantProfile == null) {
+	        throw new CustomException("Applicant with ID " + applicantId + " not found.", HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+ 
+	    Set<ApplicantSkills> applicantSkills = applicantProfile.getSkillsRequired();
+	    Set<RecuriterSkills> jobSkills = job.getSkillsRequired();
+	    Set<ApplicantSkills> matchedSkills = new HashSet<>();
+	    Set<ApplicantSkills> neitherMatchedNorNonMatchedSkills = new HashSet<>(applicantSkills);
+	    int originalJobSkillsSize = jobSkills.size();
+ 
+	    // Matching skills logic...
+	    for (ApplicantSkills applicantSkill : applicantSkills) {
+	        boolean isMatched = jobSkills.stream()
+	            .anyMatch(jobSkill -> jobSkill.getSkillName().equalsIgnoreCase(applicantSkill.getSkillName()));
+ 
+	        if (isMatched) {
+	            matchedSkills.add(applicantSkill);
+	            neitherMatchedNorNonMatchedSkills.remove(applicantSkill);
+	        }
+	    }
+ 
+	    jobSkills.removeIf(jobSkill -> matchedSkills.stream()
+	        .anyMatch(matchedSkill -> matchedSkill.getSkillName().equalsIgnoreCase(jobSkill.getSkillName())));
+ 
+	    job.setSkillsRequired(jobSkills);
+	    Double matchPercentage = ((double) matchedSkills.size() /originalJobSkillsSize) * 100;
+	    System.out.println(matchPercentage + " match ");
+	    int roundedMatchPercentage = (int) Math.round(matchPercentage);
+	    System.out.println(roundedMatchPercentage + " round ");
+	    JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
+	    jobDTO.setMatchPercentage(roundedMatchPercentage);
+ 
+	    // Retrieve test scores for the specific applicant ID
+	    Map<String, Double> testScores = applicantTestRepository.findTestScoresByApplicantId(applicantId);
+	    Double aptitudeScore = testScores != null ? testScores.getOrDefault("aptitudeScore", 0.0) : 0.0;
+	    Double technicalScore = testScores != null ? testScores.getOrDefault("technicalScore", 0.0) : 0.0;
+	    jobDTO.setAptitudeScore(aptitudeScore);
+	    jobDTO.setTechnicalScore(technicalScore);
+	    System.out.println("Aptitude Score: " + aptitudeScore);
+	    System.out.println("Technical Score: " + technicalScore);
+	    jobDTO.setMatchedSkills(matchedSkills);
+	    jobDTO.setAdditionalSkills(neitherMatchedNorNonMatchedSkills);
+	    try {
+	    List<ApplicantSkillBadge> applicantSkillsBadges = applicantSkillBadgeRepository.findPassedSkillBadgesByApplicantId(applicantId);
+	    logger.info("got skill badge for applicantId",applicantSkillsBadges.size());
+        if (applicantSkillsBadges != null && !applicantSkillsBadges.isEmpty()) {
+            // Use the already retrieved applicantSkills to set the DTO
+          jobDTO.setApplicantSkillBadges(applicantSkillsBadges);
+        }
+       
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+	    return ResponseEntity.ok(jobDTO);
+	}
+  
 
 }

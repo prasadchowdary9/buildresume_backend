@@ -24,4 +24,5 @@ public interface ApplicantTestRepository extends JpaRepository<ApplicantTest, Lo
 	           "WHERE test.applicant.id = :applicantId")
 	Map<String, Double> findTestScoresByApplicantId(@Param("applicantId") Long applicantId);
 
+
 }
