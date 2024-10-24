@@ -741,4 +741,47 @@ public class ApplyJobService {
 			throw new CustomException("Error while retrieving ApplyJob", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	public String updateStatusByApplicantId(Long applicantId,Long applyJobId,String newStatus) {
+		Applicant applicant = applicantRepository.findById(applicantId);
+		if (applicant == null) {
+			throw new CustomException("Applicant ID not found", HttpStatus.NOT_FOUND);
+		}
+		ApplyJob applyJob = applyJobRepository.findById(applyJobId)
+				.orElseThrow(() -> new EntityNotFoundException("ApplyJob not found"));
+		//to check whether that particular applicant is asscociated with that job
+		if (applyJob.getApplicant().getId()!=(applicantId)) {
+			throw new CustomException("Applicant not applied for this job",HttpStatus.BAD_REQUEST);
+		}
+		Job job = applyJob.getJob();
+		if (job != null) {
+			JobRecruiter recruiter = job.getJobRecruiter();
+			if (recruiter != null) {
+				String companyName = recruiter.getCompanyname();
+				String jobTitle = job.getJobTitle();
+				if (companyName != null) {
+					applyJob.setApplicantStatus(newStatus);
+					LocalDateTime currentDate = LocalDateTime.now();
+ 
+					LocalDateTime currentChangeDateTime = currentDate;
+ 
+					LocalDateTime updatedChangeDateTime = currentChangeDateTime
+							.plusHours(5)
+							.plusMinutes(30);
+					applyJob.setApplicationDate(updatedChangeDateTime);
+					applyJob.setChangeDate(updatedChangeDateTime);
+ 
+					applyJobRepository.save(applyJob);
+ 
+					incrementAlertCount(applyJob.getApplicant());
+ 
+					saveStatusHistory(applyJob, applyJob.getApplicantStatus());
+ 
+					sendAlerts(applyJob, applyJob.getApplicantStatus(), companyName, jobTitle);
+					return "Applicant status for applicant ID " + applicantId + " updated to: " + newStatus;
+				}
+			}
+		}
+		return "Company information not found for the given ApplyJob";
+	}
 }
