@@ -464,5 +464,24 @@ public class ApplyJobController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to mark alert as seen.");
 		}
 	}
+	
+	@PutMapping("/recruiters/applicant/{applicantId}/applyjob-update-status/{applyJobId}/{newStatus}")
+	public ResponseEntity<String> updateApplicantstatus(@PathVariable Long applicantId, @PathVariable Long applyJobId,@PathVariable String newStatus){
+		try
+		{
+			logger.info("Received request to update applicantstatus for applyJobId:{} of applicantId: {} to status :{}",applyJobId,applicantId,newStatus);
+			String updatedMessage = applyJobService.updateStatusByApplicantId(applicantId,applyJobId,newStatus);
+			logger.info("Applicant status updated sucessfully for applyJobId:{} of applicantId:{} to status :{}",applyJobId,applicantId,newStatus);
+			return ResponseEntity.ok(updatedMessage);
+		}
+		catch(CustomException ce) {
+			logger.error("error while updating applicant status for applicant id {}:{}",applicantId,ce.getMessage());
+			return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
+		}
+		catch(Exception e) {
+			logger.error("Unexpected error while updating applicantstatus for applyJobId:{} of this applicantId {}:{}",applyJobId,applicantId,e);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
+		}
+		}
 
 }
