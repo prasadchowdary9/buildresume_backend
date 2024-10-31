@@ -14,7 +14,8 @@ public class CompanyProfile {
     private String website;
     private String phoneNumber;
     private String email;
-    private String headOffice; 
+    private String headOffice;
+    @Column(name = "about_company", columnDefinition = "TEXT")
     private String aboutCompany;
     @OneToOne
     @JoinColumn(name = "jobRecruiter_id")
