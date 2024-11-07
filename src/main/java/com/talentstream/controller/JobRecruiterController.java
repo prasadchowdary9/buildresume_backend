@@ -5,7 +5,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.*;
-
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import javax.crypto.spec.IvParameterSpec;
+import java.security.InvalidKeyException;
+import java.util.Base64;
 import javax.validation.Valid;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -109,11 +115,37 @@ public class JobRecruiterController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error registering applicant");
         }
     }
+    
+    public String decrypt(String encryptedPassword, String ivString) throws Exception {
+        String secretKey = "1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p"; // Must match the frontend key
+        
+        // Convert IV from Base64
+        byte[] iv = Base64.getDecoder().decode(ivString);
+        
+        // Ensure the key length is correct
+        SecretKeySpec key = new SecretKeySpec(secretKey.getBytes(), "AES");
+
+        // Use IV for decryption
+        IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
+
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, key, ivParameterSpec);
+
+        byte[] decodedBytes = Base64.getDecoder().decode(encryptedPassword);
+        byte[] decryptedBytes = cipher.doFinal(decodedBytes);
+        
+        return new String(decryptedBytes);
+    }
+
+
 
     @PostMapping("/recruiterLogin")
     public ResponseEntity<Object> login(@RequestBody RecruiterLogin loginRequest) throws Exception {
-        JobRecruiter recruiter = recruiterService.login(loginRequest.getEmail(), loginRequest.getPassword());
-
+    	
+    	String decryptedPassword = decrypt(loginRequest.getPassword(), loginRequest.getIv()).trim();;
+    	System.out.println("decryptedBytes "+decryptedPassword);
+        JobRecruiter recruiter = recruiterService.login(loginRequest.getEmail(), decryptedPassword);
+        loginRequest.setPassword(decryptedPassword);
         if (recruiter != null) {
             return createAuthenticationToken(loginRequest, recruiter);
         } else {
