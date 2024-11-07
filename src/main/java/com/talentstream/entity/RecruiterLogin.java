@@ -11,10 +11,24 @@ public class RecruiterLogin {
 	@Id
 	private String email;
 	private String password;
+	private String iv;
+	
+	
+
+	public String getIv() {
+		return iv;
+	}
+
+
+	public void setIv(String iv) {
+		this.iv = iv;
+	}
+
 
 	public String getEmail() {
 		return email;
 	}
+	
 
 	public void setEmail(String email) {
 		this.email = email;
