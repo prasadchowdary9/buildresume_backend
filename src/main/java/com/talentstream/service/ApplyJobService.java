@@ -701,7 +701,14 @@ public class ApplyJobService {
 	// on failure.
 	public long countJobApplicantsByRecruiterId(Long recruiterId) {
 		try {
-			return applyJobRepository.countJobApplicantsByRecruiterId(recruiterId);
+			List<AppliedApplicantInfo> appliedApplicants = applyJobRepository.findAppliedApplicantsInfo(recruiterId);
+			 // Use a Set to ensure unique applicants based on email and job ID
+	        Set<String> uniqueApplicants = appliedApplicants.stream()
+	            .map(applicant -> applicant.getEmail() + "_" + applicant.getApplyjobid())
+	            .collect(Collectors.toSet());
+
+	        // Count the unique applicants
+	        return uniqueApplicants.size();
 		} catch (Exception e) {
 			throw new CustomException("Failed to count job applicants for the recruiter",
 					HttpStatus.INTERNAL_SERVER_ERROR);
