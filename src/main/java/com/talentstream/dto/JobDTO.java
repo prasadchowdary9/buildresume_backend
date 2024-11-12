@@ -121,9 +121,9 @@ public class JobDTO {
 		@Min(value = 0, message = "Maximum experience cannot be negative")
 		private int maximumExperience;
 		
-		@AssertTrue(message = "Minimum experience should be less than maximum experience")
+		@AssertTrue(message = "Minimum experience should be less than or equal to maximum experience")
 		private boolean isMinimumExperienceLessThanMaximum() {
-		    return minimumExperience < maximumExperience;
+		    return minimumExperience <= maximumExperience;
 		}
 	    
 		@NotNull(message = "MinimumSalary required")
@@ -134,9 +134,9 @@ public class JobDTO {
 		@DecimalMax(value = "1.0E9", inclusive = false, message = "Maximum salary exceeds the allowed limit")
 		private double maxSalary;
 		
-		@AssertTrue(message = "Minimum salary should be less than maximum salary")
+		@AssertTrue(message = "Minimum salary should be less thanor equal to maximum salary")
 	    private boolean isMinimumSalaryLessThanMaximum() {
-	        return minSalary < maxSalary;
+	        return minSalary <= maxSalary;
 	    }
 		
 		@NotBlank(message = "MinimumQualification required")
