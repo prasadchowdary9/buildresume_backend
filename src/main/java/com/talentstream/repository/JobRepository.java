@@ -37,7 +37,10 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
 	    
 	);
 
-	
+	@Query("SELECT j FROM Job j " +
+		       "JOIN FETCH j.skillsRequired " + // Ensure skills are fetched eagerly
+		       "WHERE j.id = :jobId")
+		Job findJobWithSkills(@Param("jobId") Long jobId);
 	
 	@Query("SELECT DISTINCT j FROM Job j " +
 	           "JOIN j.skillsRequired r " +

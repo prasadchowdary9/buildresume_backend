@@ -204,7 +204,7 @@ public class JobService {
                 }).collect(Collectors.toSet());
             job.setScreeningQuestions(screeningQuestions);
         }
-
+       job.setJobURL(jobDTO.getJobURL());
         return job;
     }
 	

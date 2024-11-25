@@ -67,6 +67,19 @@ public class Job {
 	private String promote = "no";
 
 	private String isSaved;
+	
+
+    private String jobURL = "https://www.bitlabs.in/jobs";
+	
+	
+
+	public String getJobURL() {
+		return jobURL;
+	}
+
+	public void setJobURL(String jobURL) {
+		this.jobURL = jobURL;
+	}
 
 	public String getIsSaved() {
 		return isSaved;
