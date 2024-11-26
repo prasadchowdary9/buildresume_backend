@@ -34,6 +34,8 @@ import com.talentstream.entity.AppliedApplicantInfoDTO;
 import com.talentstream.entity.ApplyJob;
 import com.talentstream.entity.Job;
 import com.talentstream.entity.MatchTypes;
+import com.talentstream.entity.RecuriterSkills;
+
 import java.util.stream.Collectors;
 
 import javax.mail.internet.InternetAddress;
@@ -445,11 +447,15 @@ public class ApplyJobService {
 	// Retrieves applied applicants for a given job recruiter, mapping their
 	// information into DTOs and organizing by unique keys.
 	public Map<String, List<AppliedApplicantInfoDTO>> getAppliedApplicants(long jobRecruiterId) {
+		
 	    List<AppliedApplicantInfo> appliedApplicants = applyJobRepository.findAppliedApplicantsInfo(jobRecruiterId);
+	    
 	    Map<String, AppliedApplicantInfoDTO> applicantMap = new HashMap<>();
 
 	    for (AppliedApplicantInfo appliedApplicantInfo : appliedApplicants) {
+	    	
 	        String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
+	        System.out.println("applicantKey "+applicantKey);
 	        AppliedApplicantInfoDTO dto;
 
 	        if (!applicantMap.containsKey(applicantKey)) {
@@ -516,7 +522,7 @@ public class ApplyJobService {
 	            dto = applicantMap.get(applicantKey);
 	        }
 
-	        dto.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
+	        //dto.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
 	    }
 
 	    // Convert map values to list as the result requires a Map<String, List<AppliedApplicantInfoDTO>>
@@ -547,7 +553,7 @@ public class ApplyJobService {
 	                dto.setName(name);
 	                dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
 	                dto.setMinimumQualification(applicantProfile.getQualification());
-	                dto.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
+	                //dto.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
 	                dto.setPreferredJobLocations(applicantProfile.getPreferredJobLocations());
 	                dto.setQualification(applicantProfile.getQualification());
 	                dto.setSpecialization(applicantProfile.getSpecialization());
@@ -599,9 +605,9 @@ public class ApplyJobService {
 	                e.printStackTrace();
 	            }
 	        } else {
-	            AppliedApplicantInfoDTO existingDTO = applicantMap.get(applicantKey);
+	            //AppliedApplicantInfoDTO existingDTO = applicantMap.get(applicantKey);
 	            try {
-	                existingDTO.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
+	                //existingDTO.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
 	            } catch (Exception e) {
 	                e.printStackTrace();
 	            }
@@ -638,9 +644,17 @@ public class ApplyJobService {
 		dto.setApplicantStatus(appliedApplicantInfo.getApplicantStatus());
 		dto.setMinimumExperience(appliedApplicantInfo.getMinimumExperience());
 		dto.setMinimumQualification(appliedApplicantInfo.getMinimumQualification());
-		List<String> skills = new ArrayList<>();
-		skills.add(appliedApplicantInfo.getSkillName());
-		dto.setSkillName(skills);
+		 Job job = jobRepository.findById(appliedApplicantInfo.getJobId()).orElse(null);
+		    if (job != null) {
+		        Set<RecuriterSkills> jobSkills = job.getSkillsRequired();
+		        if (jobSkills != null) {
+		            List<String> skills = jobSkills.stream()
+		                .filter(skill -> skill.getSkillName() != null) // Avoid null keys
+		                .map(RecuriterSkills::getSkillName)
+		                .collect(Collectors.toList());
+		            dto.setSkillName(skills);
+		        }
+		    }
 		dto.setLocation(appliedApplicantInfo.getLocation());
 		return dto;
 	}

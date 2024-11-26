@@ -200,8 +200,18 @@ public class JobDTO {
 	    private String mobilenumber;
 	    private String email;
 	    private LocalDate creationDate;
-	    private String jobStatus="Apply Now";	   
-	    public Set<ApplicantSkills> getMatchedSkills() {
+	    private String jobStatus="Apply Now";
+	    private String jobURL;
+	    
+	    public String getJobURL() {
+			return jobURL;
+		}
+
+		public void setJobURL(String jobURL) {
+			this.jobURL = jobURL;
+		}
+
+		public Set<ApplicantSkills> getMatchedSkills() {
 			return matchedSkills;
 		}
 		public void setMatchedSkills(Set<ApplicantSkills> matchedSkills) {

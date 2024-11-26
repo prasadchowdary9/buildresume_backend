@@ -80,6 +80,7 @@ public ResponseEntity<JobDTO> getJobDetailsForApplicant(Long jobId) {
 public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId) {
     final ModelMapper modelMapper = new ModelMapper();
     Job job = jobRepository.findById(jobId).orElse(null);
+    
  // Define the mapping between skills and suggested courses
     Map<String, String> skillToCourseMap = new HashMap<>();
     skillToCourseMap.put("HTML", "HTML&CSS");
@@ -110,7 +111,7 @@ public ResponseEntity<?> getJobDetailsForApplicant(Long jobId, Long applicantId)
 
     Set<ApplicantSkills> applicantSkills = applicantProfile.getSkillsRequired();
     Set<RecuriterSkills> jobSkills = job.getSkillsRequired(); // Assuming Job has a method to get required skills
-    
+
    
     Set<ApplicantSkills> matchedSkills = new HashSet<>();
    
