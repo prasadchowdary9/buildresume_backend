@@ -202,8 +202,19 @@ public class JobDTO {
 	    private LocalDate creationDate;
 	    private String jobStatus="Apply Now";
 	    private String jobURL;
+	    private Integer visitorCount;
 	    
-	    public String getJobURL() {
+	    
+	    
+	    public Integer getVisitorCount() {
+			return visitorCount;
+		}
+
+		public void setVisitorCount(Integer visitorCount) {
+			this.visitorCount = visitorCount;
+		}
+
+		public String getJobURL() {
 			return jobURL;
 		}
 
