@@ -70,8 +70,18 @@ public class Job {
 	
 
     private String jobURL = "https://www.bitlabs.in/jobs";
+    @Column(nullable = false)
+    private Integer visitorCount = 0; // Default value
+ 
 	
-	
+
+	public Integer getVisitorCount() {
+		return visitorCount;
+	}
+
+	public void setVisitorCount(Integer visitorCount) {
+		this.visitorCount = visitorCount;
+	}
 
 	public String getJobURL() {
 		return jobURL;

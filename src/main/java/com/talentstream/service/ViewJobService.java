@@ -60,6 +60,7 @@ public ResponseEntity<JobDTO> getJobDetailsForApplicant(Long jobId) {
       //  jobDTO.setJobHighlights(job.getJobHighlights());
         jobDTO.setDescription(job.getDescription());
         jobDTO.setCreationDate(job.getCreationDate());
+        jobDTO.setJobURL(job.getJobURL());
         long jobRecruiterId = job.getJobRecruiter().getRecruiterId();
 	    byte[] imageBytes = null;
 //	    try {
