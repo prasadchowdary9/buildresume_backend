@@ -1,0 +1,1461 @@
+28-11-2024_10:55:31.430{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+28-11-2024_10:55:31.450{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 12224 (C:\Users\Madar\Desktop\EndToEnd_Bugsprint16\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\EndToEnd_Bugsprint16\TalentStreamBE)
+28-11-2024_10:55:31.450{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+28-11-2024_10:55:31.451{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+28-11-2024_10:55:32.550{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+28-11-2024_10:55:32.683{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 123 ms. Found 24 JPA repository interfaces.
+28-11-2024_10:55:33.291{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+28-11-2024_10:55:33.299{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+28-11-2024_10:55:33.300{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+28-11-2024_10:55:33.300{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+28-11-2024_10:55:33.448{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+28-11-2024_10:55:33.448{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1919 ms
+28-11-2024_10:55:33.650{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+28-11-2024_10:55:33.781{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+28-11-2024_10:55:34.052{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+28-11-2024_10:55:34.226{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+28-11-2024_10:55:34.989{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+28-11-2024_10:55:35.041{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+28-11-2024_10:55:38.506{UTC}|report-tool|WARN ||c.z.h.p.ProxyLeakTask|Connection leak detection triggered for org.postgresql.jdbc.PgConnection@6be422da on thread main, stack trace follows
+java.lang.Exception: Apparent connection leak detected
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43)
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60)
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:183)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:104)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:176)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:171)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:156)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:262)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:236)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5211)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1393)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1383)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:916)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1393)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1383)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:916)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:430)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.talentstream.TalentStreamApplication.main(TalentStreamApplication.java:34)
+28-11-2024_10:55:43.719{UTC}|report-tool|INFO ||c.z.h.p.ProxyLeakTask|Previously reported leaked connection org.postgresql.jdbc.PgConnection@6be422da on thread main was returned to the pool (unleaked)
+28-11-2024_10:55:43.721{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28-11-2024_10:55:43.742{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+28-11-2024_10:55:44.087{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+28-11-2024_10:55:44.120{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+28-11-2024_10:55:44.507{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+28-11-2024_10:55:45.431{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f4ae871, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1cc9b564, org.springframework.security.web.context.SecurityContextPersistenceFilter@5713e261, org.springframework.security.web.header.HeaderWriterFilter@3d2a164e, org.springframework.security.web.authentication.logout.LogoutFilter@2f26634a, com.talentstream.filter.JwtRequestFilter@50e32998, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16bed816, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70290678, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ce80c85, org.springframework.security.web.session.SessionManagementFilter@7d6e2366, org.springframework.security.web.access.ExceptionTranslationFilter@463e0b6a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7aeb5402]
+28-11-2024_10:55:45.622{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+28-11-2024_10:55:45.646{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+28-11-2024_10:55:46.502{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 15.547 seconds (JVM running for 16.63)
+28-11-2024_10:55:46.586{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+28-11-2024_10:55:46.586{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+28-11-2024_10:55:46.588{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+28-11-2024_10:55:46.601{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_10:55:46.601{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_10:55:46.602{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:06:46.976{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:06:47.001{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:06:47.001{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:06:48.612{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:06:48.613{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:06:48.613{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:06:48.808{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.809{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.809{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.809{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.810{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.810{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.821{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.821{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.821{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.821{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_11:06:48.824{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_11:06:48.830{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 3
+28-11-2024_11:06:48.835{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:06:48.835{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:06:48.836{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:06:48.841{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_11:06:48.879{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_11:06:48.885{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_11:06:48.889{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_11:06:48.897{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_11:06:48.899{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.899{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.899{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.903{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 3
+28-11-2024_11:06:48.941{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.941{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.941{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.948{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.949{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.949{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.949{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_11:06:48.956{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.956{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.956{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.963{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.963{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.963{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.964{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.964{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:48.964{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:48.966{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_11:06:48.966{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_11:06:48.982{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_11:06:49.003{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_11:06:49.019{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_11:06:49.021{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_11:06:49.023{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_11:06:49.036{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:49.036{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:49.036{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:49.054{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:49.054{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:49.054{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:49.189{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_11:06:52.874{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:52.875{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:52.875{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:52.904{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:52.904{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:52.904{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:53.159{UTC}|report-tool|WARN ||c.t.c.ApplicantProfileController|No recruiter found with ID: 3
+28-11-2024_11:06:53.392{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:53.392{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:53.393{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:53.559{UTC}|report-tool|WARN ||c.t.c.ApplicantProfileController|No recruiter found with ID: 3
+28-11-2024_11:06:57.828{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:06:57.829{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:06:57.829{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:06:57.963{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:57.964{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:57.964{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:06:58.028{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:06:58.029{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:06:58.029{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:06:58.148{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:58.148{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:06:58.148{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:07:27.858{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:07:27.858{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:07:27.858{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:13:25.024{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:13:25.025{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:13:25.025{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:15:52.136{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:15:52.136{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:15:52.136{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:09.856{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:23:09.857{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:23:09.857{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:23:10.013{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:10.014{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:10.014{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:10.074{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:23:10.074{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:23:10.075{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:23:10.185{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:10.185{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:10.185{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:25.993{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.993{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.994{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.994{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:25.993{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.994{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.994{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.995{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.995{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.995{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:25.995{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:25.995{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.995{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:25.996{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_11:23:25.995{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:25.997{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:25.997{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_11:23:25.996{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_11:23:26.047{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_11:23:26.050{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_11:23:26.050{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_11:23:26.050{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_11:23:26.097{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.097{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.097{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:26.097{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.097{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.097{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:26.109{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_11:23:26.111{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.111{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.111{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:26.112{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_11:23:26.151{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_11:23:26.151{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_11:23:26.159{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_11:23:26.159{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_11:23:26.159{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.159{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.159{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:26.159{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_11:23:26.213{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.214{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:26.214{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:26.231{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_11:23:26.375{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_11:23:33.510{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:23:33.510{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:23:33.510{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:23:33.629{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:33.629{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:33.629{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:23:33.688{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:23:33.688{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:23:33.688{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:23:33.809{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:33.809{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:23:33.809{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:24:05.400{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:24:05.400{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwODIwNywiaWF0IjoxNzMyNzcyMjA3fQ.2Q_tZ2-Tqiqs-MjHAyfp4obeji6SF4311KLEYu7l6Wg
+28-11-2024_11:24:05.400{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:24:41.346{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:24:41.346{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:24:41.346{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:24:41.358{UTC}|report-tool|ERROR||o.a.c.c.C.[.[.[.[dispatcherServlet]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "com.talentstream.entity.Applicant.getEmail()" because "user" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "com.talentstream.entity.Applicant.getEmail()" because "user" is null
+	at com.talentstream.controller.RegisterController.signOut(RegisterController.java:467)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.talentstream.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+28-11-2024_11:24:59.253{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:24:59.253{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:24:59.253{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:24:59.507{UTC}|report-tool|WARN ||c.t.c.ApplicantProfileController|Login failed for recruiter with email: madar.saheb@tekworks.in. Incorrect password.
+28-11-2024_11:25:09.963{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:25:09.964{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:25:09.964{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:25:10.414{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:25:10.414{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:25:10.414{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:25:10.481{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.481{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.481{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.558{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.558{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.559{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.561{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 3
+28-11-2024_11:25:10.565{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:25:10.565{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:25:10.565{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:25:10.589{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.589{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.589{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.589{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.590{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.590{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.592{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_11:25:10.598{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.598{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.598{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.600{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_11:25:10.606{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.606{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.606{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.620{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.620{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.620{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.620{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_11:25:10.651{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.651{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.651{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.653{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 3
+28-11-2024_11:25:10.659{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_11:25:10.685{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_11:25:10.697{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_11:25:10.735{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.735{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.735{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.735{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.735{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.735{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.736{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_11:25:10.768{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.768{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.768{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.781{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.781{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.781{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.782{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_11:25:10.794{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_11:25:10.800{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_11:25:10.848{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_11:25:10.867{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_11:25:10.867{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.867{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:10.867{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:10.932{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_11:25:11.001{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:11.001{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:11.001{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:11.002{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_11:25:11.067{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_11:25:11.071{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_11:25:20.159{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:25:20.160{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:25:20.160{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:25:20.650{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:20.650{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:20.650{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:25:20.737{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_11:25:20.737{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_11:25:20.737{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_11:25:20.871{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:20.871{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:25:20.871{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:26:32.448{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:26:32.448{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:26:32.448{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:26:44.736{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:26:44.850{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:26:44.850{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_11:27:11.128{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:27:11.128{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_11:27:11.129{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_12:50:13.676{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_12:50:13.677{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_12:50:13.678{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_12:53:05.002{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+28-11-2024_12:53:05.105{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+28-11-2024_12:53:05.108{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+28-11-2024_12:53:05.121{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+28-11-2024_12:53:05.147{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+28-11-2024_12:53:05.158{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+28-11-2024_12:53:05.172{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+28-11-2024_12:53:05.228{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+28-11-2024_12:53:05.249{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+28-11-2024_12:53:05.258{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+28-11-2024_12:53:08.517{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+28-11-2024_12:53:08.542{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 17.0.6 on SYMP-LT1030 with PID 10168 (C:\Users\Madar\Desktop\EndToEnd_Bugsprint16\TalentStreamBE\target\classes started by Madar in C:\Users\Madar\Desktop\EndToEnd_Bugsprint16\TalentStreamBE)
+28-11-2024_12:53:08.543{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+28-11-2024_12:53:08.543{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+28-11-2024_12:53:09.880{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+28-11-2024_12:53:10.041{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 147 ms. Found 24 JPA repository interfaces.
+28-11-2024_12:53:10.827{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+28-11-2024_12:53:10.843{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+28-11-2024_12:53:10.844{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+28-11-2024_12:53:10.844{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+28-11-2024_12:53:11.053{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+28-11-2024_12:53:11.053{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 2447 ms
+28-11-2024_12:53:11.269{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+28-11-2024_12:53:11.375{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+28-11-2024_12:53:11.650{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+28-11-2024_12:53:11.817{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+28-11-2024_12:53:13.079{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+28-11-2024_12:53:13.118{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+28-11-2024_12:53:16.902{UTC}|report-tool|WARN ||c.z.h.p.ProxyLeakTask|Connection leak detection triggered for org.postgresql.jdbc.PgConnection@51f4439e on thread main, stack trace follows
+java.lang.Exception: Apparent connection leak detected
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43)
+	at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60)
+	at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:183)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:104)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:176)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:171)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:156)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:262)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:236)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5211)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1393)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1383)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:916)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1393)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1383)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:916)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:430)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.talentstream.TalentStreamApplication.main(TalentStreamApplication.java:34)
+28-11-2024_12:53:25.064{UTC}|report-tool|INFO ||c.z.h.p.ProxyLeakTask|Previously reported leaked connection org.postgresql.jdbc.PgConnection@51f4439e on thread main was returned to the pool (unleaked)
+28-11-2024_12:53:25.065{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28-11-2024_12:53:25.084{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+28-11-2024_12:53:25.586{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+28-11-2024_12:53:25.633{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+28-11-2024_12:53:26.091{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+28-11-2024_12:53:27.245{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b7526a9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18f37d6e, org.springframework.security.web.context.SecurityContextPersistenceFilter@34c31a34, org.springframework.security.web.header.HeaderWriterFilter@6d985720, org.springframework.security.web.authentication.logout.LogoutFilter@77ef7b2b, com.talentstream.filter.JwtRequestFilter@5c04685, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@375dc95c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@197d6cc9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d1b91d1, org.springframework.security.web.session.SessionManagementFilter@70f5f6c7, org.springframework.security.web.access.ExceptionTranslationFilter@7432cb37, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3bf92d96]
+28-11-2024_12:53:27.481{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+28-11-2024_12:53:27.515{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+28-11-2024_12:53:28.498{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 20.423 seconds (JVM running for 21.683)
+28-11-2024_12:53:28.600{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+28-11-2024_12:53:28.600{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+28-11-2024_12:53:28.603{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+28-11-2024_12:53:28.629{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_12:53:28.630{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_12:53:28.630{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_12:58:32.638{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_12:58:32.639{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_12:58:32.639{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_12:59:07.460{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_12:59:07.460{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgwOTMxMCwiaWF0IjoxNzMyNzczMzEwfQ.UojpPuzpi4o-Ns7IwwlU9INHa7UD5RzSfgJF-PDzaaQ
+28-11-2024_12:59:07.461{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_12:59:40.825{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_12:59:40.827{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_12:59:40.827{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_12:59:40.836{UTC}|report-tool|ERROR||o.a.c.c.C.[.[.[.[dispatcherServlet]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "com.talentstream.entity.Applicant.getEmail()" because "user" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "com.talentstream.entity.Applicant.getEmail()" because "user" is null
+	at com.talentstream.controller.RegisterController.signOut(RegisterController.java:467)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.talentstream.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+28-11-2024_13:00:03.601{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_13:00:03.601{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_13:00:03.601{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_13:00:03.976{UTC}|report-tool|WARN ||c.t.c.ApplicantProfileController|Login failed for recruiter with email: madar.saheb@tekworks.in. Incorrect password.
+28-11-2024_13:00:09.697{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_13:00:09.698{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_13:00:09.698{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_13:00:10.399{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_13:00:10.399{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_13:00:10.399{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_13:00:10.425{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_13:00:10.426{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_13:00:10.426{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_13:00:10.487{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.487{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.488{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.500{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 3
+28-11-2024_13:00:10.568{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.569{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.569{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.586{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.586{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.586{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.600{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.600{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.600{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.602{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_13:00:10.602{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_13:00:10.609{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.609{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.609{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.609{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.609{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.609{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.642{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.643{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.643{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.645{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_13:00:10.672{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_13:00:10.689{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_13:00:10.691{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_13:00:10.721{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.722{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.722{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.723{UTC}|report-tool|INFO ||c.t.c.CompanyLogoController|Company logo downloaded successfully for recruiter ID: 3
+28-11-2024_13:00:10.733{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_13:00:10.742{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.742{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.742{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.776{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.776{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.777{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.779{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_13:00:10.787{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.787{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.787{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.787{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_13:00:10.819{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.820{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.820{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.827{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_13:00:10.834{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.834{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.834{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.835{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_13:00:10.858{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_13:00:10.866{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_13:00:10.885{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_13:00:10.901{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.901{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_13:00:10.902{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_13:00:10.915{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_13:00:11.104{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_15:40:08.549{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_15:40:08.552{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_15:40:08.553{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_16:19:45.581{UTC}|report-tool|WARN ||c.z.h.p.HikariPool|HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m59s526ms904µs200ns).
+28-11-2024_16:19:45.697{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7ecebb51 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:19:45.768{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@49a67751 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:19:45.825{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@42395907 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:19:45.874{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@137eaa5e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:19:45.929{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@39cd34f5 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:19:45.980{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@43abc062 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:19:46.046{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4b524871 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:19:46.099{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2d18271f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:19:46.158{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7da2c4d5 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:19:46.212{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6097b3d3 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+28-11-2024_16:29:43.393{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:29:43.394{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:29:43.395{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:29:43.407{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieving active jobs for recruiterId=3
+28-11-2024_16:29:45.442{UTC}|report-tool|WARN ||c.z.h.p.ProxyLeakTask|Connection leak detection triggered for org.postgresql.jdbc.PgConnection@375b3fe1 on thread http-nio-8081-exec-6, stack trace follows
+java.lang.Exception: Apparent connection leak detected
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:38)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:108)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:138)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.connection(StatementPreparerImpl.java:50)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:149)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:151)
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:2122)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2059)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2037)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:956)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:357)
+	at org.hibernate.loader.Loader.doList(Loader.java:2868)
+	at org.hibernate.loader.Loader.doList(Loader.java:2850)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2682)
+	at org.hibernate.loader.Loader.list(Loader.java:2677)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:540)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:400)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:218)
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1459)
+	at org.hibernate.query.internal.AbstractProducedQuery.doList(AbstractProducedQuery.java:1649)
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1617)
+	at org.hibernate.query.Query.getResultList(Query.java:165)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:128)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:90)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:156)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:144)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:160)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:81)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:145)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at jdk.proxy2/jdk.proxy2.$Proxy160.findJobsByRecruiterAndStatus(Unknown Source)
+	at com.talentstream.service.JobService.getActiveJobsForRecruiter(JobService.java:251)
+	at com.talentstream.service.JobService$$FastClassBySpringCGLIB$$2e499e86.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386)
+	at org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704)
+	at com.talentstream.service.JobService$$EnhancerBySpringCGLIB$$c33b3f73.getActiveJobsForRecruiter(<generated>)
+	at com.talentstream.controller.JobController.getActiveJobsForRecruiter(JobController.java:351)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.talentstream.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+28-11-2024_16:29:45.622{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:29:45.623{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:29:45.623{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:29:45.626{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieving active jobs for recruiterId=3
+28-11-2024_16:29:46.030{UTC}|report-tool|INFO ||c.z.h.p.ProxyLeakTask|Previously reported leaked connection org.postgresql.jdbc.PgConnection@375b3fe1 on thread http-nio-8081-exec-6 was returned to the pool (unleaked)
+28-11-2024_16:29:47.643{UTC}|report-tool|WARN ||c.z.h.p.ProxyLeakTask|Connection leak detection triggered for org.postgresql.jdbc.PgConnection@510964ae on thread http-nio-8081-exec-4, stack trace follows
+java.lang.Exception: Apparent connection leak detected
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:38)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:108)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:138)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.connection(StatementPreparerImpl.java:50)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:149)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:151)
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:2122)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2059)
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2037)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:956)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:357)
+	at org.hibernate.loader.Loader.doList(Loader.java:2868)
+	at org.hibernate.loader.Loader.doList(Loader.java:2850)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2682)
+	at org.hibernate.loader.Loader.list(Loader.java:2677)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:540)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:400)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:218)
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1459)
+	at org.hibernate.query.internal.AbstractProducedQuery.doList(AbstractProducedQuery.java:1649)
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1617)
+	at org.hibernate.query.Query.getResultList(Query.java:165)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:128)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:90)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:156)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:144)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:160)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:81)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:145)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at jdk.proxy2/jdk.proxy2.$Proxy160.findJobsByRecruiterAndStatus(Unknown Source)
+	at com.talentstream.service.JobService.getActiveJobsForRecruiter(JobService.java:251)
+	at com.talentstream.service.JobService$$FastClassBySpringCGLIB$$2e499e86.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386)
+	at org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704)
+	at com.talentstream.service.JobService$$EnhancerBySpringCGLIB$$c33b3f73.getActiveJobsForRecruiter(<generated>)
+	at com.talentstream.controller.JobController.getActiveJobsForRecruiter(JobController.java:351)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.talentstream.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+28-11-2024_16:29:48.177{UTC}|report-tool|INFO ||c.z.h.p.ProxyLeakTask|Previously reported leaked connection org.postgresql.jdbc.PgConnection@510964ae on thread http-nio-8081-exec-4 was returned to the pool (unleaked)
+28-11-2024_16:30:45.055{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.055{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.056{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.056{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.056{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.056{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.059{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_16:30:45.060{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.060{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.061{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.068{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.068{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.068{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.068{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.068{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.068{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.069{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_16:30:45.070{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_16:30:45.112{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_16:30:45.117{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_16:30:45.120{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_16:30:45.123{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_16:30:45.170{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.170{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.170{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.191{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.191{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.191{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.192{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count job applicants by recruiterId: 3
+28-11-2024_16:30:45.194{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.194{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.194{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.194{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.194{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.194{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.195{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count selected applicants
+28-11-2024_16:30:45.196{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get applicant job interview info for recruiterId: 3 with status: Interviewing
+28-11-2024_16:30:45.220{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_16:30:45.227{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved job count for recruiter with ID 3 successfully.
+28-11-2024_16:30:45.247{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted selected applicants successfully
+28-11-2024_16:30:45.248{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted job applicants successfully by recruiterId: 3
+28-11-2024_16:30:45.249{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved applicant job interview info successfully for recruiterId: 3 with status: Interviewing
+28-11-2024_16:30:45.278{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.278{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWRhci5zYWhlYkB0ZWt3b3Jrcy5pbiIsImV4cCI6MTczMjgxNTAxMCwiaWF0IjoxNzMyNzc5MDEwfQ.RWoRwMsVGFzLxQQq72CBdTw6_d-oEMSbVrTztpTjdmE
+28-11-2024_16:30:45.278{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: madar.saheb@tekworks.in
+28-11-2024_16:30:45.447{UTC}|report-tool|INFO ||c.t.c.JobController|Retrieved inactive job counts for recruiter with ID 3 successfully.
+28-11-2024_16:32:01.356{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_16:32:01.357{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_16:32:01.357{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_16:32:01.495{UTC}|report-tool|ERROR||o.a.c.c.C.[.[.[.[dispatcherServlet]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
+	at java.base/java.io.StringReader.<init>(StringReader.java:51)
+	at org.json.JSONTokener.<init>(JSONTokener.java:94)
+	at org.json.JSONObject.<init>(JSONObject.java:421)
+	at com.talentstream.service.EmailService.getJavaMailSender(EmailService.java:37)
+	at com.talentstream.service.EmailService.sendOtpEmail(EmailService.java:69)
+	at com.talentstream.controller.ForgetPasswordController.sendOtp(ForgetPasswordController.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.talentstream.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+28-11-2024_16:32:29.706{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+28-11-2024_16:32:29.706{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+28-11-2024_16:32:29.707{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+28-11-2024_16:32:29.813{UTC}|report-tool|ERROR||o.a.c.c.C.[.[.[.[dispatcherServlet]|Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
+	at java.base/java.io.StringReader.<init>(StringReader.java:51)
+	at org.json.JSONTokener.<init>(JSONTokener.java:94)
+	at org.json.JSONObject.<init>(JSONObject.java:421)
+	at com.talentstream.service.EmailService.getJavaMailSender(EmailService.java:37)
+	at com.talentstream.service.EmailService.sendOtpEmail(EmailService.java:69)
+	at com.talentstream.controller.ForgetPasswordController.sendOtp(ForgetPasswordController.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.talentstream.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+28-11-2024_18:29:23.707{UTC}|report-tool|WARN ||c.z.h.p.HikariPool|HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47m37s94ms726µs900ns).
+28-11-2024_19:29:59.434{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+28-11-2024_19:29:59.570{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+28-11-2024_19:29:59.571{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+28-11-2024_19:29:59.584{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+28-11-2024_19:29:59.613{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+28-11-2024_19:29:59.624{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+28-11-2024_19:29:59.636{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+28-11-2024_19:29:59.685{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+28-11-2024_19:29:59.720{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+28-11-2024_19:29:59.786{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
