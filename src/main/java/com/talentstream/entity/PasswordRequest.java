@@ -18,6 +18,27 @@ public class PasswordRequest {
 	@Size(min = 6, message = "Old password must be at least 6 characters long.")
 	@Pattern(regexp = "^$|^(?=.{6,}$)(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])(?!.*\\s).*$", message = "Old password must be at least 6 characters long and contain at least one uppercase letter, one digit, one special character, and no white spaces.")
 	private String oldPassword;
+	
+	private String ivOld;
+    private String ivNew;
+    
+    
+
+	public String getIvOld() {
+		return ivOld;
+	}
+
+	public void setIvOld(String ivOld) {
+		this.ivOld = ivOld;
+	}
+
+	public String getIvNew() {
+		return ivNew;
+	}
+
+	public void setIvNew(String ivNew) {
+		this.ivNew = ivNew;
+	}
 
 	public String getNewPassword() {
 		return newPassword;
