@@ -1,6 +1,11 @@
 package com.talentstream.controller;
 
 import java.util.HashMap;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import javax.crypto.spec.IvParameterSpec;
 
 import java.util.*;
 import com.talentstream.dto.LoginDTO;
@@ -179,7 +184,12 @@ public class RegisterController {
 				System.out.println("could return obj successfully");
 			} else {
 				// Handle regular login
-				applicant = regsiterService.login(loginDTO.getEmail(), loginDTO.getPassword());
+				//applicant = regsiterService.login(loginDTO.getEmail(), loginDTO.getPassword());
+				
+				String secretKey = "1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p";
+	            String decryptedOldPassword = decrypt(loginDTO.getPassword(), loginDTO.getIv(), secretKey);
+	            loginDTO.setPassword(decryptedOldPassword);
+				applicant = regsiterService.login(loginDTO.getEmail(), decryptedOldPassword);
 
 				if (applicant == null) {
 					// Check if the email exists in the database
@@ -213,6 +223,17 @@ public class RegisterController {
 		}
 	}
 
+	private String decrypt(String encryptedPassword, String iv, String secretKey) throws Exception {
+        IvParameterSpec ivSpec = new IvParameterSpec(Base64.getDecoder().decode(iv));
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "AES");
+
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivSpec);
+
+        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encryptedPassword));
+        return new String(original);
+    }
+	
 	private ResponseEntity<Object> createAuthenticationToken(LoginDTO loginDTO, Applicant applicant) throws Exception {
 		try {
 			if (regsiterService.isGoogleSignIn(loginDTO)) {
