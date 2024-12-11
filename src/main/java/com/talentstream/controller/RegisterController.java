@@ -239,16 +239,6 @@ public class RegisterController {
         return new String(original);
     }
 
-	private String decrypt(String encryptedPassword, String iv, String secretKey) throws Exception {
-        IvParameterSpec ivSpec = new IvParameterSpec(Base64.getDecoder().decode(iv));
-        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "AES");
-
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivSpec);
-
-        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encryptedPassword));
-        return new String(original);
-    }
 	
 	private ResponseEntity<Object> createAuthenticationToken(LoginDTO loginDTO, Applicant applicant) throws Exception {
 		try {
