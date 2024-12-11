@@ -1,6 +1,11 @@
 package com.talentstream.controller;
 
 import java.util.HashMap;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import javax.crypto.spec.IvParameterSpec;
 
 import java.util.*;
 import com.talentstream.dto.LoginDTO;
@@ -234,6 +239,17 @@ public class RegisterController {
         return new String(original);
     }
 
+	private String decrypt(String encryptedPassword, String iv, String secretKey) throws Exception {
+        IvParameterSpec ivSpec = new IvParameterSpec(Base64.getDecoder().decode(iv));
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "AES");
+
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivSpec);
+
+        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encryptedPassword));
+        return new String(original);
+    }
+	
 	private ResponseEntity<Object> createAuthenticationToken(LoginDTO loginDTO, Applicant applicant) throws Exception {
 		try {
 			if (regsiterService.isGoogleSignIn(loginDTO)) {
