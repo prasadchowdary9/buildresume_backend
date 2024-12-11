@@ -48,6 +48,13 @@ import com.talentstream.service.JobRecruiterService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import javax.crypto.spec.IvParameterSpec;
+import java.security.InvalidKeyException;
+import java.util.Base64;
 
 @CrossOrigin("*")
 @RestController
@@ -184,8 +191,6 @@ public class RegisterController {
 				System.out.println("could return obj successfully");
 			} else {
 				// Handle regular login
-				//applicant = regsiterService.login(loginDTO.getEmail(), loginDTO.getPassword());
-				
 				String secretKey = "1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p";
 	            String decryptedOldPassword = decrypt(loginDTO.getPassword(), loginDTO.getIv(), secretKey);
 	            loginDTO.setPassword(decryptedOldPassword);
@@ -222,6 +227,17 @@ public class RegisterController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error during login");
 		}
 	}
+	
+	private String decrypt(String encryptedPassword, String iv, String secretKey) throws Exception {
+        IvParameterSpec ivSpec = new IvParameterSpec(Base64.getDecoder().decode(iv));
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "AES");
+
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivSpec);
+
+        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encryptedPassword));
+        return new String(original);
+    }
 
 	private String decrypt(String encryptedPassword, String iv, String secretKey) throws Exception {
         IvParameterSpec ivSpec = new IvParameterSpec(Base64.getDecoder().decode(iv));
@@ -502,40 +518,31 @@ public class RegisterController {
 	}
 
 	@PostMapping("/authenticateUsers/{id}")
-	public ResponseEntity<String> authenticateUser(@Valid @RequestBody PasswordRequest passwordRequest,
-			BindingResult bindingResult, @PathVariable long id) {
-
-		if (bindingResult.hasErrors()) {
-			// Handle validation errors
-			Map<String, String> fieldErrors = new LinkedHashMap<>();
-
-			bindingResult.getFieldErrors().forEach(fieldError -> {
-				String fieldName = fieldError.getField();
-				String errorMessage = fieldError.getDefaultMessage();
-
-				// Append each field and its error message on a new line
-				fieldErrors.merge(fieldName, errorMessage,
-						(existingMessage, newMessage) -> existingMessage + "\n" + newMessage);
-			});
-
-			// Construct the response body with each field and its error message on separate
-			// lines
-			StringBuilder responseBody = new StringBuilder();
-			fieldErrors.forEach((fieldName, errorMessage) -> responseBody.append(fieldName).append(": ")
-					.append(errorMessage).append("\n"));
-			logger.warn("Validation errors occurred during registering new applicant: {}", responseBody);
-			return ResponseEntity.badRequest().body(responseBody.toString());
+	public ResponseEntity<String> authenticateUser(@RequestBody PasswordRequest passwordRequest, @PathVariable long id) {
+		String secretKey = "1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p";
+        String decryptedOldPassword = null;
+        String decryptedNewPassword = null;
+		try {
+			decryptedOldPassword = decrypt1(passwordRequest.getOldPassword(), passwordRequest.getIvOld(), secretKey);
+			decryptedNewPassword = decrypt1(passwordRequest.getNewPassword(), passwordRequest.getIvNew(), secretKey);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
-		logger.info("Authenticating user with ID: {}", id);
-
-		String newpassword = passwordRequest.getNewPassword();
-		String oldpassword = passwordRequest.getOldPassword();
-		logger.info("Authentication result for user ID {}: {}", id);
-		String result1 = regsiterService.authenticateUser(id, oldpassword, newpassword);
+		
+		String result1 = regsiterService.authenticateUser(id, decryptedOldPassword, decryptedNewPassword);
 		return ResponseEntity.ok(result1);
 	}
+	private String decrypt1(String encryptedPassword, String iv, String secretKey) throws Exception {
+        IvParameterSpec ivSpec = new IvParameterSpec(Base64.getDecoder().decode(iv));
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "AES");
 
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivSpec);
+
+        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encryptedPassword));
+        return new String(original);
+    }
 	public JobRecruiter findByEmail(String userEmail) {
 		try {
 			System.out.println(userEmail);
@@ -549,6 +556,7 @@ public class RegisterController {
 
 	}
 
+	
 	public JobRecruiter findByMobilenumber(String userMobile) {
 		try {
 

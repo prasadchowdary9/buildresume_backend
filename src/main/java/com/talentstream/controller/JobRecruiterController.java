@@ -43,6 +43,10 @@ import com.talentstream.service.EmailService;
 import com.talentstream.service.JobRecruiterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
 
 @RestController
 @CrossOrigin("*")
@@ -233,9 +237,27 @@ public class JobRecruiterController {
 
     @PostMapping("/authenticateRecruiter/{id}")
     public String authenticateRecruiter(@PathVariable Long id, @RequestBody PasswordRequest passwordRequest) {
-        String newpassword = passwordRequest.getNewPassword();
-        String oldpassword = passwordRequest.getOldPassword();
-        return recruiterService.authenticateRecruiter(id, oldpassword, newpassword);
+        try {
+            String secretKey = "1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p";
+            String decryptedOldPassword = decrypt(passwordRequest.getOldPassword(), passwordRequest.getIvOld(), secretKey);
+            String decryptedNewPassword = decrypt(passwordRequest.getNewPassword(), passwordRequest.getIvNew(), secretKey);
+
+            return recruiterService.authenticateRecruiter(id, decryptedOldPassword, decryptedNewPassword);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Password decryption failed";
+        }
+    }
+
+    private String decrypt(String encryptedPassword, String iv, String secretKey) throws Exception {
+        IvParameterSpec ivSpec = new IvParameterSpec(Base64.getDecoder().decode(iv));
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "AES");
+
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivSpec);
+
+        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encryptedPassword));
+        return new String(original);
     }
 
     @GetMapping("/appledjobs/{recruiterId}/unread-alert-count")
