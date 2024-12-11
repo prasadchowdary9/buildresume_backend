@@ -10,10 +10,34 @@ public class LoginDTO {
 	private String email;
 
 	private String password;
+	
+	private String iv;
+
+	public String getIv() {
+		return iv;
+	}
+
+	public void setIv(String iv) {
+		this.iv = iv;
+	}
 
 	private String status = "active";
 
 	private String utmSource;
+	
+	private String iv;
+	
+	
+
+	
+
+	public String getIv() {
+		return iv;
+	}
+
+	public void setIv(String iv) {
+		this.iv = iv;
+	}
 
 	public String getUtmSource() {
 		return utmSource;
