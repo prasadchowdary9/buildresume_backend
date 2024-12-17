@@ -29,6 +29,7 @@ public class ApplicantSkillBadge {
 
     private LocalDateTime testTaken;
     
+    
     private String flag = "added";  // Default value
     
     @PrePersist

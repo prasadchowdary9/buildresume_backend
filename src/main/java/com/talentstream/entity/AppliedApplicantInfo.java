@@ -16,7 +16,7 @@ public class AppliedApplicantInfo {
 	private String newStatus;
 
 	public AppliedApplicantInfo(Long applyjobid, String name, Long id, String email, String mobile, String newStatus,
-			String jobTitle,Long jobId, String applicantStatus, int minimumExperience, String skillName,
+			String jobTitle,Long jobId, String applicantStatus, int minimumExperience,
 			String minimumQualification, String location) {
 		this.applyjobid = applyjobid;
 		this.name = name;
@@ -28,7 +28,6 @@ public class AppliedApplicantInfo {
 		this.jobId=jobId;
 		this.applicantStatus = applicantStatus;
 		this.minimumExperience = minimumExperience;
-		this.skillName = skillName;
 		this.minimumQualification = minimumQualification;
 		this.location = location;
 

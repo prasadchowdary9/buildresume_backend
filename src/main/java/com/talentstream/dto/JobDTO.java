@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.talentstream.entity.ApplicantSkillBadge;
 import com.talentstream.entity.ApplicantSkills;
 import com.talentstream.entity.ScreeningQuestion;
 
@@ -25,6 +26,36 @@ public class JobDTO {
 	private String isSaved;
 	
 	private Set<ScreeningQuestion> screeningQuestions;
+	
+	private Double aptitudeScore;  
+	
+	private Double technicalScore;
+	
+	private List<ApplicantSkillBadge> applicantSkillBadges;
+
+	public List<ApplicantSkillBadge> getApplicantSkillBadges() {
+		return applicantSkillBadges;
+	}
+
+	public void setApplicantSkillBadges(List<ApplicantSkillBadge> applicantSkillBadges) {
+		this.applicantSkillBadges = applicantSkillBadges;
+	}
+
+	public Double getAptitudeScore() {
+		return aptitudeScore;
+	}
+
+	public void setAptitudeScore(Double aptitudeScore) {
+		this.aptitudeScore = aptitudeScore;
+	}
+
+	public Double getTechnicalScore() {
+		return technicalScore;
+	}
+
+	public void setTechnicalScore(Double technicalScore) {
+		this.technicalScore = technicalScore;
+	}
 
 	public String getIsSaved() {
 		return isSaved;
@@ -90,9 +121,9 @@ public class JobDTO {
 		@Min(value = 0, message = "Maximum experience cannot be negative")
 		private int maximumExperience;
 		
-		@AssertTrue(message = "Minimum experience should be less than maximum experience")
+		@AssertTrue(message = "Minimum experience should be less than or equal to maximum experience")
 		private boolean isMinimumExperienceLessThanMaximum() {
-		    return minimumExperience < maximumExperience;
+		    return minimumExperience <= maximumExperience;
 		}
 	    
 		@NotNull(message = "MinimumSalary required")
@@ -103,9 +134,9 @@ public class JobDTO {
 		@DecimalMax(value = "1.0E9", inclusive = false, message = "Maximum salary exceeds the allowed limit")
 		private double maxSalary;
 		
-		@AssertTrue(message = "Minimum salary should be less than maximum salary")
+		@AssertTrue(message = "Minimum salary should be less thanor equal to maximum salary")
 	    private boolean isMinimumSalaryLessThanMaximum() {
-	        return minSalary < maxSalary;
+	        return minSalary <= maxSalary;
 	    }
 		
 		@NotBlank(message = "MinimumQualification required")
@@ -130,7 +161,17 @@ public class JobDTO {
 		private Set<RecuriterSkillsDTO> skillsRequired;
 		
 		private Set<ApplicantSkills> matchedSkills;
+		private Set<ApplicantSkills> additionalSkills;
 		
+		public Set<ApplicantSkills> getAdditionalSkills() {
+			return additionalSkills;
+		}
+
+		public void setAdditionalSkills(Set<ApplicantSkills> additionalSkills) {
+			this.additionalSkills = additionalSkills;
+		}
+
+
 		private int matchPercentage;
 		 private String matchStatus;
 		 private List<String> sugesstedCourses;
@@ -159,8 +200,29 @@ public class JobDTO {
 	    private String mobilenumber;
 	    private String email;
 	    private LocalDate creationDate;
-	    private String jobStatus="Apply Now";	   
-	    public Set<ApplicantSkills> getMatchedSkills() {
+	    private String jobStatus="Apply Now";
+	    private String jobURL;
+	    private Integer visitorCount;
+	    
+	    
+	    
+	    public Integer getVisitorCount() {
+			return visitorCount;
+		}
+
+		public void setVisitorCount(Integer visitorCount) {
+			this.visitorCount = visitorCount;
+		}
+
+		public String getJobURL() {
+			return jobURL;
+		}
+
+		public void setJobURL(String jobURL) {
+			this.jobURL = jobURL;
+		}
+
+		public Set<ApplicantSkills> getMatchedSkills() {
 			return matchedSkills;
 		}
 		public void setMatchedSkills(Set<ApplicantSkills> matchedSkills) {
@@ -169,6 +231,8 @@ public class JobDTO {
 
 		private Long applyJobId;
 	    private String promote = "no";
+	    
+	    
 	    public String getPromote() {
 			return promote;
 		}

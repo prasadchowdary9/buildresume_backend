@@ -16,6 +16,9 @@ public interface ApplicantSkillBadgeRepository extends JpaRepository<ApplicantSk
     @Query("SELECT e FROM ApplicantSkillBadge e WHERE e.applicant.id = :applicantId AND e.flag = 'added'")
     List<ApplicantSkillBadge> findByApplicantIdAndFlagAdded(@Param("applicantId") Long applicantId);
     
+    @Query("SELECT e FROM ApplicantSkillBadge e WHERE e.applicant.id = :applicantId AND e.flag = 'added' AND e.status = 'PASSED'")
+    List<ApplicantSkillBadge> findPassedSkillBadgesByApplicantId(@Param("applicantId") Long applicantId);
+
 	ApplicantSkillBadge findByApplicantIdAndSkillBadgeId(Long applicantId, Long skillBadgeId);
 	
 	void deleteByApplicantIdAndSkillBadgeId(Long applicantId, Long skillBadgeId);

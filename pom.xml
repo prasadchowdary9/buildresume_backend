@@ -47,6 +47,12 @@
     <version>1.12.81</version> <!-- Use the latest version -->
 </dependency>
 
+ <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcprov-jdk15on</artifactId>
+        <version>1.70</version> <!-- Use the latest stable version -->
+    </dependency>
+
 <dependency>
     <groupId>com.google.code.gson</groupId>
     <artifactId>gson</artifactId>
@@ -87,12 +93,12 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>-->
-		
 		<dependency>
     <groupId>org.postgresql</groupId>
     <artifactId>postgresql</artifactId>
     <version>42.7.4</version>
        </dependency>
+		
    
     <dependency>
         <groupId>org.mockito</groupId>

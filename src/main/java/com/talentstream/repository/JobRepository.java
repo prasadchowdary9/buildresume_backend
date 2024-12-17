@@ -37,7 +37,10 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
 	    
 	);
 
-	
+	@Query("SELECT j FROM Job j " +
+		       "JOIN FETCH j.skillsRequired " + // Ensure skills are fetched eagerly
+		       "WHERE j.id = :jobId")
+		Job findJobWithSkills(@Param("jobId") Long jobId);
 	
 	@Query("SELECT DISTINCT j FROM Job j " +
 	           "JOIN j.skillsRequired r " +
@@ -83,6 +86,9 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
 		
 		@Query("SELECT j FROM Job j WHERE j.jobRecruiter.id = :jobRecruiterId AND j.status = :status")
 		List<Job> findJobsByRecruiterAndStatus(@Param("jobRecruiterId") Long jobRecruiterId, @Param("status") String status);
+		
+		@Query("SELECT COUNT(j) FROM Job j WHERE j.jobRecruiter.id = :recruiterId AND j.status = 'inactive'")
+	    long countInActiveJobsByRecruiterId(@Param("recruiterId") Long recruiterId);
 
 	
 }

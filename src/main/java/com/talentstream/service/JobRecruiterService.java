@@ -68,6 +68,7 @@ public class JobRecruiterService {
         if (recruiter != null && passwordEncoder.matches(password, recruiter.getPassword())) {
             return recruiter;
         } else {
+        	
        	 return null;
         }
    }

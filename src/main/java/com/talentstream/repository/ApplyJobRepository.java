@@ -16,27 +16,26 @@ public interface ApplyJobRepository extends JpaRepository<ApplyJob, Long> {
 	List<ApplyJob> findByApplicantId(long applicantId);
 
 	@Query("SELECT NEW com.talentstream.entity.AppliedApplicantInfo(" +
-		       " aj.applyjobid,a.name,a.id, a.email, a.mobilenumber, j.newStatus, j.jobTitle,j.id,aj.applicantStatus," +
-		       " j.minimumExperience, s.skillName, " +
-		       "j.minimumQualification, j.location) " +
+		       " aj.applyjobid, a.name, a.id, a.email, a.mobilenumber, " +
+		       " j.newStatus, j.jobTitle, j.id, aj.applicantStatus, " +
+		       " j.minimumExperience,j.minimumQualification, j.location) " +
 		       "FROM ApplyJob aj " +
-		       "INNER JOIN aj.applicant a " +
-		       "INNER JOIN aj.job j " +
-		       "INNER JOIN j.skillsRequired s " +
-		       "INNER JOIN j.jobRecruiter r " +
-		       "WHERE r.id = :jobRecruiterId")
+		       "JOIN aj.applicant a " +
+		       "JOIN aj.job j " +
+		       "JOIN j.jobRecruiter r " +
+		       "WHERE r.recruiterId = :jobRecruiterId AND j.status = 'active'")
 		List<AppliedApplicantInfo> findAppliedApplicantsInfo(@Param("jobRecruiterId") long jobRecruiterId);
+
 	
 	@Query("SELECT NEW com.talentstream.entity.AppliedApplicantInfo(" +
 		       " aj.applyjobid,a.name,a.id, a.email, a.mobilenumber, j.newStatus, j.jobTitle,j.id, aj.applicantStatus, " +
-		       " j.minimumExperience, s.skillName, " +
+		       " j.minimumExperience, " +
 		       " j.minimumQualification, j.location) " +
 		       "FROM ApplyJob aj " +
 		       "INNER JOIN aj.applicant a " +
 		       "INNER JOIN aj.job j " +
-		       "INNER JOIN j.skillsRequired s " +
 		       "INNER JOIN j.jobRecruiter r " +
-		       "WHERE r.id = :jobRecruiterId AND j.id = :id")
+		       "WHERE r.id = :jobRecruiterId AND j.id = :id AND j.status = 'active'")
 		List<AppliedApplicantInfo> findAppliedApplicantsInfoWithJobId(
 		    @Param("jobRecruiterId") long jobRecruiterId,
 		    @Param("id") long id

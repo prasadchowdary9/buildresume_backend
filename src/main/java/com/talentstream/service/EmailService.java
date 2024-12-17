@@ -1,26 +1,74 @@
 package com.talentstream.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.talentstream.AwsSecretsManagerUtil;
+import org.json.JSONObject;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
-
 import java.io.UnsupportedEncodingException;
+import java.util.Properties;
 
 @Service
 public class EmailService {
+	
+	
+	@Autowired
+    private AwsSecretsManagerUtil secretsManagerUtil;
 
-    @Autowired
-    private JavaMailSender javaMailSender;
+    
+
+    private String getSecret() {
+        return secretsManagerUtil.getSecret();
+    } 
+
+    // Configure the JavaMailSender manually
+    private JavaMailSenderImpl getJavaMailSender() {
+    	String secret = getSecret();
+        System.out.println(secret);
+        JSONObject jsonObject = new JSONObject(secret);
+        String userName = jsonObject.getString("AWS_EMAIL_USERNAME");
+        String passWord = jsonObject.getString("AWS_EMAIL_PASSWORD");
+        
+        System.out.println(userName);
+        System.out.println(passWord);
+        
+//        String userName ="AKIAWDMD3L7MQ6XDXLIN";
+//        String passWord ="BLLaxHrv++8qqIsx73mO1KZq225tXqIHYMQBM2EYgToK";
+        
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost("email-smtp.ap-south-1.amazonaws.com");
+        mailSender.setPort(587); // TLS port
+
+        // Set your SMTP credentials directly
+        mailSender.setUsername(userName);
+        mailSender.setPassword(passWord);
+
+        // Set additional mail properties
+        Properties props = mailSender.getJavaMailProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.debug", "true"); // Enables debug information in logs
+
+        return mailSender;
+    }
 
     // Sends an OTP verification email to the applicant for identity verification.
     public void sendOtpEmail(String to, String otp) {
         try {
-            javax.mail.internet.MimeMessage message = javaMailSender.createMimeMessage();
+            // Use the manually configured JavaMailSender
+            JavaMailSenderImpl mailSender = getJavaMailSender();
+
+            javax.mail.internet.MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
             helper.setFrom(new InternetAddress("no-reply@bitlabs.in", "bitLabs Jobs"));
@@ -42,7 +90,7 @@ public class EmailService {
             helper.setText(content);
 
             // Send the email
-            javaMailSender.send(message);
+            mailSender.send(message);
         } catch (MessagingException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
