@@ -333,7 +333,9 @@ public void updatePassword(String userEmail, String newPassword) {
 	}
 	public void addApplicant(Applicant applicant) {
 		 try {
-	            applicantRepository.save(applicant);
+			 Applicant applicant1= applicantRepository.save(applicant);
+			 requestPasswordReset(applicant1);
+	            
 	        } catch (Exception e) {
 	        	System.out.println(e.getMessage());
 	            throw new CustomException("Error adding applicant", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -350,58 +352,110 @@ public void updatePassword(String userEmail, String newPassword) {
         return applicant;
     }
 	
-	public String authenticateUser(long id,String oldPassword, String newPassword) {
-	       //BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+	public String authenticateUser(long id, String oldPassword, String newPassword) {
+		//BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 
-	        try {
-//	            Applicant opUser = applicantRepository.findById(id);
-	            Applicant opUser = applicantRepository.findById(id);
-	            System.out.println(opUser.getPassword());
-//	            System.out.println(passwordEncoder.encode(oldPassword));
-//	            if (opUser != null) {
-//	            	if(passwordEncoder.matches(oldPassword, opUser.getPassword())) {
-//	            		if (passwordEncoder.matches(newPassword, opUser.getPassword())) {
-//	            			return "your new password should not be same as old password";
-//	            		}
-//	            		opUser.setPassword(passwordEncoder.encode(newPassword));
-//	                    applicantRepository.save(opUser);
+        try {
+//            Applicant opUser = applicantRepository.findById(id);
+            Applicant opUser = applicantRepository.findById(id);
+            System.out.println(opUser.getPassword());
+//            System.out.println(passwordEncoder.encode(oldPassword));
+//            if (opUser != null) {
+//            	if(passwordEncoder.matches(oldPassword, opUser.getPassword())) {
+//            		if (passwordEncoder.matches(newPassword, opUser.getPassword())) {
+//            			return "your new password should not be same as old password";
+//            		}
+//            		opUser.setPassword(passwordEncoder.encode(newPassword));
+//                    applicantRepository.save(opUser);
 //
-//	                    return "Password updated and stored";
-//	            	}
-//	            	else {
-//	            		return "Your old password not matching with data base password";
-//	            	}
-//	            	 	
-//	            		
-//	            
-//	            }
-	            if (opUser != null) {
-	            	if(passwordEncoder.matches(oldPassword, opUser.getPassword())) {
-	            		if (passwordEncoder.matches(newPassword, opUser.getPassword())) {
-	            			return "your new password should not be same as old password";
-	            		}
-	            		opUser.setPassword(passwordEncoder.encode(newPassword));
-	            		applicantRepository.save(opUser);
+//                    return "Password updated and stored";
+//            	}
+//            	else {
+//            		return "Your old password not matching with data base password";
+//            	}
+//            	 	
+//            		
+//            
+//            }
+            if (opUser != null) {
+            	if(passwordEncoder.matches(oldPassword, opUser.getPassword())) {
+            		if (passwordEncoder.matches(newPassword, opUser.getPassword())) {
+            			return "your new password should not be same as old password";
+            		}
+            		opUser.setPassword(passwordEncoder.encode(newPassword));
+            		Applicant opUser1=applicantRepository.save(opUser);
+                        requestPasswordReset(opUser1);
 
-	                    return "Password updated and stored";
-	            	}
-	            	else {
-	            		return "Your old password not matching with data base password";
-	            	}
-	            	            }
-	            else {
-	            	return "User not found with given id";
-	            }
-	        }
-	               
-	    	catch (Exception e) {
-	         
-	            e.printStackTrace();
-	            
-	           return "user not found with this given id";
-	        }
-			
-	    }
+                    return "Password updated and stored";
+            	}
+            	else {
+            		return "Your old password not matching with data base password";
+            	}
+            	            }
+            else {
+            	return "User not found with given id";
+            }
+        }
+               
+    	catch (Exception e) {
+         
+            e.printStackTrace();
+            
+           return "user not found with this given id";
+        }
+
+	}
+	public String requestPasswordReset(Applicant opUser) {
+        // Prepare headers
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        // Set up the payload
+        JsonObject payload = new JsonObject();
+        payload.addProperty("email", opUser.getEmail());
+
+        // Create HttpEntity with headers and payload
+        HttpEntity<String> requestEntity = new HttpEntity<>(payload.toString(), headers);
+
+        // Define the endpoint URL
+        String forgotPasswordUrl = "https://resume.bitlabs.in:5173//api/auth/forgot-password";
+
+        try {
+            // Make the POST request
+            ResponseEntity<String> response = restTemplate.postForEntity(forgotPasswordUrl, requestEntity, String.class);
+
+            // Parse the JSON response
+            Gson gson = new Gson();
+            JsonObject jsonResponse = gson.fromJson(response.getBody(), JsonObject.class);
+
+            // Access the resetToken
+            String resetToken = jsonResponse.get("resetToken").getAsString();
+
+            // Print the resetToken
+            System.out.println("Reset Token: " + resetToken);
+
+            // Step 2: Reset Password
+            JsonObject payloadForPasswordReset = new JsonObject();
+            payloadForPasswordReset.addProperty("token", resetToken);
+            payloadForPasswordReset.addProperty("password", opUser.getPassword());
+
+            HttpEntity<String> passwordResetRequestEntity = new HttpEntity<>(payloadForPasswordReset.toString(), headers);
+            String resetPasswordUrl = "https://resume.bitlabs.in:5173/api/auth/reset-password";
+
+            ResponseEntity<String> passwordResetResponse = restTemplate.postForEntity(resetPasswordUrl, passwordResetRequestEntity, String.class);
+
+            System.out.println("Password Reset Response: " + passwordResetResponse.getBody());
+
+            
+            // Return the resetToken for further processing
+            return resetToken;
+
+        } catch (Exception e) {
+            // Log and handle the exception
+            e.printStackTrace();
+            return "Failed to request password reset.";
+        }
+    }
 	public ResponseEntity<String> editApplicant(Long applicantId, RegistrationDTO updatedRegistrationDTO) {
 	        try {
 	            
