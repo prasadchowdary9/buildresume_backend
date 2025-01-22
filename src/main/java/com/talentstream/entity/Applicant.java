@@ -1,5 +1,6 @@
 package com.talentstream.entity;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -69,6 +71,17 @@ public class Applicant {
     @JsonManagedReference
     private List<ApplicantSkillBadge> applicantSkillBadges;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+	private LocalDateTime createdAt;
+	
+	
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+ 
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	} 
 	
 	public List<ApplicantSkillBadge> getApplicantSkillBadges() {
 		return applicantSkillBadges;
