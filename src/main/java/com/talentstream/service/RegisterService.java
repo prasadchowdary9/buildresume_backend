@@ -1,5 +1,6 @@
 package com.talentstream.service;
  
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
  
@@ -110,7 +111,8 @@ public Applicant googleSignIn(String email,String utmSource) {
             String randomPassword = generateRandomPassword();
             newApplicant.setPassword(passwordEncoder.encode(randomPassword));
             
-            
+            LocalDateTime now = LocalDateTime.now();
+            newApplicant.setCreatedAt(now);
  
             // Save the new applicant
             Applicant applicant1=applicantRepository.save(newApplicant);
@@ -349,6 +351,8 @@ public void updatePassword(String userEmail, String newPassword) {
         applicant.setMobilenumber(registrationDTO.getMobilenumber());
         applicant.setPassword(registrationDTO.getPassword());  
         applicant.setUtmSource(registrationDTO.getUtmSource());
+        LocalDateTime now = LocalDateTime.now();
+        applicant.setCreatedAt(now);
         return applicant;
     }
 	
