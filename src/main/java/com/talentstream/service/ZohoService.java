@@ -9,19 +9,32 @@ import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.talentstream.AwsSecretsManagerUtil;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class ZohoService {
 
     private static final String ZOHO_API_URL = "https://www.zohoapis.com/crm/v2/Leads";
-    private static final String REFRESH_TOKEN = "1000.e87ebe40cd761f2da55c0d17cf43d087.d70ca272e7ca5d8094a2683e611f2aa6"; // Your refresh token
-    private static final String CLIENT_ID = "1000.PIKC518LPD7Z9XBJ2M4TPGCYDG8GFZ"; // Your client ID
-    private static final String CLIENT_SECRET = "668f94ef6076942497c1b61a6a7c2f08d3028db121"; // Your client secret
     private static final String ACCESS_TOKEN_URL = "https://accounts.zoho.com/oauth/v2/token"; // Zoho token URL
 
-    private String accessToken = null; // No need to store permanently
+    private String accessToken = null; // Store temporarily, refreshed when needed
 
-    // ✅ Get a new access token using the refresh token
+    @Autowired
+    private AwsSecretsManagerUtil secretsManagerUtil;
+
+    /**
+     * ✅ Fetch Zoho OAuth credentials from AWS Secrets Manager
+     */
+    private JSONObject getZohoCredentials() {
+        String secret = secretsManagerUtil.getSecret();
+        return new JSONObject(secret);
+    }
+
+    /**
+     * ✅ Get a new access token using the refresh token
+     */
     private String getAccessToken() {
         if (accessToken == null || accessToken.isEmpty()) {
             accessToken = refreshAccessToken();
@@ -29,13 +42,20 @@ public class ZohoService {
         return accessToken;
     }
 
-    // ✅ Refresh access token using the refresh token
+    /**
+     * ✅ Refresh access token using AWS Secrets Manager credentials
+     */
     private String refreshAccessToken() {
+        JSONObject credentials = getZohoCredentials();
+        String clientId = credentials.getString("ZOHO_CLIENT_ID");
+        String clientSecret = credentials.getString("ZOHO_CLIENT_SECRET");
+        String refreshToken = credentials.getString("ZOHO_REFRESH_TOKEN");
+
         // Construct URL for getting a new access token
         String url = UriComponentsBuilder.fromHttpUrl(ACCESS_TOKEN_URL)
-                .queryParam("client_id", CLIENT_ID)
-                .queryParam("client_secret", CLIENT_SECRET)
-                .queryParam("refresh_token", REFRESH_TOKEN)
+                .queryParam("client_id", clientId)
+                .queryParam("client_secret", clientSecret)
+                .queryParam("refresh_token", refreshToken)
                 .queryParam("grant_type", "refresh_token")
                 .toUriString();
 
@@ -45,7 +65,9 @@ public class ZohoService {
         return parseAccessTokenFromResponse(response.getBody());
     }
 
-    // ✅ Parse the access token from Zoho's JSON response
+    /**
+     * ✅ Parse the access token from Zoho's JSON response
+     */
     private String parseAccessTokenFromResponse(String responseBody) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -57,7 +79,9 @@ public class ZohoService {
         }
     }
 
-    // ✅ Create a lead using Zoho CRM API
+    /**
+     * ✅ Create a lead using Zoho CRM API
+     */
     public ResponseEntity<String> createLead(Map<String, Object> leadData) {
         RestTemplate restTemplate = new RestTemplate();
         String accessToken = getAccessToken(); // Get a fresh access token
