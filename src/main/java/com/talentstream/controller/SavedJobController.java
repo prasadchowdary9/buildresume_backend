@@ -69,7 +69,7 @@ public class SavedJobController {
                 jobDTO.setEmail(job.getJobRecruiter().getEmail());
                 jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
                 return jobDTO;
-            }).toList(); // Convert stream to list
+            }).collect(Collectors.toList()); // Convert stream to list
 
             return ResponseEntity.ok(savedJobsDTOList);
         } catch (CustomException e) {
