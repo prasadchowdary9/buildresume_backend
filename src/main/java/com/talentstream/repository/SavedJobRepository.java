@@ -1,6 +1,7 @@
 package com.talentstream.repository;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -39,4 +40,8 @@ public interface SavedJobRepository extends JpaRepository<SavedJob, Long> {
 	@Transactional
 	@Query("DELETE FROM SavedJob sj WHERE sj.applicant.id = :applicantId AND sj.job.id = :jobId")
 	int deleteByApplicantIdAndJobId(@Param("applicantId") Long applicantId, @Param("jobId") Long jobId);
+
+	@Query("SELECT sj.job.id FROM SavedJob sj WHERE sj.applicant.id = :applicantId")
+
+	Set<Long> findJobIdsByApplicantId(@Param("applicantId") long applicantId);
 }
