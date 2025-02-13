@@ -93,4 +93,28 @@ public interface JobRepository extends JpaRepository<Job, Long>, JpaSpecificatio
 
 	@Query("SELECT j FROM Job j WHERE j.id IN :jobIds ORDER BY j.id ASC")
 	Page<Job> findJobsByIds(@Param("jobIds") List<Long> jobIds, Pageable pageable);
+
+	@Query("SELECT DISTINCT j " + "FROM Job j "
+			+ "LEFT JOIN SavedJob asj ON asj.job = j AND asj.applicant.id = :applicantId "
+			+ "LEFT JOIN ApplyJob aj ON aj.job = j AND aj.applicant.id = :applicantId "
+			+ "WHERE j.status != 'inactive' " + "AND aj.id IS NULL " + // Exclude applied jobs
+			"AND asj.id IS NULL " + // Exclude saved jobs
+			"AND (LOWER(j.specialization) = LOWER(:specialization) " + "OR j.minimumExperience = :experience "
+			+ "OR j.location IN :preferredLocations "
+			+ "OR EXISTS (SELECT 1 FROM j.skillsRequired s WHERE LOWER(s.skillName) IN :skillNames))")
+	Page<Job> findJobsMatchingApplicantProfile(@Param("applicantId") long applicantId,
+			@Param("skillNames") Set<String> skillNames, @Param("preferredLocations") Set<String> preferredLocations,
+			@Param("experience") Integer experience, @Param("specialization") String specialization, Pageable pageable);
+
+	@Query("SELECT DISTINCT j.id " + "FROM Job j " + "LEFT JOIN j.skillsRequired s " + // Keep skills join but optimize
+																						// filtering
+			"WHERE j.status != 'inactive' " + "AND (LOWER(j.specialization) = LOWER(:specialization) "
+			+ "OR j.minimumExperience = :experience " + "OR j.location IN :preferredLocations "
+			+ "OR LOWER(s.skillName) IN :skillNames)")
+	List<Long> findMatchingJobIds(
+			@Param("skillNames") Set<String> skillNames,
+			@Param("preferredLocations") Set<String> preferredLocations,
+			@Param("experience") Integer experience,
+			@Param("specialization") String specialization);
+
 }

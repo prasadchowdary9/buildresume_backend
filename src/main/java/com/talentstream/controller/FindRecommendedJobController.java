@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.talentstream.dto.JobDTO;
@@ -42,73 +43,38 @@ public class FindRecommendedJobController {
     }
 
     @GetMapping("/findrecommendedjob/{applicantId}")
-    public ResponseEntity<List<JobDTO>> recommendJobsForApplicant(@PathVariable String applicantId) {
+    public ResponseEntity<List<JobDTO>> recommendJobsForApplicant(
+            @PathVariable String applicantId,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "16") int size) {
         try {
             long applicantIdLong = Long.parseLong(applicantId);
-            ApplicantProfile applicantProfile = applicantRepository.findByApplicantId(applicantIdLong);
+            List<JobDTO> recommendedJobs = finJobService.recommendJobsForApplicant(applicantIdLong, page, size);
 
-            if (applicantProfile == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
-            }
+            if (!recommendedJobs.isEmpty()) {
+                return ResponseEntity.ok(recommendedJobs);
 
-            List<Job> recommendedJobs = finJobService.findJobsMatchingApplicantProfile(applicantProfile);
-
-            if (recommendedJobs.isEmpty()) {
-                logger.info("No recommended jobs found for applicant: {}", applicantId);
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
             } else {
-                List<JobDTO> jobDTOs = recommendedJobs.stream()
-                        .map(job -> convertEntityToDTO(job))
-                        .collect(Collectors.toList());
-                return ResponseEntity.ok(jobDTOs);
+                // #change
+                // return
+                // ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
+                return ResponseEntity.notFound().build();
+
             }
 
         } catch (NumberFormatException ex) {
+
             logger.error("Invalid applicant ID format: {}", applicantId, ex);
             throw new CustomException("Invalid applicant ID format", HttpStatus.BAD_REQUEST);
         } catch (CustomException ce) {
+
             logger.error("Custom exception occurred: {}", ce.getMessage());
-            System.out.println(ce.getMessage());
             return ResponseEntity.status(ce.getStatus()).body(Collections.emptyList());
         } catch (Exception e) {
+
             logger.error("Error occurred while processing request", e);
-            System.out.println(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
         }
-    }
-
-    private JobDTO convertEntityToDTO(Job job) {
-        JobDTO jobDTO = new JobDTO();
-        jobDTO.setId(job.getId());
-        jobDTO.setJobTitle(job.getJobTitle());
-        jobDTO.setMinimumExperience(job.getMinimumExperience());
-        jobDTO.setMaximumExperience(job.getMaximumExperience());
-        jobDTO.setMinSalary(job.getMinSalary());
-        jobDTO.setMaxSalary(job.getMaxSalary());
-        jobDTO.setLocation(job.getLocation());
-        jobDTO.setEmployeeType(job.getEmployeeType());
-        jobDTO.setIndustryType(job.getIndustryType());
-        jobDTO.setMinimumQualification(job.getMinimumQualification());
-        jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
-        jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
-        jobDTO.setEmail(job.getJobRecruiter().getEmail());
-        jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
-        jobDTO.setSpecialization(job.getSpecialization());
-        jobDTO.setDescription(job.getDescription());
-        jobDTO.setCreationDate(job.getCreationDate());
-        jobDTO.setIsSaved(job.getIsSaved());
-
-        Set<RecuriterSkillsDTO> skillsDTOList = job.getSkillsRequired().stream()
-                .map(this::convertSkillsEntityToDTO)
-                .collect(Collectors.toSet());
-        jobDTO.setSkillsRequired(skillsDTOList);
-        return jobDTO;
-    }
-
-    private RecuriterSkillsDTO convertSkillsEntityToDTO(RecuriterSkills skill) {
-        RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
-        skillDTO.setSkillName(skill.getSkillName());
-        return skillDTO;
     }
 
     @GetMapping("/countRecommendedJobsForApplicant/{applicantId}")
