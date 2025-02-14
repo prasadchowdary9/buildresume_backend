@@ -2,13 +2,22 @@ package com.talentstream.service;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import com.talentstream.dto.JobDTO;
+import com.talentstream.dto.RecuriterSkillsDTO;
 import com.talentstream.entity.Applicant;
 import com.talentstream.entity.ApplicantProfile;
 import com.talentstream.entity.ApplicantSkills;
 import com.talentstream.entity.Job;
+import com.talentstream.entity.RecuriterSkills;
 import com.talentstream.repository.ApplicantProfileRepository;
 import com.talentstream.repository.ApplyJobRepository;
 import com.talentstream.repository.JobRepository;
@@ -39,6 +48,8 @@ public class FinRecommendedJobService {
 
     @Autowired
     private SavedJobRepository savedJobRepository;
+
+    private static final Logger logger = LoggerFactory.getLogger(FinRecommendedJobService.class);
 
     // Finds active jobs that match the skills of the applicant identified by
     // applicantId.
@@ -71,87 +82,121 @@ public class FinRecommendedJobService {
 
     // Counts the number of recommended jobs for the applicant based on their skills
     // and promotion status.
-    public long countRecommendedJobsForApplicant(long applicantId) {
-        try {
-            Optional<ApplicantProfile> optionalApplicant = applicantRepository.findByApplicantIdWithSkills(applicantId);
-            Applicant applicant1 = registerRepository.findById(applicantId);
-
-            if (optionalApplicant.isEmpty()) {
-
-                List<Job> mathedJobs = jobService.getJobsByPromoteState(applicantId, "yes");
-                return mathedJobs.size();
-            }
-
-            ApplicantProfile applicant = optionalApplicant.get();
-
-            Set<String> lowercaseApplicantSkillNames = applicant.getSkillsRequired().stream()
-                    .map(skill -> skill.getSkillName().toLowerCase())
-                    .collect(Collectors.toSet());
-
-            List<Job> matchingJobs = findJobsMatchingApplicantProfile(applicant);
-            long recommendedJobCount = matchingJobs.size();
-
-            return recommendedJobCount;
-        } catch (Exception e) {
-            e.printStackTrace();
-
-            throw new CustomException("Error while counting recommended jobs for the applicant",
-                    HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 
     // Finds jobs that match the applicant's profile based on skills, preferred
     // locations, experience, and specialization.
-    public List<Job> findJobsMatchingApplicantProfile(ApplicantProfile applicantProfile) {
+    public long countRecommendedJobsForApplicant(long applicantId) {
         try {
-            Set<String> lowercaseApplicantSkillNames = applicantProfile.getSkillsRequired().stream()
+            Optional<ApplicantProfile> optionalApplicant = applicantRepository.findByApplicantIdWithSkills(applicantId);
+            if (optionalApplicant.isEmpty()) {
+                return jobService.getJobsByPromoteState(applicantId, "yes").size();
+            }
+
+            ApplicantProfile applicant = optionalApplicant.get();
+            Set<String> skillNames = applicant.getSkillsRequired().stream()
                     .map(skill -> skill.getSkillName().toLowerCase())
                     .collect(Collectors.toSet());
 
-            Set<String> preferredLocations = applicantProfile.getPreferredJobLocations();
+            Set<String> preferredLocations = applicant.getPreferredJobLocations();
             Integer experience = null;
-
             try {
-                experience = Integer.parseInt(applicantProfile.getExperience());
+                experience = Integer.parseInt(applicant.getExperience());
             } catch (NumberFormatException e) {
                 System.out.println("Warning: Unable to parse experience as Integer");
             }
 
-            String specialization = applicantProfile.getSpecialization();
+            String specialization = applicant.getSpecialization();
 
-            System.out.println(applicantProfile.getApplicant().getId());
-            List<Object[]> result = jobRepository.findJobsMatchingApplicantProfile(
-                    applicantProfile.getApplicant().getId(),
-                    lowercaseApplicantSkillNames,
-                    preferredLocations,
-                    experience,
+            // get Job IDs from Query
+            List<Long> jobIds = jobRepository.findMatchingJobIds(skillNames, preferredLocations, experience,
                     specialization);
 
-            List<Job> matchingJobs = new ArrayList<>();
-            for (Object[] array : result) {
-                Job job = (Job) array[0];
-                job.setIsSaved((String) array[1]);
-                String isSaved = (String) array[1];
-                System.out.println(job.getId() + "-----" + job.getIsSaved());
-                job.setIsSaved(isSaved != null ? isSaved : "");
-                matchingJobs.add(job);
-                System.out.println(job.getIsSaved());
-            }
-            long applicantId = applicantProfile.getApplicant().getId();
-            Applicant applicant = applicantRepository1.findById(applicantId);
-            matchingJobs = matchingJobs.stream()
-                    .filter(job ->
+            if (jobIds.isEmpty())
+                return 0;
 
-                    !applyJobRepository.existsByApplicantAndJob(applicant, job)
-                            && !isJobSavedByApplicant(job.getId(), applicantId))
-                    .collect(Collectors.toList());
+            // fetch Applied & Saved Job IDs
+            Set<Long> appliedJobIds = applyJobRepository.findJobIdsByApplicantId(applicantId);
+            Set<Long> savedJobIds = savedJobRepository.findJobIdsByApplicantId(applicantId);
 
-            return matchingJobs;
+            // filter Applied/Saved Jobs
+            long recommendedJobCount = jobIds.stream()
+                    .filter(jobId -> !appliedJobIds.contains(jobId) && !savedJobIds.contains(jobId))
+                    .count();
 
+            return recommendedJobCount;
         } catch (Exception e) {
             e.printStackTrace();
-            throw new CustomException("Error while finding recommended jobs", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new CustomException("Error while counting recommended jobs", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    // Finds active jobs that match the skills of the applicant identified by
+    // applicantId.
+    public List<JobDTO> recommendJobsForApplicant(long applicantId, int page, int size) {
+        ApplicantProfile applicantProfile = applicantRepository.findByApplicantId(applicantId);
+
+        if (applicantProfile == null) {
+            throw new CustomException("Applicant profile not found", HttpStatus.NOT_FOUND);
+        }
+
+        Set<String> skillNames = applicantProfile.getSkillsRequired().stream()
+                .map(skill -> skill.getSkillName().toLowerCase())
+                .collect(Collectors.toSet());
+
+        Set<String> preferredLocations = applicantProfile.getPreferredJobLocations();
+        Integer experience = null;
+        try {
+            experience = Integer.parseInt(applicantProfile.getExperience());
+        } catch (NumberFormatException e) {
+            logger.warn("Warning: Unable to parse experience as Integer");
+        }
+
+        Page<Job> jobPage = jobRepository.findJobsMatchingApplicantProfile(
+                applicantId,
+                skillNames,
+                preferredLocations,
+                experience,
+                applicantProfile.getSpecialization(),
+                PageRequest.of(page, size));
+
+        return jobPage.getContent().stream().parallel()
+                .map(this::convertEntityToDTO)
+                .collect(Collectors.toList());
+
+    }
+
+    private JobDTO convertEntityToDTO(Job job) {
+        JobDTO jobDTO = new JobDTO();
+        jobDTO.setId(job.getId());
+        jobDTO.setJobTitle(job.getJobTitle());
+        jobDTO.setMinimumExperience(job.getMinimumExperience());
+        jobDTO.setMaximumExperience(job.getMaximumExperience());
+        jobDTO.setMinSalary(job.getMinSalary());
+        jobDTO.setMaxSalary(job.getMaxSalary());
+        jobDTO.setLocation(job.getLocation());
+        jobDTO.setEmployeeType(job.getEmployeeType());
+        jobDTO.setIndustryType(job.getIndustryType());
+        jobDTO.setMinimumQualification(job.getMinimumQualification());
+        jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
+        jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
+        jobDTO.setEmail(job.getJobRecruiter().getEmail());
+        jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
+        jobDTO.setSpecialization(job.getSpecialization());
+        jobDTO.setDescription(job.getDescription());
+        jobDTO.setCreationDate(job.getCreationDate());
+        jobDTO.setIsSaved(job.getIsSaved());
+
+        Set<RecuriterSkillsDTO> skillsDTOList = job.getSkillsRequired().stream()
+                .map(this::convertSkillsEntityToDTO)
+                .collect(Collectors.toSet());
+        jobDTO.setSkillsRequired(skillsDTOList);
+        return jobDTO;
+    }
+
+    private RecuriterSkillsDTO convertSkillsEntityToDTO(RecuriterSkills skill) {
+        RecuriterSkillsDTO skillDTO = new RecuriterSkillsDTO();
+        skillDTO.setSkillName(skill.getSkillName());
+        return skillDTO;
     }
 
     // Checks if a job is saved by a specific applicant based on job ID and

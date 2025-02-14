@@ -1,11 +1,13 @@
 package com.talentstream.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.talentstream.exception.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.talentstream.dto.JobDTO;
@@ -50,29 +53,29 @@ public class SavedJobController {
 
     @GetMapping("/getSavedJobs/{applicantId}")
     public ResponseEntity<List<JobDTO>> getSavedJobsForApplicantAndJob(
-            @PathVariable long applicantId) {
+            @PathVariable long applicantId,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
         try {
-            List<Job> savedJobs = savedJobService.getSavedJobsForApplicant(applicantId);
+            Page<Job> savedJobsPage = savedJobService.getSavedJobsForApplicant(applicantId, page, size);
 
-            if (savedJobs.isEmpty()) {
+            if (savedJobsPage.isEmpty()) {
                 return ResponseEntity.noContent().build();
             }
-            List<JobDTO> savedJobsDTO = savedJobs.stream()
-                    .map(job -> {
-                        JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
-                        jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
-                        // jobDTO.setMobilenumber(job.getJobRecruiter().getMobilenumber());
-                        jobDTO.setEmail(job.getJobRecruiter().getEmail());
-                        jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
-                        return jobDTO;
-                    })
-                    .collect(Collectors.toList());
 
-            return ResponseEntity.ok(savedJobsDTO);
+            List<JobDTO> savedJobsDTOList = savedJobsPage.stream().map(job -> {
+                JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
+                jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
+                jobDTO.setEmail(job.getJobRecruiter().getEmail());
+                jobDTO.setRecruiterId(job.getJobRecruiter().getRecruiterId());
+                return jobDTO;
+            }).collect(Collectors.toList()); // Convert stream to list
+
+            return ResponseEntity.ok(savedJobsDTOList);
         } catch (CustomException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ArrayList<>());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Collections.emptyList());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
         }
     }
 
@@ -89,18 +92,24 @@ public class SavedJobController {
     }
 
     @DeleteMapping("/applicants/deletejob/{applicantId}/{jobId}")
-    public ResponseEntity<String> deleteSavedJobForApplicant(
-            @PathVariable long applicantId,
-            @PathVariable long jobId) {
+    public ResponseEntity<Object> deleteSavedJobForApplicant(@PathVariable long applicantId, @PathVariable long jobId) {
         try {
-            savedJobService.deleteSavedJobForApplicant(applicantId, jobId);
-            return ResponseEntity.ok("Job deleted successfully for the applicant.");
+            int deleteSavedJobForApplicant = savedJobService.deleteSavedJobForApplicant(applicantId, jobId);
+
+            if (deleteSavedJobForApplicant <= 0) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body("Job Not saved with jobIdn : " + jobId + " and Applicant Id : " + applicantId);
+            }
+            return ResponseEntity.status(HttpStatus.OK).body("Saved job deleted successfully from database");
+
         } catch (CustomException e) {
-            return ResponseEntity.status(e.getStatus()).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error deleting saved job for the applicant.");
         }
+
     }
 
 }
