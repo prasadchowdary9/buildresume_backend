@@ -161,7 +161,7 @@ public class FinRecommendedJobService {
 
         return jobPage.getContent().stream().parallel()
                 .map(this::convertEntityToDTO)
-                .toList();
+                .collect(Collectors.toList());
 
     }
 
