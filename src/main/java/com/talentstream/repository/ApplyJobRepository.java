@@ -3,6 +3,8 @@ package com.talentstream.repository;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -79,5 +81,7 @@ public interface ApplyJobRepository extends JpaRepository<ApplyJob, Long> {
 	@Query("SELECT aj.job.id FROM ApplyJob aj WHERE aj.applicant.id = :applicantId")
 
 	Set<Long> findJobIdsByApplicantId(@Param("applicantId") long applicantId);
+
+	Page<ApplyJob> findByApplicantId(long applicantId, Pageable pageable);
 
 }

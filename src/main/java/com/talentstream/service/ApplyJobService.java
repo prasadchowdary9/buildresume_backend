@@ -13,6 +13,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -81,11 +84,11 @@ public class ApplyJobService {
 	@Autowired
 	private SavedJobRepository savedJobRepository;
 	@Autowired
-    private ApplicantTestRepository applicantTestRepository;
+	private ApplicantTestRepository applicantTestRepository;
 	@Autowired
-    private ViewJobService viewJobService;
+	private ViewJobService viewJobService;
 	@Autowired
-    private ApplicantSkillBadgeRepository applicantSkillBadgeRepository;
+	private ApplicantSkillBadgeRepository applicantSkillBadgeRepository;
 
 	// Marks the specified alert as seen by updating its status in the repository.
 	public void markAlertAsSeen(long alertsId) {
@@ -280,11 +283,12 @@ public class ApplyJobService {
 	}
 
 	// Retrieves a list of job details for jobs applied to by a specific applicant.
-	public List<JobDTO> getAppliedJobsForApplicant(long applicantId) {
-		List<JobDTO> result = new ArrayList<>();
+	public Page<JobDTO> getAppliedJobsForApplicant(long applicantId, int page, int size) {
 		try {
-			List<ApplyJob> appliedJobs = applyJobRepository.findByApplicantId(applicantId);
-			for (ApplyJob appliedJob : appliedJobs) {
+			Pageable pageable = PageRequest.of(page, size);
+			Page<ApplyJob> appliedJobsPage = applyJobRepository.findByApplicantId(applicantId, pageable);
+
+			Page<JobDTO> jobDTOPage = appliedJobsPage.map(appliedJob -> {
 				Job job = appliedJob.getJob();
 				JobDTO jobDTO = new JobDTO();
 				jobDTO.setId(job.getId());
@@ -300,20 +304,18 @@ public class ApplyJobService {
 				jobDTO.setIndustryType(job.getIndustryType());
 				jobDTO.setMinimumQualification(job.getMinimumQualification());
 				jobDTO.setSpecialization(job.getSpecialization());
-				Set<RecuriterSkillsDTO> skillsDTOSet = new HashSet<>();
-				jobDTO.setSkillsRequired(skillsDTOSet);
+				jobDTO.setSkillsRequired(new HashSet<>()); // Initialize empty skills set
 				jobDTO.setDescription(job.getDescription());
 				jobDTO.setCreationDate(job.getCreationDate());
-				jobDTO.setCompanyname(job.getJobRecruiter().getCompanyname());
 				jobDTO.setEmail(job.getJobRecruiter().getEmail());
 				jobDTO.setApplyJobId(appliedJob.getApplyjobid());
+				return jobDTO;
+			});
 
-				result.add(jobDTO);
-			}
+			return jobDTOPage;
 		} catch (Exception e) {
 			throw new CustomException("Failed to get applied jobs for the applicant", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		return result;
 	}
 
 	// Retrieves and filters a list of applied applicants based on various criteria
@@ -334,9 +336,10 @@ public class ApplyJobService {
 				ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(id1);
 				AppliedApplicantInfoDTO dto1 = mapToDTO(appliedApplicantInfo);
 				dto1.setExperience(applicantProfile.getExperience());
-				String name1=applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName();
-                dto1.setName(name1);
-	            dto1.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
+				String name1 = applicantProfile.getBasicDetails().getFirstName() + " "
+						+ applicantProfile.getBasicDetails().getLastName();
+				dto1.setName(name1);
+				dto1.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
 				dto1.setMinimumQualification(applicantProfile.getQualification());
 				all.add(dto1);
 			} catch (Exception e) {
@@ -344,7 +347,6 @@ public class ApplyJobService {
 			}
 		}
 
-		
 		List<AppliedApplicantInfoDTO> filteredList = null;
 		try {
 			filteredList = all.stream()
@@ -447,188 +449,196 @@ public class ApplyJobService {
 	// Retrieves applied applicants for a given job recruiter, mapping their
 	// information into DTOs and organizing by unique keys.
 	public Map<String, List<AppliedApplicantInfoDTO>> getAppliedApplicants(long jobRecruiterId) {
-		
-	    List<AppliedApplicantInfo> appliedApplicants = applyJobRepository.findAppliedApplicantsInfo(jobRecruiterId);
-	    
-	    Map<String, AppliedApplicantInfoDTO> applicantMap = new HashMap<>();
 
-	    for (AppliedApplicantInfo appliedApplicantInfo : appliedApplicants) {
-	    	
-	        String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
-	        System.out.println("applicantKey "+applicantKey);
-	        AppliedApplicantInfoDTO dto;
+		List<AppliedApplicantInfo> appliedApplicants = applyJobRepository.findAppliedApplicantsInfo(jobRecruiterId);
 
-	        if (!applicantMap.containsKey(applicantKey)) {
-	            dto = mapToDTO(appliedApplicantInfo);
-	            try {
-	            	
-	            	ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(appliedApplicantInfo.getId());
-	                dto.setExperience(applicantProfile.getExperience());
-	                String name=applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName();
-	                dto.setName(name);
-	                dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
-	                dto.setMinimumQualification(applicantProfile.getQualification());
-	                dto.setPreferredJobLocations(applicantProfile.getPreferredJobLocations());
-	                dto.setQualification(applicantProfile.getQualification());
-	                dto.setSpecialization(applicantProfile.getSpecialization());
-	                
-	                ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicantSkillMatch(dto.getJobId(), appliedApplicantInfo.getId());
-		             // Extract the body from the ResponseEntity
-		                Object responseBody = jobDetails.getBody();
-		             // Assuming the body is of type JobDetailsResponse (replace with actual class name)
-		                if (responseBody instanceof JobDTO) {
-		                	JobDTO jobDetailsResponse = (JobDTO) responseBody;
-		                    
-		                    dto.setMatchPercentage(jobDetailsResponse.getMatchPercentage());
-		                    dto.setMatchedSkills(jobDetailsResponse.getMatchedSkills());
-		                    dto.setNonMatchedSkills(jobDetailsResponse.getSkillsRequired());
-		                    dto.setAdditionalSkills(jobDetailsResponse.getAdditionalSkills());
-		                   
-		                } else {
-		                    System.out.println("Unexpected response body type: " + responseBody.getClass().getName());
-		                }
-	               
-		                
-	                Map<String, Double> testScores = applicantTestRepository.findTestScoresByApplicantId(appliedApplicantInfo.getId());
-	                
-	                Double aptitudeScore = testScores.get("aptitudeScore");
-	                Double technicalScore = testScores.get("technicalScore");
+		Map<String, AppliedApplicantInfoDTO> applicantMap = new HashMap<>();
 
-	                dto.setApptitudeScore(aptitudeScore != null ? aptitudeScore : 0.0);
-	                dto.setTechnicalScore(technicalScore != null ? technicalScore : 0.0);
+		for (AppliedApplicantInfo appliedApplicantInfo : appliedApplicants) {
 
+			String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
+			System.out.println("applicantKey " + applicantKey);
+			AppliedApplicantInfoDTO dto;
 
-	                if (aptitudeScore != null && technicalScore != null && aptitudeScore >= 70.00 && technicalScore >= 70.00) {
-	                    dto.setPreScreenedCondition("PreScreened");
-	                } else {
-	                    dto.setPreScreenedCondition("NotPreScreened");
-	                }
-	                
-	                
-	                
-	             // Find applicant skills based on applicant ID
-	                List<ApplicantSkillBadge> applicantSkills = applicantSkillBadgeRepository.findPassedSkillBadgesByApplicantId(appliedApplicantInfo.getId());
-                    
-	                if (applicantSkills != null && !applicantSkills.isEmpty()) {
-	                    // Use the already retrieved applicantSkills to set the DTO
-	                    dto.setApplicantSkillBadges(applicantSkills);
-	                }
-	               
-	            } catch (Exception e) {
-	                e.printStackTrace();
-	            }
-	            applicantMap.put(applicantKey, dto);
-	        } else {
-	            dto = applicantMap.get(applicantKey);
-	        }
+			if (!applicantMap.containsKey(applicantKey)) {
+				dto = mapToDTO(appliedApplicantInfo);
+				try {
 
-	        //dto.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
-	    }
+					ApplicantProfile applicantProfile = applicantProfileRepo
+							.findByApplicantId(appliedApplicantInfo.getId());
+					dto.setExperience(applicantProfile.getExperience());
+					String name = applicantProfile.getBasicDetails().getFirstName() + " "
+							+ applicantProfile.getBasicDetails().getLastName();
+					dto.setName(name);
+					dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
+					dto.setMinimumQualification(applicantProfile.getQualification());
+					dto.setPreferredJobLocations(applicantProfile.getPreferredJobLocations());
+					dto.setQualification(applicantProfile.getQualification());
+					dto.setSpecialization(applicantProfile.getSpecialization());
 
-	    // Convert map values to list as the result requires a Map<String, List<AppliedApplicantInfoDTO>>
-	    Map<String, List<AppliedApplicantInfoDTO>> result = new HashMap<>();
-	    for (Map.Entry<String, AppliedApplicantInfoDTO> entry : applicantMap.entrySet()) {
-	        result.put(entry.getKey(), Collections.singletonList(entry.getValue()));
-	    }
-	    return result;
+					ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicantSkillMatch(dto.getJobId(),
+							appliedApplicantInfo.getId());
+					// Extract the body from the ResponseEntity
+					Object responseBody = jobDetails.getBody();
+					// Assuming the body is of type JobDetailsResponse (replace with actual class
+					// name)
+					if (responseBody instanceof JobDTO) {
+						JobDTO jobDetailsResponse = (JobDTO) responseBody;
+
+						dto.setMatchPercentage(jobDetailsResponse.getMatchPercentage());
+						dto.setMatchedSkills(jobDetailsResponse.getMatchedSkills());
+						dto.setNonMatchedSkills(jobDetailsResponse.getSkillsRequired());
+						dto.setAdditionalSkills(jobDetailsResponse.getAdditionalSkills());
+
+					} else {
+						System.out.println("Unexpected response body type: " + responseBody.getClass().getName());
+					}
+
+					Map<String, Double> testScores = applicantTestRepository
+							.findTestScoresByApplicantId(appliedApplicantInfo.getId());
+
+					Double aptitudeScore = testScores.get("aptitudeScore");
+					Double technicalScore = testScores.get("technicalScore");
+
+					dto.setApptitudeScore(aptitudeScore != null ? aptitudeScore : 0.0);
+					dto.setTechnicalScore(technicalScore != null ? technicalScore : 0.0);
+
+					if (aptitudeScore != null && technicalScore != null && aptitudeScore >= 70.00
+							&& technicalScore >= 70.00) {
+						dto.setPreScreenedCondition("PreScreened");
+					} else {
+						dto.setPreScreenedCondition("NotPreScreened");
+					}
+
+					// Find applicant skills based on applicant ID
+					List<ApplicantSkillBadge> applicantSkills = applicantSkillBadgeRepository
+							.findPassedSkillBadgesByApplicantId(appliedApplicantInfo.getId());
+
+					if (applicantSkills != null && !applicantSkills.isEmpty()) {
+						// Use the already retrieved applicantSkills to set the DTO
+						dto.setApplicantSkillBadges(applicantSkills);
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				applicantMap.put(applicantKey, dto);
+			} else {
+				dto = applicantMap.get(applicantKey);
+			}
+
+			// dto.addSkill(appliedApplicantInfo.getSkillName(),
+			// appliedApplicantInfo.getMinimumExperience());
+		}
+
+		// Convert map values to list as the result requires a Map<String,
+		// List<AppliedApplicantInfoDTO>>
+		Map<String, List<AppliedApplicantInfoDTO>> result = new HashMap<>();
+		for (Map.Entry<String, AppliedApplicantInfoDTO> entry : applicantMap.entrySet()) {
+			result.put(entry.getKey(), Collections.singletonList(entry.getValue()));
+		}
+		return result;
 	}
-
 
 	// Retrieves and organizes applied applicants for a given job recruiter by job
 	// ID, mapping details to DTOs.
 	public Map<String, List<AppliedApplicantInfoDTO>> getAppliedApplicants1(long jobRecruiterId, long id) {
-	    List<AppliedApplicantInfo> appliedApplicants = applyJobRepository.findAppliedApplicantsInfoWithJobId(jobRecruiterId, id);
-	    Map<String, AppliedApplicantInfoDTO> applicantMap = new HashMap<>();
-	    
-	    for (AppliedApplicantInfo appliedApplicantInfo : appliedApplicants) {
-	        String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
-	        
-	        if (!applicantMap.containsKey(applicantKey)) {
-	            try {
-	                long id1 = appliedApplicantInfo.getId();
-	                ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(id1);
-	                AppliedApplicantInfoDTO dto = mapToDTO(appliedApplicantInfo);
-	                dto.setExperience(applicantProfile.getExperience());
-	                String name=applicantProfile.getBasicDetails().getFirstName()+" "+applicantProfile.getBasicDetails().getLastName();
-	                dto.setName(name);
-	                dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
-	                dto.setMinimumQualification(applicantProfile.getQualification());
-	                //dto.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
-	                dto.setPreferredJobLocations(applicantProfile.getPreferredJobLocations());
-	                dto.setQualification(applicantProfile.getQualification());
-	                dto.setSpecialization(applicantProfile.getSpecialization());
-	                
-	                ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicantSkillMatch(dto.getJobId(), appliedApplicantInfo.getId());
-		             // Extract the body from the ResponseEntity
-		                Object responseBody = jobDetails.getBody();
-		             // Assuming the body is of type JobDetailsResponse (replace with actual class name)
-		                if (responseBody instanceof JobDTO) {
-		                	JobDTO jobDetailsResponse = (JobDTO) responseBody;
-		                    
-		                    dto.setMatchPercentage(jobDetailsResponse.getMatchPercentage());
-		                    dto.setMatchedSkills(jobDetailsResponse.getMatchedSkills());
-		                    dto.setNonMatchedSkills(jobDetailsResponse.getSkillsRequired());
-		                    dto.setAdditionalSkills(jobDetailsResponse.getAdditionalSkills());
-		                   
-		                } else {
-		                    System.out.println("Unexpected response body type: " + responseBody.getClass().getName());
-		                }
-	               
-		                
-	                Map<String, Double> testScores = applicantTestRepository.findTestScoresByApplicantId(appliedApplicantInfo.getId());
-	                
-	                Double aptitudeScore = testScores.get("aptitudeScore");
-	                Double technicalScore = testScores.get("technicalScore");
+		List<AppliedApplicantInfo> appliedApplicants = applyJobRepository
+				.findAppliedApplicantsInfoWithJobId(jobRecruiterId, id);
+		Map<String, AppliedApplicantInfoDTO> applicantMap = new HashMap<>();
 
-	                dto.setApptitudeScore(aptitudeScore != null ? aptitudeScore : 0.0);
-	                dto.setTechnicalScore(technicalScore != null ? technicalScore : 0.0);
+		for (AppliedApplicantInfo appliedApplicantInfo : appliedApplicants) {
+			String applicantKey = appliedApplicantInfo.getEmail() + "_" + appliedApplicantInfo.getApplyjobid();
 
+			if (!applicantMap.containsKey(applicantKey)) {
+				try {
+					long id1 = appliedApplicantInfo.getId();
+					ApplicantProfile applicantProfile = applicantProfileRepo.findByApplicantId(id1);
+					AppliedApplicantInfoDTO dto = mapToDTO(appliedApplicantInfo);
+					dto.setExperience(applicantProfile.getExperience());
+					String name = applicantProfile.getBasicDetails().getFirstName() + " "
+							+ applicantProfile.getBasicDetails().getLastName();
+					dto.setName(name);
+					dto.setMobilenumber(applicantProfile.getBasicDetails().getAlternatePhoneNumber());
+					dto.setMinimumQualification(applicantProfile.getQualification());
+					// dto.addSkill(appliedApplicantInfo.getSkillName(),
+					// appliedApplicantInfo.getMinimumExperience());
+					dto.setPreferredJobLocations(applicantProfile.getPreferredJobLocations());
+					dto.setQualification(applicantProfile.getQualification());
+					dto.setSpecialization(applicantProfile.getSpecialization());
 
-	                if (aptitudeScore != null && technicalScore != null && aptitudeScore >= 70.00 && technicalScore >= 70.00) {
-	                    dto.setPreScreenedCondition("PreScreened");
-	                } else {
-	                    dto.setPreScreenedCondition("NotPreScreened");
-	                }
-	                
-	                
-	                
-	             // Find applicant skills based on applicant ID
-	                List<ApplicantSkillBadge> applicantSkills = applicantSkillBadgeRepository.findPassedSkillBadgesByApplicantId(appliedApplicantInfo.getId());
-                   
-	                if (applicantSkills != null && !applicantSkills.isEmpty()) {
-	                    // Use the already retrieved applicantSkills to set the DTO
-	                    dto.setApplicantSkillBadges(applicantSkills);
-	                }
-	                
-	                applicantMap.put(applicantKey, dto);
-	            } catch (Exception e) {
-	                e.printStackTrace();
-	            }
-	        } else {
-	            //AppliedApplicantInfoDTO existingDTO = applicantMap.get(applicantKey);
-	            try {
-	                //existingDTO.addSkill(appliedApplicantInfo.getSkillName(), appliedApplicantInfo.getMinimumExperience());
-	            } catch (Exception e) {
-	                e.printStackTrace();
-	            }
-	        }
-	    }
+					ResponseEntity<?> jobDetails = viewJobService.getJobDetailsForApplicantSkillMatch(dto.getJobId(),
+							appliedApplicantInfo.getId());
+					// Extract the body from the ResponseEntity
+					Object responseBody = jobDetails.getBody();
+					// Assuming the body is of type JobDetailsResponse (replace with actual class
+					// name)
+					if (responseBody instanceof JobDTO) {
+						JobDTO jobDetailsResponse = (JobDTO) responseBody;
 
-	    Optional<Job> optionalJob = jobRepository.findById(id);
-	    if (optionalJob.isPresent()) {
-	        Job job = optionalJob.get();
-	        job.setNewStatus("oldApplicants");
-	        jobRepository.save(job);
-	    }
-	    
-	    Map<String, List<AppliedApplicantInfoDTO>> result = new HashMap<>();
-	    for (Map.Entry<String, AppliedApplicantInfoDTO> entry : applicantMap.entrySet()) {
-	        result.put(entry.getKey(), Collections.singletonList(entry.getValue()));
-	    }
-	    
-	    return result;
+						dto.setMatchPercentage(jobDetailsResponse.getMatchPercentage());
+						dto.setMatchedSkills(jobDetailsResponse.getMatchedSkills());
+						dto.setNonMatchedSkills(jobDetailsResponse.getSkillsRequired());
+						dto.setAdditionalSkills(jobDetailsResponse.getAdditionalSkills());
+
+					} else {
+						System.out.println("Unexpected response body type: " + responseBody.getClass().getName());
+					}
+
+					Map<String, Double> testScores = applicantTestRepository
+							.findTestScoresByApplicantId(appliedApplicantInfo.getId());
+
+					Double aptitudeScore = testScores.get("aptitudeScore");
+					Double technicalScore = testScores.get("technicalScore");
+
+					dto.setApptitudeScore(aptitudeScore != null ? aptitudeScore : 0.0);
+					dto.setTechnicalScore(technicalScore != null ? technicalScore : 0.0);
+
+					if (aptitudeScore != null && technicalScore != null && aptitudeScore >= 70.00
+							&& technicalScore >= 70.00) {
+						dto.setPreScreenedCondition("PreScreened");
+					} else {
+						dto.setPreScreenedCondition("NotPreScreened");
+					}
+
+					// Find applicant skills based on applicant ID
+					List<ApplicantSkillBadge> applicantSkills = applicantSkillBadgeRepository
+							.findPassedSkillBadgesByApplicantId(appliedApplicantInfo.getId());
+
+					if (applicantSkills != null && !applicantSkills.isEmpty()) {
+						// Use the already retrieved applicantSkills to set the DTO
+						dto.setApplicantSkillBadges(applicantSkills);
+					}
+
+					applicantMap.put(applicantKey, dto);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} else {
+				// AppliedApplicantInfoDTO existingDTO = applicantMap.get(applicantKey);
+				try {
+					// existingDTO.addSkill(appliedApplicantInfo.getSkillName(),
+					// appliedApplicantInfo.getMinimumExperience());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		Optional<Job> optionalJob = jobRepository.findById(id);
+		if (optionalJob.isPresent()) {
+			Job job = optionalJob.get();
+			job.setNewStatus("oldApplicants");
+			jobRepository.save(job);
+		}
+
+		Map<String, List<AppliedApplicantInfoDTO>> result = new HashMap<>();
+		for (Map.Entry<String, AppliedApplicantInfoDTO> entry : applicantMap.entrySet()) {
+			result.put(entry.getKey(), Collections.singletonList(entry.getValue()));
+		}
+
+		return result;
 	}
-
 
 	// Maps an AppliedApplicantInfo entity to an AppliedApplicantInfoDTO,
 	// transferring relevant applicant details.
@@ -644,17 +654,17 @@ public class ApplyJobService {
 		dto.setApplicantStatus(appliedApplicantInfo.getApplicantStatus());
 		dto.setMinimumExperience(appliedApplicantInfo.getMinimumExperience());
 		dto.setMinimumQualification(appliedApplicantInfo.getMinimumQualification());
-		 Job job = jobRepository.findById(appliedApplicantInfo.getJobId()).orElse(null);
-		    if (job != null) {
-		        Set<RecuriterSkills> jobSkills = job.getSkillsRequired();
-		        if (jobSkills != null) {
-		            List<String> skills = jobSkills.stream()
-		                .filter(skill -> skill.getSkillName() != null) // Avoid null keys
-		                .map(RecuriterSkills::getSkillName)
-		                .collect(Collectors.toList());
-		            dto.setSkillName(skills);
-		        }
-		    }
+		Job job = jobRepository.findById(appliedApplicantInfo.getJobId()).orElse(null);
+		if (job != null) {
+			Set<RecuriterSkills> jobSkills = job.getSkillsRequired();
+			if (jobSkills != null) {
+				List<String> skills = jobSkills.stream()
+						.filter(skill -> skill.getSkillName() != null) // Avoid null keys
+						.map(RecuriterSkills::getSkillName)
+						.collect(Collectors.toList());
+				dto.setSkillName(skills);
+			}
+		}
 		dto.setLocation(appliedApplicantInfo.getLocation());
 		return dto;
 	}
@@ -716,13 +726,13 @@ public class ApplyJobService {
 	public long countJobApplicantsByRecruiterId(Long recruiterId) {
 		try {
 			List<AppliedApplicantInfo> appliedApplicants = applyJobRepository.findAppliedApplicantsInfo(recruiterId);
-			 // Use a Set to ensure unique applicants based on email and job ID
-	        Set<String> uniqueApplicants = appliedApplicants.stream()
-	            .map(applicant -> applicant.getEmail() + "_" + applicant.getApplyjobid())
-	            .collect(Collectors.toSet());
+			// Use a Set to ensure unique applicants based on email and job ID
+			Set<String> uniqueApplicants = appliedApplicants.stream()
+					.map(applicant -> applicant.getEmail() + "_" + applicant.getApplyjobid())
+					.collect(Collectors.toSet());
 
-	        // Count the unique applicants
-	        return uniqueApplicants.size();
+			// Count the unique applicants
+			return uniqueApplicants.size();
 		} catch (Exception e) {
 			throw new CustomException("Failed to count job applicants for the recruiter",
 					HttpStatus.INTERNAL_SERVER_ERROR);
@@ -809,17 +819,17 @@ public class ApplyJobService {
 			throw new CustomException("Error while retrieving ApplyJob", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	public String updateStatusByApplicantId(Long applicantId,Long applyJobId,String newStatus) {
+
+	public String updateStatusByApplicantId(Long applicantId, Long applyJobId, String newStatus) {
 		Applicant applicant = applicantRepository.findById(applicantId);
 		if (applicant == null) {
 			throw new CustomException("Applicant ID not found", HttpStatus.NOT_FOUND);
 		}
 		ApplyJob applyJob = applyJobRepository.findById(applyJobId)
 				.orElseThrow(() -> new EntityNotFoundException("ApplyJob not found"));
-		//to check whether that particular applicant is asscociated with that job
-		if (applyJob.getApplicant().getId()!=(applicantId)) {
-			throw new CustomException("Applicant not applied for this job",HttpStatus.BAD_REQUEST);
+		// to check whether that particular applicant is asscociated with that job
+		if (applyJob.getApplicant().getId() != (applicantId)) {
+			throw new CustomException("Applicant not applied for this job", HttpStatus.BAD_REQUEST);
 		}
 		Job job = applyJob.getJob();
 		if (job != null) {
@@ -830,21 +840,21 @@ public class ApplyJobService {
 				if (companyName != null) {
 					applyJob.setApplicantStatus(newStatus);
 					LocalDateTime currentDate = LocalDateTime.now();
- 
+
 					LocalDateTime currentChangeDateTime = currentDate;
- 
+
 					LocalDateTime updatedChangeDateTime = currentChangeDateTime
 							.plusHours(5)
 							.plusMinutes(30);
 					applyJob.setApplicationDate(updatedChangeDateTime);
 					applyJob.setChangeDate(updatedChangeDateTime);
- 
+
 					applyJobRepository.save(applyJob);
- 
+
 					incrementAlertCount(applyJob.getApplicant());
- 
+
 					saveStatusHistory(applyJob, applyJob.getApplicantStatus());
- 
+
 					sendAlerts(applyJob, applyJob.getApplicantStatus(), companyName, jobTitle);
 					return "Applicant status for applicant ID " + applicantId + " updated to: " + newStatus;
 				}

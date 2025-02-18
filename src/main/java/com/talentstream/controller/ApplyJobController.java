@@ -5,11 +5,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -88,26 +90,29 @@ public class ApplyJobController {
 	}
 
 	@GetMapping("/getAppliedJobs/{applicantId}")
-	public ResponseEntity<List<JobDTO>> getAppliedJobsForApplicant(@PathVariable long applicantId) {
+	public ResponseEntity<List<JobDTO>> getAppliedJobsForApplicant(
+			@PathVariable long applicantId,
+			@RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "10") int size) {
 
 		try {
 			logger.info("Request received to get applied jobs for applicantId: {}", applicantId);
-			List<JobDTO> appliedJobsDTO = applyJobService.getAppliedJobsForApplicant(applicantId);
+			Page<JobDTO> appliedJobsPage = applyJobService.getAppliedJobsForApplicant(applicantId, page, size);
 
-			if (appliedJobsDTO.isEmpty()) {
+			if (appliedJobsPage.isEmpty()) {
 				logger.info("No applied jobs found for applicantId: {}", applicantId);
 				return ResponseEntity.noContent().build();
 			}
+
 			logger.info("Retrieved applied jobs successfully for applicantId: {}", applicantId);
-			return ResponseEntity.ok(appliedJobsDTO);
+			return ResponseEntity.ok(appliedJobsPage.getContent()); // Extract List from Page
 		} catch (CustomException e) {
 			logger.error("Error getting applied jobs for applicantId {}: {}", applicantId, e.getMessage());
-			return ResponseEntity.status(e.getStatus()).body(new ArrayList<>());
+			return ResponseEntity.status(e.getStatus()).body(Collections.emptyList());
 		} catch (Exception e) {
 			logger.error("Unexpected error getting applied jobs for applicantId: {}", applicantId, e);
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
 		}
-
 	}
 
 	@GetMapping("/countAppliedJobs/{applicantId}")
@@ -464,24 +469,25 @@ public class ApplyJobController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to mark alert as seen.");
 		}
 	}
-	
+
 	@PutMapping("/recruiters/applicant/{applicantId}/applyjob-update-status/{applyJobId}/{newStatus}")
-	public ResponseEntity<String> updateApplicantstatus(@PathVariable Long applicantId, @PathVariable Long applyJobId,@PathVariable String newStatus){
-		try
-		{
-			logger.info("Received request to update applicantstatus for applyJobId:{} of applicantId: {} to status :{}",applyJobId,applicantId,newStatus);
-			String updatedMessage = applyJobService.updateStatusByApplicantId(applicantId,applyJobId,newStatus);
-			logger.info("Applicant status updated sucessfully for applyJobId:{} of applicantId:{} to status :{}",applyJobId,applicantId,newStatus);
+	public ResponseEntity<String> updateApplicantstatus(@PathVariable Long applicantId, @PathVariable Long applyJobId,
+			@PathVariable String newStatus) {
+		try {
+			logger.info("Received request to update applicantstatus for applyJobId:{} of applicantId: {} to status :{}",
+					applyJobId, applicantId, newStatus);
+			String updatedMessage = applyJobService.updateStatusByApplicantId(applicantId, applyJobId, newStatus);
+			logger.info("Applicant status updated sucessfully for applyJobId:{} of applicantId:{} to status :{}",
+					applyJobId, applicantId, newStatus);
 			return ResponseEntity.ok(updatedMessage);
-		}
-		catch(CustomException ce) {
-			logger.error("error while updating applicant status for applicant id {}:{}",applicantId,ce.getMessage());
+		} catch (CustomException ce) {
+			logger.error("error while updating applicant status for applicant id {}:{}", applicantId, ce.getMessage());
 			return ResponseEntity.status(ce.getStatus()).body(ce.getMessage());
-		}
-		catch(Exception e) {
-			logger.error("Unexpected error while updating applicantstatus for applyJobId:{} of this applicantId {}:{}",applyJobId,applicantId,e);
+		} catch (Exception e) {
+			logger.error("Unexpected error while updating applicantstatus for applyJobId:{} of this applicantId {}:{}",
+					applyJobId, applicantId, e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred.");
 		}
-		}
+	}
 
 }
