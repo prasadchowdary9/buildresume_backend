@@ -31,9 +31,10 @@ public interface SavedJobRepository extends JpaRepository<SavedJob, Long> {
 	long countByApplicantId(@Param("applicantId") long applicantId);
 
 	boolean existsByApplicantIdAndJobId(long applicantId, long jobId);
-
+     
+	
 	@Query("SELECT sj.job.id FROM SavedJob sj " +
-			"WHERE sj.applicant.id =:applicantId")
+		       "WHERE sj.applicant.id = :applicantId AND sj.saveJobStatus = 'saved'")
 	List<Long> findSavedJobIdsByApplicantId(long applicantId);
 
 	@Modifying
