@@ -10,9 +10,9 @@ import software.amazon.awssdk.services.secretsmanager.model.SecretsManagerExcept
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
+
 @Configuration
-@Component
+
 public class AwsSecretsManagerUtil {
 
 	public static String getSecret() {
