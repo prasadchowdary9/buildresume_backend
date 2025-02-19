@@ -309,13 +309,13 @@ public class JobController {
 		try {
 			Job job = jobService.getJobById(jobId);
 
-			if (job != null) {
+			if (job != null && job.getJobRecruiter().getRecruiterId() == recruiterId) {
 				JobDTO jobDTO = modelMapper.map(job, JobDTO.class);
 				logger.info("Job found for jobId={} and recruiterId={}", jobId, recruiterId);
 				return ResponseEntity.ok(jobDTO);
 			} else {
 				logger.warn("No job found for jobId={} and recruiterId={}", jobId, recruiterId);
-				return ResponseEntity.notFound().build();
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No job found for given jobID and recruiterID");
 			}
 		} catch (CustomException ce) {
 			logger.error("Error retrieving job for jobId={} and recruiterId={}, error={}", jobId, recruiterId,
@@ -422,9 +422,10 @@ public class JobController {
 
 				while ((fields = csvReader.readNext()) != null) {
 
-//	   	            if (fields.length < 17) {
-//	   	                return ResponseEntity.badRequest().body("Invalid CSV format. Expected at least 17 fields per row.");
-//	   	            }
+					// if (fields.length < 17) {
+					// return ResponseEntity.badRequest().body("Invalid CSV format. Expected at
+					// least 17 fields per row.");
+					// }
 
 					System.out.println("All Fileds" + Arrays.toString(fields));
 
