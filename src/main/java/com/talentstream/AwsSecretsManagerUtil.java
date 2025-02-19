@@ -17,7 +17,7 @@ public class AwsSecretsManagerUtil {
 	public static String getSecret() {
 		  try {
 		  String secrets = System.getenv("AWS_ACCESS_KEY_ID");
-		  System.out.println("Secretes  "+secrets);
+		  System.out.println("Secretes..  "+secrets);
 		  JSONObject jsonObject = new JSONObject(secrets);
 	        String accessKey = jsonObject.getString("AWS_ACCESS_KEY_ID");
 	        String secretKey = jsonObject.getString("AWS_SECRET_ACCESS_KEY");
