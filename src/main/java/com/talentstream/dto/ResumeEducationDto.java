@@ -22,8 +22,8 @@ public class ResumeEducationDto {
     private LocalDate endYear;
 
     @NotNull(message = "CGPA is required")
-    @DecimalMin(value = "0.0", inclusive = true, message = "CGPA must be at least 0.0")
-    @DecimalMax(value = "10.0", inclusive = true, message = "CGPA cannot exceed 10.0")
+    @DecimalMin(value = "0.0", message = "CGPA must be at least 0.0")
+    @DecimalMax(value = "10.0", message = "CGPA cannot exceed 10.0")
     private Double cgpa;
 
     

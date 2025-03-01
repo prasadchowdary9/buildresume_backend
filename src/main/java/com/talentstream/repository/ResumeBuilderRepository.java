@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ResumeBuilderRepository extends JpaRepository<ResumeBuilder, Integer> {
 
-    @Query(value = "SELECT rb.* FROM resume_builder rb WHERE rb.applicant_id = :applicantId", nativeQuery = true)
-    Optional<ResumeBuilder> findByApplicantId(Long applicantId);
+    @Query(value = "SELECT rb.* FROM resume_builder rb WHERE rb.applicant_id = :applicantId and rb.id= :id", nativeQuery = true)
+    Optional<ResumeBuilder> findByIdAndApplicantId(Long applicantId,Integer id);
+    
+   
 }

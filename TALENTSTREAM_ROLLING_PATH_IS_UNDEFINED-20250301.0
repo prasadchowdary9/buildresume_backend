@@ -5409,3 +5409,1244 @@ org.springframework.security.core.userdetails.UsernameNotFoundException: User no
 01-03-2025_16:02:14.674{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
 01-03-2025_16:02:14.674{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
 01-03-2025_16:02:14.674{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:02:18.388{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:02:18.388{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:02:18.388{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: basha@gmail.com
+01-03-2025_16:17:21.120{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1c2cdc67 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.380{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: 
+01-03-2025_16:25:42.381{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:25:42.381{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:25:42.392{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: venky19sf@gmail.com
+01-03-2025_16:25:42.392{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: venky19sf@gmail.com
+01-03-2025_16:25:42.428{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@28769401 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.468{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@589052ed (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.503{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@42d8f8ff (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.542{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@5e12aa39 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.574{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@96ee4f8 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.604{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@53b3d802 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.636{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@56a9dd8b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.667{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1da1e605 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.698{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6396986d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.729{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2ea83fd5 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.759{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3675ea0e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.795{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2476b30b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.827{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@73740218 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.862{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1ccddd34 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.896{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@5716139 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.928{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@148e7477 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:42.979{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@47b9c03c (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:43.011{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@35ef8182 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:43.042{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3b9946af (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:25:43.105{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: venky19sf@gmail.com
+01-03-2025_16:25:43.303{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:43.304{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:43.304{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:43.560{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:43.560{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:43.560{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:43.564{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_16:25:43.682{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:25:43.683{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:25:43.683{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:25:43.861{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:25:43.862{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:25:43.862{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:25:44.059{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.060{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.061{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.062{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.064{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.064{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.076{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 17
+01-03-2025_16:25:44.089{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_16:25:44.095{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.095{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.096{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.098{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_16:25:44.100{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.100{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.100{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.176{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.176{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.177{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.184{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+01-03-2025_16:25:44.203{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.203{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.203{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.206{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 17
+01-03-2025_16:25:44.239{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 17: 0
+01-03-2025_16:25:44.340{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.341{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.341{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.341{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:25:44.341{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:25:44.341{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:25:44.474{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_16:25:44.572{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 17
+01-03-2025_16:25:44.723{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.725{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.726{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.775{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.775{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.775{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.777{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_16:25:44.802{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.802{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.803{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.893{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.893{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.893{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.895{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_16:25:44.924{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.925{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.925{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.926{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 17
+01-03-2025_16:25:44.972{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.972{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:44.973{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:44.974{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+01-03-2025_16:25:45.022{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_16:25:45.085{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.086{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.086{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:45.089{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 17
+01-03-2025_16:25:45.120{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 17: 0
+01-03-2025_16:25:45.171{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.172{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.172{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:45.305{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 17
+01-03-2025_16:25:45.325{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.325{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.325{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:45.415{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.415{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.415{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:45.417{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_16:25:45.560{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_16:25:45.711{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.711{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:25:45.711{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:25:45.713{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_16:25:45.848{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_16:26:11.338{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:11.338{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:11.338{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:26:34.588{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:34.588{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:34.588{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:26:58.823{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:58.824{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:58.824{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:26:58.825{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_16:26:58.886{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:58.886{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:58.886{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:26:58.961{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:58.962{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:58.962{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:26:58.963{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_16:26:59.034{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:59.035{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:59.035{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:26:59.100{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:59.100{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:59.100{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:26:59.303{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:59.303{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:26:59.303{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:27:15.901{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:15.901{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:15.901{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:27:16.543{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:16.544{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:16.544{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:16.544{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:27:16.544{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:16.544{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:16.544{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:27:16.544{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:16.543{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:16.545{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:16.545{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:27:16.545{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:16.545{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:27:16.544{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:16.546{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:27:16.729{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:16.730{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:16.730{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:27:16.739{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:16.739{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:16.739{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:27:16.745{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:16.745{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:16.745{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:27:16.785{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:27:18.084{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:27:18.084{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:31:08.772{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:31:08.773{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:31:08.773{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:31:08.777{UTC}|report-tool|WARN ||o.s.w.s.m.s.DefaultHandlerExceptionResolver|Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Double` from String "65%": not a valid `Double` value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Double` from String "65%": not a valid `Double` value<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 486] (through reference chain: com.talentstream.dto.ResumeBuilderDto["resumeEducations"]->java.util.ArrayList[0]->com.talentstream.dto.ResumeEducationDto["cgpa"])]
+01-03-2025_16:31:25.271{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:31:25.271{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:31:25.271{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:31:25.273{UTC}|report-tool|WARN ||o.s.w.s.m.s.DefaultHandlerExceptionResolver|Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Double` from String "65%": not a valid `Double` value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Double` from String "65%": not a valid `Double` value<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 486] (through reference chain: com.talentstream.dto.ResumeBuilderDto["resumeEducations"]->java.util.ArrayList[0]->com.talentstream.dto.ResumeEducationDto["cgpa"])]
+01-03-2025_16:32:24.726{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:32:24.727{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:32:24.728{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:34:49.058{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+01-03-2025_16:34:49.064{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:34:49.064{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+01-03-2025_16:34:49.067{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+01-03-2025_16:34:49.069{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:34:49.069{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/sun.nio.ch.Net.poll(Native Method)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:191)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:201)
+ java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+ java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+ java.base/java.net.Socket$SocketInputStream.read(Socket.java:1099)
+ java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489)
+ java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483)
+ java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+ java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461)
+ java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1066)
+ org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:192)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:159)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:144)
+ org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:76)
+ org.postgresql.core.PGStream.receiveChar(PGStream.java:476)
+ org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2818)
+ org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
+ org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
+ org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+ org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+ org.postgresql.Driver.makeConnection(Driver.java:446)
+ org.postgresql.Driver.connect(Driver.java:298)
+ com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+ com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+ com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+ com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+ java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:34:49.070{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:34:49.072{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:34:49.086{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:34:49.087{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+01-03-2025_16:34:49.204{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+01-03-2025_16:34:51.433{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+01-03-2025_16:34:51.449{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 21.0.5 on SYMPLT1017 with PID 6040 (C:\Users\Yashpatel\Pictures\TalentStreamBE\target\classes started by Yashpatel in C:\Users\Yashpatel\Pictures\TalentStreamBE)
+01-03-2025_16:34:51.449{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+01-03-2025_16:34:51.450{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+01-03-2025_16:34:52.469{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-03-2025_16:34:52.616{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 137 ms. Found 34 JPA repository interfaces.
+01-03-2025_16:34:53.290{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+01-03-2025_16:34:53.303{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:34:53.304{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+01-03-2025_16:34:53.304{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+01-03-2025_16:34:53.510{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+01-03-2025_16:34:53.511{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 2004 ms
+01-03-2025_16:34:53.744{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+01-03-2025_16:34:53.835{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+01-03-2025_16:34:54.067{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01-03-2025_16:34:54.200{UTC}|report-tool|WARN ||c.z.h.HikariConfig|HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+01-03-2025_16:34:54.202{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+01-03-2025_16:34:54.872{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+01-03-2025_16:34:54.914{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+01-03-2025_16:35:03.395{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01-03-2025_16:35:03.422{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:35:03.817{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+01-03-2025_16:35:03.854{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-03-2025_16:35:04.205{UTC}|report-tool|INFO ||o.s.d.p.DefaultProjectionInformation$PropertyDescriptorSource|Couldn't read class metadata for interface java.util.Map. Input property calculation might fail
+01-03-2025_16:35:04.235{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+01-03-2025_16:35:05.385{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1b3ba1e3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4893d628, org.springframework.security.web.context.SecurityContextPersistenceFilter@5205b2e5, org.springframework.security.web.header.HeaderWriterFilter@58cd7486, org.springframework.security.web.authentication.logout.LogoutFilter@6efa2e06, com.talentstream.filter.JwtRequestFilter@7b6e196e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1db4ea47, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c2f4769, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@122e2306, org.springframework.security.web.session.SessionManagementFilter@1835b24b, org.springframework.security.web.access.ExceptionTranslationFilter@7a337217, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@94047a4]
+01-03-2025_16:35:05.596{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:35:05.615{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+01-03-2025_16:35:06.435{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 15.39 seconds (JVM running for 16.265)
+01-03-2025_16:35:06.533{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-03-2025_16:35:06.534{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+01-03-2025_16:35:06.536{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+01-03-2025_16:35:06.550{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:35:06.550{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:35:06.550{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:35:49.485{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:35:49.485{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:35:49.485{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:35:49.815{UTC}|report-tool|WARN ||o.h.e.j.s.SqlExceptionHelper|SQL Error: 0, SQLState: 42804
+01-03-2025_16:35:49.815{UTC}|report-tool|ERROR||o.h.e.j.s.SqlExceptionHelper|ERROR: column "cgpa" is of type double precision but expression is of type character varying
+  Hint: You will need to rewrite or cast the expression.
+  Position: 86
+01-03-2025_16:36:06.916{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+01-03-2025_16:36:06.924{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:36:06.925{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+01-03-2025_16:36:06.927{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+01-03-2025_16:36:06.930{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:36:06.931{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/sun.nio.ch.Net.poll(Native Method)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:191)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:201)
+ java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+ java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+ java.base/java.net.Socket$SocketInputStream.read(Socket.java:1099)
+ java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489)
+ java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483)
+ java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+ java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461)
+ java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1066)
+ org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:192)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:159)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:144)
+ org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:76)
+ org.postgresql.core.PGStream.receiveChar(PGStream.java:476)
+ org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2818)
+ org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
+ org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
+ org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+ org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+ org.postgresql.Driver.makeConnection(Driver.java:446)
+ org.postgresql.Driver.connect(Driver.java:298)
+ com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+ com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+ com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+ com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+ java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:36:06.932{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:36:06.935{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:36:06.954{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:36:06.955{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+01-03-2025_16:36:07.061{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+01-03-2025_16:36:09.528{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+01-03-2025_16:36:09.543{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 21.0.5 on SYMPLT1017 with PID 12340 (C:\Users\Yashpatel\Pictures\TalentStreamBE\target\classes started by Yashpatel in C:\Users\Yashpatel\Pictures\TalentStreamBE)
+01-03-2025_16:36:09.544{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+01-03-2025_16:36:09.544{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+01-03-2025_16:36:10.458{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-03-2025_16:36:10.600{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 132 ms. Found 34 JPA repository interfaces.
+01-03-2025_16:36:11.204{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+01-03-2025_16:36:11.218{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:36:11.219{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+01-03-2025_16:36:11.219{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+01-03-2025_16:36:11.363{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+01-03-2025_16:36:11.363{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1772 ms
+01-03-2025_16:36:11.543{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+01-03-2025_16:36:11.589{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+01-03-2025_16:36:11.746{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01-03-2025_16:36:11.839{UTC}|report-tool|WARN ||c.z.h.HikariConfig|HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+01-03-2025_16:36:11.840{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+01-03-2025_16:36:12.535{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+01-03-2025_16:36:12.559{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+01-03-2025_16:36:21.400{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01-03-2025_16:36:21.415{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:36:21.774{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+01-03-2025_16:36:21.808{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-03-2025_16:36:22.152{UTC}|report-tool|INFO ||o.s.d.p.DefaultProjectionInformation$PropertyDescriptorSource|Couldn't read class metadata for interface java.util.Map. Input property calculation might fail
+01-03-2025_16:36:22.176{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+01-03-2025_16:36:23.299{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c452eb5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4833bb83, org.springframework.security.web.context.SecurityContextPersistenceFilter@6fe47be, org.springframework.security.web.header.HeaderWriterFilter@1080234b, org.springframework.security.web.authentication.logout.LogoutFilter@5205b2e5, com.talentstream.filter.JwtRequestFilter@27aa0720, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@53a4637c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5fe1b8d2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a2bcce1, org.springframework.security.web.session.SessionManagementFilter@b88d294, org.springframework.security.web.access.ExceptionTranslationFilter@4170ee0f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3566d527]
+01-03-2025_16:36:23.516{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:36:23.545{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+01-03-2025_16:36:24.342{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 15.279 seconds (JVM running for 16.161)
+01-03-2025_16:36:24.409{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-03-2025_16:36:24.409{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+01-03-2025_16:36:24.411{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 1 ms
+01-03-2025_16:36:24.425{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:36:24.425{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:36:24.425{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:36:28.291{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:36:28.291{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:36:28.291{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:36:28.367{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: basha@gmail.com
+01-03-2025_16:36:28.367{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: basha@gmail.com
+01-03-2025_16:36:28.518{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: basha@gmail.com
+01-03-2025_16:36:31.991{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:36:31.991{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:36:31.991{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:36:31.994{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: basha@gmail.com
+01-03-2025_16:36:31.995{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: basha@gmail.com
+01-03-2025_16:36:32.071{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: basha@gmail.com
+01-03-2025_16:36:40.126{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:36:40.128{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:36:40.128{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:36:40.129{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: Ashok@gmail.com
+01-03-2025_16:36:40.130{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: Ashok@gmail.com
+01-03-2025_16:36:40.816{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: Ashok@gmail.com
+01-03-2025_16:36:46.320{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:36:46.320{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:36:46.320{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: basha@gmail.com
+01-03-2025_16:36:50.113{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:36:50.113{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:36:50.113{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: basha@gmail.com
+01-03-2025_16:37:15.613{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:37:15.614{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:37:15.614{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:41:14.645{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+01-03-2025_16:41:14.650{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:41:14.650{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+01-03-2025_16:41:14.651{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+01-03-2025_16:41:14.653{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:41:14.654{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/sun.nio.ch.Net.poll(Native Method)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:191)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:201)
+ java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+ java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+ java.base/java.net.Socket$SocketInputStream.read(Socket.java:1099)
+ java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489)
+ java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483)
+ java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+ java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461)
+ java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1066)
+ org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:192)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:159)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:144)
+ org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:76)
+ org.postgresql.core.PGStream.receiveChar(PGStream.java:476)
+ org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2818)
+ org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
+ org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
+ org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+ org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+ org.postgresql.Driver.makeConnection(Driver.java:446)
+ org.postgresql.Driver.connect(Driver.java:298)
+ com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+ com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+ com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+ com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+ java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:41:14.655{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:41:14.656{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:41:14.672{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:41:14.673{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+01-03-2025_16:41:14.746{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+01-03-2025_16:41:17.077{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+01-03-2025_16:41:17.095{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 21.0.5 on SYMPLT1017 with PID 10948 (C:\Users\Yashpatel\Pictures\TalentStreamBE\target\classes started by Yashpatel in C:\Users\Yashpatel\Pictures\TalentStreamBE)
+01-03-2025_16:41:17.095{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+01-03-2025_16:41:17.096{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+01-03-2025_16:41:18.027{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-03-2025_16:41:18.177{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 139 ms. Found 34 JPA repository interfaces.
+01-03-2025_16:41:18.788{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+01-03-2025_16:41:18.810{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:41:18.811{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+01-03-2025_16:41:18.811{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+01-03-2025_16:41:18.973{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+01-03-2025_16:41:18.974{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1829 ms
+01-03-2025_16:41:19.154{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+01-03-2025_16:41:19.199{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+01-03-2025_16:41:19.341{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01-03-2025_16:41:19.448{UTC}|report-tool|WARN ||c.z.h.HikariConfig|HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+01-03-2025_16:41:19.450{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+01-03-2025_16:41:20.082{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+01-03-2025_16:41:20.101{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+01-03-2025_16:41:27.817{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01-03-2025_16:41:27.847{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:41:28.237{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+01-03-2025_16:41:28.272{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-03-2025_16:41:28.691{UTC}|report-tool|INFO ||o.s.d.p.DefaultProjectionInformation$PropertyDescriptorSource|Couldn't read class metadata for interface java.util.Map. Input property calculation might fail
+01-03-2025_16:41:28.721{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+01-03-2025_16:41:29.872{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47f50549, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43f88150, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b0b20a8, org.springframework.security.web.header.HeaderWriterFilter@581661d6, org.springframework.security.web.authentication.logout.LogoutFilter@9d818b5, com.talentstream.filter.JwtRequestFilter@6203f10f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62e7e3df, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e44825e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@158bd27d, org.springframework.security.web.session.SessionManagementFilter@1db4ea47, org.springframework.security.web.access.ExceptionTranslationFilter@2acb6c9a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@674687b3]
+01-03-2025_16:41:30.072{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:41:30.092{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+01-03-2025_16:41:30.917{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 14.215 seconds (JVM running for 15.074)
+01-03-2025_16:41:30.982{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-03-2025_16:41:30.982{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+01-03-2025_16:41:30.984{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+01-03-2025_16:41:30.997{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:41:30.997{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:41:30.997{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:41:35.801{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:41:35.801{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:41:35.801{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: basha@gmail.com
+01-03-2025_16:41:35.805{UTC}|report-tool|WARN ||o.s.w.s.PageNotFound|No mapping for GET /resume-builder/getResume/11
+01-03-2025_16:41:41.855{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:41:41.856{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:41:41.856{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: basha@gmail.com
+01-03-2025_16:42:25.856{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:42:25.857{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:42:25.857{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: basha@gmail.com
+01-03-2025_16:42:31.419{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:42:31.419{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:42:31.419{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: basha@gmail.com
+01-03-2025_16:42:35.708{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:42:35.708{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNoYUBnbWFpbC5jb20iLCJleHAiOjE3NDA4NTU3MjEsImlhdCI6MTc0MDgxOTcyMX0.hWw6BkL2-IjsOR9PhWtLRQ5PJGAf6Im8QwT-7OinjwM
+01-03-2025_16:42:35.709{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: basha@gmail.com
+01-03-2025_16:42:52.818{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:42:52.818{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:42:52.818{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:42:52.865{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: Ashok@gmail.com
+01-03-2025_16:42:52.865{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: Ashok@gmail.com
+01-03-2025_16:42:52.931{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: Ashok@gmail.com
+01-03-2025_16:43:12.380{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:43:12.380{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:43:12.380{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:43:12.383{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: venky19sf@gmail.com
+01-03-2025_16:43:12.383{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: venky19sf@gmail.com
+01-03-2025_16:43:12.451{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: venky19sf@gmail.com
+01-03-2025_16:43:21.403{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:43:21.403{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:43:21.404{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:44:36.045{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+01-03-2025_16:44:36.078{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:44:36.079{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+01-03-2025_16:44:36.080{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+01-03-2025_16:44:36.084{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:44:36.085{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/sun.nio.ch.Net.poll(Native Method)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:191)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:201)
+ java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+ java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+ java.base/java.net.Socket$SocketInputStream.read(Socket.java:1099)
+ java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489)
+ java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483)
+ java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+ java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461)
+ java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1066)
+ org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:192)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:159)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:144)
+ org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:76)
+ org.postgresql.core.PGStream.receiveChar(PGStream.java:476)
+ org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2818)
+ org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
+ org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
+ org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+ org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+ org.postgresql.Driver.makeConnection(Driver.java:446)
+ org.postgresql.Driver.connect(Driver.java:298)
+ com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+ com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+ com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+ com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+ java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:44:36.086{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:44:36.090{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:44:36.110{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:44:36.111{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+01-03-2025_16:44:36.191{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+01-03-2025_16:44:38.598{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+01-03-2025_16:44:38.618{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 21.0.5 on SYMPLT1017 with PID 12952 (C:\Users\Yashpatel\Pictures\TalentStreamBE\target\classes started by Yashpatel in C:\Users\Yashpatel\Pictures\TalentStreamBE)
+01-03-2025_16:44:38.618{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+01-03-2025_16:44:38.618{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+01-03-2025_16:44:39.565{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-03-2025_16:44:39.715{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 131 ms. Found 34 JPA repository interfaces.
+01-03-2025_16:44:40.343{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+01-03-2025_16:44:40.358{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:44:40.359{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+01-03-2025_16:44:40.359{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+01-03-2025_16:44:40.511{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+01-03-2025_16:44:40.512{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1845 ms
+01-03-2025_16:44:40.696{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+01-03-2025_16:44:40.744{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+01-03-2025_16:44:40.890{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01-03-2025_16:44:40.988{UTC}|report-tool|WARN ||c.z.h.HikariConfig|HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+01-03-2025_16:44:40.989{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+01-03-2025_16:44:41.626{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+01-03-2025_16:44:41.643{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+01-03-2025_16:44:49.429{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01-03-2025_16:44:49.447{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:44:49.815{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+01-03-2025_16:44:49.853{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-03-2025_16:44:50.267{UTC}|report-tool|INFO ||o.s.d.p.DefaultProjectionInformation$PropertyDescriptorSource|Couldn't read class metadata for interface java.util.Map. Input property calculation might fail
+01-03-2025_16:44:50.294{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+01-03-2025_16:44:51.477{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@69b2ed81, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4873d4cb, org.springframework.security.web.context.SecurityContextPersistenceFilter@106a6420, org.springframework.security.web.header.HeaderWriterFilter@6999dca2, org.springframework.security.web.authentication.logout.LogoutFilter@3b0b20a8, com.talentstream.filter.JwtRequestFilter@7893b8c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@597ef918, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13b012, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31137f4d, org.springframework.security.web.session.SessionManagementFilter@53a4637c, org.springframework.security.web.access.ExceptionTranslationFilter@1bb1ba54, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@37846cc2]
+01-03-2025_16:44:51.697{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:44:51.715{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+01-03-2025_16:44:52.580{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 14.381 seconds (JVM running for 15.259)
+01-03-2025_16:44:52.649{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-03-2025_16:44:52.649{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+01-03-2025_16:44:52.651{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+01-03-2025_16:44:52.667{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:44:52.667{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:44:52.667{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:44:55.426{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:44:55.426{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:44:55.426{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:45:09.575{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:45:09.575{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:45:09.575{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:45:39.388{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+01-03-2025_16:45:39.396{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:45:39.397{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+01-03-2025_16:45:39.399{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+01-03-2025_16:45:39.402{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:45:39.403{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/sun.nio.ch.Net.poll(Native Method)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:191)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:201)
+ java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+ java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+ java.base/java.net.Socket$SocketInputStream.read(Socket.java:1099)
+ java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489)
+ java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483)
+ java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+ java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461)
+ java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1066)
+ org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:192)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:159)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:144)
+ org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:76)
+ org.postgresql.core.PGStream.receiveChar(PGStream.java:476)
+ org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2818)
+ org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
+ org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
+ org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+ org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+ org.postgresql.Driver.makeConnection(Driver.java:446)
+ org.postgresql.Driver.connect(Driver.java:298)
+ com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+ com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+ com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+ com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+ java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:45:39.404{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:45:39.408{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:45:39.424{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:45:39.425{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+01-03-2025_16:45:39.614{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+01-03-2025_16:45:42.015{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+01-03-2025_16:45:42.034{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 21.0.5 on SYMPLT1017 with PID 10256 (C:\Users\Yashpatel\Pictures\TalentStreamBE\target\classes started by Yashpatel in C:\Users\Yashpatel\Pictures\TalentStreamBE)
+01-03-2025_16:45:42.035{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+01-03-2025_16:45:42.036{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+01-03-2025_16:45:42.997{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-03-2025_16:45:43.137{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 132 ms. Found 34 JPA repository interfaces.
+01-03-2025_16:45:43.764{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+01-03-2025_16:45:43.783{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:45:43.784{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+01-03-2025_16:45:43.784{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+01-03-2025_16:45:43.934{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+01-03-2025_16:45:43.934{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1840 ms
+01-03-2025_16:45:44.122{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+01-03-2025_16:45:44.173{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+01-03-2025_16:45:44.326{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01-03-2025_16:45:44.430{UTC}|report-tool|WARN ||c.z.h.HikariConfig|HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+01-03-2025_16:45:44.431{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+01-03-2025_16:45:45.095{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+01-03-2025_16:45:45.122{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+01-03-2025_16:45:53.077{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01-03-2025_16:45:53.106{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:45:53.514{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+01-03-2025_16:45:53.552{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-03-2025_16:45:53.950{UTC}|report-tool|INFO ||o.s.d.p.DefaultProjectionInformation$PropertyDescriptorSource|Couldn't read class metadata for interface java.util.Map. Input property calculation might fail
+01-03-2025_16:45:53.981{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+01-03-2025_16:45:55.210{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3177190a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67744663, org.springframework.security.web.context.SecurityContextPersistenceFilter@1af6cd73, org.springframework.security.web.header.HeaderWriterFilter@363b7709, org.springframework.security.web.authentication.logout.LogoutFilter@8b814b, com.talentstream.filter.JwtRequestFilter@7bb996e0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2c226db0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58cd7486, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d37a4d7, org.springframework.security.web.session.SessionManagementFilter@60a54ad2, org.springframework.security.web.access.ExceptionTranslationFilter@27df971b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4833bb83]
+01-03-2025_16:45:55.420{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:45:55.449{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+01-03-2025_16:45:56.291{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 14.696 seconds (JVM running for 15.555)
+01-03-2025_16:45:56.357{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-03-2025_16:45:56.357{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+01-03-2025_16:45:56.359{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 2 ms
+01-03-2025_16:45:56.372{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:45:56.372{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:45:56.372{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:46:03.364{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:46:03.365{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:46:03.365{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:46:08.047{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:46:08.048{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:46:08.048{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:46:40.643{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+01-03-2025_16:46:40.657{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:46:40.657{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+01-03-2025_16:46:40.659{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+01-03-2025_16:46:40.662{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:46:40.662{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/sun.nio.ch.Net.poll(Native Method)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:191)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:201)
+ java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+ java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+ java.base/java.net.Socket$SocketInputStream.read(Socket.java:1099)
+ java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489)
+ java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483)
+ java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+ java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461)
+ java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1066)
+ org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:192)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:159)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:144)
+ org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:76)
+ org.postgresql.core.PGStream.receiveChar(PGStream.java:476)
+ org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2818)
+ org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
+ org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
+ org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+ org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+ org.postgresql.Driver.makeConnection(Driver.java:446)
+ org.postgresql.Driver.connect(Driver.java:298)
+ com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+ com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+ com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+ com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+ java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:46:40.663{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:46:40.666{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:46:40.683{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:46:40.684{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+01-03-2025_16:46:40.942{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+01-03-2025_16:46:43.163{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+01-03-2025_16:46:43.184{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 21.0.5 on SYMPLT1017 with PID 11704 (C:\Users\Yashpatel\Pictures\TalentStreamBE\target\classes started by Yashpatel in C:\Users\Yashpatel\Pictures\TalentStreamBE)
+01-03-2025_16:46:43.185{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+01-03-2025_16:46:43.185{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+01-03-2025_16:46:44.117{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-03-2025_16:46:44.274{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 147 ms. Found 34 JPA repository interfaces.
+01-03-2025_16:46:44.884{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+01-03-2025_16:46:44.903{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:46:44.904{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+01-03-2025_16:46:44.904{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+01-03-2025_16:46:45.057{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+01-03-2025_16:46:45.057{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1820 ms
+01-03-2025_16:46:45.233{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+01-03-2025_16:46:45.279{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+01-03-2025_16:46:45.437{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01-03-2025_16:46:45.531{UTC}|report-tool|WARN ||c.z.h.HikariConfig|HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+01-03-2025_16:46:45.532{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+01-03-2025_16:46:46.219{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+01-03-2025_16:46:46.248{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+01-03-2025_16:46:54.366{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01-03-2025_16:46:54.383{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:46:54.772{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+01-03-2025_16:46:54.810{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-03-2025_16:46:55.205{UTC}|report-tool|INFO ||o.s.d.p.DefaultProjectionInformation$PropertyDescriptorSource|Couldn't read class metadata for interface java.util.Map. Input property calculation might fail
+01-03-2025_16:46:55.236{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+01-03-2025_16:46:56.378{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@257de910, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18ab86a2, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b87ea3c, org.springframework.security.web.header.HeaderWriterFilter@1af6cd73, org.springframework.security.web.authentication.logout.LogoutFilter@274de4bc, com.talentstream.filter.JwtRequestFilter@5f4f198c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19b89a23, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5205b2e5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6295cc30, org.springframework.security.web.session.SessionManagementFilter@2acb6c9a, org.springframework.security.web.access.ExceptionTranslationFilter@5fe1b8d2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@71fd082]
+01-03-2025_16:46:56.566{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:46:56.584{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+01-03-2025_16:46:57.449{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 14.686 seconds (JVM running for 15.555)
+01-03-2025_16:46:57.525{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-03-2025_16:46:57.525{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+01-03-2025_16:46:57.529{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 4 ms
+01-03-2025_16:46:57.557{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:46:57.557{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:46:57.557{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:46:59.827{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:46:59.827{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:46:59.827{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:47:13.224{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+01-03-2025_16:47:13.230{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:47:13.231{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+01-03-2025_16:47:13.233{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+01-03-2025_16:47:13.236{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:47:13.237{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/sun.nio.ch.Net.poll(Native Method)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:191)
+ java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:201)
+ java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+ java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+ java.base/java.net.Socket$SocketInputStream.read(Socket.java:1099)
+ java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489)
+ java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483)
+ java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+ java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461)
+ java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1066)
+ org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:192)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:159)
+ org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:144)
+ org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:76)
+ org.postgresql.core.PGStream.receiveChar(PGStream.java:476)
+ org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2818)
+ org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
+ org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
+ org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+ org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+ org.postgresql.Driver.makeConnection(Driver.java:446)
+ org.postgresql.Driver.connect(Driver.java:298)
+ com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+ com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+ com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+ com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+ com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+ java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_16:47:13.238{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:47:13.241{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:47:13.256{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:47:13.257{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+01-03-2025_16:47:13.438{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+01-03-2025_16:47:15.645{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+01-03-2025_16:47:15.660{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 21.0.5 on SYMPLT1017 with PID 8448 (C:\Users\Yashpatel\Pictures\TalentStreamBE\target\classes started by Yashpatel in C:\Users\Yashpatel\Pictures\TalentStreamBE)
+01-03-2025_16:47:15.660{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+01-03-2025_16:47:15.661{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+01-03-2025_16:47:16.600{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-03-2025_16:47:16.743{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 134 ms. Found 34 JPA repository interfaces.
+01-03-2025_16:47:17.345{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+01-03-2025_16:47:17.359{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:47:17.360{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+01-03-2025_16:47:17.360{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+01-03-2025_16:47:17.505{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+01-03-2025_16:47:17.505{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 1791 ms
+01-03-2025_16:47:17.691{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+01-03-2025_16:47:17.737{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+01-03-2025_16:47:17.891{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01-03-2025_16:47:17.983{UTC}|report-tool|WARN ||c.z.h.HikariConfig|HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+01-03-2025_16:47:17.985{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+01-03-2025_16:47:18.610{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+01-03-2025_16:47:18.630{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+01-03-2025_16:47:26.267{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01-03-2025_16:47:26.294{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_16:47:26.668{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+01-03-2025_16:47:26.701{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-03-2025_16:47:27.057{UTC}|report-tool|INFO ||o.s.d.p.DefaultProjectionInformation$PropertyDescriptorSource|Couldn't read class metadata for interface java.util.Map. Input property calculation might fail
+01-03-2025_16:47:27.085{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+01-03-2025_16:47:28.210{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@94047a4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@257de910, org.springframework.security.web.context.SecurityContextPersistenceFilter@581661d6, org.springframework.security.web.header.HeaderWriterFilter@597ef918, org.springframework.security.web.authentication.logout.LogoutFilter@4057babc, com.talentstream.filter.JwtRequestFilter@6f254d79, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72cb5d7d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d89c923, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@18ab86a2, org.springframework.security.web.session.SessionManagementFilter@1911427a, org.springframework.security.web.access.ExceptionTranslationFilter@60a54ad2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@77fec3b6]
+01-03-2025_16:47:28.413{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+01-03-2025_16:47:28.433{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+01-03-2025_16:47:29.272{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 14.012 seconds (JVM running for 14.887)
+01-03-2025_16:47:29.349{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-03-2025_16:47:29.350{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+01-03-2025_16:47:29.354{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 3 ms
+01-03-2025_16:47:29.371{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_16:47:29.371{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_16:47:29.371{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_16:47:32.219{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:47:32.220{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:47:32.220{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:47:37.362{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:47:37.362{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:47:37.363{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:54:08.158{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4e647f39 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_16:54:08.290{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:54:08.291{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:54:08.291{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:54:57.939{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:54:57.939{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:54:57.939{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:55:08.555{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:55:08.556{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:55:08.556{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:55:24.440{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:55:24.440{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:55:24.440{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:55:28.419{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:55:28.420{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_16:55:28.420{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:56:13.522{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:56:13.522{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:56:13.522{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:57:18.621{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:57:18.621{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:57:18.621{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:57:43.365{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:57:43.365{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:57:43.365{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:57:49.395{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:57:49.395{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:57:49.396{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:58:03.467{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:03.468{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:03.468{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:58:08.516{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:08.516{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:08.516{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:58:23.525{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:23.525{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:23.525{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:58:38.235{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:38.235{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:38.236{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:58:45.924{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:45.924{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODU1ODkzLCJpYXQiOjE3NDA4MTk4OTN9.oKAC3t0vtvpNyPHiS2MiFUHQF1x_qN1GvpBBX-Ovi5s
+01-03-2025_16:58:45.924{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_16:59:01.364{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:59:01.365{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYyNTQzLCJpYXQiOjE3NDA4MjY1NDN9.sR5Ph9spsPWFlqe_IzBTu3OQ-S2sXRY_h8l1oQVI8S0
+01-03-2025_16:59:01.365{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:36.812{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: 
+01-03-2025_17:01:36.812{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_17:01:36.812{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_17:01:36.817{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Attempting to login with email: venky19sf@gmail.com
+01-03-2025_17:01:36.817{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Handling Google Sign-In for email: venky19sf@gmail.com
+01-03-2025_17:01:36.878{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Google Sign-In successful for: venky19sf@gmail.com
+01-03-2025_17:01:37.085{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:37.085{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:37.085{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:37.284{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:37.284{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:37.284{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:37.288{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_17:01:37.443{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_17:01:37.443{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_17:01:37.443{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_17:01:37.908{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_17:01:37.908{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_17:01:37.908{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_17:01:37.912{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_17:01:37.912{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_17:01:37.913{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_17:01:38.040{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.040{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.040{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.048{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_17:01:38.060{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.060{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.060{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.060{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.060{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.060{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.062{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 17
+01-03-2025_17:01:38.096{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 17: 0
+01-03-2025_17:01:38.104{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.104{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.104{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.106{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_17:01:38.132{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.132{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.132{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.167{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.167{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.167{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.169{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 17
+01-03-2025_17:01:38.182{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.182{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.182{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.183{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_17:01:38.183{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_17:01:38.198{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.198{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.198{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.199{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_17:01:38.213{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 17: 0
+01-03-2025_17:01:38.229{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.229{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.229{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.230{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+01-03-2025_17:01:38.233{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_17:01:38.322{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.322{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.322{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.323{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 17
+01-03-2025_17:01:38.330{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_17:01:38.362{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.362{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.362{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.386{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.386{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.386{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.387{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_17:01:38.397{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.397{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.397{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.403{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 17
+01-03-2025_17:01:38.467{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.467{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.467{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.468{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_17:01:38.478{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.478{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.478{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.479{UTC}|report-tool|INFO ||c.t.c.FindRecommendedJobController|Count of recommended jobs for applicant {} retrieved successfully: {}
+01-03-2025_17:01:38.501{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.501{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.501{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.503{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to count applied jobs for applicantId: 17
+01-03-2025_17:01:38.531{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.531{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.531{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.533{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.534{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:38.534{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:38.574{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Counted applied jobs successfully for applicantId: 17
+01-03-2025_17:01:38.608{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_17:01:48.058{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.058{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.058{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.058{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.058{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:48.058{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:48.060{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_17:01:48.060{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_17:01:48.266{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.268{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.268{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:48.301{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.301{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.301{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:48.575{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.576{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.576{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:01:48.620{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.620{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:01:48.620{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:07:22.728{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:07:22.728{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:07:22.728{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:07:22.736{UTC}|report-tool|WARN ||o.s.w.s.m.s.DefaultHandlerExceptionResolver|Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.talentstream.dto.ResumeIntrestDto` from Array value (token `JsonToken.START_ARRAY`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `com.talentstream.dto.ResumeIntrestDto` from Array value (token `JsonToken.START_ARRAY`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 873] (through reference chain: com.talentstream.dto.ResumeBuilderDto["resumeIntrest"])]
+01-03-2025_17:08:44.227{UTC}|report-tool|INFO ||o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin|Application shutdown requested.
+01-03-2025_17:08:44.236{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Pausing ProtocolHandler ["http-nio-8081"]
+01-03-2025_17:08:44.237{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Stopping service [Tomcat]
+01-03-2025_17:08:44.240{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Destroying Spring FrameworkServlet 'dispatcherServlet'
+01-03-2025_17:08:44.245{UTC}|report-tool|WARN ||o.a.c.l.WebappClassLoaderBase|The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-03-2025_17:08:44.247{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Stopping ProtocolHandler ["http-nio-8081"]
+01-03-2025_17:08:44.249{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Destroying ProtocolHandler ["http-nio-8081"]
+01-03-2025_17:08:44.269{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Closing JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_17:08:44.270{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown initiated...
+01-03-2025_17:08:44.437{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Shutdown completed.
+01-03-2025_17:08:53.273{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+01-03-2025_17:08:53.309{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 21.0.5 on SYMPLT1017 with PID 9256 (C:\Users\Yashpatel\Pictures\TalentStreamBE\target\classes started by Yashpatel in C:\Users\Yashpatel\Pictures\TalentStreamBE)
+01-03-2025_17:08:53.310{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+01-03-2025_17:08:53.310{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+01-03-2025_17:08:54.594{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-03-2025_17:08:54.841{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 231 ms. Found 34 JPA repository interfaces.
+01-03-2025_17:08:55.891{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+01-03-2025_17:08:55.915{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+01-03-2025_17:08:55.917{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+01-03-2025_17:08:55.917{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+01-03-2025_17:08:56.161{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+01-03-2025_17:08:56.161{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 2774 ms
+01-03-2025_17:08:56.434{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+01-03-2025_17:08:56.565{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+01-03-2025_17:08:56.909{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01-03-2025_17:08:57.129{UTC}|report-tool|WARN ||c.z.h.HikariConfig|HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+01-03-2025_17:08:57.131{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+01-03-2025_17:08:57.927{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+01-03-2025_17:08:58.050{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+01-03-2025_17:09:06.160{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01-03-2025_17:09:06.198{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_17:09:06.736{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+01-03-2025_17:09:06.792{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-03-2025_17:09:07.292{UTC}|report-tool|INFO ||o.s.d.p.DefaultProjectionInformation$PropertyDescriptorSource|Couldn't read class metadata for interface java.util.Map. Input property calculation might fail
+01-03-2025_17:09:07.331{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+01-03-2025_17:10:11.320{UTC}|report-tool|INFO ||o.h.v.i.u.Version|HV000001: Hibernate Validator 6.2.5.Final
+01-03-2025_17:10:11.355{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Starting TalentStreamApplication using Java 21.0.5 on SYMPLT1017 with PID 3384 (C:\Users\Yashpatel\Pictures\TalentStreamBE\target\classes started by Yashpatel in C:\Users\Yashpatel\Pictures\TalentStreamBE)
+01-03-2025_17:10:11.356{UTC}|report-tool|DEBUG||c.t.TalentStreamApplication|Running with Spring Boot v2.7.9, Spring v5.3.25
+01-03-2025_17:10:11.357{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|No active profile set, falling back to 1 default profile: "default"
+01-03-2025_17:10:12.528{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01-03-2025_17:10:12.740{UTC}|report-tool|INFO ||o.s.d.r.c.RepositoryConfigurationDelegate|Finished Spring Data repository scanning in 202 ms. Found 34 JPA repository interfaces.
+01-03-2025_17:10:13.581{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat initialized with port(s): 8081 (http)
+01-03-2025_17:10:13.593{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Initializing ProtocolHandler ["http-nio-8081"]
+01-03-2025_17:10:13.595{UTC}|report-tool|INFO ||o.a.c.c.StandardService|Starting service [Tomcat]
+01-03-2025_17:10:13.595{UTC}|report-tool|INFO ||o.a.c.c.StandardEngine|Starting Servlet engine: [Apache Tomcat/9.0.71]
+01-03-2025_17:10:13.809{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring embedded WebApplicationContext
+01-03-2025_17:10:13.809{UTC}|report-tool|INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext|Root WebApplicationContext: initialization completed in 2373 ms
+01-03-2025_17:10:14.108{UTC}|report-tool|INFO ||o.h.j.i.u.LogHelper|HHH000204: Processing PersistenceUnitInfo [name: default]
+01-03-2025_17:10:14.190{UTC}|report-tool|INFO ||o.h.Version|HHH000412: Hibernate ORM core version 5.6.15.Final
+01-03-2025_17:10:14.429{UTC}|report-tool|INFO ||o.h.a.c.Version|HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01-03-2025_17:10:14.556{UTC}|report-tool|WARN ||c.z.h.HikariConfig|HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+01-03-2025_17:10:14.557{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Starting...
+01-03-2025_17:10:15.517{UTC}|report-tool|INFO ||c.z.h.HikariDataSource|HikariPool-1 - Start completed.
+01-03-2025_17:10:15.556{UTC}|report-tool|INFO ||o.h.d.Dialect|HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+01-03-2025_17:10:23.835{UTC}|report-tool|INFO ||o.h.e.t.j.p.i.JtaPlatformInitiator|HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01-03-2025_17:10:23.875{UTC}|report-tool|INFO ||o.s.o.j.LocalContainerEntityManagerFactoryBean|Initialized JPA EntityManagerFactory for persistence unit 'default'
+01-03-2025_17:10:24.369{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Filter 'jwtRequestFilter' configured for use
+01-03-2025_17:10:24.421{UTC}|report-tool|WARN ||o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration|spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01-03-2025_17:10:24.927{UTC}|report-tool|INFO ||o.s.d.p.DefaultProjectionInformation$PropertyDescriptorSource|Couldn't read class metadata for interface java.util.Map. Input property calculation might fail
+01-03-2025_17:10:24.965{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|ApplicantProfileController initialized
+01-03-2025_17:10:26.533{UTC}|report-tool|INFO ||o.s.s.w.DefaultSecurityFilterChain|Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1a26eecb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6382bc3f, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c475547, org.springframework.security.web.header.HeaderWriterFilter@38388639, org.springframework.security.web.authentication.logout.LogoutFilter@4be8c1bb, com.talentstream.filter.JwtRequestFilter@17616c07, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7669d7a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7505ef47, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28a821f9, org.springframework.security.web.session.SessionManagementFilter@72f112d1, org.springframework.security.web.access.ExceptionTranslationFilter@25ee6683, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4df50829]
+01-03-2025_17:10:26.817{UTC}|report-tool|INFO ||o.a.c.h.Http11NioProtocol|Starting ProtocolHandler ["http-nio-8081"]
+01-03-2025_17:10:26.859{UTC}|report-tool|INFO ||o.s.b.w.e.t.TomcatWebServer|Tomcat started on port(s): 8081 (http) with context path ''
+01-03-2025_17:10:27.950{UTC}|report-tool|INFO ||c.t.TalentStreamApplication|Started TalentStreamApplication in 17.131 seconds (JVM running for 18.436)
+01-03-2025_17:10:28.029{UTC}|report-tool|INFO ||o.a.c.c.C.[.[.[/]|Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-03-2025_17:10:28.029{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Initializing Servlet 'dispatcherServlet'
+01-03-2025_17:10:28.032{UTC}|report-tool|INFO ||o.s.w.s.DispatcherServlet|Completed initialization in 3 ms
+01-03-2025_17:10:28.052{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_17:10:28.052{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_17:10:28.052{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_17:10:32.412{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:10:32.412{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:10:32.412{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:10:32.462{UTC}|report-tool|WARN ||o.s.w.s.m.s.DefaultHandlerExceptionResolver|Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.talentstream.dto.ResumeIntrestDto` from Array value (token `JsonToken.START_ARRAY`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `com.talentstream.dto.ResumeIntrestDto` from Array value (token `JsonToken.START_ARRAY`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 873] (through reference chain: com.talentstream.dto.ResumeBuilderDto["resumeIntrest"])]
+01-03-2025_17:13:45.184{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:13:45.186{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:13:45.187{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:13:45.196{UTC}|report-tool|WARN ||o.s.w.s.m.s.DefaultHandlerExceptionResolver|Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.talentstream.dto.ResumeIntrestDto` from Array value (token `JsonToken.START_ARRAY`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `com.talentstream.dto.ResumeIntrestDto` from Array value (token `JsonToken.START_ARRAY`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 873] (through reference chain: com.talentstream.dto.ResumeBuilderDto["resumeIntrest"])]
+01-03-2025_17:15:48.939{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:15:48.940{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:15:48.940{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:15:48.945{UTC}|report-tool|WARN ||o.s.w.s.m.s.DefaultHandlerExceptionResolver|Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.talentstream.dto.ResumeIntrestDto` from Array value (token `JsonToken.START_ARRAY`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `com.talentstream.dto.ResumeIntrestDto` from Array value (token `JsonToken.START_ARRAY`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 873] (through reference chain: com.talentstream.dto.ResumeBuilderDto["resumeIntrest"])]
+01-03-2025_17:16:15.768{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:16:15.769{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:16:15.769{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:16:40.169{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:16:40.170{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:16:40.171{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:16:41.489{UTC}|report-tool|INFO ||c.t.c.ResumeBuilderController|Resume Saved Successfully
+01-03-2025_17:17:39.842{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_17:17:39.843{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODYzNTkyLCJpYXQiOjE3NDA4Mjc1OTJ9.BIteLAejWAbVWMr8vjYB1jSbb5gWrDvCy928Pt9LA0w
+01-03-2025_17:17:39.844{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:25:43.975{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7f894a6f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.094{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_17:38:14.096{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_17:38:14.097{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_17:38:14.132{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@28d1d974 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.133{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4195555b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.133{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6d722357 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.135{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@fc3e7a7 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.144{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7aa2d02c (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.174{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4acc863b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.174{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4a37b2c6 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.174{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@611a7aab (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.174{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@104182f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.181{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@20902f1d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.215{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2acc73fd (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.216{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@44f784ba (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.216{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@53b8cd7 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.217{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@34c7ddcb (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.220{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4b6923cc (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.254{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4311d9c6 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.260{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@560adace (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.260{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@40391214 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.260{UTC}|report-tool|WARN ||c.z.h.p.PoolBase|HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@cf015a9 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+01-03-2025_17:38:14.353{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: null
+01-03-2025_17:38:14.353{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: null
+01-03-2025_17:38:14.353{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: null
+01-03-2025_17:38:14.516{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.517{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.517{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:14.526{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_17:38:14.552{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.553{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.553{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:14.576{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_17:38:14.584{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.584{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.584{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.585{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.585{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:14.585{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:14.591{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 17
+01-03-2025_17:38:14.714{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 17: 0
+01-03-2025_17:38:14.724{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_17:38:14.783{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.784{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.785{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:14.846{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.846{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.846{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:14.882{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.882{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.883{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:14.887{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile ID for applicantId: 17
+01-03-2025_17:38:14.945{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.946{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.946{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:14.950{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Request received to get unread alert count for applicant 17
+01-03-2025_17:38:14.978{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.979{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:14.980{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:14.984{UTC}|report-tool|DEBUG||c.t.c.ApplicantProfileController|Fetching profile view for applicantId: 17
+01-03-2025_17:38:15.044{UTC}|report-tool|INFO ||c.t.c.ApplyJobController|Retrieved unread alert count successfully for applicant 17: 0
+01-03-2025_17:38:15.084{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:15.084{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:15.085{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:15.120{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:15.121{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:15.121{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com
+01-03-2025_17:38:15.151{UTC}|report-tool|INFO ||c.t.c.ApplicantProfileController|Profile view fetched successfully for applicantId: 17
+01-03-2025_17:38:15.333{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Authorization Header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:15.333{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|JWT: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2ZW5reTE5c2ZAZ21haWwuY29tIiwiZXhwIjoxNzQwODY0Njk2LCJpYXQiOjE3NDA4Mjg2OTZ9.RQOQiGIA5V0zn3oWFa-m_MwueKYgq2AUbi8aCl2wvsY
+01-03-2025_17:38:15.335{UTC}|report-tool|DEBUG||c.t.f.JwtRequestFilter|Username: venky19sf@gmail.com

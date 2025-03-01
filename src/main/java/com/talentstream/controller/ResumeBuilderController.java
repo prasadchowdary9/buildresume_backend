@@ -19,9 +19,14 @@ import com.talentstream.dto.ResumeBuilderDto;
 import com.talentstream.entity.ResumeBuilder;
 import com.talentstream.service.ResumeBuilderService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RestController
 @RequestMapping("/resume-builder")
 public class ResumeBuilderController {
+
+	private static final Logger logger = LoggerFactory.getLogger(ResumeBuilderController.class);
 
 	@Autowired
 	private ResumeBuilderService resumeBuilderService;
@@ -40,25 +45,31 @@ public class ResumeBuilderController {
 
 			ResumeBuilder resume = resumeBuilderService.createResume(resumeDto, applicantId);
 			if (resume == null) {
+				logger.error("Resume not saved");
 				return ResponseEntity.badRequest().body("Resume not saved");
 			}
 
+			logger.info("Resume Saved Successfully");
 			return ResponseEntity.ok("Resume Saved Successfully");
 		} catch (RuntimeException e) {
+			logger.error("Error while saving resume",e);
 			return ResponseEntity.badRequest().body(e.getMessage());
 		} catch (Exception e) {
+			logger.error("Internal server error",e);
 			return ResponseEntity.internalServerError().body("Internal server error");
 		}
 	}
 
-	@GetMapping("getResume/{applicantId}")
-	public ResponseEntity<?> getResumeWithEducation(@PathVariable Long applicantId) {
+	@GetMapping("getResume/{applicantId}/{id}")
+	public ResponseEntity<?> getResumeWithEducation(@PathVariable Long applicantId,@PathVariable Integer id) {
 		try {
-			ResumeBuilder resume = resumeBuilderService.getResumeWithEducation(applicantId);
+			ResumeBuilder resume = resumeBuilderService.getResume(applicantId,id);
 			return ResponseEntity.ok(resume);
 		} catch (RuntimeException e) {
+			logger.error("Error while fetching resume",e);
 			return ResponseEntity.badRequest().body(e.getMessage());
 		} catch (Exception e) {
+			logger.error("Internal server error",e);
 			return ResponseEntity.internalServerError().body("Internal server error");
 		}
 	}
