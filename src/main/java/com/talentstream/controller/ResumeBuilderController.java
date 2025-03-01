@@ -45,7 +45,7 @@ public class ResumeBuilderController {
 
 			return ResponseEntity.ok("Resume Saved Successfully");
 		} catch (RuntimeException e) {
-			return ResponseEntity.internalServerError().body(e.getMessage());
+			return ResponseEntity.badRequest().body(e.getMessage());
 		} catch (Exception e) {
 			return ResponseEntity.internalServerError().body("Internal server error");
 		}
@@ -57,7 +57,7 @@ public class ResumeBuilderController {
 			ResumeBuilder resume = resumeBuilderService.getResumeWithEducation(applicantId);
 			return ResponseEntity.ok(resume);
 		} catch (RuntimeException e) {
-			return ResponseEntity.internalServerError().body(e.getMessage());
+			return ResponseEntity.badRequest().body(e.getMessage());
 		} catch (Exception e) {
 			return ResponseEntity.internalServerError().body("Internal server error");
 		}
