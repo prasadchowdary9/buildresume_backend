@@ -1,6 +1,7 @@
 package com.talentstream.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -216,6 +217,70 @@ public class ResumeBuilderService {
 		}).collect(Collectors.toList());
 		
 	}
-	
+	public ResumeBuilder updateResume(Long applicantId, ResumeBuilderDto resumeDto) {
+	    // Fetch the existing resume for the applicant
+	    ResumeBuilder existingResume = resumeBuilderRepository.findByApplicantId(applicantId)
+	            .orElseThrow(() -> new RuntimeException("Resume not found for applicant ID: " + applicantId));
+	    
+	    // Update personal info
+	    if (resumeDto.getResumePersonalInfo() != null) {
+	        ResumePersonalInfo updatedPersonalInfo = convertToPersonalInfoEntity(resumeDto.getResumePersonalInfo());
+	        resumePersonalInfoRepository.save(updatedPersonalInfo);
+	        existingResume.setResumePersonalInfo(updatedPersonalInfo);
+	    }
+
+	    // Update skills
+	    if (resumeDto.getResumeSkills() != null && resumeDto.getResumeSkills().getTechnicalSkills() != null) {
+	        List<ResumeTechnicalSkills> updatedSkills = convertToSkillsEntities(resumeDto.getResumeSkills());
+	        resumeSkillsRepository.saveAll(updatedSkills);
+	        existingResume.setResumeTechnicalSkills(updatedSkills);
+	    }
+
+	    // Update education
+	    if (resumeDto.getResumeEducations() != null && !resumeDto.getResumeEducations().isEmpty()) {
+	        List<ResumeEducation> updatedEducation = convertToEducationEntities(resumeDto.getResumeEducations());
+	        resumeEducationRepository.saveAll(updatedEducation);
+	        existingResume.setResumeEducations(updatedEducation);
+	    }
+
+	    // Update experience
+	    if (resumeDto.getResumeExperiences() != null && !resumeDto.getResumeExperiences().isEmpty()) {
+	        List<ResumeExperience> updatedExperiences = convertToExperienceEntities(resumeDto.getResumeExperiences());
+	        resumeExperienceRepository.saveAll(updatedExperiences);
+	        existingResume.setResumeExperiences(updatedExperiences);
+	    }
+
+	    // Update projects
+	    if (resumeDto.getResumeProjects() != null && !resumeDto.getResumeProjects().isEmpty()) {
+	        List<ResumeProject> updatedProjects = convertToProjectEntities(resumeDto.getResumeProjects());
+	        resumeProjectRepository.saveAll(updatedProjects);
+	        existingResume.setResumeProjects(updatedProjects);
+	    }
+
+	    // Update certificates
+	    if (resumeDto.getResumeCertificates() != null && !resumeDto.getResumeCertificates().isEmpty()) {
+	        List<ResumeCertificates> updatedCertificates = convertToCertificatesEntities(resumeDto.getResumeCertificates());
+	        resumeCertificatesRepository.saveAll(updatedCertificates);
+	        existingResume.setResumeCertificates(updatedCertificates);
+	    }
+
+	    // Update languages
+	    if (resumeDto.getResumeLanguages() != null && !resumeDto.getResumeLanguages().isEmpty()) {
+	        List<ResumeLanguages> updatedLanguages = convertToLanguagesEntities(resumeDto.getResumeLanguages());
+	        resumeLanguagesRepository.saveAll(updatedLanguages);
+	        existingResume.setResumeLanguages(updatedLanguages);
+	    }
+
+	    // Update interests
+	    if (resumeDto.getResumeIntrest() != null && resumeDto.getResumeIntrest().getIntrests() != null) {
+	        List<ResumeIntrest> updatedInterests = convertToIntrestEntities(resumeDto.getResumeIntrest());
+	        resumeIntrestReposiotry.saveAll(updatedInterests);
+	        existingResume.setResumeIntrests(updatedInterests);
+	    }
+
+	    // Save and return the updated resume
+	    return resumeBuilderRepository.save(existingResume);
+	}
+
 	
 }

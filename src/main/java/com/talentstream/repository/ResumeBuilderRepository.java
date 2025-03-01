@@ -13,4 +13,5 @@ public interface ResumeBuilderRepository extends JpaRepository<ResumeBuilder, In
 
     @Query(value = "SELECT rb.* FROM resume_builder rb WHERE rb.applicant_id = :applicantId", nativeQuery = true)
     Optional<ResumeBuilder> findByApplicantId(Long applicantId);
+    
 }
