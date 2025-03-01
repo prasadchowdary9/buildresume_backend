@@ -112,5 +112,6 @@ public class ResumeBuilderDto {
 	public void setResumeLanguages(List<ResumeLanguagesDto> resumeLanguages) {
 		this.resumeLanguages = resumeLanguages;
 	}
+	
 
 }

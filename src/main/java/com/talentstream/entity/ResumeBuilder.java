@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "resume_builder")
-@Data
 public class ResumeBuilder {
 
 	@Id
@@ -54,5 +53,87 @@ public class ResumeBuilder {
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JoinTable(name = "resume_builder_intrest", joinColumns = @JoinColumn(name = "resume_builder_id"), inverseJoinColumns = @JoinColumn(name = "intrest_id"))
 	private List<ResumeIntrest>resumeIntrests  = new ArrayList<>();
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public ResumePersonalInfo getResumePersonalInfo() {
+		return resumePersonalInfo;
+	}
+
+	public void setResumePersonalInfo(ResumePersonalInfo resumePersonalInfo) {
+		this.resumePersonalInfo = resumePersonalInfo;
+	}
+
+	public List<ResumeTechnicalSkills> getResumeTechnicalSkills() {
+		return resumeTechnicalSkills;
+	}
+
+	public void setResumeTechnicalSkills(List<ResumeTechnicalSkills> resumeTechnicalSkills) {
+		this.resumeTechnicalSkills = resumeTechnicalSkills;
+	}
+
+	public Applicant getApplicant() {
+		return applicant;
+	}
+
+	public void setApplicant(Applicant applicant) {
+		this.applicant = applicant;
+	}
+
+	public List<ResumeExperience> getResumeExperiences() {
+		return resumeExperiences;
+	}
+
+	public void setResumeExperiences(List<ResumeExperience> resumeExperiences) {
+		this.resumeExperiences = resumeExperiences;
+	}
+
+	public List<ResumeEducation> getResumeEducations() {
+		return resumeEducations;
+	}
+
+	public void setResumeEducations(List<ResumeEducation> resumeEducations) {
+		this.resumeEducations = resumeEducations;
+	}
+
+	public List<ResumeProject> getResumeProjects() {
+		return resumeProjects;
+	}
+
+	public void setResumeProjects(List<ResumeProject> resumeProjects) {
+		this.resumeProjects = resumeProjects;
+	}
+
+	public List<ResumeCertificates> getResumeCertificates() {
+		return resumeCertificates;
+	}
+
+	public void setResumeCertificates(List<ResumeCertificates> resumeCertificates) {
+		this.resumeCertificates = resumeCertificates;
+	}
+
+	public List<ResumeLanguages> getResumeLanguages() {
+		return resumeLanguages;
+	}
+
+	public void setResumeLanguages(List<ResumeLanguages> resumeLanguages) {
+		this.resumeLanguages = resumeLanguages;
+	}
+
+	public List<ResumeIntrest> getResumeIntrests() {
+		return resumeIntrests;
+	}
+
+	public void setResumeIntrests(List<ResumeIntrest> resumeIntrests) {
+		this.resumeIntrests = resumeIntrests;
+	}
+	
+	
 	
 }
