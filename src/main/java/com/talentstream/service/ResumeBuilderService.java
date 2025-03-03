@@ -221,65 +221,91 @@ public class ResumeBuilderService {
 	    // Fetch the existing resume for the applicant
 	    ResumeBuilder existingResume = resumeBuilderRepository.findByApplicantId(applicantId)
 	            .orElseThrow(() -> new RuntimeException("Resume not found for applicant ID: " + applicantId));
-	    
-	    // Update personal info
+
+	    boolean isUpdated = false;
+
+	    // Update personal info if changed
 	    if (resumeDto.getResumePersonalInfo() != null) {
 	        ResumePersonalInfo updatedPersonalInfo = convertToPersonalInfoEntity(resumeDto.getResumePersonalInfo());
-	        resumePersonalInfoRepository.save(updatedPersonalInfo);
-	        existingResume.setResumePersonalInfo(updatedPersonalInfo);
+	        if (!updatedPersonalInfo.equals(existingResume.getResumePersonalInfo())) {
+	            resumePersonalInfoRepository.save(updatedPersonalInfo);
+	            existingResume.setResumePersonalInfo(updatedPersonalInfo);
+	            isUpdated = true;
+	        }
 	    }
 
-	    // Update skills
+	    // Update skills if changed
 	    if (resumeDto.getResumeSkills() != null && resumeDto.getResumeSkills().getTechnicalSkills() != null) {
 	        List<ResumeTechnicalSkills> updatedSkills = convertToSkillsEntities(resumeDto.getResumeSkills());
-	        resumeSkillsRepository.saveAll(updatedSkills);
-	        existingResume.setResumeTechnicalSkills(updatedSkills);
+	        if (!updatedSkills.equals(existingResume.getResumeTechnicalSkills())) {
+	            resumeSkillsRepository.saveAll(updatedSkills);
+	            existingResume.setResumeTechnicalSkills(updatedSkills);
+	            isUpdated = true;
+	        }
 	    }
 
-	    // Update education
+	    // Update education if changed
 	    if (resumeDto.getResumeEducations() != null && !resumeDto.getResumeEducations().isEmpty()) {
 	        List<ResumeEducation> updatedEducation = convertToEducationEntities(resumeDto.getResumeEducations());
-	        resumeEducationRepository.saveAll(updatedEducation);
-	        existingResume.setResumeEducations(updatedEducation);
+	        if (!updatedEducation.equals(existingResume.getResumeEducations())) {
+	            resumeEducationRepository.saveAll(updatedEducation);
+	            existingResume.setResumeEducations(updatedEducation);
+	            isUpdated = true;
+	        }
 	    }
 
-	    // Update experience
+	    // Update experience if changed
 	    if (resumeDto.getResumeExperiences() != null && !resumeDto.getResumeExperiences().isEmpty()) {
 	        List<ResumeExperience> updatedExperiences = convertToExperienceEntities(resumeDto.getResumeExperiences());
-	        resumeExperienceRepository.saveAll(updatedExperiences);
-	        existingResume.setResumeExperiences(updatedExperiences);
+	        if (!updatedExperiences.equals(existingResume.getResumeExperiences())) {
+	            resumeExperienceRepository.saveAll(updatedExperiences);
+	            existingResume.setResumeExperiences(updatedExperiences);
+	            isUpdated = true;
+	        }
 	    }
 
-	    // Update projects
+	    // Update projects if changed
 	    if (resumeDto.getResumeProjects() != null && !resumeDto.getResumeProjects().isEmpty()) {
 	        List<ResumeProject> updatedProjects = convertToProjectEntities(resumeDto.getResumeProjects());
-	        resumeProjectRepository.saveAll(updatedProjects);
-	        existingResume.setResumeProjects(updatedProjects);
+	        if (!updatedProjects.equals(existingResume.getResumeProjects())) {
+	            resumeProjectRepository.saveAll(updatedProjects);
+	            existingResume.setResumeProjects(updatedProjects);
+	            isUpdated = true;
+	        }
 	    }
 
-	    // Update certificates
+	    // Update certificates if changed
 	    if (resumeDto.getResumeCertificates() != null && !resumeDto.getResumeCertificates().isEmpty()) {
 	        List<ResumeCertificates> updatedCertificates = convertToCertificatesEntities(resumeDto.getResumeCertificates());
-	        resumeCertificatesRepository.saveAll(updatedCertificates);
-	        existingResume.setResumeCertificates(updatedCertificates);
+	        if (!updatedCertificates.equals(existingResume.getResumeCertificates())) {
+	            resumeCertificatesRepository.saveAll(updatedCertificates);
+	            existingResume.setResumeCertificates(updatedCertificates);
+	            isUpdated = true;
+	        }
 	    }
 
-	    // Update languages
+	    // Update languages if changed
 	    if (resumeDto.getResumeLanguages() != null && !resumeDto.getResumeLanguages().isEmpty()) {
 	        List<ResumeLanguages> updatedLanguages = convertToLanguagesEntities(resumeDto.getResumeLanguages());
-	        resumeLanguagesRepository.saveAll(updatedLanguages);
-	        existingResume.setResumeLanguages(updatedLanguages);
+	        if (!updatedLanguages.equals(existingResume.getResumeLanguages())) {
+	            resumeLanguagesRepository.saveAll(updatedLanguages);
+	            existingResume.setResumeLanguages(updatedLanguages);
+	            isUpdated = true;
+	        }
 	    }
 
-	    // Update interests
+	    // Update interests if changed
 	    if (resumeDto.getResumeIntrest() != null && resumeDto.getResumeIntrest().getIntrests() != null) {
 	        List<ResumeIntrest> updatedInterests = convertToIntrestEntities(resumeDto.getResumeIntrest());
-	        resumeIntrestReposiotry.saveAll(updatedInterests);
-	        existingResume.setResumeIntrests(updatedInterests);
+	        if (!updatedInterests.equals(existingResume.getResumeIntrests())) {
+	            resumeIntrestReposiotry.saveAll(updatedInterests);
+	            existingResume.setResumeIntrests(updatedInterests);
+	            isUpdated = true;
+	        }
 	    }
 
-	    // Save and return the updated resume
-	    return resumeBuilderRepository.save(existingResume);
+	    // Save only if any updates were made
+	    return isUpdated ? resumeBuilderRepository.save(existingResume) : existingResume;
 	}
 
 	
