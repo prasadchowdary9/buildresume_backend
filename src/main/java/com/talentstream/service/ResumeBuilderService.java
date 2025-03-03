@@ -1,6 +1,7 @@
 package com.talentstream.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,12 @@ public class ResumeBuilderService {
         Applicant applicant = applicantRepository.findById(applicantId)
                 .orElseThrow(() -> new RuntimeException("Applicant not found with id: " + applicantId));
 
+        Optional<ResumeBuilder> resumeBuilder2 = resumeBuilderRepository.findByIdAndApplicantId(applicantId);
+        
+        if(resumeBuilder2.isPresent()) {
+        	throw new RuntimeException("Resume already exist for aplicant : "+applicantId);
+        }
+        
         ResumeBuilder resumeBuilder = new ResumeBuilder();
         resumeBuilder.setApplicant(applicant);
 
@@ -123,9 +130,9 @@ public class ResumeBuilderService {
     }
 
     //method to get resume
-    public ResumeBuilder getResume(Long applicantId,Integer id) {
-        ResumeBuilder resumeBuilder = resumeBuilderRepository.findByIdAndApplicantId(applicantId,id)
-                .orElseThrow(() -> new RuntimeException("Resume not found for Applicant  id: "+ applicantId+" and resume id : "+id ));
+    public ResumeBuilder getResume(Long applicantId) {
+        ResumeBuilder resumeBuilder = resumeBuilderRepository.findByIdAndApplicantId(applicantId)
+                .orElseThrow(() -> new RuntimeException("Resume not found for Applicant  id: "+ applicantId));
         
         return resumeBuilder;
     }

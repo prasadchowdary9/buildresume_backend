@@ -60,10 +60,10 @@ public class ResumeBuilderController {
 		}
 	}
 
-	@GetMapping("getResume/{applicantId}/{id}")
-	public ResponseEntity<?> getResumeWithEducation(@PathVariable Long applicantId,@PathVariable Integer id) {
+	@GetMapping("getResume/{applicantId}")
+	public ResponseEntity<?> getResumeWithEducation(@PathVariable Long applicantId) {
 		try {
-			ResumeBuilder resume = resumeBuilderService.getResume(applicantId,id);
+			ResumeBuilder resume = resumeBuilderService.getResume(applicantId);
 			return ResponseEntity.ok(resume);
 		} catch (RuntimeException e) {
 			logger.error("Error while fetching resume",e);
