@@ -157,10 +157,16 @@ public Applicant googleSignIn(String email,String utmSource) {
 //                System.out.println("User resume ID: " + userId);
                 
                 
+            
+            
                 Applicant save = applicantRepository.save(applicant1);
                 save.setResumeId(String.valueOf( save.getId()));
                 Applicant save2 = applicantRepository.save(save);
                 System.out.println("Applicant updated");
+                
+//                applicant1.setResumeId(String.valueOf(applicant1.getId()));
+//                applicantRepository.save(applicant1);
+//                System.out.println("Applicant updated");
             	
 //            }catch(Exception e) {
 //         	   System.out.println(e.getMessage());
@@ -328,7 +334,10 @@ public void updatePassword(String userEmail, String newPassword) {
                 Applicant save2 = applicantRepository.save(save);
                 System.out.println("Applicant updated");
             	
-            	
+//                applicant1.setResumeId(String.valueOf(applicant1.getId()));
+//                applicantRepository.save(applicant1);
+//                System.out.println("Applicant updated");
+                
 //              }catch(Exception e) {
 //           	   System.out.println(e.getMessage());
 //              }

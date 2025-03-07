@@ -73,6 +73,8 @@ public class ResumeBuilderService {
     @Autowired
     private ResumeIntrestReposiotry resumeIntrestReposiotry;
 
+    
+    //mehtod saving resume builder details
     public ResumeBuilder createResume(ResumeBuilderDto resumeBuilderDto, Long applicantId) {
 
         // Fetch applicant details
@@ -164,20 +166,21 @@ public class ResumeBuilderService {
         ResumeBuilder resumeBuilder = resumeBuilderRepository.findByApplicantId(applicantId)
                 .orElseThrow(() -> new RuntimeException("Resume not found for Applicant id: " + applicantId));
         
-        // Convert entity to DTO
+       
         return convertToResumeBuilderDto(resumeBuilder);
     }
 
     
+    //method to update resume builder details
     @Transactional
     public ResumeBuilder updateResume(Long applicantId, ResumeBuilderDto resumeDto) {
-        // Fetch the existing resume for the applicant
+        
         ResumeBuilder existingResume = resumeBuilderRepository.findByApplicantId(applicantId)
                 .orElseThrow(() -> new RuntimeException("Resume not found for applicant ID: " + applicantId));
 
         boolean isUpdated = false;
 
-        // Update personal info
+        
         if (resumeDto.getResumePersonalInfo() != null) {
             ResumePersonalInfo updatedPersonalInfo = convertToPersonalInfoEntity(resumeDto.getResumePersonalInfo());
             if (!updatedPersonalInfo.equals(existingResume.getResumePersonalInfo())) {
@@ -186,7 +189,7 @@ public class ResumeBuilderService {
             }
         }
 
-        // Update skills
+       
         if (resumeDto.getResumeSkills() != null && resumeDto.getResumeSkills().getTechnicalSkillName() != null) {
             List<ResumeTechnicalSkills> updatedSkills = convertToSkillsEntities(resumeDto.getResumeSkills());
             existingResume.getResumeTechnicalSkills().clear();
@@ -194,7 +197,7 @@ public class ResumeBuilderService {
             isUpdated = true;
         }
 
-        // Update education
+       
         if (resumeDto.getResumeEducations() != null && !resumeDto.getResumeEducations().isEmpty()) {
             List<ResumeEducation> updatedEducation = convertToEducationEntities(resumeDto.getResumeEducations());
             existingResume.getResumeEducations().clear();
@@ -202,19 +205,19 @@ public class ResumeBuilderService {
             isUpdated = true;
         }
 
-        // ✅ Modify Experience: Optional (Delete if empty)
+        
         if (resumeDto.getResumeExperiences() != null) {
             if (!resumeDto.getResumeExperiences().isEmpty()) {
                 List<ResumeExperience> updatedExperiences = convertToExperienceEntities(resumeDto.getResumeExperiences());
                 existingResume.getResumeExperiences().clear();
                 existingResume.getResumeExperiences().addAll(updatedExperiences);
             } else {
-                existingResume.getResumeExperiences().clear(); // Remove all experiences
+                existingResume.getResumeExperiences().clear(); 
             }
             isUpdated = true;
         }
 
-        // Update projects
+       
         if (resumeDto.getResumeProjects() != null && !resumeDto.getResumeProjects().isEmpty()) {
             List<ResumeProject> updatedProjects = convertToProjectEntities(resumeDto.getResumeProjects());
             existingResume.getResumeProjects().clear();
@@ -222,19 +225,19 @@ public class ResumeBuilderService {
             isUpdated = true;
         }
 
-        // ✅ Modify Certifications: Optional (Delete if empty)
+      
         if (resumeDto.getResumeCertificates() != null) {
             if (!resumeDto.getResumeCertificates().isEmpty()) {
                 List<ResumeCertificates> updatedCertificates = convertToCertificatesEntities(resumeDto.getResumeCertificates());
                 existingResume.getResumeCertificates().clear();
                 existingResume.getResumeCertificates().addAll(updatedCertificates);
             } else {
-                existingResume.getResumeCertificates().clear(); // Remove all certifications
+                existingResume.getResumeCertificates().clear(); 
             }
             isUpdated = true;
         }
 
-        // Update languages
+      
         if (resumeDto.getResumeLanguages() != null && !resumeDto.getResumeLanguages().isEmpty()) {
             List<ResumeLanguages> updatedLanguages = convertToLanguagesEntities(resumeDto.getResumeLanguages());
             existingResume.getResumeLanguages().clear();
@@ -242,14 +245,13 @@ public class ResumeBuilderService {
             isUpdated = true;
         }
 
-        // ✅ Modify Interests: Optional (Delete if empty)
         if (resumeDto.getResumeIntrest() != null) {
             if (resumeDto.getResumeIntrest().getIntrests() != null && !resumeDto.getResumeIntrest().getIntrests().isEmpty()) {
                 List<ResumeIntrest> updatedInterests = convertToIntrestEntities(resumeDto.getResumeIntrest());
                 existingResume.getResumeIntrests().clear();
                 existingResume.getResumeIntrests().addAll(updatedInterests);
             } else {
-                existingResume.getResumeIntrests().clear(); // Remove all interests
+                existingResume.getResumeIntrests().clear(); 
             }
             isUpdated = true;
         }
@@ -259,29 +261,7 @@ public class ResumeBuilderService {
     }
     
     
-    
-    
- // Convert ResumeBuilder entity to ResumeBuilderDto
-    private ResumeBuilderDto convertToResumeBuilderDto(ResumeBuilder entity) {
-        ResumeBuilderDto dto = new ResumeBuilderDto();
-        
-        // Convert each entity to DTO
-        dto.setResumePersonalInfo(convertToPersonalInfoDto(entity.getResumePersonalInfo()));
-        dto.setResumeSkills(convertToSkillsDto(entity.getResumeTechnicalSkills()));
-        dto.setResumeExperiences(convertToExperienceDtos(entity.getResumeExperiences()));
-        dto.setResumeEducations(convertToEducationDtos(entity.getResumeEducations()));
-        dto.setResumeProjects(convertToProjectDtos(entity.getResumeProjects()));
-        dto.setResumeCertificates(convertToCertificatesDtos(entity.getResumeCertificates()));
-        dto.setResumeLanguages(convertToLanguagesDtos(entity.getResumeLanguages()));
-        dto.setResumeIntrest(convertToIntrestDto(entity.getResumeIntrests()));
-        
-        return dto;
-    }
-
-    
-
-
-    // Conversion method for personal info
+    // Conversion method for personal info dto to entity
     private ResumePersonalInfo convertToPersonalInfoEntity(ResumePersonalInfoDto dto) {
         ResumePersonalInfo personalInfo = new ResumePersonalInfo();
         personalInfo.setFullName(dto.getFullName());
@@ -296,7 +276,7 @@ public class ResumeBuilderService {
         return personalInfo;
     }
 
-    // conversion method for education
+    // conversion method for education dto to entity
     private List<ResumeEducation> convertToEducationEntities(List<ResumeEducationDto> dtos) {
         return dtos.stream().map(dto -> {
             ResumeEducation resumeEducation = new ResumeEducation();
@@ -309,7 +289,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // conversion method for experience
+    // conversion method for experience dto to entity
     private List<ResumeExperience> convertToExperienceEntities(List<ResumeExperienceDto> dtos) {
         return dtos.stream().map(dto -> {
             ResumeExperience resumeExperience = new ResumeExperience();
@@ -322,7 +302,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // conversion method for certificates
+    // conversion method for certificates dto to entity
     private List<ResumeCertificates> convertToCertificatesEntities(List<ResumeCertificatesDto> dtos) {
         return dtos.stream().map(dto -> {
             ResumeCertificates resumeCertificates = new ResumeCertificates();
@@ -333,7 +313,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // conversion method for skills
+    // conversion method for skills dto to entity
     private List<ResumeTechnicalSkills> convertToSkillsEntities(ResumeSkillsDto dto) {
         return dto.getTechnicalSkillName().stream().map(skill -> {
             ResumeTechnicalSkills resumeTechnicalSkill = new ResumeTechnicalSkills();
@@ -342,7 +322,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // conversion method for projects
+    // conversion method for projects dto to entity
     private List<ResumeProject> convertToProjectEntities(List<ResumeProjectDto> projectDtos) {
         return projectDtos.stream().map(dto -> {
             ResumeProject project = new ResumeProject();
@@ -355,7 +335,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // conversion method for languages
+    // conversion method for languages dto to entity
     private List<ResumeLanguages> convertToLanguagesEntities(List<ResumeLanguagesDto> dtos) {
         return dtos.stream().map(dto -> {
             ResumeLanguages resumeLanguages = new ResumeLanguages();
@@ -374,8 +354,25 @@ public class ResumeBuilderService {
         
     }
     
+ // Convert ResumeBuilder entity to ResumeBuilderDto 
+    private ResumeBuilderDto convertToResumeBuilderDto(ResumeBuilder entity) {
+        ResumeBuilderDto dto = new ResumeBuilderDto();
+        
+        // Convert each entity to DTO
+        dto.setResumePersonalInfo(convertToPersonalInfoDto(entity.getResumePersonalInfo()));
+        dto.setResumeSkills(convertToSkillsDto(entity.getResumeTechnicalSkills()));
+        dto.setResumeExperiences(convertToExperienceDtos(entity.getResumeExperiences()));
+        dto.setResumeEducations(convertToEducationDtos(entity.getResumeEducations()));
+        dto.setResumeProjects(convertToProjectDtos(entity.getResumeProjects()));
+        dto.setResumeCertificates(convertToCertificatesDtos(entity.getResumeCertificates()));
+        dto.setResumeLanguages(convertToLanguagesDtos(entity.getResumeLanguages()));
+        dto.setResumeIntrest(convertToIntrestDto(entity.getResumeIntrests()));
+        
+        return dto;
+    }
     
- // Conversion method for personal info to DTO
+    
+ // Conversion method for personal info entity to DTO
     private ResumePersonalInfoDto convertToPersonalInfoDto(ResumePersonalInfo entity) {
         ResumePersonalInfoDto dto = new ResumePersonalInfoDto();
         dto.setFullName(entity.getFullName());
@@ -403,7 +400,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // Conversion method for experience to DTO
+    // Conversion method for experience entity to DTO
     private List<ResumeExperienceDto> convertToExperienceDtos(List<ResumeExperience> entities) {
         return entities.stream().map(entity -> {
             ResumeExperienceDto dto = new ResumeExperienceDto();
@@ -416,7 +413,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // Conversion method for certificates to DTO
+    // Conversion method for certificates entity to DTO
     private List<ResumeCertificatesDto> convertToCertificatesDtos(List<ResumeCertificates> entities) {
         return entities.stream().map(entity -> {
             ResumeCertificatesDto dto = new ResumeCertificatesDto();
@@ -427,7 +424,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // Conversion method for skills to DTO
+    // Conversion method for skills entity to DTO
     private ResumeSkillsDto convertToSkillsDto(List<ResumeTechnicalSkills> entities) {
         ResumeSkillsDto dto = new ResumeSkillsDto();
         dto.setTechnicalSkillName(entities.stream()
@@ -436,7 +433,7 @@ public class ResumeBuilderService {
         return dto;
     }
 
-    // Conversion method for projects to DTO
+    // Conversion method for projects entity to DTO
     private List<ResumeProjectDto> convertToProjectDtos(List<ResumeProject> entities) {
         return entities.stream().map(entity -> {
             ResumeProjectDto dto = new ResumeProjectDto();
@@ -449,7 +446,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // Conversion method for languages to DTO
+    // Conversion method for languages entity to DTO
     private List<ResumeLanguagesDto> convertToLanguagesDtos(List<ResumeLanguages> entities) {
         return entities.stream().map(entity -> {
             ResumeLanguagesDto dto = new ResumeLanguagesDto();
@@ -458,7 +455,7 @@ public class ResumeBuilderService {
         }).collect(Collectors.toList());
     }
 
-    // Conversion method for interests to DTO
+    // Conversion method for interests entity to DTO
     private ResumeIntrestDto convertToIntrestDto(List<ResumeIntrest> entities) {
         ResumeIntrestDto dto = new ResumeIntrestDto();
         dto.setInterests(entities.stream()
