@@ -23,7 +23,9 @@ public class ApplicantTestService {
 	
     @Autowired
     private ApplicantTestRepository applicantTestRepository;
+	// saveTest method need to update here
 
+// @PostMapping("/save")
     public ApplicantTest saveTest(ApplicantTest test, Long applicantId) {
         // Fetch the applicant
         Applicant applicant = applicantRepository.findById(applicantId)
